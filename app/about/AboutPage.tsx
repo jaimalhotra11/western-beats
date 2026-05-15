@@ -431,76 +431,128 @@ export default function AboutPage() {
             </ol>
           </nav>
 
-          <motion.div
-            variants={container}
-            initial="hidden"
-            animate="show"
-            className="max-w-4xl"
-          >
-            <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
-              ✦ About WB Digital · Official Distribution Partner @warnermusicindia
-            </motion.div>
-
-            {/* H1 — primary keyword target */}
-            <motion.h1
-              variants={fadeUp}
-              className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
-              style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
-            >
-              <span className="block text-white">India&apos;s #1</span>
-              <span className="block" style={{ color: '#0A64C3' }}>Free Music</span>
-              <span className="block text-white">Distribution</span>
-              <span className="block text-white">Platform.</span>
-            </motion.h1>
-
-            <motion.p
-              variants={fadeUp}
-              className="speakable font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-10 max-w-2xl"
-            >
-              WB Digital by Western Beats Private Limited is India&apos;s most trusted and 100% free music
-              distribution platform — officially backed by <strong className="text-white">Warner Music India</strong>.
-              Distribute to 150+ platforms including JioSaavn, Gaana, Spotify &amp; Apple Music.
-              Keep <strong className="text-white">100% of your royalties</strong>. Always free.
-            </motion.p>
-
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-14">
-              <Link
-                href="/#distribution"
-                className="group flex items-center gap-2 px-7 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1"
-                style={{ boxShadow: '0 8px 30px rgba(10,100,195,0.35)' }}
-              >
-                Start Distributing Free
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
-              <a
-                href="#why-wb"
-                onClick={e => { e.preventDefault(); document.getElementById('why-wb')?.scrollIntoView({ behavior: 'smooth' }) }}
-                className="flex items-center gap-2 px-7 py-4 bg-white/[0.06] border border-white/10 rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1"
-              >
-                <Play size={14} className="fill-white" />
-                Why Choose Us
-              </a>
-            </motion.div>
-
-            {/* Quick stats bar */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
-              variants={fadeUp}
-              className="flex flex-wrap gap-x-8 gap-y-4"
+              variants={container}
+              initial="hidden"
+              animate="show"
             >
-              {[
-                { val: 'FREE', lbl: 'Forever, Always' },
-                { val: '100%', lbl: 'Royalties Kept' },
-                { val: '150+', lbl: 'Platforms' },
-                { val: '48hrs', lbl: 'Go-Live Time' },
-                { val: 'WMI', lbl: 'Backed & Verified' },
-              ].map(s => (
-                <div key={s.val} className="flex flex-col">
-                  <span className="font-outfit font-black text-[26px] sm:text-[30px] leading-none" style={{ color: '#0A64C3' }}>{s.val}</span>
-                  <span className="font-inter text-[11px] text-mut tracking-[0.08em] uppercase mt-1">{s.lbl}</span>
-                </div>
-              ))}
+              <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
+                ✦ About WB Digital · Official Distribution Partner @warnermusicindia
+              </motion.div>
+
+              {/* H1 — primary keyword target */}
+              <motion.h1
+                variants={fadeUp}
+                className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
+                style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
+              >
+                <span className="block text-white">India&apos;s #1</span>
+                <span className="block" style={{ color: '#0A64C3' }}>Free Music</span>
+                <span className="block text-white">Distribution</span>
+                <span className="block text-white">Platform.</span>
+              </motion.h1>
+
+              <motion.p
+                variants={fadeUp}
+                className="speakable font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-10 max-w-2xl"
+              >
+                WB Digital by Western Beats Private Limited is India&apos;s most trusted and 100% free music
+                distribution platform — officially backed by <strong className="text-white">Warner Music India</strong>.
+                Distribute to 150+ platforms including JioSaavn, Gaana, Spotify &amp; Apple Music.
+                Keep <strong className="text-white">100% of your royalties</strong>. Always free.
+              </motion.p>
+
+              <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-14">
+                <Link
+                  href="/#distribution"
+                  className="group flex items-center gap-2 px-7 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1"
+                  style={{ boxShadow: '0 8px 30px rgba(10,100,195,0.35)' }}
+                >
+                  Start Distributing Free
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+                <a
+                  href="#why-wb"
+                  onClick={e => { e.preventDefault(); document.getElementById('why-wb')?.scrollIntoView({ behavior: 'smooth' }) }}
+                  className="flex items-center gap-2 px-7 py-4 bg-white/[0.06] border border-white/10 rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <Play size={14} className="fill-white" />
+                  Why Choose Us
+                </a>
+              </motion.div>
+
+              {/* Quick stats bar */}
+              <motion.div
+                variants={fadeUp}
+                className="flex flex-wrap gap-x-8 gap-y-4"
+              >
+                {[
+                  { val: 'FREE', lbl: 'Forever, Always' },
+                  { val: '100%', lbl: 'Royalties Kept' },
+                  { val: '150+', lbl: 'Platforms' },
+                  { val: '48hrs', lbl: 'Go-Live Time' },
+                  { val: 'WMI', lbl: 'Backed & Verified' },
+                ].map(s => (
+                  <div key={s.val} className="flex flex-col">
+                    <span className="font-outfit font-black text-[26px] sm:text-[30px] leading-none" style={{ color: '#0A64C3' }}>{s.val}</span>
+                    <span className="font-inter text-[11px] text-mut tracking-[0.08em] uppercase mt-1">{s.lbl}</span>
+                  </div>
+                ))}
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Right column — hero image (desktop only) */}
+            <div className="hidden lg:block">
+              <div className="relative rounded-3xl overflow-hidden" style={{ aspectRatio: '3/4' }}>
+                <Image
+                  src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80&auto=format&fit=crop"
+                  alt="Independent artist performing on stage — WB Digital"
+                  fill
+                  sizes="(max-width:1280px) 50vw, 600px"
+                  className="object-cover object-center"
+                  priority
+                />
+                {/* Dark gradient overlay */}
+                <div
+                  className="absolute inset-0"
+                  style={{ background: 'linear-gradient(180deg, rgba(4,10,20,0.1) 0%, rgba(4,10,20,0.25) 40%, rgba(4,10,20,0.85) 100%)' }}
+                />
+                {/* Red badge top-right */}
+                <div className="absolute top-4 right-4">
+                  <div
+                    className="font-outfit font-bold text-white text-[11px] tracking-[0.06em] px-3 py-1.5 rounded-full"
+                    style={{ background: '#C41230', boxShadow: '0 4px 16px rgba(196,18,48,0.4)' }}
+                  >
+                    ✦ Warner Music India Partner
+                  </div>
+                </div>
+                {/* Stat mini-cards at bottom */}
+                <div className="absolute bottom-5 left-4 right-4">
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      { val: '150+', lbl: 'Platforms' },
+                      { val: '48h',  lbl: 'Go Live' },
+                      { val: '₹0',   lbl: 'Forever Free' },
+                    ].map(s => (
+                      <div
+                        key={s.val}
+                        className="rounded-xl px-3 py-2.5 text-center"
+                        style={{
+                          background: 'rgba(10,21,53,0.72)',
+                          border: '1px solid rgba(255,255,255,0.12)',
+                          backdropFilter: 'blur(10px)',
+                        }}
+                      >
+                        <div className="font-outfit font-black text-white text-[20px] leading-none">{s.val}</div>
+                        <div className="font-inter text-[10px] text-mut mt-0.5 tracking-[0.06em] uppercase">{s.lbl}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -563,40 +615,84 @@ export default function AboutPage() {
               </motion.blockquote>
             </motion.div>
 
-            {/* Right — 4 milestone cards */}
+            {/* Right — tall portrait image with milestone overlays */}
             <motion.div
-              initial="hidden"
-              whileInView="show"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-80px' }}
-              variants={container}
-              className="grid grid-cols-2 gap-4"
+              transition={{ duration: 0.8, ease: EASE }}
+              className="relative rounded-3xl overflow-hidden"
+              style={{ aspectRatio: '4/5' }}
             >
-              {[
-                { num: '01', title: 'Founded in India', color: '#C41230', desc: 'Western Beats Private Limited was established with an India-first philosophy — a home-grown music company for Indian artists.' },
-                { num: '02', title: 'Warner Music India', color: '#0A64C3', desc: 'Officially backed by Warner Music India (@warnermusicindia), giving every artist major-label credibility from day one.' },
-                { num: '03', title: '150+ Platforms', color: '#5CB2DC', desc: 'From JioSaavn and Gaana to Spotify, Apple Music, YouTube Music and 145 more — one upload reaches the world.' },
-                { num: '04', title: 'Always Free', color: '#002A8D', desc: '₹0 forever. No subscription, no per-release fee, no royalty cut. Full service, zero cost — because art should not have a paywall.' },
-              ].map(card => (
-                <motion.div
-                  key={card.num}
-                  variants={fadeUp}
-                  whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                  className="card-hover rounded-2xl p-5 sm:p-6 relative overflow-hidden"
-                  style={{ background: 'rgba(10,21,53,0.8)', border: '1px solid rgba(255,255,255,0.07)' }}
-                >
-                  <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl" style={{ background: card.color }} />
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 font-outfit font-black text-[16px] text-white"
-                    style={{ background: `${card.color}33`, border: `1px solid ${card.color}66` }}
-                  >
-                    {card.num}
-                  </div>
-                  <div className="font-outfit font-extrabold text-white text-[14px] sm:text-[15px] mb-2">{card.title}</div>
-                  <div className="font-inter text-[12px] sm:text-[13px] text-mut leading-relaxed">{card.desc}</div>
-                </motion.div>
-              ))}
+              <Image
+                src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80&auto=format&fit=crop"
+                alt="Concert stage lights — Western Beats music distribution"
+                fill
+                sizes="(max-width:1024px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+              {/* Dark overlay */}
+              <div
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(180deg, rgba(4,10,20,0.15) 0%, rgba(4,10,20,0.3) 50%, rgba(4,10,20,0.9) 100%)' }}
+              />
+              {/* Milestone cards as absolute overlays at bottom */}
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="grid grid-cols-2 gap-2">
+                  {[
+                    { num: '01', title: 'Founded in India', color: '#C41230' },
+                    { num: '02', title: 'Warner Music India', color: '#0A64C3' },
+                    { num: '03', title: '150+ Platforms', color: '#5CB2DC' },
+                    { num: '04', title: 'Always Free', color: '#002A8D' },
+                  ].map(card => (
+                    <div
+                      key={card.num}
+                      className="rounded-xl p-3 relative overflow-hidden"
+                      style={{
+                        background: 'rgba(10,21,53,0.88)',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                        backdropFilter: 'blur(10px)',
+                      }}
+                    >
+                      <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl" style={{ background: card.color }} />
+                      <div className="flex items-center gap-2">
+                        <div
+                          className="w-2 h-2 rounded-full flex-shrink-0"
+                          style={{ background: card.color }}
+                        />
+                        <div className="font-outfit font-bold text-white text-[12px] leading-snug">{card.title}</div>
+                      </div>
+                      <div
+                        className="font-outfit font-black text-[10px] mt-1"
+                        style={{ color: card.color, opacity: 0.7 }}
+                      >
+                        {card.num}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Cinematic image break ── */}
+      <section className="relative h-[380px] sm:h-[480px] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1600&q=60&auto=format&fit=crop"
+          alt="Western Beats — India's music community"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(0deg, rgba(4,10,20,1) 0%, rgba(4,10,20,0.35) 50%, rgba(4,10,20,1) 100%)' }} />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
+          <div className="platform-pill mb-5 inline-flex">India&apos;s #1 Free Music Distribution</div>
+          <h2 className="font-outfit font-black text-white leading-[1.0] tracking-[-0.02em]" style={{ fontSize: 'clamp(28px, 5vw, 60px)' }}>
+            150+ Platforms. 100% Royalties.<br />
+            <span style={{ color: '#0A64C3' }}>Zero Cost. Always.</span>
+          </h2>
         </div>
       </section>
 
@@ -698,6 +794,24 @@ export default function AboutPage() {
                 <div className="font-outfit font-extrabold text-white text-[15px] mb-3">{card.title}</div>
                 <div className="font-inter text-[13px] text-mut leading-relaxed flex-1">{card.desc}</div>
               </motion.div>
+            ))}
+          </div>
+
+          {/* Image strip */}
+          <div className="grid grid-cols-3 gap-4 mb-10">
+            {[
+              { url: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80&auto=format&fit=crop', label: 'Studio Quality', color: '#0A64C3' },
+              { url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80&auto=format&fit=crop', label: 'Live Performance', color: '#C41230' },
+              { url: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80&auto=format&fit=crop', label: 'Artist Tools', color: '#5CB2DC' },
+            ].map((img, i) => (
+              <div key={i} className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                <Image src={img.url} alt={img.label} fill sizes="(max-width:768px) 33vw, 400px" className="object-cover" />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 20%, rgba(4,10,20,0.88) 100%)' }} />
+                <div className="absolute bottom-3 left-3">
+                  <div className="w-5 h-0.5 rounded-full mb-1.5" style={{ background: img.color }} />
+                  <div className="font-outfit font-bold text-white text-[12px] sm:text-[13px]">{img.label}</div>
+                </div>
+              </div>
             ))}
           </div>
 
@@ -992,6 +1106,44 @@ export default function AboutPage() {
             </motion.p>
           </div>
 
+          {/* Values image strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.25, ease: EASE }}
+            className="grid grid-cols-2 gap-4 mb-12"
+          >
+            <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '16/7' }}>
+              <Image
+                src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80&auto=format&fit=crop"
+                alt="Artist First — Western Beats values"
+                fill
+                sizes="(max-width:768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 30%, rgba(4,10,20,0.88) 100%)' }} />
+              <div className="absolute bottom-4 left-4">
+                <div className="w-5 h-[2px] rounded-full mb-2" style={{ background: '#C41230' }} />
+                <div className="font-outfit font-bold text-white text-[14px]">Artist First, Always</div>
+              </div>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '16/7' }}>
+              <Image
+                src="https://images.unsplash.com/photo-1571266752685-4b8e1fe0c168?w=800&q=80&auto=format&fit=crop"
+                alt="India First — Western Beats music platform"
+                fill
+                sizes="(max-width:768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 30%, rgba(4,10,20,0.88) 100%)' }} />
+              <div className="absolute bottom-4 left-4">
+                <div className="w-5 h-[2px] rounded-full mb-2" style={{ background: '#0A64C3' }} />
+                <div className="font-outfit font-bold text-white text-[14px]">India First</div>
+              </div>
+            </div>
+          </motion.div>
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {VALUES.map((v, i) => (
               <motion.div
@@ -1032,6 +1184,16 @@ export default function AboutPage() {
         aria-labelledby="stats-heading"
         className="py-24 sm:py-32 relative overflow-hidden"
       >
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <Image
+            src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=1600&q=50&auto=format&fit=crop"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-[0.04] mix-blend-luminosity"
+            priority={false}
+          />
+        </div>
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] rounded-full pointer-events-none"
           style={{ background: 'radial-gradient(ellipse, rgba(10,100,195,0.1) 0%, transparent 70%)' }}
