@@ -9,6 +9,10 @@ import {
   Check, X, ChevronDown, ArrowRight, Play,
 } from 'lucide-react'
 
+/* ─── Waveform ───────────────────────────────────────────────────────────────── */
+const WAVEFORM_HEIGHTS   = [0.3,0.6,0.9,0.5,1.0,0.4,0.7,0.8,0.3,0.6,0.95,0.5,0.4,0.8,0.6,0.3,0.9,0.7,0.4,0.6,0.85]
+const WAVEFORM_DURATIONS = [1.1,0.9,1.3,0.8,1.4,1.0,1.2,0.85,1.35,0.95,1.15,0.75,1.25,1.05,0.9,1.4,0.8,1.2,1.1,0.95,1.3]
+
 /* ─── Animation constants ────────────────────────────────────────────────────── */
 const EASE = [0.22, 1, 0.36, 1] as const
 const fadeUp: Variants = {
@@ -482,6 +486,21 @@ export default function AboutPage() {
                 </a>
               </motion.div>
 
+              {/* Sound waveform */}
+              <motion.div variants={fadeUp} className="flex items-end gap-[3px] h-12 mb-8">
+                {WAVEFORM_HEIGHTS.map((h, i) => (
+                  <div
+                    key={i}
+                    className="w-[3px] bg-blu/60 rounded-full origin-bottom"
+                    style={{
+                      height: `${h * 48}px`,
+                      animation: `wave ${WAVEFORM_DURATIONS[i]}s ease-in-out ${i * 0.05}s infinite alternate`,
+                    }}
+                  />
+                ))}
+                <span className="ml-3 font-inter text-[12px] text-mut self-center">150+ Platforms Worldwide</span>
+              </motion.div>
+
               {/* Quick stats bar */}
               <motion.div
                 variants={fadeUp}
@@ -677,25 +696,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Cinematic image break ── */}
-      <section className="relative h-[380px] sm:h-[480px] overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1600&q=60&auto=format&fit=crop"
-          alt="Western Beats — India's music community"
-          fill
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(0deg, rgba(4,10,20,1) 0%, rgba(4,10,20,0.35) 50%, rgba(4,10,20,1) 100%)' }} />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-          <div className="platform-pill mb-5 inline-flex">India&apos;s #1 Free Music Distribution</div>
-          <h2 className="font-outfit font-black text-white leading-[1.0] tracking-[-0.02em]" style={{ fontSize: 'clamp(28px, 5vw, 60px)' }}>
-            150+ Platforms. 100% Royalties.<br />
-            <span style={{ color: '#0A64C3' }}>Zero Cost. Always.</span>
-          </h2>
-        </div>
-      </section>
-
       {/* ─── WARNER MUSIC INDIA PARTNERSHIP ──────────────────────────────────── */}
       <section
         id="wmi-partnership"
@@ -794,24 +794,6 @@ export default function AboutPage() {
                 <div className="font-outfit font-extrabold text-white text-[15px] mb-3">{card.title}</div>
                 <div className="font-inter text-[13px] text-mut leading-relaxed flex-1">{card.desc}</div>
               </motion.div>
-            ))}
-          </div>
-
-          {/* Image strip */}
-          <div className="grid grid-cols-3 gap-4 mb-10">
-            {[
-              { url: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80&auto=format&fit=crop', label: 'Studio Quality', color: '#0A64C3' },
-              { url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80&auto=format&fit=crop', label: 'Live Performance', color: '#C41230' },
-              { url: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80&auto=format&fit=crop', label: 'Artist Tools', color: '#5CB2DC' },
-            ].map((img, i) => (
-              <div key={i} className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                <Image src={img.url} alt={img.label} fill sizes="(max-width:768px) 33vw, 400px" className="object-cover" />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 20%, rgba(4,10,20,0.88) 100%)' }} />
-                <div className="absolute bottom-3 left-3">
-                  <div className="w-5 h-0.5 rounded-full mb-1.5" style={{ background: img.color }} />
-                  <div className="font-outfit font-bold text-white text-[12px] sm:text-[13px]">{img.label}</div>
-                </div>
-              </div>
             ))}
           </div>
 
@@ -1106,44 +1088,6 @@ export default function AboutPage() {
             </motion.p>
           </div>
 
-          {/* Values image strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.25, ease: EASE }}
-            className="grid grid-cols-2 gap-4 mb-12"
-          >
-            <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '16/7' }}>
-              <Image
-                src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80&auto=format&fit=crop"
-                alt="Artist First — Western Beats values"
-                fill
-                sizes="(max-width:768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 hover:scale-105"
-              />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 30%, rgba(4,10,20,0.88) 100%)' }} />
-              <div className="absolute bottom-4 left-4">
-                <div className="w-5 h-[2px] rounded-full mb-2" style={{ background: '#C41230' }} />
-                <div className="font-outfit font-bold text-white text-[14px]">Artist First, Always</div>
-              </div>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '16/7' }}>
-              <Image
-                src="https://images.unsplash.com/photo-1571266752685-4b8e1fe0c168?w=800&q=80&auto=format&fit=crop"
-                alt="India First — Western Beats music platform"
-                fill
-                sizes="(max-width:768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 hover:scale-105"
-              />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 30%, rgba(4,10,20,0.88) 100%)' }} />
-              <div className="absolute bottom-4 left-4">
-                <div className="w-5 h-[2px] rounded-full mb-2" style={{ background: '#0A64C3' }} />
-                <div className="font-outfit font-bold text-white text-[14px]">India First</div>
-              </div>
-            </div>
-          </motion.div>
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {VALUES.map((v, i) => (
               <motion.div
@@ -1184,16 +1128,6 @@ export default function AboutPage() {
         aria-labelledby="stats-heading"
         className="py-24 sm:py-32 relative overflow-hidden"
       >
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <Image
-            src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=1600&q=50&auto=format&fit=crop"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover opacity-[0.04] mix-blend-luminosity"
-            priority={false}
-          />
-        </div>
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] rounded-full pointer-events-none"
           style={{ background: 'radial-gradient(ellipse, rgba(10,100,195,0.1) 0%, transparent 70%)' }}
