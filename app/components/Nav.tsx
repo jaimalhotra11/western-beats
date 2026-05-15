@@ -5,10 +5,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 
-/* About links to the dedicated /about page; all others scroll in-page */
+/* Page links navigate to dedicated pages; others scroll in-page */
 const links: { href: string; label: string; page?: boolean }[] = [
   { href: '/about',        label: 'About',        page: true },
-  { href: '#services',     label: 'Services' },
+  { href: '/services',     label: 'Services',     page: true },
   { href: '#distribution', label: 'Distribution' },
   { href: '#stats',        label: 'Numbers' },
   { href: '#artists',      label: 'Artists' },
