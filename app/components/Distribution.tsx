@@ -1,6 +1,7 @@
 'use client'
 import { motion, useInView, Variants } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 import { Upload, Globe, DollarSign, Zap, CheckCircle, MoreHorizontal } from 'lucide-react'
 import { PLATFORMS } from './platforms'
 
@@ -163,6 +164,45 @@ export default function Distribution() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.6 }}
           >
+            {/* Artist image */}
+            <div className="relative rounded-2xl overflow-hidden mb-8" style={{ aspectRatio: '16/9' }}>
+              <Image
+                src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80&auto=format&fit=crop"
+                alt="Artist performing live — WB Digital distribution"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(135deg, rgba(10,100,195,0.3) 0%, rgba(4,10,20,0.55) 60%, rgba(4,10,20,0.85) 100%)' }}
+              />
+              {/* Overlay stats */}
+              <div className="absolute inset-0 flex flex-col justify-between p-5">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-crm animate-pulse" />
+                  <span className="font-inter text-[10px] text-white/80 tracking-[0.1em] uppercase font-semibold">Now Distributing</span>
+                </div>
+                <div>
+                  <div className="flex items-end gap-6 mb-3">
+                    {[
+                      { num: '150+', lbl: 'Platforms' },
+                      { num: '48h', lbl: 'Go Live' },
+                      { num: '100%', lbl: 'Royalties' },
+                    ].map(s => (
+                      <div key={s.lbl}>
+                        <div className="font-outfit font-black text-white text-[20px] sm:text-[24px] leading-none">{s.num}</div>
+                        <div className="font-inter text-[9px] text-white/60 tracking-[0.08em] uppercase mt-0.5">{s.lbl}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="font-inter text-[10px] text-sky tracking-[0.08em] uppercase font-semibold">
+                    ✦ Backed by Warner Music India
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="font-outfit font-extrabold text-white text-[22px] sm:text-[26px] mb-8">
               Everything included. Nothing hidden.
             </div>

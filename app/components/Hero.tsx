@@ -57,7 +57,7 @@ export default function Hero() {
         <div className="w-full h-full" style={{ background: 'radial-gradient(ellipse, rgba(196,18,48,0.1) 0%, transparent 70%)' }} />
       </motion.div>
 
-      {/* Animated orbit ring */}
+      {/* Animated orbit ring + floating image cards */}
       {mounted && (
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
@@ -65,6 +65,86 @@ export default function Hero() {
           transition={{ duration: 1.4, delay: 0.4, ease: EASE }}
           className="absolute right-8 xl:right-16 top-[32%] -translate-y-1/2 hidden lg:block z-[5]"
         >
+          {/* ── Floating card 1: Live Events (top-left) ── */}
+          <motion.div
+            initial={{ opacity: 0, x: -24, y: -24 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.9, delay: 1.3, ease: EASE }}
+            className="absolute z-30 rounded-2xl overflow-hidden"
+            style={{
+              top: '-56px', left: '-148px', width: '158px',
+              border: '1px solid rgba(255,255,255,0.14)',
+              boxShadow: '0 20px 56px rgba(0,0,0,0.65), 0 0 0 1px rgba(10,100,195,0.15)',
+            }}
+          >
+            <div className="relative h-[96px]">
+              <Image
+                src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=316&q=80&auto=format&fit=crop"
+                alt="Live Concert Event"
+                fill
+                sizes="158px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 25%, rgba(4,10,20,0.94) 100%)' }} />
+              <div className="absolute top-2.5 left-2.5">
+                <span className="px-2 py-0.5 rounded-full font-outfit font-bold text-[9px] text-white" style={{ background: 'rgba(196,18,48,0.9)' }}>LIVE</span>
+              </div>
+            </div>
+            <div className="px-3 py-2.5 bg-[#060C18]">
+              <div className="font-outfit font-bold text-white text-[12px] leading-tight">Live Events</div>
+              <div className="font-inter text-[9.5px] text-sky mt-0.5">Event Management</div>
+            </div>
+          </motion.div>
+
+          {/* ── Floating card 2: Studio Sessions (bottom-right) ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 24, y: 24 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.9, delay: 1.55, ease: EASE }}
+            className="absolute z-30 rounded-2xl overflow-hidden"
+            style={{
+              bottom: '-52px', right: '-96px', width: '150px',
+              border: '1px solid rgba(255,255,255,0.12)',
+              boxShadow: '0 20px 56px rgba(0,0,0,0.6), 0 0 0 1px rgba(10,100,195,0.12)',
+            }}
+          >
+            <div className="relative h-[88px]">
+              <Image
+                src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=300&q=80&auto=format&fit=crop"
+                alt="Recording Studio"
+                fill
+                sizes="150px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 20%, rgba(4,10,20,0.92) 100%)' }} />
+              <div className="absolute top-2.5 right-2.5">
+                <span className="px-2 py-0.5 rounded-full font-outfit font-bold text-[9px] text-white" style={{ background: 'rgba(10,100,195,0.9)' }}>STUDIO</span>
+              </div>
+            </div>
+            <div className="px-3 py-2.5 bg-[#060C18]">
+              <div className="font-outfit font-bold text-white text-[12px] leading-tight">Studio Sessions</div>
+              <div className="font-inter text-[9.5px] text-mut mt-0.5">Audio Production</div>
+            </div>
+          </motion.div>
+
+          {/* ── Floating pill: free badge (right side, mid) ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 1.7, ease: EASE }}
+            className="absolute z-30"
+            style={{ top: '50%', right: '-80px', transform: 'translateY(-50%)' }}
+          >
+            <div
+              className="flex items-center gap-2 px-3.5 py-2 rounded-full"
+              style={{ background: 'rgba(10,100,195,0.18)', border: '1px solid rgba(10,100,195,0.4)', backdropFilter: 'blur(8px)' }}
+            >
+              <div className="w-2 h-2 rounded-full bg-blu animate-pulse" />
+              <span className="font-outfit font-black text-white text-[11px] tracking-wide">₹0 Forever</span>
+            </div>
+          </motion.div>
+
+          {/* ── Orbit rings ── */}
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}

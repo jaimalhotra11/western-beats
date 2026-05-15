@@ -1,6 +1,7 @@
 'use client'
 import { motion, useInView, Variants } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 import { Music2, Calendar, Users, Video, Mic2, BarChart3 } from 'lucide-react'
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -90,6 +91,70 @@ export default function Services() {
             Distribution is just the beginning. WB Digital provides everything an independent artist
             needs to build a sustainable music career at major-label scale.
           </motion.p>
+        </motion.div>
+
+        {/* ── Visual image showcase ─────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
+          className="grid grid-cols-3 gap-3 sm:gap-4 mb-14 sm:mb-16"
+        >
+          {[
+            {
+              url: 'https://images.unsplash.com/photo-1429514513361-8fa32282fd5f?w=600&q=80&auto=format&fit=crop',
+              label: 'Live Events',
+              sub: 'Concert & Event Management',
+              color: '#C41230',
+              badge: 'Events',
+            },
+            {
+              url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&auto=format&fit=crop',
+              label: 'Artist Growth',
+              sub: 'Talent Management',
+              color: '#0A64C3',
+              badge: 'Talent',
+            },
+            {
+              url: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80&auto=format&fit=crop',
+              label: 'Studio Quality',
+              sub: 'Audio Production',
+              color: '#5CB2DC',
+              badge: 'Studio',
+            },
+          ].map((img, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.03, transition: { duration: 0.35 } }}
+              className="relative rounded-2xl overflow-hidden"
+              style={{ aspectRatio: '4/3' }}
+            >
+              <Image
+                src={img.url}
+                alt={img.label}
+                fill
+                sizes="(max-width: 768px) 33vw, 380px"
+                className="object-cover transition-transform duration-700 hover:scale-110"
+              />
+              <div
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(180deg, rgba(4,10,20,0.15) 0%, rgba(4,10,20,0.85) 100%)' }}
+              />
+              <div className="absolute top-3 left-3">
+                <span
+                  className="px-2.5 py-1 rounded-full font-outfit font-bold text-[9px] text-white tracking-wide"
+                  style={{ background: img.color }}
+                >
+                  {img.badge}
+                </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="w-5 h-[2px] rounded-full mb-2" style={{ background: img.color }} />
+                <div className="font-outfit font-bold text-white text-[13px] sm:text-[15px] leading-tight">{img.label}</div>
+                <div className="font-inter text-[10px] sm:text-[11px] text-mut mt-1">{img.sub}</div>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
 
         {/* Services grid */}

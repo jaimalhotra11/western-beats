@@ -1,6 +1,7 @@
 'use client'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
+import Image from 'next/image'
 
 type Stat = { value: number; suffix: string; prefix?: string; label: string; sub: string; color: string }
 const STATS: Stat[] = [
@@ -48,6 +49,17 @@ export default function Stats() {
     <section id="stats" className="py-24 sm:py-32 relative overflow-hidden" ref={ref}>
       {/* Dark panel */}
       <div className="absolute inset-0 bg-[#060C18]" />
+      {/* Ambient concert background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <Image
+          src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1600&q=60&auto=format&fit=crop"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.055] mix-blend-luminosity"
+          priority={false}
+        />
+      </div>
       <div className="crm-stripe absolute top-0 left-0 right-0" />
       <div className="crm-stripe absolute bottom-0 left-0 right-0" />
       {/* Radial */}

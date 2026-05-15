@@ -90,27 +90,62 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Right — Brand pillars */}
-          <motion.div variants={container} className="grid grid-cols-2 gap-3 sm:gap-4">
-            {PILLARS.map((p, i) => (
-              <motion.div
-                key={p.title}
-                variants={cardItem}
-                whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                className="card-hover rounded-2xl p-5 sm:p-6 relative overflow-hidden"
-                style={{ background: 'rgba(10,21,53,0.8)', border: '1px solid rgba(255,255,255,0.07)' }}
-              >
-                <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl" style={{ background: p.color }} />
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 font-outfit font-black text-[18px] text-white"
-                  style={{ background: `${p.color}33`, border: `1px solid ${p.color}66` }}
-                >
-                  {String(i + 1).padStart(2, '0')}
+          {/* Right — Image collage + brand pillars */}
+          <motion.div variants={container} className="flex flex-col gap-3 sm:gap-4">
+            {/* Top: 2-column image strip */}
+            <motion.div variants={cardItem} className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '4/3' }}>
+                <Image
+                  src="https://images.unsplash.com/photo-1429514513361-8fa32282fd5f?w=480&q=80&auto=format&fit=crop"
+                  alt="Western Beats Live Events"
+                  fill
+                  sizes="240px"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 30%, rgba(4,10,20,0.9) 100%)' }} />
+                <div className="absolute bottom-3 left-3">
+                  <div className="font-outfit font-bold text-white text-[12px]">Live Events</div>
+                  <div className="font-inter text-[9px] text-crm mt-0.5 uppercase tracking-wide">Artist First</div>
                 </div>
-                <div className="font-outfit font-extrabold text-white text-[15px] sm:text-[16px] mb-2">{p.title}</div>
-                <div className="font-inter text-[12px] sm:text-[13px] text-mut leading-relaxed">{p.desc}</div>
-              </motion.div>
-            ))}
+              </div>
+              <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '4/3' }}>
+                <Image
+                  src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=480&q=80&auto=format&fit=crop"
+                  alt="Western Beats Audio Production Studio"
+                  fill
+                  sizes="240px"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 30%, rgba(4,10,20,0.9) 100%)' }} />
+                <div className="absolute bottom-3 left-3">
+                  <div className="font-outfit font-bold text-white text-[12px]">Studio Quality</div>
+                  <div className="font-inter text-[9px] text-sky mt-0.5 uppercase tracking-wide">Warner Standard</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Bottom: brand pillars 2x2 */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {PILLARS.map((p, i) => (
+                <motion.div
+                  key={p.title}
+                  variants={cardItem}
+                  whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                  className="card-hover rounded-2xl p-5 sm:p-6 relative overflow-hidden"
+                  style={{ background: 'rgba(10,21,53,0.8)', border: '1px solid rgba(255,255,255,0.07)' }}
+                >
+                  <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl" style={{ background: p.color }} />
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 font-outfit font-black text-[18px] text-white"
+                    style={{ background: `${p.color}33`, border: `1px solid ${p.color}66` }}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </div>
+                  <div className="font-outfit font-extrabold text-white text-[15px] sm:text-[16px] mb-2">{p.title}</div>
+                  <div className="font-inter text-[12px] sm:text-[13px] text-mut leading-relaxed">{p.desc}</div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </motion.div>
