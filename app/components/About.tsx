@@ -45,22 +45,23 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left */}
           <div>
-            <motion.div variants={item} className="platform-pill mb-6">About WB Digital</motion.div>
+            <motion.div variants={item} className="platform-pill mb-6">About Western Beats</motion.div>
             <motion.h2
               variants={item}
               className="font-outfit font-black leading-[1.0] tracking-[-0.02em] mb-6"
               style={{ fontSize: 'clamp(34px, 5vw, 58px)' }}
             >
-              <span className="block text-white">Premium Music</span>
-              <span className="block text-white">Production &amp;</span>
-              <span className="block" style={{ color: '#0A64C3' }}>Distribution.</span>
+              <span className="block text-white">India&apos;s #1</span>
+              <span className="block text-white">Full-Service</span>
+              <span className="block" style={{ color: '#0A64C3' }}>Music Company.</span>
             </motion.h2>
             <motion.p
               variants={item}
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-6"
             >
-              Western Beats Private Limited is India&apos;s most credible independent music company —
-              officially backed by Warner Music India. We are built to give independent artists
+              <strong className="text-white">Western Beats Private Limited</strong> is India&apos;s most credible
+              independent music company — officially backed by Warner Music India. Our distribution
+              platform, <strong className="text-white">WB Digital</strong>, gives every independent artist
               access to major-label reach without major-label restrictions.
             </motion.p>
             <motion.p
@@ -79,11 +80,11 @@ export default function About() {
               className="inline-flex items-center gap-3 px-5 py-3 rounded-xl border border-blu/30"
               style={{ background: 'rgba(10,100,195,0.1)' }}
             >
-              <div className="w-9 h-9 rounded-full overflow-hidden border border-blu/40 flex-shrink-0">
-                <Image src="/logo.jpg" alt="WB Digital" width={36} height={36} className="object-cover" />
+              <div className="w-9 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0">
+                <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={36} height={36} className="object-contain" />
               </div>
               <div>
-                <div className="font-inter text-[10px] text-sky tracking-[0.1em] uppercase font-semibold">Official Distribution Partner</div>
+                <div className="font-inter text-[10px] text-sky tracking-[0.1em] uppercase font-semibold">Western Beats · Official Warner Music India Partner</div>
                 <div className="font-outfit font-bold text-white text-[13px] sm:text-[14px]">Warner Music India · @warnermusicindia</div>
               </div>
             </motion.div>

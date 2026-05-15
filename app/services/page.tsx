@@ -4,9 +4,9 @@ import ServicesPage from './ServicesPage'
 /* ─── SEO Metadata ──────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
   title:
-    "Services — Music Distribution, Events, Talent & Production | WB Digital India",
+    "Services — Music Distribution, Events, Talent & Production | Western Beats India",
   description:
-    "WB Digital offers India's best full-service music company experience: Free music distribution to 150+ platforms, professional event management, talent management, audio production, video direction & analytics. Officially backed by Warner Music India. Better than DistroKid, TuneCore & CD Baby.",
+    "Western Beats offers India's best full-service music company experience: Free music distribution via WB Digital to 150+ platforms, professional event management, talent management, audio production, video direction & analytics. Officially backed by Warner Music India. Better than DistroKid, TuneCore & CD Baby.",
   keywords: [
     'music distribution services India',
     'free music distribution India',
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     'music streaming analytics India',
     'music label services India',
   ],
-  authors: [{ name: 'WB Digital', url: 'https://westernbeats.com' }],
-  creator: 'WB Digital — Western Beats Private Limited',
+  authors: [{ name: 'Western Beats', url: 'https://westernbeats.com' }],
+  creator: 'Western Beats Private Limited — WB Digital',
   publisher: 'Western Beats Private Limited',
   robots: {
     index: true,
@@ -56,11 +56,11 @@ export const metadata: Metadata = {
     canonical: 'https://westernbeats.com/services',
   },
   openGraph: {
-    title: "WB Digital Services — India's #1 Full-Service Music Company | Free Distribution + Events + Production",
+    title: "Western Beats Services — India's #1 Full-Service Music Company | Free Distribution + Events + Production",
     description:
       'Free music distribution to 150+ platforms in 48 hours, event management, talent management, audio & video production, and real-time analytics. All backed by Warner Music India.',
     url: 'https://westernbeats.com/services',
-    siteName: 'WB Digital — Western Beats',
+    siteName: 'Western Beats — WB Digital',
     type: 'website',
     locale: 'en_IN',
     images: [
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "WB Digital Services — India's Best Full-Service Music Company",
+    title: "Western Beats Services — India's Best Full-Service Music Company",
     description:
       'Free distribution to 150+ platforms. Event management. Talent management. Audio & Video production. Backed by Warner Music India.',
     images: ['https://westernbeats.com/og-services.jpg'],

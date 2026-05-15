@@ -46,12 +46,12 @@ export default function Nav() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <button onClick={() => handleScroll('#hero')} className="flex items-center gap-3 group">
-            <div className="relative w-9 h-9 rounded-full overflow-hidden border-2 border-blu/40 group-hover:border-blu/80 transition-all duration-300">
-              <Image src="/logo.jpg" alt="WB Digital" fill sizes="36px" className="object-cover" />
+            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
+              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
-              <div className="font-outfit font-black text-[15px] tracking-[0.06em] text-white leading-none">WB DIGITAL</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">westernbeats.com</div>
+              <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
+              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
             </div>
           </button>
 
@@ -82,7 +82,9 @@ export default function Nav() {
 
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <div className="platform-pill text-[10px]">Warner Music India</div>
+            <div className="relative w-8 h-7 rounded overflow-hidden bg-white p-0.5 flex-shrink-0">
+              <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India" fill sizes="32px" className="object-contain" />
+            </div>
             <button
               onClick={() => handleScroll('#distribution')}
               className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200"

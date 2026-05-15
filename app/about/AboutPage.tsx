@@ -357,12 +357,12 @@ export default function AboutPage() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-9 h-9 rounded-full overflow-hidden border-2 border-blu/40 group-hover:border-blu/80 transition-all duration-300">
-              <Image src="/logo.jpg" alt="WB Digital" fill sizes="36px" className="object-cover" />
+            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
+              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
-              <div className="font-outfit font-black text-[15px] tracking-[0.06em] text-white leading-none">WB DIGITAL</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">westernbeats.com</div>
+              <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
+              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
             </div>
           </Link>
 
@@ -710,8 +710,8 @@ export default function AboutPage() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 p-6 sm:p-8 rounded-2xl"
             style={{ background: 'rgba(10,100,195,0.1)', border: '1px solid rgba(10,100,195,0.25)' }}
           >
-            <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-blu/40 flex-shrink-0">
-              <Image src="/logo.jpg" alt="WB Digital Logo" width={56} height={56} className="object-cover" />
+            <div className="w-14 h-14 rounded-xl overflow-hidden bg-white p-1 border-2 border-blu/40 flex-shrink-0">
+              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats Logo" width={56} height={56} className="object-contain w-full h-full" />
             </div>
             <div className="text-center sm:text-left">
               <div className="font-inter text-[11px] text-sky tracking-[0.12em] uppercase font-semibold mb-1">
@@ -729,7 +729,7 @@ export default function AboutPage() {
               <div className="font-inter text-[11px] text-sky tracking-[0.12em] uppercase font-semibold mb-1">
                 Exclusive To
               </div>
-              <div className="font-outfit font-black text-white text-[18px] sm:text-[20px]">WB Digital</div>
+              <div className="font-outfit font-black text-white text-[18px] sm:text-[20px]">Western Beats</div>
               <div className="font-inter text-[12px] text-mut mt-1">
                 No other free distributor has this
               </div>
@@ -1328,11 +1328,11 @@ export default function AboutPage() {
         <div className="crm-stripe" />
         <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full overflow-hidden border border-blu/40">
-              <Image src="/logo.jpg" alt="WB Digital" width={32} height={32} className="object-cover" />
+            <div className="w-8 h-8 rounded-lg overflow-hidden bg-white p-0.5 border border-blu/40">
+              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={32} height={32} className="object-contain w-full h-full" />
             </div>
             <div>
-              <div className="font-outfit font-black text-white text-[13px] tracking-[0.06em]">WB DIGITAL</div>
+              <div className="font-outfit font-black text-white text-[13px] tracking-[0.04em]">WESTERN BEATS</div>
               <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Western Beats Private Limited</div>
             </div>
           </div>

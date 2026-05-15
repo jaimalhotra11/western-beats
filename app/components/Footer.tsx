@@ -32,18 +32,23 @@ export default function Footer() {
         <div className="grid lg:grid-cols-6 gap-12">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-blu/40">
-                <Image src="/logo.jpg" alt="WB Digital" width={40} height={40} className="object-cover" />
+              <div className="w-12 h-11 rounded-lg overflow-hidden bg-white p-1 flex-shrink-0">
+                <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={44} height={40} className="object-contain w-full h-full" />
               </div>
               <div>
-                <div className="font-outfit font-black text-white text-[15px] tracking-[0.06em]">WB DIGITAL</div>
+                <div className="font-outfit font-black text-white text-[15px] tracking-[0.04em]">WESTERN BEATS</div>
                 <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Western Beats Private Limited</div>
               </div>
             </div>
-            <p className="font-inter text-[14px] text-mut leading-relaxed mb-6 max-w-xs">
-              India's most credible music distribution platform. Officially backed by Warner Music India. Where independent meets major.
+            <p className="font-inter text-[14px] text-mut leading-relaxed mb-4 max-w-xs">
+              India&apos;s most credible full-service music company. Our platform WB Digital is officially backed by Warner Music India. Where independent meets major.
             </p>
-            <div className="platform-pill mb-6 inline-flex text-[10px]">Warner Music India · Official Partner</div>
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-8 h-7 rounded bg-white p-0.5 flex-shrink-0">
+                <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India" width={30} height={26} className="object-contain w-full h-full" />
+              </div>
+              <span className="font-inter text-[10px] text-sky tracking-[0.08em] uppercase font-semibold">Official Warner Music India Partner</span>
+            </div>
             <div className="flex items-center gap-3">
               {SOCIALS.map(s => (
                 <a key={s.label} href={s.href}

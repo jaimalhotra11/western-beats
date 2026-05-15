@@ -99,7 +99,7 @@ export default function Hero() {
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               className="w-36 xl:w-40 h-36 xl:h-40 rounded-full overflow-hidden border-2 border-blu/40 glow-pulse"
             >
-              <Image src="/logo.jpg" alt="WB Digital" width={160} height={160} sizes="160px" className="object-cover w-full h-full" />
+              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={160} height={160} sizes="160px" className="object-contain bg-white w-full h-full p-3" />
             </motion.div>
           </div>
         </motion.div>
@@ -115,7 +115,7 @@ export default function Hero() {
       >
         {/* Badge */}
         <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
-          ✦ Official Distribution Partner · @warnermusicindia
+          ✦ Western Beats · Official Warner Music India Partner
         </motion.div>
 
         {/* Headline */}
@@ -133,8 +133,9 @@ export default function Hero() {
             variants={fadeUp}
             className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-8 sm:mb-10 max-w-xl"
           >
-            India&apos;s most credible music distribution platform — officially backed by Warner Music India.
-            Distribute your music to 150+ platforms worldwide. Keep 100% of your royalties. Free.
+            <strong className="text-white">Western Beats</strong> — India&apos;s most credible full-service music company,
+            officially backed by Warner Music India. Distribute to 150+ platforms worldwide via WB Digital.
+            Keep 100% of your royalties. Always free.
           </motion.p>
 
           {/* CTAs */}

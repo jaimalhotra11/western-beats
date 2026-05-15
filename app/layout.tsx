@@ -3,14 +3,14 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'WB Digital — Where Independent Meets Major | Western Beats',
-    template: '%s | WB Digital',
+    default: 'Western Beats — India\'s #1 Music Company | WB Digital · Warner Music India Partner',
+    template: '%s | Western Beats',
   },
   description:
-    "India's most credible free music distribution platform. Officially backed by Warner Music India. Distribute to 150+ platforms. Keep 100% royalties. Better than DistroKid & TuneCore.",
+    "Western Beats is India's #1 full-service music company — officially backed by Warner Music India. Distribute music free via WB Digital to 150+ platforms including JioSaavn & Gaana. Keep 100% royalties. Beat DistroKid, TuneCore & CD Baby.",
   metadataBase: new URL('https://westernbeats.com'),
   openGraph: {
-    siteName: 'WB Digital — Western Beats',
+    siteName: 'Western Beats — India\'s #1 Music Company',
     locale: 'en_IN',
     type: 'website',
   },
