@@ -7,12 +7,11 @@ import { Menu, X } from 'lucide-react'
 
 /* Page links navigate to dedicated pages; others scroll in-page */
 const links: { href: string; label: string; page?: boolean }[] = [
-  { href: '/about',         label: 'About',        page: true },
-  { href: '/services',      label: 'Services',     page: true },
-  { href: '/how-it-works',  label: 'How It Works', page: true },
-  { href: '/pricing',       label: 'Pricing',      page: true },
-  { href: '/submit',        label: 'Submit',       page: true },
-  { href: '#contact',       label: 'Contact' },
+  { href: '/about',        label: 'About',        page: true },
+  { href: '/services',     label: 'Services',     page: true },
+  { href: '/how-it-works', label: 'How It Works', page: true },
+  { href: '/pricing',      label: 'Pricing',      page: true },
+  { href: '/submit',       label: 'Submit',       page: true },
 ]
 
 export default function Nav() {

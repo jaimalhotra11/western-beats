@@ -277,8 +277,9 @@ export default function ServicesPage() {
               { href: '/', label: 'Home' },
               { href: '/about', label: 'About' },
               { href: '/services', label: 'Services', active: true },
-              { href: '/#distribution', label: 'Distribution' },
-              { href: '/#contact', label: 'Contact' },
+              { href: '/how-it-works', label: 'How It Works' },
+              { href: '/pricing', label: 'Pricing' },
+              { href: '/submit', label: 'Submit' },
             ].map(l => (
               <Link
                 key={l.href}
