@@ -16,8 +16,8 @@ const SERVICES = [
     title: 'Music Distribution',
     tag: 'Core Service',
     color: '#0A64C3',
-    desc: 'Upload once. We deliver to 150+ streaming platforms simultaneously — JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145 more. Live in 48-72 hours. 100% royalties. Free.',
-    points: ['150+ platforms worldwide', '48-72 hour delivery', '100% royalties kept', 'ISRC/UPC generation'],
+    desc: 'Upload once. We deliver to 150+ streaming platforms simultaneously — JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145 more. Live in 48-72 hours. 70% royalties to you. Free.',
+    points: ['150+ platforms worldwide', '48-72 hour delivery', '70% royalties, paid monthly', 'ISRC/UPC generation'],
   },
   {
     icon: Calendar,

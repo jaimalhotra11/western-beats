@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   basePath: process.env.NODE_ENV === 'production' ? '/western-beats' : '',
   images: {
-    unoptimized: true,
+    loader: 'custom',
+    loaderFile: './imageLoader.ts',
     remotePatterns: [
       {
         protocol: 'https',

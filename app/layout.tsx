@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     template: '%s | Western Beats',
   },
   description:
-    "Western Beats is India's #1 full-service music company — officially backed by Warner Music India. Distribute music free via WB Digital to 150+ platforms including JioSaavn & Gaana. Keep 100% royalties. Beat DistroKid, TuneCore & CD Baby.",
+    "Western Beats is India's #1 full-service music company — officially backed by Warner Music India. Distribute music free via WB Digital to 150+ platforms including JioSaavn & Gaana. Earn 70% royalties on every stream. Beat DistroKid, TuneCore & CD Baby.",
   metadataBase: new URL('https://westernbeats.com'),
   openGraph: {
     siteName: 'Western Beats — India\'s #1 Music Company',

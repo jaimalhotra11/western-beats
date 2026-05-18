@@ -135,7 +135,7 @@ export default function Hero() {
           >
             <strong className="text-white">Western Beats</strong> — India&apos;s most credible full-service music company,
             officially backed by Warner Music India. Distribute to 150+ platforms worldwide via WB Digital.
-            Keep 100% of your royalties. Always free.
+            Free distribution — you earn <strong className="text-white">70% of every stream</strong>. Always free to distribute.
           </motion.p>
 
           {/* CTAs */}
@@ -204,7 +204,7 @@ export default function Hero() {
         <div className="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 lg:gap-x-16 gap-y-6">
           {[
             { num: '150+', lbl: 'Streaming Platforms' },
-            { num: '100%', lbl: 'Royalties Kept' },
+            { num: '70%', lbl: 'Artist Royalties' },
             { num: '27.8K', lbl: 'Instagram Followers' },
             { num: '4.1M', lbl: 'Top Reel Views' },
             { num: 'Free', lbl: 'Distribution Cost' },
