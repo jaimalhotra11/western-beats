@@ -32,10 +32,10 @@ const SERVICES = [
     tag: 'Core · Always Free',
     title: 'Music Distribution',
     headline: 'One Upload. 150+ Platforms. 48 Hours. Free.',
-    desc: 'Upload once and reach every major streaming platform worldwide simultaneously — with zero fees and 100% royalties kept. Our Warner Music India partnership means priority placement on JioSaavn, Gaana, and every Indian DSP.',
+    desc: 'Upload once and reach every major streaming platform worldwide simultaneously — free distribution with 70% royalties straight to you. Our Warner Music India partnership means priority placement on JioSaavn, Gaana, and every Indian DSP.',
     points: [
       'Free forever — no annual fee, no per-release charge',
-      '100% royalties kept by you, always',
+      '70% royalties paid monthly — we only earn when you earn',
       '150+ platforms: JioSaavn, Gaana, Spotify, Apple Music & more',
       'Live in 48 hours — faster than DistroKid & TuneCore',
       'Free ISRC & UPC code generation',
@@ -48,7 +48,7 @@ const SERVICES = [
     steps: [
       { icon: Upload,      num: '01', title: 'Upload',     desc: 'Submit your track, artwork, and release info. We review within 24 hours.' },
       { icon: Globe2,      num: '02', title: 'Distribute', desc: 'We push your music to 150+ platforms simultaneously within 48 hours.' },
-      { icon: DollarSign, num: '03', title: 'Earn 100%',  desc: 'Every rupee from every stream goes directly to you. Monthly payouts.' },
+      { icon: DollarSign, num: '03', title: 'Earn 70%',   desc: '70% of every rupee earned flows directly to you monthly. We only earn when you earn — zero upfront cost.' },
     ],
     featured: true,
   },
@@ -192,11 +192,11 @@ const SERVICES = [
 const FAQS = [
   {
     q: 'What services does WB Digital offer?',
-    a: 'WB Digital offers six core services: Free Music Distribution (to 150+ platforms, 48 hrs, 100% royalties), Event Management (concerts, album launches), Talent Management (career strategy, brand deals, WMI network), Audio Production (recording, mixing, mastering), Video Direction (music videos, Reels, Shorts), and Analytics & Strategy (real-time data across all platforms). All backed by Warner Music India.',
+    a: 'WB Digital offers six core services: Free Music Distribution (to 150+ platforms, 48 hrs, 70% royalties to you), Event Management (concerts, album launches), Talent Management (career strategy, brand deals, WMI network), Audio Production (recording, mixing, mastering), Video Direction (music videos, Reels, Shorts), and Analytics & Strategy (real-time data across all platforms). All backed by Warner Music India.',
   },
   {
     q: 'Is music distribution with WB Digital really free?',
-    a: 'Yes — completely free. ₹0 forever. No annual subscription, no per-release fee, no royalty cut. DistroKid charges $22.99/year, TuneCore charges $14.99/release, CD Baby charges $9.99/release plus 9% of royalties. WB Digital charges nothing and you keep 100% of every rupee earned across all 150+ platforms.',
+    a: 'Yes — distribution is completely free. ₹0 forever. No annual subscription, no per-release fee. WB Digital earns a 30% royalty share only when you earn — so you keep 70% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99/release, CD Baby charges $9.99/release AND takes 9% of royalties. WB Digital charges nothing upfront — we are fully invested in your success.',
   },
   {
     q: 'How quickly does music go live with WB Digital?',
