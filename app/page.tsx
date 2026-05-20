@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import ScrollProgress  from './components/ScrollProgress'
 import Loader          from './components/Loader'
 import Nav             from './components/Nav'
 import Hero            from './components/Hero'
@@ -54,6 +55,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
+      <ScrollProgress />
       <Loader />
       <Nav />
       <Hero />

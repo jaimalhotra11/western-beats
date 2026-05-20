@@ -8,10 +8,9 @@ const nextConfig: NextConfig = {
     loader: 'custom',
     loaderFile: './imageLoader.ts',
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+      { protocol: 'https', hostname: 'www.wmg.com' },
+      { protocol: 'https', hostname: 'upload.wikimedia.org' },
     ],
   },
 }
