@@ -3,7 +3,7 @@ import { motion, useInView, Variants } from 'framer-motion'
 import { useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { Music2, Calendar, Users, Video, Mic2, BarChart3 } from 'lucide-react'
-import { gsap, ScrollTrigger, registerGSAP } from '../lib/gsapUtils'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 const fadeUp: Variants = {

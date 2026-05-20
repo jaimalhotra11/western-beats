@@ -4,7 +4,8 @@ import { motion, useScroll, useTransform, Variants } from 'framer-motion'
 import Image from 'next/image'
 import { Play, ChevronDown } from 'lucide-react'
 import { PLATFORMS } from './platforms'
-import { gsap, ScrollTrigger, registerGSAP } from '../lib/gsapUtils'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
+import HeroCanvas from './HeroCanvas'
 
 const WAVEFORM_HEIGHTS = [0.3,0.6,0.9,0.5,1.0,0.4,0.7,0.8,0.3,0.6,0.95,0.5,0.4,0.8,0.6,0.3,0.9,0.7,0.4,0.6,0.85]
 const WAVEFORM_DURATIONS = [1.1,0.9,1.3,0.8,1.4,1.0,1.2,0.85,1.35,0.95,1.15,0.75,1.25,1.05,0.9,1.4,0.8,1.2,1.1,0.95,1.3]
@@ -98,6 +99,8 @@ export default function Hero() {
     >
       {/* Background layers */}
       <div className="absolute inset-0 bg-[#040A14]" />
+      {/* Three.js particle field */}
+      <HeroCanvas />
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-crm/60" style={{ boxShadow: '0 0 20px rgba(196,18,48,0.5)' }} />
 
       {/* Radial glows (parallax) */}
