@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, Variants } from 'framer-motion'
 import Image from 'next/image'
 import { Play, ChevronDown } from 'lucide-react'
 import { PLATFORMS } from './platforms'
+import { gsap, ScrollTrigger, registerGSAP } from '../lib/gsapUtils'
 
 const WAVEFORM_HEIGHTS = [0.3,0.6,0.9,0.5,1.0,0.4,0.7,0.8,0.3,0.6,0.95,0.5,0.4,0.8,0.6,0.3,0.9,0.7,0.4,0.6,0.85]
 const WAVEFORM_DURATIONS = [1.1,0.9,1.3,0.8,1.4,1.0,1.2,0.85,1.35,0.95,1.15,0.75,1.25,1.05,0.9,1.4,0.8,1.2,1.1,0.95,1.3]
@@ -14,10 +15,6 @@ const container: Variants = {
   hidden: {},
   show:   { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
 }
-const lineItem: Variants = {
-  hidden: { y: 80, opacity: 0 },
-  show:   { y: 0, opacity: 1, transition: { duration: 0.85, ease: EASE } },
-}
 const fadeUp: Variants = {
   hidden: { y: 30, opacity: 0 },
   show:   { y: 0, opacity: 1, transition: { duration: 0.7, ease: EASE } },
@@ -25,11 +22,71 @@ const fadeUp: Variants = {
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null)
+  const headlineRef = useRef<HTMLHeadingElement>(null)
+  const badgeRef    = useRef<HTMLDivElement>(null)
+  const subRef      = useRef<HTMLParagraphElement>(null)
+  const ctaRef      = useRef<HTMLDivElement>(null)
+  const waveRef     = useRef<HTMLDivElement>(null)
+
   const { scrollY } = useScroll()
-  const y1 = useTransform(scrollY, [0, 600], [0, -160])
-  const y2 = useTransform(scrollY, [0, 600], [0, -80])
+  const y1     = useTransform(scrollY, [0, 600], [0, -160])
+  const y2     = useTransform(scrollY, [0, 600], [0, -80])
   const opacity = useTransform(scrollY, [0, 400], [1, 0])
   const [mounted, setMounted] = useState(false)
+
+  // ── GSAP word-split headline entrance ────────────────────────────
+  useEffect(() => {
+    registerGSAP()
+    if (!headlineRef.current) return
+
+    const lines = headlineRef.current.querySelectorAll<HTMLElement>('.hero-line')
+    const ctx = gsap.context(() => {
+      // Set initial state
+      gsap.set(lines, { y: 90, opacity: 0, skewY: 4 })
+
+      // Animate each line in stagger
+      gsap.to(lines, {
+        y: 0,
+        opacity: 1,
+        skewY: 0,
+        duration: 1.1,
+        stagger: 0.14,
+        ease: 'power4.out',
+        delay: 0.25,
+      })
+
+      // Badge
+      if (badgeRef.current) {
+        gsap.fromTo(badgeRef.current,
+          { opacity: 0, y: -16 },
+          { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 0.1 }
+        )
+      }
+      // Subtext
+      if (subRef.current) {
+        gsap.fromTo(subRef.current,
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.65 }
+        )
+      }
+      // CTAs
+      if (ctaRef.current) {
+        gsap.fromTo(ctaRef.current.children,
+          { opacity: 0, y: 20, scale: 0.95 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.1, ease: 'back.out(1.4)', delay: 0.8 }
+        )
+      }
+      // Waveform bars
+      if (waveRef.current) {
+        gsap.fromTo(waveRef.current.querySelectorAll('div.wave-bar'),
+          { scaleY: 0, opacity: 0 },
+          { scaleY: 1, opacity: 1, duration: 0.5, stagger: 0.025, ease: 'back.out(2)', delay: 1.0 }
+        )
+      }
+    }, headlineRef)
+
+    return () => ctx.revert()
+  }, [])
 
   useEffect(() => { setMounted(true) }, [])
 
@@ -108,42 +165,40 @@ export default function Hero() {
       {/* Main content */}
       <motion.div
         style={{ y: y1, opacity }}
-        variants={container}
-        initial="hidden"
-        animate="show"
         className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-28 pb-12 sm:pt-32 sm:pb-16"
       >
         {/* Badge */}
-        <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
+        <div ref={badgeRef} className="platform-pill mb-6 inline-flex opacity-0">
           ✦ Official Warner Music India Partner · Bruno Mars · Coldplay · Ed Sheeran · Diljit · King
-        </motion.div>
+        </div>
 
-        {/* Headline */}
+        {/* Headline — GSAP word reveal */}
         <div className="max-w-3xl">
           <h1
-            className="font-outfit font-black leading-[0.92] tracking-[-0.03em] mb-6"
+            ref={headlineRef}
+            className="font-outfit font-black leading-[0.92] tracking-[-0.03em] mb-6 overflow-hidden"
             style={{ fontSize: 'clamp(44px, 8vw, 96px)' }}
           >
-            <motion.span variants={lineItem} className="block text-white overflow-hidden">Where</motion.span>
-            <motion.span variants={lineItem} className="block overflow-hidden" style={{ color: '#0A64C3' }}>Independent</motion.span>
-            <motion.span variants={lineItem} className="block text-white overflow-hidden">Meets Major.</motion.span>
+            <span className="hero-line block text-white opacity-0">Where</span>
+            <span className="hero-line block opacity-0" style={{ color: '#0A64C3' }}>Independent</span>
+            <span className="hero-line block text-white opacity-0">Meets Major.</span>
           </h1>
 
-          <motion.p
-            variants={fadeUp}
-            className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-8 sm:mb-10 max-w-xl"
+          <p
+            ref={subRef}
+            className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-8 sm:mb-10 max-w-xl opacity-0"
           >
             <strong className="text-white">Western Beats</strong> — India&apos;s most credible full-service music company,
-            officially backed by Warner Music India — home to <strong className="text-white">Armaan Malik, Diljit Dosanjh, King &amp; Darshan Raval</strong>.
+            officially backed by Warner Music India — home to <strong className="text-white">Diljit Dosanjh, King, Karan Aujla &amp; Darshan Raval</strong>.
             Distribute to 150+ platforms free via WB Digital. Keep <strong className="text-white">75% of every stream</strong>. <strong className="text-white">100% ownership. Always free.</strong>
-          </motion.p>
+          </p>
 
           {/* CTAs */}
-          <motion.div variants={fadeUp} className="flex flex-wrap gap-3 sm:gap-4 mb-12 sm:mb-16">
+          <div ref={ctaRef} className="flex flex-wrap gap-3 sm:gap-4 mb-12 sm:mb-16">
             <a
               href="#distribution"
               onClick={e => { e.preventDefault(); document.querySelector('#distribution')?.scrollIntoView({ behavior: 'smooth' }) }}
-              className="group flex items-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 bg-blu rounded-xl font-outfit font-bold text-[14px] sm:text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1"
+              className="group flex items-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 bg-blu rounded-xl font-outfit font-bold text-[14px] sm:text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1 opacity-0"
               style={{ boxShadow: '0 8px 30px rgba(10,100,195,0.35)' }}
             >
               Start Distributing Free
@@ -152,19 +207,19 @@ export default function Hero() {
             <a
               href="#services"
               onClick={e => { e.preventDefault(); document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' }) }}
-              className="flex items-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 bg-white/[0.06] border border-white/[0.1] rounded-xl font-outfit font-bold text-[14px] sm:text-[15px] text-white hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300 hover:-translate-y-1"
+              className="flex items-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 bg-white/[0.06] border border-white/[0.1] rounded-xl font-outfit font-bold text-[14px] sm:text-[15px] text-white hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300 hover:-translate-y-1 opacity-0"
             >
               <Play size={14} className="fill-white" />
               Our Services
             </a>
-          </motion.div>
+          </div>
 
-          {/* Waveform */}
-          <motion.div variants={fadeUp} className="flex items-end gap-[3px] h-12 mb-3">
+          {/* Waveform — GSAP bar reveal */}
+          <div ref={waveRef} className="flex items-end gap-[3px] h-12 mb-3">
             {WAVEFORM_HEIGHTS.map((h, i) => (
               <div
                 key={i}
-                className="w-[3px] bg-blu/60 rounded-full origin-bottom"
+                className="wave-bar w-[3px] bg-blu/60 rounded-full origin-bottom"
                 style={{
                   height: `${h * 48}px`,
                   animation: `wave ${WAVEFORM_DURATIONS[i]}s ease-in-out ${i * 0.05}s infinite alternate`,
@@ -172,7 +227,7 @@ export default function Hero() {
               />
             ))}
             <span className="ml-3 font-inter text-[12px] text-mut self-center">150+ Platforms Worldwide</span>
-          </motion.div>
+          </div>
         </div>
       </motion.div>
 

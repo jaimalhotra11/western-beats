@@ -1,8 +1,9 @@
 'use client'
 import { motion, useInView, Variants } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { Music2, Calendar, Users, Video, Mic2, BarChart3 } from 'lucide-react'
+import { gsap, ScrollTrigger, registerGSAP } from '../lib/gsapUtils'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 const fadeUp: Variants = {
@@ -62,8 +63,73 @@ const SERVICES = [
 ]
 
 export default function Services() {
-  const ref = useRef(null)
+  const ref      = useRef<HTMLElement>(null)
+  const gridRef  = useRef<HTMLDivElement>(null)
+  const imgsRef  = useRef<HTMLDivElement>(null)
+  const headRef  = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
+
+  useEffect(() => {
+    registerGSAP()
+    if (!ref.current) return
+
+    const ctx = gsap.context(() => {
+
+      /* ── Header words reveal ───────────────────── */
+      if (headRef.current) {
+        gsap.fromTo(headRef.current.children,
+          { y: 40, opacity: 0 },
+          {
+            y: 0, opacity: 1, stagger: 0.12, duration: 0.8, ease: 'power3.out',
+            scrollTrigger: { trigger: headRef.current, start: 'top 82%', toggleActions: 'play none none none' },
+          }
+        )
+      }
+
+      /* ── Image panels: slide in from sides ──────── */
+      if (imgsRef.current) {
+        const panels = imgsRef.current.children
+        const panelArr = Array.from(panels)
+        panelArr.forEach((panel, i) => {
+          gsap.fromTo(panel,
+            { x: i === 0 ? -60 : i === 2 ? 60 : 0, y: i === 1 ? 40 : 0, opacity: 0, scale: 0.94 },
+            {
+              x: 0, y: 0, opacity: 1, scale: 1,
+              duration: 1.0, delay: i * 0.12, ease: 'power3.out',
+              scrollTrigger: { trigger: imgsRef.current, start: 'top 80%', toggleActions: 'play none none none' },
+            }
+          )
+        })
+      }
+
+      /* ── Service cards: wave stagger ────────────── */
+      if (gridRef.current) {
+        const cards = gridRef.current.querySelectorAll<HTMLElement>('.service-card')
+        gsap.fromTo(cards,
+          { y: 70, opacity: 0, scale: 0.93 },
+          {
+            y: 0, opacity: 1, scale: 1,
+            duration: 0.7, stagger: { amount: 0.6, from: 'start' },
+            ease: 'power3.out',
+            scrollTrigger: { trigger: gridRef.current, start: 'top 78%', toggleActions: 'play none none none' },
+          }
+        )
+
+        /* Magnetic hover on each card */
+        cards.forEach(card => {
+          card.addEventListener('mouseenter', () =>
+            gsap.to(card, { y: -10, scale: 1.02, duration: 0.35, ease: 'power2.out' })
+          )
+          card.addEventListener('mouseleave', () =>
+            gsap.to(card, { y: 0, scale: 1, duration: 0.5, ease: 'elastic.out(1, 0.7)' })
+          )
+        })
+      }
+
+    }, ref)
+
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section id="services" className="py-24 sm:py-32 relative" ref={ref}>
@@ -72,34 +138,21 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
-        <motion.div
-          initial="hidden"
-          animate={inView ? 'show' : 'hidden'}
-          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
-          className="text-center max-w-3xl mx-auto mb-16 sm:mb-20"
-        >
-          <motion.div variants={fadeUp} className="platform-pill mb-5 inline-flex">What We Do</motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="font-outfit font-black tracking-[-0.02em] leading-[1.05] mb-5"
-            style={{ fontSize: 'clamp(34px, 5vw, 58px)' }}
-          >
+        <div ref={headRef} className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <div className="platform-pill mb-5 inline-flex">What We Do</div>
+          <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.05] mb-5"
+            style={{ fontSize: 'clamp(34px, 5vw, 58px)' }}>
             <span className="text-white">Full-Service</span>{' '}
             <span style={{ color: '#0A64C3' }}>Music Company.</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed">
+          </h2>
+          <p className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed">
             Distribution is just the beginning. WB Digital provides everything an independent artist
             needs to build a sustainable music career at major-label scale.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* ── Visual image showcase ─────────────────────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-          className="grid grid-cols-3 gap-3 sm:gap-4 mb-14 sm:mb-16"
-        >
+        <div ref={imgsRef} className="grid grid-cols-3 gap-3 sm:gap-4 mb-14 sm:mb-16">
           {[
             {
               url: 'https://images.unsplash.com/photo-1429514513361-8fa32282fd5f?w=600&q=80&auto=format&fit=crop',
@@ -123,9 +176,8 @@ export default function Services() {
               badge: 'Studio',
             },
           ].map((img, i) => (
-            <motion.div
+            <div
               key={i}
-              whileHover={{ scale: 1.03, transition: { duration: 0.35 } }}
               className="relative rounded-2xl overflow-hidden"
               style={{ aspectRatio: '4/3' }}
             >
@@ -153,20 +205,16 @@ export default function Services() {
                 <div className="font-outfit font-bold text-white text-[13px] sm:text-[15px] leading-tight">{img.label}</div>
                 <div className="font-inter text-[10px] sm:text-[11px] text-mut mt-1">{img.sub}</div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Services grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div ref={gridRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {SERVICES.map((s, i) => (
-            <motion.div
+            <div
               key={s.title}
-              initial={{ opacity: 0, y: 50, scale: 0.96 }}
-              animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.7, delay: 0.15 + i * 0.08, ease: EASE }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="card-hover group rounded-2xl p-6 sm:p-7 relative overflow-hidden flex flex-col"
+              className="service-card group rounded-2xl p-6 sm:p-7 relative overflow-hidden flex flex-col cursor-default"
               style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.07)' }}
             >
               {/* Top accent bar */}
@@ -210,7 +258,7 @@ export default function Services() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

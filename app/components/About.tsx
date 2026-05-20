@@ -1,7 +1,8 @@
 'use client'
 import { motion, useInView, Variants } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import Image from 'next/image'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 
 const PILLARS = [
   { title: 'Artist First',   color: '#C41230', desc: 'You keep 75% of every rupee earned. We only make money when you make money — so we\'re always on your side.' },
@@ -26,8 +27,48 @@ const cardItem: Variants = {
 }
 
 export default function About() {
-  const ref = useRef(null)
+  const ref      = useRef<HTMLDivElement>(null)
+  const headRef  = useRef<HTMLHeadingElement>(null)
+  const pillarsRef = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+
+  useEffect(() => {
+    registerGSAP()
+    if (!ref.current) return
+
+    const ctx = gsap.context(() => {
+      /* ── Headline lines slide up ──────────────────── */
+      if (headRef.current) {
+        const lines = headRef.current.querySelectorAll<HTMLElement>('span')
+        gsap.fromTo(lines,
+          { y: 60, opacity: 0, skewY: 3 },
+          {
+            y: 0, opacity: 1, skewY: 0,
+            duration: 1.0, stagger: 0.12, ease: 'power4.out',
+            scrollTrigger: { trigger: headRef.current, start: 'top 85%', toggleActions: 'play none none none' },
+          }
+        )
+      }
+
+      /* ── Pillar cards diagonal stagger ──────────── */
+      if (pillarsRef.current) {
+        const cards = pillarsRef.current.querySelectorAll<HTMLElement>('.pillar-card')
+        gsap.fromTo(cards,
+          { x: -40, opacity: 0 },
+          {
+            x: 0, opacity: 1, stagger: 0.1, duration: 0.7, ease: 'power3.out',
+            scrollTrigger: { trigger: pillarsRef.current, start: 'top 82%', toggleActions: 'play none none none' },
+          }
+        )
+        cards.forEach(card => {
+          card.addEventListener('mouseenter', () => gsap.to(card, { x: 6, duration: 0.3, ease: 'power2.out' }))
+          card.addEventListener('mouseleave', () => gsap.to(card, { x: 0, duration: 0.4, ease: 'elastic.out(1,0.7)' }))
+        })
+      }
+    }, ref)
+
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section id="about" className="py-24 sm:py-32 relative overflow-hidden">
@@ -46,15 +87,15 @@ export default function About() {
           {/* Left */}
           <div>
             <motion.div variants={item} className="platform-pill mb-6">About Western Beats</motion.div>
-            <motion.h2
-              variants={item}
-              className="font-outfit font-black leading-[1.0] tracking-[-0.02em] mb-6"
+            <h2
+              ref={headRef}
+              className="font-outfit font-black leading-[1.0] tracking-[-0.02em] mb-6 overflow-hidden"
               style={{ fontSize: 'clamp(34px, 5vw, 58px)' }}
             >
               <span className="block text-white">India&apos;s #1</span>
               <span className="block text-white">Full-Service</span>
               <span className="block" style={{ color: '#0A64C3' }}>Music Company.</span>
-            </motion.h2>
+            </h2>
             <motion.p
               variants={item}
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-6"
@@ -125,13 +166,11 @@ export default function About() {
             </motion.div>
 
             {/* Bottom: brand pillars 2x2 */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div ref={pillarsRef} className="grid grid-cols-2 gap-3 sm:gap-4">
               {PILLARS.map((p, i) => (
-                <motion.div
+                <div
                   key={p.title}
-                  variants={cardItem}
-                  whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                  className="card-hover rounded-2xl p-5 sm:p-6 relative overflow-hidden"
+                  className="pillar-card rounded-2xl p-5 sm:p-6 relative overflow-hidden cursor-default"
                   style={{ background: 'rgba(10,21,53,0.8)', border: '1px solid rgba(255,255,255,0.07)' }}
                 >
                   <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl" style={{ background: p.color }} />
@@ -143,7 +182,7 @@ export default function About() {
                   </div>
                   <div className="font-outfit font-extrabold text-white text-[15px] sm:text-[16px] mb-2">{p.title}</div>
                   <div className="font-inter text-[12px] sm:text-[13px] text-mut leading-relaxed">{p.desc}</div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </motion.div>
