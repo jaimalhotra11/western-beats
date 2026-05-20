@@ -84,12 +84,12 @@ const TIMELINE = [
 ]
 
 const WHY_ITEMS = [
-  { icon: Zap,        color: '#0A64C3', title: '48-Hour Go-Live',         desc: 'While DistroKid takes 7–10 days and TuneCore 7–10 days, your music is live in 48 hours.' },
-  { icon: Shield,     color: '#C41230', title: 'Warner Music India Backed', desc: 'Official partnership with Warner Music India — major-label credibility, priority DSP placement.' },
-  { icon: Music2,     color: '#5CB2DC', title: 'India-First Distribution', desc: 'JioSaavn and Gaana distribution prioritized — something no foreign distributor can match.' },
-  { icon: BarChart3,  color: '#0A64C3', title: 'Real-Time Analytics',      desc: 'Live streaming data, audience demographics, and revenue tracking across all 150+ platforms.' },
-  { icon: FileText,   color: '#C41230', title: 'Free ISRC & UPC Codes',    desc: 'We generate your ISRC and UPC codes at no cost — DistroKid charges extra for these.' },
-  { icon: Clock,      color: '#5CB2DC', title: '24/7 Artist Support',      desc: 'Direct WhatsApp and email support — not a ticket system. Real people, real answers.' },
+  { icon: Zap,       color: '#0A64C3', title: '48-Hour Go-Live',          desc: 'DistroKid & TuneCore take 7–10 days. Your music is live on JioSaavn, Gaana, Spotify & 148+ platforms in just 48 hours.' },
+  { icon: Shield,    color: '#C41230', title: 'Same Label as Bruno Mars', desc: 'Warner Music Group — home to Bruno Mars (150M+ Spotify listeners), Coldplay, Ed Sheeran & Dua Lipa — backs WB Digital through Warner Music India.' },
+  { icon: Music2,    color: '#5CB2DC', title: "India's Biggest Artists",  desc: 'WMI roster: Armaan Malik, Diljit Dosanjh, King, Darshan Raval, Guru Randhawa & Karan Aujla — all on the same label that now powers your independent release.' },
+  { icon: BarChart3, color: '#0A64C3', title: 'Real-Time Analytics',      desc: 'Live streaming data, audience demographics, playlist tracking, and revenue reporting across all 150+ platforms.' },
+  { icon: FileText,  color: '#C41230', title: 'Free ISRC & UPC Codes',    desc: 'We generate your ISRC and UPC codes at no cost — DistroKid charges extra, CD Baby charges $5 each.' },
+  { icon: Clock,     color: '#5CB2DC', title: '24/7 Artist Support',      desc: 'Direct WhatsApp and email support — not a ticket system. Real people, real answers within hours.' },
 ]
 
 export default function HowItWorksPage() {
@@ -330,8 +330,8 @@ export default function HowItWorksPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
               className="font-inter text-[15px] text-mut leading-relaxed mt-4 max-w-xl mx-auto"
             >
-              The same Warner Music India that works with Armaan Malik, Diljit Dosanjh, King, and Darshan Raval
-              — now powers every independent artist on WB Digital.
+              Warner Music Group — home to Bruno Mars, Coldplay, Ed Sheeran & Dua Lipa globally — backs WB Digital
+              through Warner Music India, the label of Armaan Malik, Diljit Dosanjh, King &amp; Darshan Raval.
             </motion.p>
           </div>
 

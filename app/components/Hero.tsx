@@ -115,7 +115,7 @@ export default function Hero() {
       >
         {/* Badge */}
         <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
-          ✦ Western Beats · Official Warner Music India Partner
+          ✦ Official Warner Music India Partner · Bruno Mars · Coldplay · Ed Sheeran · Diljit · King
         </motion.div>
 
         {/* Headline */}

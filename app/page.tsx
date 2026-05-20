@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
-import Loader       from './components/Loader'
-import Nav          from './components/Nav'
-import Hero         from './components/Hero'
-import About        from './components/About'
-import Distribution from './components/Distribution'
-import Services     from './components/Services'
-import Stats        from './components/Stats'
-import Artists      from './components/Artists'
-import Partners     from './components/Partners'
-import Contact      from './components/Contact'
-import Footer       from './components/Footer'
+import Loader          from './components/Loader'
+import Nav             from './components/Nav'
+import Hero            from './components/Hero'
+import About           from './components/About'
+import Distribution    from './components/Distribution'
+import Services        from './components/Services'
+import Stats           from './components/Stats'
+import Artists         from './components/Artists'
+import Partners        from './components/Partners'
+import WMGCredibility  from './components/WMGCredibility'
+import Contact         from './components/Contact'
+import Footer          from './components/Footer'
 
 export const metadata: Metadata = {
   title: "Western Beats — India's #1 Music Company | Free Distribution via WB Digital · Warner Music India",
@@ -62,6 +63,7 @@ export default function Home() {
       <Distribution />
       <Stats />
       <Artists />
+      <WMGCredibility />
       <Contact />
       <Footer />
     </main>
