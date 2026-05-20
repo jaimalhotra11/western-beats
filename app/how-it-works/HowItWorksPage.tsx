@@ -106,8 +106,8 @@ export default function HowItWorksPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060C18]/95 backdrop-blur-xl border-b border-white/[0.06] py-3">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 flex-shrink-0 group-hover:opacity-90 transition-opacity duration-300">
-              <Image src="/wb-digital-logo.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
+            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
+              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
@@ -149,64 +149,94 @@ export default function HowItWorksPage() {
         <div className="absolute top-1/2 left-1/4 w-[700px] h-[500px] rounded-full -translate-y-1/2 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse, rgba(10,100,195,0.14) 0%, transparent 70%)' }} />
 
-        <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <nav aria-label="Breadcrumb" className="mb-8">
-            <ol className="flex items-center justify-center gap-2 font-inter text-[12px] text-mut">
+            <ol className="flex items-center gap-2 font-inter text-[12px] text-mut">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li className="text-white/20">›</li>
               <li className="text-sky">How It Works</li>
             </ol>
           </nav>
 
-          <motion.div variants={container} initial="hidden" animate="show">
-            <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
-              ✦ Simple. Transparent. Free.
-            </motion.div>
-            <motion.h1
-              variants={fadeUp}
-              className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
-              style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
-            >
-              <span className="block text-white">3 Steps.</span>
-              <span className="block" style={{ color: '#0A64C3' }}>150+ Platforms.</span>
-              <span className="block text-white">75% Yours.</span>
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-10 max-w-2xl mx-auto"
-            >
-              WB Digital makes music distribution the simplest thing you&apos;ll do today.
-              Submit your music, we handle the rest — 150+ platforms in 48 hours, 75% royalties straight to you.
-              <strong className="text-white"> Always free. 100% ownership yours.</strong>
-            </motion.p>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left — headline */}
+            <motion.div variants={container} initial="hidden" animate="show">
+              <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
+                ✦ Simple. Transparent. Free.
+              </motion.div>
+              <motion.h1
+                variants={fadeUp}
+                className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
+                style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
+              >
+                <span className="block text-white">3 Steps.</span>
+                <span className="block" style={{ color: '#0A64C3' }}>150+ Platforms.</span>
+                <span className="block text-white">75% Yours.</span>
+              </motion.h1>
+              <motion.p
+                variants={fadeUp}
+                className="font-inter text-[16px] sm:text-[17px] text-mut leading-relaxed mb-8 max-w-xl"
+              >
+                WB Digital makes music distribution the simplest thing you&apos;ll do today.
+                Submit your music, we handle the rest — 150+ platforms in 48 hours, 75% royalties straight to you.
+                <strong className="text-white"> Always free. 100% ownership yours.</strong>
+              </motion.p>
 
-            {/* Waveform */}
-            <motion.div variants={fadeUp} className="flex items-end justify-center gap-[3px] h-10 mb-10">
-              {WAVEFORM_HEIGHTS.map((h, i) => (
-                <div
-                  key={i}
-                  className="w-[3px] bg-blu/60 rounded-full origin-bottom"
-                  style={{
-                    height: `${h * 40}px`,
-                    animation: `wave ${WAVEFORM_DURATIONS[i]}s ease-in-out ${i * 0.05}s infinite alternate`,
-                  }}
-                />
-              ))}
+              {/* Waveform */}
+              <motion.div variants={fadeUp} className="flex items-end gap-[3px] h-10 mb-8">
+                {WAVEFORM_HEIGHTS.map((h, i) => (
+                  <div
+                    key={i}
+                    className="w-[3px] bg-blu/60 rounded-full origin-bottom"
+                    style={{
+                      height: `${h * 40}px`,
+                      animation: `wave ${WAVEFORM_DURATIONS[i]}s ease-in-out ${i * 0.05}s infinite alternate`,
+                    }}
+                  />
+                ))}
+              </motion.div>
+
+              <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
+                <Link href="/submit" className="px-6 py-3 bg-blu rounded-xl font-outfit font-bold text-[14px] text-white hover:bg-[#0D77E0] transition-colors">
+                  Submit Music Free →
+                </Link>
+                <Link href="/pricing" className="px-6 py-3 bg-white/[0.07] border border-white/10 rounded-xl font-outfit font-bold text-[14px] text-white hover:bg-white/[0.12] transition-colors">
+                  View Pricing
+                </Link>
+              </motion.div>
             </motion.div>
 
-            {/* Timeline bar */}
+            {/* Right — Timeline */}
             <motion.div
-              variants={fadeUp}
-              className="flex flex-wrap justify-center gap-3 sm:gap-0 sm:divide-x sm:divide-white/10"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.3, ease: [0.22,1,0.36,1] }}
+              className="rounded-3xl p-8 relative overflow-hidden hidden lg:block"
+              style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.07)' }}
             >
-              {TIMELINE.map((t, i) => (
-                <div key={i} className="flex flex-col items-center px-6 py-2">
-                  <span className="font-outfit font-black text-[15px] sm:text-[17px]" style={{ color: t.color }}>{t.time}</span>
-                  <span className="font-inter text-[11px] text-mut mt-1 text-center max-w-[120px]">{t.event}</span>
-                </div>
-              ))}
+              <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: '#0A64C3' }} />
+              <div className="font-outfit font-bold text-white text-[16px] mb-6">Your Music Journey</div>
+              <div className="flex flex-col gap-0">
+                {TIMELINE.map((t, i) => {
+                  const Icon = t.icon
+                  return (
+                    <div key={i} className="flex items-start gap-4 relative">
+                      {i < TIMELINE.length - 1 && (
+                        <div className="absolute left-5 top-10 bottom-0 w-[2px]" style={{ background: 'rgba(10,100,195,0.3)' }} />
+                      )}
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 z-10" style={{ background: `${t.color}22`, border: `1px solid ${t.color}44` }}>
+                        <Icon size={18} style={{ color: t.color }} />
+                      </div>
+                      <div className="pb-6">
+                        <div className="font-outfit font-black text-[15px] mb-0.5" style={{ color: t.color }}>{t.time}</div>
+                        <div className="font-inter text-[13px] text-ice/80">{t.event}</div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
             </motion.div>
-          </motion.div>
+          </div>{/* end grid */}
         </div>
       </section>
 

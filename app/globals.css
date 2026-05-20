@@ -48,6 +48,11 @@ section[id] { scroll-margin-top: 80px; }
 @keyframes marqueRev  { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); }    }
 .marquee-track { animation: marquee 28s linear infinite; }
 .marquee-track:hover { animation-play-state: paused; }
+/* Artist card sliders */
+.artist-slider-track     { animation: marquee    35s linear infinite; will-change: transform; }
+.artist-slider-track-rev { animation: marqueRev  35s linear infinite; will-change: transform; }
+.artist-slider-track:hover,
+.artist-slider-track-rev:hover { animation-play-state: paused; }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
 @keyframes wave { 0% { transform: scaleY(0.25); } 100% { transform: scaleY(1); } }
 @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }

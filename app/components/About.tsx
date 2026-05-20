@@ -81,7 +81,7 @@ export default function About() {
               style={{ background: 'rgba(10,100,195,0.1)' }}
             >
               <div className="w-9 h-9 flex-shrink-0">
-                <Image src="/wb-digital-logo.png" alt="Western Beats" width={36} height={36} className="object-contain w-full h-full" />
+                <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={36} height={36} className="object-contain w-full h-full" />
               </div>
               <div>
                 <div className="font-inter text-[10px] text-sky tracking-[0.1em] uppercase font-semibold">Western Beats · Official Warner Music India Partner</div>

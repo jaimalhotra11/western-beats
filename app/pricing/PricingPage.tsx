@@ -223,8 +223,8 @@ export default function PricingPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060C18]/95 backdrop-blur-xl border-b border-white/[0.06] py-3">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 flex-shrink-0 group-hover:opacity-90 transition-opacity duration-300">
-              <Image src="/wb-digital-logo.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
+            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
+              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
@@ -266,40 +266,52 @@ export default function PricingPage() {
         <div className="absolute top-1/2 left-1/4 w-[700px] h-[500px] rounded-full -translate-y-1/2 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse, rgba(10,100,195,0.14) 0%, transparent 70%)' }} />
 
-        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <nav aria-label="Breadcrumb" className="mb-8">
-            <ol className="flex items-center justify-center gap-2 font-inter text-[12px] text-mut">
+            <ol className="flex items-center gap-2 font-inter text-[12px] text-mut">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li className="text-white/20">›</li>
               <li className="text-sky">Pricing</li>
             </ol>
           </nav>
 
-          <motion.div variants={container} initial="hidden" animate="show">
-            <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
-              ✦ Transparent. No Surprises.
-            </motion.div>
-            <motion.h1
-              variants={fadeUp}
-              className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
-              style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
-            >
-              <span className="block" style={{ color: '#0A64C3' }}>₹0 Forever.</span>
-              <span className="block text-white">75% Yours.</span>
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-10 max-w-2xl mx-auto"
-            >
-              WB Digital charges <strong className="text-white">zero upfront</strong> — no annual fee, no per-release charge.
-              We earn a <strong className="text-white">25% revenue share only when you earn</strong>.
-              If you earn ₹0, we take ₹0. Simple, aligned, honest.
-            </motion.p>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left — headline */}
+            <motion.div variants={container} initial="hidden" animate="show">
+              <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
+                ✦ Transparent. No Surprises.
+              </motion.div>
+              <motion.h1
+                variants={fadeUp}
+                className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
+                style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
+              >
+                <span className="block" style={{ color: '#0A64C3' }}>₹0 Forever.</span>
+                <span className="block text-white">75% Yours.</span>
+              </motion.h1>
+              <motion.p
+                variants={fadeUp}
+                className="font-inter text-[16px] sm:text-[17px] text-mut leading-relaxed mb-10 max-w-xl"
+              >
+                WB Digital charges <strong className="text-white">zero upfront</strong> — no annual fee, no per-release charge.
+                We earn a <strong className="text-white">25% revenue share only when you earn</strong>.
+                If you earn ₹0, we take ₹0. Simple, aligned, honest.
+              </motion.p>
 
-            {/* Price hero card */}
+              {/* Quick proof points */}
+              <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
+                {['₹0 upfront forever','75% royalties to you','25% only when you earn','100% ownership','48-hr go-live'].map(pt => (
+                  <span key={pt} className="px-3 py-1.5 rounded-full font-inter text-[12px] font-semibold text-ice/80" style={{ background: 'rgba(10,100,195,0.15)', border: '1px solid rgba(10,100,195,0.3)' }}>{pt}</span>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            {/* Right — Price hero card */}
             <motion.div
-              variants={fadeUp}
-              className="inline-flex flex-col items-center rounded-3xl p-8 sm:p-10 max-w-md w-full text-left mx-auto relative overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.22,1,0.36,1] }}
+              className="flex flex-col rounded-3xl p-8 sm:p-10 w-full text-left relative overflow-hidden"
               style={{ background: '#0A64C3', boxShadow: '0 40px 100px rgba(10,100,195,0.35)' }}
             >
               <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.07) 50%, transparent 60%)' }} />
@@ -334,7 +346,7 @@ export default function PricingPage() {
                 </Link>
               </div>
             </motion.div>
-          </motion.div>
+          </div>{/* end grid */}
         </div>
       </section>
 

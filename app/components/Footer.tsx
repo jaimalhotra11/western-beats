@@ -33,7 +33,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-11 rounded-lg overflow-hidden bg-white p-1 flex-shrink-0">
-                <Image src="/wb-digital-logo.png" alt="Western Beats" width={44} height={40} className="object-contain w-full h-full" />
+                <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={44} height={40} className="object-contain w-full h-full" />
               </div>
               <div>
                 <div className="font-outfit font-black text-white text-[15px] tracking-[0.04em]">WESTERN BEATS</div>
