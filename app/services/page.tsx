@@ -115,7 +115,7 @@ const jsonLd = {
             '@type': 'Service',
             name: 'Free Music Distribution',
             description:
-              'Distribute your music to 150+ streaming platforms worldwide for free. You keep 70% of royalties — we only earn when you earn. Live in 48 hours. Backed by Warner Music India.',
+              'Distribute your music to 150+ streaming platforms worldwide for free. You keep 75% of royalties — we only earn when you earn. Live in 48 hours. Backed by Warner Music India.',
             provider: { '@id': 'https://westernbeats.com/#organization' },
             areaServed: 'Worldwide',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
@@ -199,7 +199,7 @@ const jsonLd = {
           name: 'Is WB Digital music distribution really free?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes — WB Digital music distribution is 100% free to start. No annual fees, no per-release charges. You keep 70% of all streaming royalties — we take a 30% share only when you earn. Unlike DistroKid ($22.99/year), TuneCore ($14.99/release), or CD Baby ($9.99/release + 9% royalties), WB Digital costs ₹0 upfront.',
+            text: 'Yes — WB Digital music distribution is 100% free to start. No annual fees, no per-release charges. You keep 75% of all streaming royalties — we take a 25% share only when you earn. Unlike DistroKid ($22.99/year), TuneCore ($14.99/release), or CD Baby ($9.99/release + 9% royalties), WB Digital costs ₹0 upfront.',
           },
         },
         {

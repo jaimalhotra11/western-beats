@@ -29,8 +29,8 @@ const STEPS = [
   {
     icon: DollarSign,
     num: '03',
-    title: 'You Earn 70%',
-    desc: '70% of royalties from every platform flow directly to you. Monthly payouts, full transparency. We only earn when you earn.',
+    title: 'You Earn 75%',
+    desc: '75% of royalties from every platform flow directly to you. Monthly payouts, full transparency. We only earn when you earn.',
     color: '#C41230',
   },
 ]
@@ -42,7 +42,7 @@ const PLATFORMS_GRID = [
 
 const FEATURES = [
   'Free distribution — no annual fees, no per-track fees',
-  '70% of all royalties paid directly to you — monthly',
+  '75% of all royalties paid directly to you — monthly',
   'We only earn when you earn — zero upfront risk',
   'Release to 150+ platforms simultaneously',
   'Live on all platforms in 48–72 hours',
@@ -189,7 +189,7 @@ export default function Distribution() {
                     {[
                       { num: '150+', lbl: 'Platforms' },
                       { num: '48h', lbl: 'Go Live' },
-                      { num: '70%', lbl: 'Royalties' },
+                      { num: '75%', lbl: 'Royalties' },
                     ].map(s => (
                       <div key={s.lbl}>
                         <div className="font-outfit font-black text-white text-[20px] sm:text-[24px] leading-none">{s.num}</div>
@@ -236,13 +236,13 @@ export default function Distribution() {
             <div className="relative z-10">
               <div className="font-outfit font-black text-white text-[36px] sm:text-[42px] leading-none mb-2">Free.</div>
               <div className="font-inter text-ice text-[16px] mb-8 leading-relaxed">
-                No annual fees. No per-track charges. You keep 70% of every stream — we only earn when you do.
+                No annual fees. No per-track charges. You keep 75% of every stream — we only earn when you do.
                 Just upload and distribute — it costs you nothing upfront.
               </div>
               <div className="flex flex-col gap-3">
                 <div className="font-inter text-white/80 text-[13px]">✦ Instant setup — no approval wait</div>
                 <div className="font-inter text-white/80 text-[13px]">✦ Warner Music India backed</div>
-                <div className="font-inter text-white/80 text-[13px]">✦ 27.8K+ verified Instagram community</div>
+                <div className="font-inter text-white/80 text-[13px]">✦ 75% royalties — 100% ownership of your masters</div>
               </div>
               <a
                 href="mailto:contact@westernbeats.com?subject=Distribution Enquiry"

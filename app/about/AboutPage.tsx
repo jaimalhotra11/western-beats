@@ -27,7 +27,7 @@ const container: Variants = {
 /* ─── Data ───────────────────────────────────────────────────────────────────── */
 const STATS = [
   { value: 150,  suffix: '+',   prefix: '',  label: 'Streaming Platforms', color: '#0A64C3' },
-  { value: 70,   suffix: '%',   prefix: '',  label: 'Artist Royalties',     color: '#C41230' },
+  { value: 75,   suffix: '%',   prefix: '',  label: 'Artist Royalties',     color: '#C41230' },
   { value: 48,   suffix: 'hrs', prefix: '',  label: 'Go-Live Time',         color: '#5CB2DC' },
   { value: 0,    suffix: '',    prefix: '₹', label: 'Cost to Distribute',   color: '#0A64C3' },
 ]
@@ -59,7 +59,7 @@ const DISTRIBUTORS: Distributor[] = [
     badge: 'Best for India',
     data: [
       'FREE — ₹0 Forever',
-      '70% to you',
+      '75% to you',
       true,
       true,
       '48 Hours',
@@ -133,7 +133,7 @@ const DISTRIBUTORS: Distributor[] = [
     name: 'Believe',
     isUs: false,
     data: [
-      '15–30% revenue share',
+      '15–25% revenue share',
       '70–85%',
       false,
       false,
@@ -196,7 +196,7 @@ const VALUES = [
     icon: Heart,
     title: 'Artist First, Always',
     color: '#C41230',
-    desc: 'You keep 70% of every rupee earned — we only make money when you make money. Your music, your rights, your success. We are always on your side.',
+    desc: 'You keep 75% of every rupee earned — we only make money when you make money. Your music, your rights, your success. We are always on your side.',
   },
   {
     icon: Globe2,
@@ -231,7 +231,7 @@ const VALUES = [
 ]
 
 const SERVICES_BRIEF = [
-  { icon: Music2,    title: 'Music Distribution',    color: '#0A64C3', desc: 'Free distribution to 150+ platforms in 48 hours. You keep 70% of royalties — we only earn when you do.' },
+  { icon: Music2,    title: 'Music Distribution',    color: '#0A64C3', desc: 'Free distribution to 150+ platforms in 48 hours. You keep 75% of royalties — we only earn when you do.' },
   { icon: Calendar,  title: 'Event Management',       color: '#C41230', desc: 'Full-service concert & album launch production from concept to curtain call.' },
   { icon: Users,     title: 'Talent Management',      color: '#5CB2DC', desc: 'Career strategy, brand deals, and WMI industry connections.' },
   { icon: Mic2,      title: 'Audio Production',       color: '#002A8D', desc: 'Studio recording, mixing & mastering to WMI quality standards.' },
@@ -246,15 +246,15 @@ const FAQS = [
   },
   {
     q: 'Is WB Digital really free — no hidden fees?',
-    a: 'Distribution is completely free — ₹0 upfront. No annual subscription, no per-release fee. WB Digital earns a 30% royalty share only when you earn — so you keep 70% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99 per release, CD Baby charges $9.99 per release AND takes 9% of royalties. With WB Digital, for artists earning under ₹527/month, you are better off than paying DistroKid.',
+    a: 'Distribution is completely free — ₹0 upfront. No annual subscription, no per-release fee. WB Digital earns a 25% royalty share only when you earn — so you keep 75% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99 per release, CD Baby charges $9.99 per release AND takes 9% of royalties. With WB Digital, for artists earning under ₹527/month, you are better off than paying DistroKid.',
   },
   {
     q: 'Why should Indian artists choose WB Digital over TuneCore?',
-    a: 'TuneCore is US-built and US-focused. WB Digital is built specifically for the Indian music market. WB Digital distributes to JioSaavn, Gaana, Hungama, and Resso with priority, costs ₹0 upfront (TuneCore costs $14.99/release), is backed by Warner Music India for major-label credibility, goes live in 48 hours (TuneCore takes 7–10 days), and provides India-based artist support. You keep 70% of all streaming royalties — no annual fee eating into your earnings.',
+    a: 'TuneCore is US-built and US-focused. WB Digital is built specifically for the Indian music market. WB Digital distributes to JioSaavn, Gaana, Hungama, and Resso with priority, costs ₹0 upfront (TuneCore costs $14.99/release), is backed by Warner Music India for major-label credibility, goes live in 48 hours (TuneCore takes 7–10 days), and provides India-based artist support. You keep 75% of all streaming royalties — no annual fee eating into your earnings.',
   },
   {
     q: 'How does WB Digital compare to CD Baby for Indian artists?',
-    a: 'WB Digital wins on every metric for Indian artists: Price (₹0 upfront vs $9.99/release), Royalties (70% to you vs 91% — CD Baby takes 9% AND charges per release), India-first distribution (WB Digital has JioSaavn and Gaana priority), Warner Music India backing (CD Baby has no equivalent), and go-live speed (48 hrs vs 5–7 days). CD Baby has no dedicated presence in the Indian music market.',
+    a: 'WB Digital wins on every metric for Indian artists: Price (₹0 upfront vs $9.99/release), Royalties (75% to you vs 91% — CD Baby takes 9% AND charges per release), India-first distribution (WB Digital has JioSaavn and Gaana priority), Warner Music India backing (CD Baby has no equivalent), and go-live speed (48 hrs vs 5–7 days). CD Baby has no dedicated presence in the Indian music market.',
   },
   {
     q: 'Does WB Digital distribute to JioSaavn and Gaana?',
@@ -270,7 +270,7 @@ const FAQS = [
   },
   {
     q: 'How does WB Digital\'s royalty model work?',
-    a: 'WB Digital pays you 70% of all streaming royalties — directly, every month. We take 30% only when you earn (never upfront). Compare: CD Baby takes 9% AND charges $9.99/release; Believe takes 15–30%; The Orchard operates on revenue share. WB Digital costs ₹0 to start, and we only earn when you earn. That\'s fully aligned with your success.',
+    a: 'WB Digital pays you 75% of all streaming royalties — directly, every month. We take 25% only when you earn (never upfront). Compare: CD Baby takes 9% AND charges $9.99/release; Believe takes 15–30%; The Orchard operates on revenue share. WB Digital costs ₹0 to start, and we only earn when you earn. That\'s fully aligned with your success.',
   },
   {
     q: 'Can I switch from DistroKid, TuneCore, or CD Baby to WB Digital?',
@@ -361,8 +361,8 @@ export default function AboutPage() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
-              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
+            <div className="relative w-10 h-10 flex-shrink-0 group-hover:opacity-90 transition-opacity duration-300">
+              <Image src="/wb-digital-logo.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
@@ -465,7 +465,7 @@ export default function AboutPage() {
                 WB Digital by Western Beats Private Limited is India&apos;s most trusted and 100% free music
                 distribution platform — officially backed by <strong className="text-white">Warner Music India</strong>.
                 Distribute to 150+ platforms including JioSaavn, Gaana, Spotify &amp; Apple Music.
-                Earn <strong className="text-white">70% of every stream</strong> — we only earn when you do. Always free to distribute.
+                Earn <strong className="text-white">75% of every stream</strong> — we only earn when you do. Always free to distribute.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-14">
@@ -509,7 +509,7 @@ export default function AboutPage() {
               >
                 {[
                   { val: 'FREE', lbl: 'Forever, Always' },
-                  { val: '70%', lbl: 'Artist Royalties' },
+                  { val: '75%', lbl: 'Artist Royalties' },
                   { val: '150+', lbl: 'Platforms' },
                   { val: '48hrs', lbl: 'Go-Live Time' },
                   { val: 'WMI', lbl: 'Backed & Verified' },
@@ -811,7 +811,7 @@ export default function AboutPage() {
             style={{ background: 'rgba(10,100,195,0.1)', border: '1px solid rgba(10,100,195,0.25)' }}
           >
             <div className="w-14 h-14 rounded-xl overflow-hidden bg-white p-1 border-2 border-blu/40 flex-shrink-0">
-              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats Logo" width={56} height={56} className="object-contain w-full h-full" />
+              <Image src="/wb-digital-logo.png" alt="Western Beats Logo" width={56} height={56} className="object-contain w-full h-full" />
             </div>
             <div className="text-center sm:text-left">
               <div className="font-inter text-[11px] text-sky tracking-[0.12em] uppercase font-semibold mb-1">
@@ -1377,7 +1377,7 @@ export default function AboutPage() {
           >
             Stop paying DistroKid, TuneCore, CD Baby, or Ditto Music. Switch to WB Digital — India&apos;s #1 free
             music distribution platform, officially backed by Warner Music India. One upload. 150+ platforms.
-            70% royalties to you. ₹0 upfront. We only earn when you earn.
+            75% royalties to you. ₹0 upfront. We only earn when you earn.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1412,7 +1412,7 @@ export default function AboutPage() {
           >
             {[
               '✓ 100% Free to Distribute',
-              '✓ 70% Royalties to You',
+              '✓ 75% Royalties to You',
               '✓ Warner Music India Backed',
               '✓ JioSaavn & Gaana Priority',
               '✓ Live in 48 Hours',
@@ -1429,7 +1429,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg overflow-hidden bg-white p-0.5 border border-blu/40">
-              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={32} height={32} className="object-contain w-full h-full" />
+              <Image src="/wb-digital-logo.png" alt="Western Beats" width={32} height={32} className="object-contain w-full h-full" />
             </div>
             <div>
               <div className="font-outfit font-black text-white text-[13px] tracking-[0.04em]">WESTERN BEATS</div>

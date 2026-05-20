@@ -20,7 +20,7 @@ const SUBMISSION_STEPS = [
     color: '#0A64C3',
     num: '01',
     title: 'Email or DM Us',
-    desc: 'Send your music and details to contact@westernbeats.com or DM us on Instagram @wb_digital_. Include your track, artwork, artist name, genre, and release date.',
+    desc: 'Send your music and details to contact@westernbeats.com or WhatsApp us. Include your track, artwork, artist name, genre, and release date.',
   },
   {
     icon: Clock,
@@ -40,8 +40,8 @@ const SUBMISSION_STEPS = [
     icon: DollarSign,
     color: '#C41230',
     num: '04',
-    title: 'Earn 70% Royalties',
-    desc: '70% of every stream goes directly to you, every month. Track it all in real-time on your analytics dashboard. We only take 30% when you earn.',
+    title: 'Earn 75% Royalties',
+    desc: '75% of every stream goes directly to you, every month. Track it all in real-time on your analytics dashboard. We only take 25% when you earn.',
   },
 ]
 
@@ -71,8 +71,8 @@ export default function SubmitPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060C18]/95 backdrop-blur-xl border-b border-white/[0.06] py-3">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
-              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
+            <div className="relative w-10 h-10 flex-shrink-0 group-hover:opacity-90 transition-opacity duration-300">
+              <Image src="/wb-digital-logo.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
@@ -148,7 +148,7 @@ export default function SubmitPage() {
               >
                 Submit your track to WB Digital and reach 150+ streaming platforms worldwide —
                 JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and more.
-                <strong className="text-white"> Always free. 70% royalties. You keep 100% ownership of your masters.</strong>
+                <strong className="text-white"> Always free. 75% royalties. You keep 100% ownership of your masters.</strong>
               </motion.p>
 
               {/* Quick stats */}
@@ -157,7 +157,7 @@ export default function SubmitPage() {
                   { val: 'FREE', lbl: 'To Submit' },
                   { val: '24hrs', lbl: 'Review Time' },
                   { val: '48hrs', lbl: 'Go-Live Time' },
-                  { val: '70%', lbl: 'Royalties to You' },
+                  { val: '75%', lbl: 'Royalties to You' },
                 ].map(s => (
                   <div key={s.val} className="flex flex-col">
                     <span className="font-outfit font-black text-[26px] sm:text-[30px] leading-none" style={{ color: '#0A64C3' }}>{s.val}</span>
@@ -223,9 +223,9 @@ export default function SubmitPage() {
                 </div>
               </motion.a>
 
-              {/* Secondary: Instagram */}
+              {/* Secondary: WhatsApp */}
               <motion.a
-                href="https://instagram.com/wb_digital_"
+                href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20want%20to%20submit%20my%20music%20to%20WB%20Digital"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
@@ -237,12 +237,12 @@ export default function SubmitPage() {
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ background: 'rgba(196,18,48,0.15)' }}>
                     <MessageCircle size={22} style={{ color: '#C41230' }} />
                   </div>
-                  <div className="font-outfit font-extrabold text-white text-[22px] mb-2">DM on Instagram</div>
+                  <div className="font-outfit font-extrabold text-white text-[22px] mb-2">WhatsApp Us</div>
                   <div className="font-inter text-mut text-[14px] mb-5 leading-relaxed">
-                    Quick questions or initial enquiries? DM us on Instagram. 27.8K+ artists already follow us.
+                    Quick questions or initial enquiries? Message us on WhatsApp. Our team responds within hours.
                   </div>
                   <div className="inline-flex items-center gap-2 font-outfit font-bold text-[14px]" style={{ color: '#C41230' }}>
-                    @wb_digital_
+                    Chat on WhatsApp
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
                   </div>
                 </div>

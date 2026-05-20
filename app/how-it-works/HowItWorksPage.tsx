@@ -61,12 +61,12 @@ const STEPS = [
     num: '03',
     icon: DollarSign,
     color: '#C41230',
-    title: 'Earn 70% Royalties',
+    title: 'Earn 75% Royalties',
     subtitle: 'Paid monthly, every month',
-    desc: '70% of all streaming royalties from every platform flow directly to you every month. We take 30% only when you earn — we never charge you upfront. The more you earn, the more we both earn. Perfectly aligned.',
+    desc: '75% of all streaming royalties from every platform flow directly to you every month. We take 25% only when you earn — we never charge you upfront. The more you earn, the more we both earn. Perfectly aligned.',
     checklist: [
-      '70% royalties paid directly to you monthly',
-      'We earn 30% only when you earn — zero upfront cost',
+      '75% royalties paid directly to you monthly',
+      'We earn 25% only when you earn — zero upfront cost',
       'Real-time dashboard: track every stream live',
       'Revenue breakdown by platform & territory',
       'Transparent monthly PDF payout reports',
@@ -106,8 +106,8 @@ export default function HowItWorksPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060C18]/95 backdrop-blur-xl border-b border-white/[0.06] py-3">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
-              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
+            <div className="relative w-10 h-10 flex-shrink-0 group-hover:opacity-90 transition-opacity duration-300">
+              <Image src="/wb-digital-logo.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
@@ -169,15 +169,15 @@ export default function HowItWorksPage() {
             >
               <span className="block text-white">3 Steps.</span>
               <span className="block" style={{ color: '#0A64C3' }}>150+ Platforms.</span>
-              <span className="block text-white">70% Yours.</span>
+              <span className="block text-white">75% Yours.</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
               className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-10 max-w-2xl mx-auto"
             >
               WB Digital makes music distribution the simplest thing you&apos;ll do today.
-              Submit your music, we handle the rest — 150+ platforms in 48 hours, 70% royalties straight to you.
-              <strong className="text-white"> Always free to distribute.</strong>
+              Submit your music, we handle the rest — 150+ platforms in 48 hours, 75% royalties straight to you.
+              <strong className="text-white"> Always free. 100% ownership yours.</strong>
             </motion.p>
 
             {/* Waveform */}
@@ -378,7 +378,7 @@ export default function HowItWorksPage() {
               <div className="font-inter text-ice/90 text-[16px] sm:text-[18px] mb-8 leading-relaxed">
                 Submit your music today. Live on 150+ platforms in 48 hours.
                 <br />
-                <strong className="text-white">70% royalties. Free forever.</strong>
+                <strong className="text-white">75% royalties. Free forever.</strong>
               </div>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link

@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import Image from 'next/image'
 
 const PILLARS = [
-  { title: 'Artist First',   color: '#C41230', desc: 'You keep 70% of every rupee earned. We only make money when you make money — so we\'re always on your side.' },
+  { title: 'Artist First',   color: '#C41230', desc: 'You keep 75% of every rupee earned. We only make money when you make money — so we\'re always on your side.' },
   { title: 'India First',    color: '#0A64C3', desc: 'JioSaavn and Gaana before Spotify. Built for India, reaching the world.' },
   { title: 'Honest',         color: '#5CB2DC', desc: '48 hours means 48 hours. No ambiguity, no fine print, no surprises.' },
   { title: 'Major Quality',  color: '#002A8D', desc: 'Warner Music India partnership means major-label standards on every release.' },
@@ -70,22 +70,22 @@ export default function About() {
             >
               From JioSaavn and Gaana to Spotify, Apple Music, YouTube Music, and 145+ more
               platforms worldwide — your music goes everywhere your fans are. One upload,
-              150+ destinations, 70% of your royalties paid straight to you. Always free to distribute.
+              150+ destinations, 75% of your royalties paid straight to you. Always free to distribute. 100% ownership, always yours.
             </motion.p>
 
             {/* WMI badge */}
             <motion.div
               variants={item}
               whileHover={{ y: -3, transition: { duration: 0.25 } }}
-              className="inline-flex items-center gap-3 px-5 py-3 rounded-xl border border-blu/30"
+              className="inline-flex items-center gap-3 px-5 py-3 rounded-xl border border-blu/30 mb-4"
               style={{ background: 'rgba(10,100,195,0.1)' }}
             >
-              <div className="w-9 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0">
-                <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={36} height={36} className="object-contain" />
+              <div className="w-9 h-9 flex-shrink-0">
+                <Image src="/wb-digital-logo.png" alt="Western Beats" width={36} height={36} className="object-contain w-full h-full" />
               </div>
               <div>
                 <div className="font-inter text-[10px] text-sky tracking-[0.1em] uppercase font-semibold">Western Beats · Official Warner Music India Partner</div>
-                <div className="font-outfit font-bold text-white text-[13px] sm:text-[14px]">Warner Music India · @warnermusicindia</div>
+                <div className="font-outfit font-bold text-white text-[13px] sm:text-[14px]">Home of Armaan Malik, Diljit Dosanjh, King &amp; Darshan Raval</div>
               </div>
             </motion.div>
           </div>

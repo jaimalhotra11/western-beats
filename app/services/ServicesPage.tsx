@@ -32,10 +32,10 @@ const SERVICES = [
     tag: 'Core · Always Free',
     title: 'Music Distribution',
     headline: 'One Upload. 150+ Platforms. 48 Hours. Free.',
-    desc: 'Upload once and reach every major streaming platform worldwide simultaneously — free distribution with 70% royalties straight to you. Our Warner Music India partnership means priority placement on JioSaavn, Gaana, and every Indian DSP.',
+    desc: 'Upload once and reach every major streaming platform worldwide simultaneously — free distribution with 75% royalties straight to you. Our Warner Music India partnership means priority placement on JioSaavn, Gaana, and every Indian DSP.',
     points: [
       'Free forever — no annual fee, no per-release charge',
-      '70% royalties paid monthly — we only earn when you earn',
+      '75% royalties paid monthly — we only earn when you earn',
       '150+ platforms: JioSaavn, Gaana, Spotify, Apple Music & more',
       'Live in 48 hours — faster than DistroKid & TuneCore',
       'Free ISRC & UPC code generation',
@@ -48,7 +48,7 @@ const SERVICES = [
     steps: [
       { icon: Upload,      num: '01', title: 'Upload',     desc: 'Submit your track, artwork, and release info. We review within 24 hours.' },
       { icon: Globe2,      num: '02', title: 'Distribute', desc: 'We push your music to 150+ platforms simultaneously within 48 hours.' },
-      { icon: DollarSign, num: '03', title: 'Earn 70%',   desc: '70% of every rupee earned flows directly to you monthly. We only earn when you earn — zero upfront cost.' },
+      { icon: DollarSign, num: '03', title: 'Earn 75%',   desc: '75% of every rupee earned flows directly to you monthly. We only earn when you earn — zero upfront cost.' },
     ],
     featured: true,
   },
@@ -192,11 +192,11 @@ const SERVICES = [
 const FAQS = [
   {
     q: 'What services does WB Digital offer?',
-    a: 'WB Digital offers six core services: Free Music Distribution (to 150+ platforms, 48 hrs, 70% royalties to you), Event Management (concerts, album launches), Talent Management (career strategy, brand deals, WMI network), Audio Production (recording, mixing, mastering), Video Direction (music videos, Reels, Shorts), and Analytics & Strategy (real-time data across all platforms). All backed by Warner Music India.',
+    a: 'WB Digital offers six core services: Free Music Distribution (to 150+ platforms, 48 hrs, 75% royalties to you), Event Management (concerts, album launches), Talent Management (career strategy, brand deals, WMI network), Audio Production (recording, mixing, mastering), Video Direction (music videos, Reels, Shorts), and Analytics & Strategy (real-time data across all platforms). All backed by Warner Music India.',
   },
   {
     q: 'Is music distribution with WB Digital really free?',
-    a: 'Yes — distribution is completely free. ₹0 forever. No annual subscription, no per-release fee. WB Digital earns a 30% royalty share only when you earn — so you keep 70% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99/release, CD Baby charges $9.99/release AND takes 9% of royalties. WB Digital charges nothing upfront — we are fully invested in your success.',
+    a: 'Yes — distribution is completely free. ₹0 forever. No annual subscription, no per-release fee. WB Digital earns a 25% royalty share only when you earn — so you keep 75% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99/release, CD Baby charges $9.99/release AND takes 9% of royalties. WB Digital charges nothing upfront — we are fully invested in your success.',
   },
   {
     q: 'How quickly does music go live with WB Digital?',
@@ -264,8 +264,8 @@ export default function ServicesPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060C18]/95 backdrop-blur-xl border-b border-white/[0.06] py-3">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
-              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
+            <div className="relative w-10 h-10 flex-shrink-0 group-hover:opacity-90 transition-opacity duration-300">
+              <Image src="/wb-digital-logo.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
@@ -771,7 +771,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg overflow-hidden bg-white p-0.5 border border-blu/40">
-              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={32} height={32} className="object-contain w-full h-full" />
+              <Image src="/wb-digital-logo.png" alt="Western Beats" width={32} height={32} className="object-contain w-full h-full" />
             </div>
             <div>
               <div className="font-outfit font-black text-white text-[13px] tracking-[0.04em]">WESTERN BEATS</div>

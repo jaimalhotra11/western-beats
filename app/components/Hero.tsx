@@ -92,14 +92,14 @@ export default function Hero() {
             transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
             className="absolute inset-[120px] rounded-full border border-blu/10 border-dashed"
           />
-          {/* Logo only */}
+          {/* Logo only — no background */}
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-36 xl:w-40 h-36 xl:h-40 rounded-full overflow-hidden border-2 border-blu/40 glow-pulse"
+              className="w-40 xl:w-48 h-40 xl:h-48 flex items-center justify-center"
             >
-              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={160} height={160} sizes="160px" className="object-contain bg-white w-full h-full p-3" />
+              <Image src="/wb-digital-logo.png" alt="Western Beats Digital" width={192} height={192} sizes="192px" className="object-contain w-full h-full drop-shadow-[0_0_24px_rgba(10,100,195,0.5)]" />
             </motion.div>
           </div>
         </motion.div>
@@ -134,8 +134,8 @@ export default function Hero() {
             className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-8 sm:mb-10 max-w-xl"
           >
             <strong className="text-white">Western Beats</strong> — India&apos;s most credible full-service music company,
-            officially backed by Warner Music India. Distribute to 150+ platforms worldwide via WB Digital.
-            Free distribution — you earn <strong className="text-white">70% of every stream</strong>. Always free to distribute.
+            officially backed by Warner Music India — home to <strong className="text-white">Armaan Malik, Diljit Dosanjh, King &amp; Darshan Raval</strong>.
+            Distribute to 150+ platforms free via WB Digital. Keep <strong className="text-white">75% of every stream</strong>. <strong className="text-white">100% ownership. Always free.</strong>
           </motion.p>
 
           {/* CTAs */}
@@ -204,10 +204,10 @@ export default function Hero() {
         <div className="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 lg:gap-x-16 gap-y-6">
           {[
             { num: '150+', lbl: 'Streaming Platforms' },
-            { num: '70%', lbl: 'Artist Royalties' },
-            { num: '27.8K', lbl: 'Instagram Followers' },
-            { num: '4.1M', lbl: 'Top Reel Views' },
-            { num: 'Free', lbl: 'Distribution Cost' },
+            { num: '75%',  lbl: 'Artist Royalties' },
+            { num: '48hrs',lbl: 'Go-Live Time' },
+            { num: '100%', lbl: 'Ownership Yours' },
+            { num: '₹0',   lbl: 'Distribution Cost' },
           ].map((s, i) => (
             <motion.div
               key={i}

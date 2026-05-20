@@ -5,12 +5,12 @@ import Image from 'next/image'
 
 type Stat = { value: number; suffix: string; prefix?: string; label: string; sub: string; color: string }
 const STATS: Stat[] = [
-  { value: 150,  suffix: '+',   label: 'Streaming Platforms', sub: 'Worldwide distribution', color: '#0A64C3' },
-  { value: 70,   suffix: '%',   label: 'Artist Royalties',    sub: 'Straight to you, every stream', color: '#C41230' },
-  { value: 27.8, suffix: 'K',   label: 'Instagram Followers', sub: 'Verified account',       color: '#5CB2DC' },
-  { value: 4.1,  suffix: 'M',   label: 'Top Reel Views',      sub: 'Organic reach',          color: '#0A64C3' },
-  { value: 48,   suffix: 'hrs', label: 'Go Live Time',        sub: 'From upload to platform',color: '#C41230' },
-  { value: 0,    suffix: '',    prefix: '₹', label: 'Cost to Distribute', sub: 'Completely free', color: '#5CB2DC' },
+  { value: 150, suffix: '+',   label: 'Streaming Platforms',   sub: 'Worldwide distribution',       color: '#0A64C3' },
+  { value: 75,  suffix: '%',   label: 'Artist Royalties',      sub: 'Straight to you, every month', color: '#C41230' },
+  { value: 48,  suffix: 'hrs', label: 'Go-Live Time',          sub: 'From upload to platform',      color: '#5CB2DC' },
+  { value: 100, suffix: '%',   label: 'Ownership Yours',       sub: 'You keep all your masters',    color: '#0A64C3' },
+  { value: 0,   suffix: '',    prefix: '₹', label: 'Cost to Distribute', sub: 'Completely free forever', color: '#C41230' },
+  { value: 10,  suffix: '+',   label: 'WMI Artists Backed',    sub: 'Same label, same credibility', color: '#5CB2DC' },
 ]
 
 function Counter({ value, suffix, prefix, color, inView }: { value: number; suffix: string; prefix?: string; color: string; inView: boolean }) {

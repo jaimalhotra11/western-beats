@@ -35,10 +35,10 @@ const DISTRIBUTORS = [
     badge: 'Best for India',
     color: '#0A64C3',
     price: 'FREE — ₹0 Forever',
-    priceNote: '30% revenue share only when you earn',
+    priceNote: '25% revenue share only when you earn',
     data: [
       '150+ (India-first)',
-      '70% to you',
+      '75% to you',
       '₹0 — none ever',
       true,
       true,
@@ -129,12 +129,12 @@ const DISTRIBUTORS = [
     name: 'Believe',
     highlight: false,
     color: '#6B7A8D',
-    price: '15–30% revenue share',
+    price: '15–25% revenue share',
     priceNote: 'Higher cut than WB Digital',
     data: [
       '100+',
       '70–85%',
-      'Takes 15–30% revenue share',
+      'Takes 15–25% revenue share',
       false,
       false,
       '5–7 Days',
@@ -149,15 +149,15 @@ const DISTRIBUTORS = [
 const FAQS = [
   {
     q: 'Is WB Digital distribution really free — forever?',
-    a: 'Yes. Distribution costs ₹0 upfront — no annual fee, no per-release charge, ever. WB Digital earns a 30% royalty share only when you earn. We never charge you a single rupee before you make money. Think of it as a partner who only gets paid when you succeed.',
+    a: 'Yes. Distribution costs ₹0 upfront — no annual fee, no per-release charge, ever. WB Digital earns a 25% royalty share only when you earn. We never charge you a single rupee before you make money. Think of it as a partner who only gets paid when you succeed.',
   },
   {
-    q: 'How does the 70/30 royalty split work?',
-    a: 'When your music generates streaming royalties, WB Digital pays you 70% directly every month. We keep 30% as our fee. There are no upfront costs — we only earn when you earn. This aligns our interests completely with yours: the more you earn, the more we both earn.',
+    q: 'How does the 75/25 royalty split work?',
+    a: 'When your music generates streaming royalties, WB Digital pays you 75% directly every month. We keep 25% as our service fee. There are no upfront costs — we only earn when you earn. This aligns our interests completely with yours: the more you earn, the more we both earn.',
   },
   {
     q: 'Is WB Digital cheaper than DistroKid for Indian artists?',
-    a: 'For artists earning under roughly ₹6,333/month from streaming, WB Digital is more cost-effective than DistroKid. DistroKid charges $22.99/year (₹1,900+) regardless of whether you earn anything. WB Digital charges ₹0 upfront — our 30% cut only kicks in when royalties flow. If you earn ₹0, you pay ₹0.',
+    a: 'Absolutely. DistroKid charges $22.99/year (₹1,900+) regardless of whether you earn anything. WB Digital charges ₹0 upfront — our 25% service fee only applies when royalties are generated. If you earn ₹0, you pay ₹0.',
   },
   {
     q: 'How does WB Digital compare to CD Baby?',
@@ -165,7 +165,7 @@ const FAQS = [
   },
   {
     q: 'What happens if I earn nothing from streaming?',
-    a: 'You pay nothing. WB Digital only takes its 30% share when royalties are generated. If your music earns ₹0, WB Digital earns ₹0. Zero risk, zero upfront commitment.',
+    a: 'You pay nothing. WB Digital only takes its 25% service fee when royalties are generated. If your music earns ₹0, WB Digital earns ₹0. Zero risk, zero upfront commitment.',
   },
   {
     q: 'Are there any hidden fees I should know about?',
@@ -223,8 +223,8 @@ export default function PricingPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060C18]/95 backdrop-blur-xl border-b border-white/[0.06] py-3">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
-              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
+            <div className="relative w-10 h-10 flex-shrink-0 group-hover:opacity-90 transition-opacity duration-300">
+              <Image src="/wb-digital-logo.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
@@ -285,14 +285,14 @@ export default function PricingPage() {
               style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
             >
               <span className="block" style={{ color: '#0A64C3' }}>₹0 Forever.</span>
-              <span className="block text-white">70% Yours.</span>
+              <span className="block text-white">75% Yours.</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
               className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-10 max-w-2xl mx-auto"
             >
               WB Digital charges <strong className="text-white">zero upfront</strong> — no annual fee, no per-release charge.
-              We earn a <strong className="text-white">30% revenue share only when you earn</strong>.
+              We earn a <strong className="text-white">25% revenue share only when you earn</strong>.
               If you earn ₹0, we take ₹0. Simple, aligned, honest.
             </motion.p>
 
@@ -311,8 +311,8 @@ export default function PricingPage() {
                 <div className="flex flex-col gap-3 mb-8">
                   {[
                     '150+ platforms — India-first',
-                    '70% royalties to you monthly',
-                    '30% share only when you earn',
+                    '75% royalties paid to you monthly',
+                    '25% service fee only when you earn',
                     '48-hour go-live time',
                     'Free ISRC & UPC codes',
                     'Warner Music India backed',
@@ -552,7 +552,7 @@ export default function PricingPage() {
               <div className="font-outfit font-black text-white text-[40px] sm:text-[52px] leading-none mb-3">₹0 to Start.</div>
               <div className="font-inter text-ice/90 text-[16px] sm:text-[18px] mb-8 leading-relaxed">
                 Submit your music now — live on 150+ platforms in 48 hours.
-                <br /><strong className="text-white">No card required. No annual fee. 70% royalties. Free forever.</strong>
+                <br /><strong className="text-white">No card required. No annual fee. 75% royalties. Free forever.</strong>
               </div>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link

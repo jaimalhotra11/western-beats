@@ -4,7 +4,7 @@ import PricingPage from './PricingPage'
 export const metadata: Metadata = {
   title: 'Pricing — Free Music Distribution, 70% Royalties | WB Digital · Western Beats',
   description:
-    'WB Digital music distribution is 100% free — ₹0 upfront forever. You earn 70% of every stream, we take 30% only when you earn. Compare vs DistroKid ($22.99/yr), TuneCore ($14.99/release), CD Baby ($9.99 + 9%), Ditto Music, and Believe. Best value for Indian artists.',
+    'WB Digital music distribution is 100% free — ₹0 upfront forever. You earn 75% of every stream, we take 25% only when you earn. Compare vs DistroKid ($22.99/yr), TuneCore ($14.99/release), CD Baby ($9.99 + 9%), Ditto Music, and Believe. Best value for Indian artists.',
   keywords: [
     'WB Digital pricing',
     'free music distribution India',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://westernbeats.com/pricing' },
   openGraph: {
     title: 'WB Digital Pricing — Free Music Distribution | Western Beats',
-    description: '₹0 forever. 70% royalties to you. No annual fee, no per-release charge. We only earn when you earn. Compare vs DistroKid, TuneCore & CD Baby.',
+    description: '₹0 forever. 75% royalties to you. No annual fee, no per-release charge. We only earn when you earn. Compare vs DistroKid, TuneCore & CD Baby.',
     url: 'https://westernbeats.com/pricing',
     siteName: 'Western Beats — WB Digital',
     type: 'website',
@@ -59,7 +59,7 @@ const jsonLd = {
     {
       '@type': 'Product',
       name: 'WB Digital Music Distribution',
-      description: 'Free music distribution to 150+ streaming platforms. 70% royalties to artist, 30% to WB Digital — only when you earn. Zero upfront cost. Warner Music India backed.',
+      description: 'Free music distribution to 150+ streaming platforms. 70% royalties to artist, 25% to WB Digital — only when you earn. Zero upfront cost. Warner Music India backed.',
       brand: { '@type': 'Brand', name: 'WB Digital by Western Beats' },
       offers: {
         '@type': 'Offer',
@@ -77,7 +77,7 @@ const jsonLd = {
           name: 'Is WB Digital music distribution really free?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. WB Digital music distribution is ₹0 upfront, forever. No annual fee, no per-release charge. WB Digital earns a 30% revenue share only when you earn — you keep 70% of every stream. We only make money when you make money.',
+            text: 'Yes. WB Digital music distribution is ₹0 upfront, forever. No annual fee, no per-release charge. WB Digital earns a 25% revenue share only when you earn — you keep 75% of every stream. We only make money when you make money.',
           },
         },
         {
@@ -85,7 +85,7 @@ const jsonLd = {
           name: 'How does WB Digital compare to DistroKid on price?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'DistroKid costs $22.99/year (₹1,900+) for unlimited releases. WB Digital costs ₹0 upfront. WB Digital takes 30% of royalties only when you earn; DistroKid keeps 0% but charges the annual fee. For artists earning under ~₹6,333/month from streaming, WB Digital is more cost-effective.',
+            text: 'DistroKid costs $22.99/year (₹1,900+) for unlimited releases. WB Digital costs ₹0 upfront. WB Digital takes 25% of royalties only when you earn; DistroKid keeps 0% but charges the annual fee. For artists earning under ~₹6,333/month from streaming, WB Digital is more cost-effective.',
           },
         },
       ],
