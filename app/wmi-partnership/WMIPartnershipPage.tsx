@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { Award, Zap, Globe2, Shield, ArrowRight } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -41,8 +43,43 @@ const WMI_ARTISTS = [
 ]
 
 export default function WMIPartnershipPage() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    registerGSAP()
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.page-hero-line', {
+        y: 80, opacity: 0, skewY: 3, stagger: 0.12,
+        duration: 1.0, ease: 'power4.out', delay: 0.1,
+      })
+      gsap.from('.page-badge', {
+        y: -20, opacity: 0, duration: 0.6, ease: 'power3.out',
+      })
+      gsap.from('.page-subtext', {
+        y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5,
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-card').forEach((el) => {
+        const cards = el.querySelectorAll<HTMLElement>('.card-item')
+        if (!cards.length) return
+        gsap.from(cards, {
+          y: 50, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
+    <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
       <Nav />
 
       {/* Hero */}
@@ -63,13 +100,13 @@ export default function WMIPartnershipPage() {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
-              <div className="platform-pill mb-6 inline-flex">Exclusive Partnership</div>
+              <div className="platform-pill page-badge mb-6 inline-flex">Exclusive Partnership</div>
               <h1 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6" style={{ fontSize: 'clamp(38px, 6vw, 76px)' }}>
-                <span className="block text-white">Backed by</span>
-                <span className="block" style={{ color: '#0A64C3' }}>Warner Music</span>
-                <span className="block text-white">India.</span>
+                <span className="page-hero-line block text-white">Backed by</span>
+                <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Warner Music</span>
+                <span className="page-hero-line block text-white">India.</span>
               </h1>
-              <p className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-xl">
+              <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-xl">
                 WB Digital is the only free distribution platform in India with an official Warner Music India backing. This is not a logo on a landing page. It is a real partnership that changes what is possible for independent artists.
               </p>
               <Link href="/submit"
@@ -110,7 +147,7 @@ export default function WMIPartnershipPage() {
       <section className="py-20 sm:py-28" style={{ background: '#060C18' }}>
         <div className="crm-stripe" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="mb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="gsap-fade-up mb-12">
             <div className="platform-pill mb-5 inline-flex">What It Means for You</div>
             <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.0]" style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}>
               <span className="text-white">Four Reasons the Partnership </span>
@@ -118,7 +155,7 @@ export default function WMIPartnershipPage() {
             </h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="gsap-card grid sm:grid-cols-2 gap-5">
             {BENEFITS.map((b, i) => (
               <motion.div key={b.title}
                 initial={{ opacity: 0, y: 40 }}
@@ -143,7 +180,7 @@ export default function WMIPartnershipPage() {
       {/* WMI Artists */}
       <section className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="mb-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="gsap-fade-up mb-10">
             <div className="platform-pill mb-5 inline-flex">The Warner Music India Roster</div>
             <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.0] mb-4" style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}>
               <span className="text-white">Artists in the Same </span>
@@ -179,7 +216,7 @@ export default function WMIPartnershipPage() {
             <div className="platform-pill mb-5 inline-flex">Start Today</div>
             <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.0] mb-5" style={{ fontSize: 'clamp(28px, 4.5vw, 52px)' }}>
               <span className="text-white">Distribute with WMI Backing.</span>
-              <span className="block" style={{ color: '#0A64C3' }}>Free, Always.</span>
+              <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Free, Always.</span>
             </h2>
             <p className="font-inter text-[15px] text-mut leading-relaxed mb-8">
               It costs nothing to start. Upload your music, get it live on 150+ platforms in 48 hours, and carry the WMI name with you.

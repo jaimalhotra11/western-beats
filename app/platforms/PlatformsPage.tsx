@@ -4,6 +4,8 @@ import Link from 'next/link'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { ArrowRight } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -31,8 +33,43 @@ const PLATFORM_GROUPS = [
 ]
 
 export default function PlatformsPage() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    registerGSAP()
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.page-hero-line', {
+        y: 80, opacity: 0, skewY: 3, stagger: 0.12,
+        duration: 1.0, ease: 'power4.out', delay: 0.1,
+      })
+      gsap.from('.page-badge', {
+        y: -20, opacity: 0, duration: 0.6, ease: 'power3.out',
+      })
+      gsap.from('.page-subtext', {
+        y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5,
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-card').forEach((el) => {
+        const cards = el.querySelectorAll<HTMLElement>('.card-item')
+        if (!cards.length) return
+        gsap.from(cards, {
+          y: 50, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
+    <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
       <Nav />
 
       {/* Hero */}
@@ -52,13 +89,13 @@ export default function PlatformsPage() {
           </nav>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
-            <div className="platform-pill mb-6 inline-flex">Platform Coverage</div>
+            <div className="platform-pill page-badge mb-6 inline-flex">Platform Coverage</div>
             <h1 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6" style={{ fontSize: 'clamp(42px, 7vw, 80px)' }}>
-              <span className="block text-white">One Upload.</span>
-              <span className="block" style={{ color: '#0A64C3' }}>150+ Platforms.</span>
-              <span className="block text-white">Worldwide.</span>
+              <span className="page-hero-line block text-white">One Upload.</span>
+              <span className="page-hero-line block" style={{ color: '#0A64C3' }}>150+ Platforms.</span>
+              <span className="page-hero-line block text-white">Worldwide.</span>
             </h1>
-            <p className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed max-w-2xl mb-8">
+            <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed max-w-2xl mb-8">
               Your music reaches every major streaming platform in the world. We prioritize Indian platforms first, then cover the globe. One submission is all it takes.
             </p>
             <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl"
@@ -138,7 +175,7 @@ export default function PlatformsPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }}>
             <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.0] mb-5" style={{ fontSize: 'clamp(28px, 4.5vw, 52px)' }}>
               <span className="text-white">Ready to Reach</span>
-              <span className="block" style={{ color: '#0A64C3' }}>Every Platform?</span>
+              <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Every Platform?</span>
             </h2>
             <p className="font-inter text-[15px] text-mut leading-relaxed mb-8">Free distribution. 48-hour go-live. One upload to 150+ platforms. No fees ever.</p>
             <Link href="/submit"

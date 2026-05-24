@@ -2,7 +2,8 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState, FormEvent } from 'react'
+import { useState, FormEvent, useEffect, useRef } from 'react'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 import {
   Mail, CheckCircle, ArrowRight, Upload, Clock,
   Globe2, DollarSign, Loader2, Music, FileImage,
@@ -51,6 +52,40 @@ export default function SubmitPage() {
   const [fields, setFields] = useState<FormFields>(EMPTY)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    registerGSAP()
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.page-hero-line', {
+        y: 80, opacity: 0, skewY: 3, stagger: 0.12,
+        duration: 1.0, ease: 'power4.out', delay: 0.1,
+      })
+      gsap.from('.page-badge', {
+        y: -20, opacity: 0, duration: 0.6, ease: 'power3.out',
+      })
+      gsap.from('.page-subtext', {
+        y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5,
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-card').forEach((el) => {
+        const cards = el.querySelectorAll<HTMLElement>('.card-item')
+        if (!cards.length) return
+        gsap.from(cards, {
+          y: 50, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
 
   const set = (k: keyof FormFields) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setFields(f => ({ ...f, [k]: e.target.value }))
@@ -86,7 +121,7 @@ export default function SubmitPage() {
       setErrorMsg(message)
       setStatus('error')
       // fallback mailto
-      const sub = encodeURIComponent(`Music Submission — ${fields.trackName} by ${fields.artistName}`)
+      const sub = encodeURIComponent(`Music Submission: ${fields.trackName} by ${fields.artistName}`)
       const body = encodeURIComponent(`Artist: ${fields.artistName}\nTrack: ${fields.trackName}\nEmail: ${fields.email}\nPhone: ${fields.phone}\nGenre: ${fields.genre}\nLanguage: ${fields.language}\nRelease Date: ${fields.releaseDate}\nDrive Link: ${fields.driveLink}\nSpotify: ${fields.spotifyLink}\nMessage: ${fields.message}`)
       window.location.href = `mailto:contact@westernbeats.com?subject=${sub}&body=${body}`
     }
@@ -96,13 +131,13 @@ export default function SubmitPage() {
   const labelCls = `block font-outfit font-semibold text-[12px] text-[#8899AA] tracking-[0.08em] uppercase mb-1.5`
 
   return (
-    <div className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
+    <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
 
       {/* ── NAV ────────────────────────────────────────────────────────────── */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060C18]/95 backdrop-blur-xl border-b border-white/[0.06] py-3">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
+            <div className="relative w-10 h-9 flex-shrink-0">
               <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
@@ -154,18 +189,18 @@ export default function SubmitPage() {
 
           <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-start">
 
-            {/* ── LEFT — Headline + info ── */}
+            {/* LEFT: Headline + info */}
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
-              <div className="platform-pill mb-6 inline-flex">✦ Free. Fast. Warner Music India Backed.</div>
+              <div className="platform-pill page-badge mb-6 inline-flex">✦ Free. Fast. Warner Music India Backed.</div>
               <h1 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
                 style={{ fontSize: 'clamp(36px, 5.5vw, 70px)' }}>
-                <span className="block text-white">Submit Your</span>
-                <span className="block" style={{ color: '#0A64C3' }}>Music Free.</span>
-                <span className="block text-white">Go Live in</span>
-                <span className="block text-white">48 Hours.</span>
+                <span className="page-hero-line block text-white">Submit Your</span>
+                <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Music Free.</span>
+                <span className="page-hero-line block text-white">Go Live in</span>
+                <span className="page-hero-line block text-white">48 Hours.</span>
               </h1>
-              <p className="font-inter text-[16px] text-mut leading-relaxed mb-8 max-w-lg">
-                Reach 150+ streaming platforms worldwide — JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and more.
+              <p className="page-subtext font-inter text-[16px] text-mut leading-relaxed mb-8 max-w-lg">
+                Reach 150+ streaming platforms worldwide: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and more.
                 <strong className="text-white"> Always free. 75% royalties. 100% ownership of your masters.</strong>
               </p>
 
@@ -196,7 +231,7 @@ export default function SubmitPage() {
                           <Icon size={15} style={{ color: s.color }} />
                         </div>
                         <div>
-                          <div className="font-outfit font-bold text-white text-[13px]">{s.num} — {s.title}</div>
+                          <div className="font-outfit font-bold text-white text-[13px]">{s.num}: {s.title}</div>
                           <div className="font-inter text-[12px] text-mut leading-relaxed mt-0.5">{s.desc}</div>
                         </div>
                       </div>
@@ -218,7 +253,7 @@ export default function SubmitPage() {
               </div>
             </motion.div>
 
-            {/* ── RIGHT — FORM ── */}
+            {/* RIGHT: FORM */}
             <motion.div
               initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
@@ -261,12 +296,12 @@ export default function SubmitPage() {
                     </div>
                     <div>
                       <div className="font-outfit font-extrabold text-white text-[17px]">Submit Your Music</div>
-                      <div className="font-inter text-[12px] text-mut">Fill in the details below — takes 2 minutes</div>
+                      <div className="font-inter text-[12px] text-mut">Fill in the details below, takes 2 minutes</div>
                     </div>
                   </div>
 
                   {/* Row 1: Artist + Track */}
-                  <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label className={labelCls}>Artist Name *</label>
                       <input required value={fields.artistName} onChange={set('artistName')}
@@ -280,7 +315,7 @@ export default function SubmitPage() {
                   </div>
 
                   {/* Row 2: Email + Phone */}
-                  <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label className={labelCls}>Email Address *</label>
                       <input required type="email" value={fields.email} onChange={set('email')}
@@ -294,7 +329,7 @@ export default function SubmitPage() {
                   </div>
 
                   {/* Row 3: Genre + Language */}
-                  <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label className={labelCls}>Genre *</label>
                       <select required value={fields.genre} onChange={set('genre')} className={inputCls}>
@@ -380,7 +415,7 @@ export default function SubmitPage() {
               What to Include in Your Upload
             </h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="gsap-card grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {INCLUDE.map((item, i) => {
               const Icon = item.Icon
               return (

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import HowItWorksPage from './HowItWorksPage'
 
 export const metadata: Metadata = {
-  title: 'How It Works — Free Music Distribution in 3 Steps | WB Digital · Western Beats',
+  title: 'How It Works: Free Music Distribution in 3 Steps | WB Digital · Western Beats',
   description:
     'See exactly how WB Digital works: Submit your music → We distribute to 150+ platforms in 48 hours → You earn 75% of every stream. Free forever. Backed by Warner Music India. Faster than DistroKid, TuneCore & CD Baby.',
   keywords: [
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://westernbeats.com/how-it-works' },
   openGraph: {
-    title: 'How WB Digital Works — 3 Steps to Stream on 150+ Platforms | Western Beats',
+    title: 'How WB Digital Works: 3 Steps to Stream on 150+ Platforms | Western Beats',
     description: 'Submit → Distribute to 150+ platforms in 48 hrs → Keep 75% royalties. Free forever. Backed by Warner Music India.',
     url: 'https://westernbeats.com/how-it-works',
-    siteName: 'Western Beats — WB Digital',
+    siteName: 'Western Beats: WB Digital',
     type: 'website',
     locale: 'en_IN',
   },
@@ -45,7 +45,7 @@ const jsonLd = {
       '@type': 'WebPage',
       '@id': 'https://westernbeats.com/how-it-works#webpage',
       url: 'https://westernbeats.com/how-it-works',
-      name: 'How WB Digital Works — Free Music Distribution',
+      name: 'How WB Digital Works: Free Music Distribution',
       isPartOf: { '@id': 'https://westernbeats.com/#website' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
@@ -64,8 +64,8 @@ const jsonLd = {
       tool: [{ '@type': 'HowToTool', name: 'WB Digital Distribution Platform' }],
       step: [
         { '@type': 'HowToStep', position: 1, name: 'Submit Your Music', text: 'Send your track, album artwork, ISRC code, and release details to WB Digital. Our team reviews everything within 24 hours.' },
-        { '@type': 'HowToStep', position: 2, name: 'We Distribute', text: 'WB Digital delivers your music to all 150+ streaming platforms simultaneously — including JioSaavn, Gaana, Spotify, Apple Music, and YouTube Music. Live within 48 hours.' },
-        { '@type': 'HowToStep', position: 3, name: 'Earn 75% Royalties', text: '75% of all streaming royalties flow directly to you every month. We take 25% only when you earn — zero upfront cost.' },
+        { '@type': 'HowToStep', position: 2, name: 'We Distribute', text: 'WB Digital delivers your music to all 150+ streaming platforms simultaneously, including JioSaavn, Gaana, Spotify, Apple Music, and YouTube Music. Live within 48 hours.' },
+        { '@type': 'HowToStep', position: 3, name: 'Earn 75% Royalties', text: '75% of all streaming royalties flow directly to you every month. We take 25% only when you earn, zero upfront cost.' },
       ],
     },
   ],

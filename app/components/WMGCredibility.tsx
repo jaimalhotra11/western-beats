@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
-/* ─── Warner Music India artists — real WMG CDN + Wikipedia photos ──── */
+/* ─── Warner Music India artists: real WMG CDN + Wikipedia photos ──── */
 const INDIA_ARTISTS = [
   {
     name: 'King',
@@ -44,7 +44,7 @@ const INDIA_ARTISTS = [
   },
 ]
 
-/* ─── WMG Global artists — real WMG CDN photos ───────────────────────── */
+/* ─── WMG Global artists: real WMG CDN photos ───────────────────────── */
 const GLOBAL_ARTISTS = [
   {
     name: 'Bruno Mars',
@@ -53,12 +53,12 @@ const GLOBAL_ARTISTS = [
   },
   {
     name: 'Coldplay',
-    stat: '10.3M tickets — one world tour',
+    stat: '10.3M tickets, one world tour',
     img: 'https://www.wmg.com/wp-content/uploads/2024/08/Coldplay2.jpg',
   },
   {
     name: 'Ed Sheeran',
-    stat: "'Sapphire' — record-breaking India tour",
+    stat: "'Sapphire', record-breaking India tour",
     img: 'https://www.wmg.com/wp-content/uploads/2025/03/Ed-Sheeran-1900x1900-000000-80-0-0-1.jpg',
   },
   {
@@ -78,12 +78,12 @@ const GLOBAL_ARTISTS = [
   },
   {
     name: 'ROSÉ',
-    stat: 'APT. — Global #1 in 50+ countries',
+    stat: 'APT.: Global #1 in 50+ countries',
     img: 'https://www.wmg.com/wp-content/uploads/2026/02/ROSE-683x1024.jpg',
   },
   {
     name: 'Fred again..',
-    stat: 'BRIT Award — Best New Artist',
+    stat: 'BRIT Award, Best New Artist',
     img: 'https://www.wmg.com/wp-content/uploads/2026/02/Fredagain-scaled.jpg',
   },
 ]
@@ -219,7 +219,7 @@ export default function WMGCredibility() {
             transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
             className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl"
           >
-            WB Digital is officially backed by <strong className="text-white">Warner Music India</strong> — the Indian arm of
+            WB Digital is officially backed by <strong className="text-white">Warner Music India</strong>, the Indian arm of
             Warner Music Group. The same infrastructure powering Bruno Mars, Coldplay &amp; Ed Sheeran globally
             now powers <strong className="text-white">your independent music career</strong>.
           </motion.p>

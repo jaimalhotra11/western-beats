@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { ArrowRight } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -51,8 +53,43 @@ const STORIES = [
 ]
 
 export default function ArtistStoriesPage() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    registerGSAP()
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.page-hero-line', {
+        y: 80, opacity: 0, skewY: 3, stagger: 0.12,
+        duration: 1.0, ease: 'power4.out', delay: 0.1,
+      })
+      gsap.from('.page-badge', {
+        y: -20, opacity: 0, duration: 0.6, ease: 'power3.out',
+      })
+      gsap.from('.page-subtext', {
+        y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5,
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-card').forEach((el) => {
+        const cards = el.querySelectorAll<HTMLElement>('.card-item')
+        if (!cards.length) return
+        gsap.from(cards, {
+          y: 50, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
+    <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
       <Nav />
 
       {/* Hero */}
@@ -72,12 +109,12 @@ export default function ArtistStoriesPage() {
           </nav>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
-            <div className="platform-pill mb-6 inline-flex">Artist Stories</div>
+            <div className="platform-pill page-badge mb-6 inline-flex">Artist Stories</div>
             <h1 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6" style={{ fontSize: 'clamp(42px, 7vw, 80px)' }}>
-              <span className="block text-white">Real Artists.</span>
-              <span className="block" style={{ color: '#0A64C3' }}>Real Results.</span>
+              <span className="page-hero-line block text-white">Real Artists.</span>
+              <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Real Results.</span>
             </h1>
-            <p className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed max-w-2xl">
+            <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed max-w-2xl">
               Independent artists across India are using WB Digital to build real careers. Here are three of their stories.
             </p>
           </motion.div>
@@ -116,7 +153,7 @@ export default function ArtistStoriesPage() {
                     </p>
                   </blockquote>
 
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="gsap-card grid grid-cols-3 gap-3">
                     {story.stats.map(s => (
                       <div key={s.label} className="rounded-xl p-3 text-center"
                         style={{ background: `${story.color}15`, border: `1px solid ${story.color}25` }}>

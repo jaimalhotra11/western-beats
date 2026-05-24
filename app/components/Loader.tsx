@@ -14,7 +14,7 @@ export default function Loader() {
     startRef.current = performance.now()
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    // Hard cap — always dismiss by MAX_DURATION even if the video stalls.
+    // Hard cap: always dismiss by MAX_DURATION even if the video stalls.
     const cap = setTimeout(() => setVisible(false), MAX_DURATION_MS)
     return () => {
       document.body.style.overflow = prev

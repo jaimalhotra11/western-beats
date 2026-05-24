@@ -37,7 +37,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    const subject = `WB Digital Enquiry — ${form.service || 'General'} — ${form.name}`
+    const subject = `WB Digital Enquiry: ${form.service || 'General'}: ${form.name}`
     const body = `Name: ${form.name}\nEmail: ${form.email}\nService: ${form.service}\n\n${form.message}`
     window.location.href = `mailto:contact@westernbeats.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     setSent(true)

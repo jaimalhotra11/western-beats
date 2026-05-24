@@ -4,7 +4,8 @@ import Link from 'next/link'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { ChevronDown, ArrowRight } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -55,8 +56,43 @@ function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
 }
 
 export default function RoyaltiesPage() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    registerGSAP()
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.page-hero-line', {
+        y: 80, opacity: 0, skewY: 3, stagger: 0.12,
+        duration: 1.0, ease: 'power4.out', delay: 0.1,
+      })
+      gsap.from('.page-badge', {
+        y: -20, opacity: 0, duration: 0.6, ease: 'power3.out',
+      })
+      gsap.from('.page-subtext', {
+        y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5,
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-card').forEach((el) => {
+        const cards = el.querySelectorAll<HTMLElement>('.card-item')
+        if (!cards.length) return
+        gsap.from(cards, {
+          y: 50, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
+    <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
       <Nav />
 
       {/* Hero */}
@@ -76,13 +112,13 @@ export default function RoyaltiesPage() {
           </nav>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
-            <div className="platform-pill mb-6 inline-flex">Royalties & Payments</div>
+            <div className="platform-pill page-badge mb-6 inline-flex">Royalties & Payments</div>
             <h1 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6" style={{ fontSize: 'clamp(42px, 7vw, 80px)' }}>
-              <span className="block text-white">You Keep</span>
-              <span className="block" style={{ color: '#0A64C3' }}>75%.</span>
-              <span className="block text-white">Always.</span>
+              <span className="page-hero-line block text-white">You Keep</span>
+              <span className="page-hero-line block" style={{ color: '#0A64C3' }}>75%.</span>
+              <span className="page-hero-line block text-white">Always.</span>
             </h1>
-            <p className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed max-w-2xl">
+            <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed max-w-2xl">
               Every rupee your music earns on streaming platforms gets split 75/25. Three-quarters goes directly to you. One quarter stays with us. No upfront fees. No annual subscriptions. We only earn when you earn.
             </p>
           </motion.div>
@@ -93,7 +129,7 @@ export default function RoyaltiesPage() {
       <section className="py-20 sm:py-28" style={{ background: '#060C18' }}>
         <div className="crm-stripe" />
         <div className="max-w-4xl mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="mb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="gsap-fade-up mb-12">
             <div className="platform-pill mb-5 inline-flex">The Split</div>
             <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.0]" style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}>
               <span className="text-white">How the 75/25 Split Works.</span>
@@ -109,7 +145,7 @@ export default function RoyaltiesPage() {
               <div className="flex items-center justify-center font-outfit font-black text-white text-[15px]"
                 style={{ width: '25%', background: '#C41230' }}>25%</div>
             </div>
-            <div className="grid sm:grid-cols-2 gap-5">
+            <div className="gsap-card grid sm:grid-cols-2 gap-5">
               <div className="rounded-xl p-5" style={{ background: 'rgba(10,100,195,0.12)', border: '1px solid rgba(10,100,195,0.3)' }}>
                 <div className="font-outfit font-black text-white text-[40px] leading-none mb-2" style={{ color: '#0A64C3' }}>75%</div>
                 <div className="font-outfit font-bold text-white text-[15px] mb-2">Goes to You</div>
@@ -128,7 +164,7 @@ export default function RoyaltiesPage() {
       {/* How Payments Work */}
       <section className="py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="mb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="gsap-fade-up mb-12">
             <div className="platform-pill mb-5 inline-flex">Payment Process</div>
             <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.0]" style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}>
               <span className="text-white">How Payments Work.</span>
@@ -165,7 +201,7 @@ export default function RoyaltiesPage() {
       <section className="py-20 sm:py-28" style={{ background: '#060C18' }}>
         <div className="crm-stripe" />
         <div className="max-w-4xl mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="mb-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="gsap-fade-up mb-10">
             <div className="platform-pill mb-5 inline-flex">Codes and Rights</div>
             <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.0]" style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}>
               <span className="text-white">ISRC and UPC.</span>
@@ -173,7 +209,7 @@ export default function RoyaltiesPage() {
             </h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="gsap-card grid sm:grid-cols-2 gap-5">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }}
               className="rounded-2xl p-6 relative overflow-hidden" style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.07)' }}>
               <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: '#0A64C3' }} />
@@ -195,7 +231,7 @@ export default function RoyaltiesPage() {
       {/* FAQ */}
       <section className="py-20 sm:py-28">
         <div className="max-w-3xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="mb-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="gsap-fade-up mb-10">
             <div className="platform-pill mb-5 inline-flex">FAQ</div>
             <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.0]" style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}>
               <span className="text-white">Common Questions.</span>

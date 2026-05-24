@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { gsap, registerGSAP } from '../lib/gsapUtils'
 
 const PILLARS = [
-  { title: 'Artist First',   color: '#C41230', desc: 'You keep 75% of every rupee earned. We only make money when you make money — so we\'re always on your side.' },
+  { title: 'Artist First',   color: '#C41230', desc: 'You keep 75% of every rupee earned. We only make money when you make money, so we\'re always on your side.' },
   { title: 'India First',    color: '#0A64C3', desc: 'JioSaavn and Gaana before Spotify. Built for India, reaching the world.' },
   { title: 'Honest',         color: '#5CB2DC', desc: '48 hours means 48 hours. No ambiguity, no fine print, no surprises.' },
   { title: 'Major Quality',  color: '#002A8D', desc: 'Warner Music India partnership means major-label standards on every release.' },
@@ -101,7 +101,7 @@ export default function About() {
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-6"
             >
               <strong className="text-white">Western Beats Private Limited</strong> is India&apos;s most credible
-              independent music company — officially backed by Warner Music India. Our distribution
+              independent music company, officially backed by Warner Music India. Our distribution
               platform, <strong className="text-white">WB Digital</strong>, gives every independent artist
               access to major-label reach without major-label restrictions.
             </motion.p>
@@ -110,7 +110,7 @@ export default function About() {
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-10"
             >
               From JioSaavn and Gaana to Spotify, Apple Music, YouTube Music, and 145+ more
-              platforms worldwide — your music goes everywhere your fans are. One upload,
+              platforms worldwide; your music goes everywhere your fans are. One upload,
               150+ destinations, 75% of your royalties paid straight to you. Always free to distribute. 100% ownership, always yours.
             </motion.p>
 
@@ -131,7 +131,7 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Right — Image collage + brand pillars */}
+          {/* Right: Image collage + brand pillars */}
           <motion.div variants={container} className="flex flex-col gap-3 sm:gap-4">
             {/* Top: 2-column image strip */}
             <motion.div variants={cardItem} className="grid grid-cols-2 gap-3 sm:gap-4">

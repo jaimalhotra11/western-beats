@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 /**
  * Three.js floating particle field for the hero section.
  * Renders a dense field of small dots that drift slowly and
- * respond to mouse movement — subtle, not distracting.
+ * respond to mouse movement, subtle, not distracting.
  */
 export default function HeroCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -63,7 +63,7 @@ export default function HeroCanvas() {
       geo.setAttribute('position', new THREE.BufferAttribute(positions, 3))
       geo.setAttribute('size', new THREE.BufferAttribute(sizes, 1))
 
-      // Custom shader material — crisp round dots, no blurry sprites
+      // Custom shader material: crisp round dots, no blurry sprites
       const mat = new THREE.ShaderMaterial({
         transparent: true,
         depthWrite: false,

@@ -1,6 +1,7 @@
 'use client'
 import { motion, useInView, Variants } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
@@ -58,7 +59,7 @@ const DISTRIBUTORS: Distributor[] = [
     isUs: true,
     badge: 'Best for India',
     data: [
-      'FREE — ₹0 Forever',
+      'FREE: ₹0 Forever',
       '75% to you',
       true,
       true,
@@ -196,7 +197,7 @@ const VALUES = [
     icon: Heart,
     title: 'Artist First, Always',
     color: '#C41230',
-    desc: 'You keep 75% of every rupee earned — we only make money when you make money. Your music, your rights, your success. We are always on your side.',
+    desc: 'You keep 75% of every rupee earned, we only make money when you make money. Your music, your rights, your success. We are always on your side.',
   },
   {
     icon: Globe2,
@@ -208,13 +209,13 @@ const VALUES = [
     icon: Shield,
     title: 'Radically Honest',
     color: '#5CB2DC',
-    desc: '48 hours means 48 hours. Free means free — no hidden fees, no bait-and-switch, no fine print. What you see is exactly what you get.',
+    desc: '48 hours means 48 hours. Free means free, no hidden fees, no bait-and-switch, no fine print. What you see is exactly what you get.',
   },
   {
     icon: Award,
     title: 'Major-Label Quality',
     color: '#002A8D',
-    desc: "Warner Music India partnership means major-label quality standards on every release — metadata, audio quality, and platform compliance you can't get elsewhere.",
+    desc: "Warner Music India partnership means major-label quality standards on every release: metadata, audio quality, and platform compliance you can't get elsewhere.",
   },
   {
     icon: Zap,
@@ -226,12 +227,12 @@ const VALUES = [
     icon: Star,
     title: 'Built for Growth',
     color: '#C41230',
-    desc: 'From distribution to production, events to talent management — we are not just a distributor. We are a full-service music company built to grow independent artists into household names.',
+    desc: 'From distribution to production, events to talent management, we are not just a distributor. We are a full-service music company built to grow independent artists into household names.',
   },
 ]
 
 const SERVICES_BRIEF = [
-  { icon: Music2,    title: 'Music Distribution',    color: '#0A64C3', desc: 'Free distribution to 150+ platforms in 48 hours. You keep 75% of royalties — we only earn when you do.' },
+  { icon: Music2,    title: 'Music Distribution',    color: '#0A64C3', desc: 'Free distribution to 150+ platforms in 48 hours. You keep 75% of royalties, we only earn when you do.' },
   { icon: Calendar,  title: 'Event Management',       color: '#C41230', desc: 'Full-service concert & album launch production from concept to curtain call.' },
   { icon: Users,     title: 'Talent Management',      color: '#5CB2DC', desc: 'Career strategy, brand deals, and WMI industry connections.' },
   { icon: Mic2,      title: 'Audio Production',       color: '#002A8D', desc: 'Studio recording, mixing & mastering to WMI quality standards.' },
@@ -242,27 +243,27 @@ const SERVICES_BRIEF = [
 const FAQS = [
   {
     q: 'What is WB Digital and how is it different from DistroKid?',
-    a: "WB Digital is India's #1 free music distribution platform by Western Beats Private Limited, officially backed by Warner Music India. Unlike DistroKid, which charges $22.99/year (₹1,900+) with no India-first focus, WB Digital is completely free, prioritizes JioSaavn and Gaana, delivers music in 48 hours, and carries the credibility of Warner Music India — something no other distributor offers.",
+    a: "WB Digital is India's #1 free music distribution platform by Western Beats Private Limited, officially backed by Warner Music India. Unlike DistroKid, which charges $22.99/year (₹1,900+) with no India-first focus, WB Digital is completely free, prioritizes JioSaavn and Gaana, delivers music in 48 hours, and carries the credibility of Warner Music India, something no other distributor offers.",
   },
   {
-    q: 'Is WB Digital really free — no hidden fees?',
-    a: 'Distribution is completely free — ₹0 upfront. No annual subscription, no per-release fee. WB Digital earns a 25% royalty share only when you earn — so you keep 75% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99 per release, CD Baby charges $9.99 per release AND takes 9% of royalties. With WB Digital, for artists earning under ₹527/month, you are better off than paying DistroKid.',
+    q: 'Is WB Digital really free, no hidden fees?',
+    a: 'Distribution is completely free: ₹0 upfront. No annual subscription, no per-release fee. WB Digital earns a 25% royalty share only when you earn, so you keep 75% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99 per release, CD Baby charges $9.99 per release AND takes 9% of royalties. With WB Digital, for artists earning under ₹527/month, you are better off than paying DistroKid.',
   },
   {
     q: 'Why should Indian artists choose WB Digital over TuneCore?',
-    a: 'TuneCore is US-built and US-focused. WB Digital is built specifically for the Indian music market. WB Digital distributes to JioSaavn, Gaana, Hungama, and Resso with priority, costs ₹0 upfront (TuneCore costs $14.99/release), is backed by Warner Music India for major-label credibility, goes live in 48 hours (TuneCore takes 7–10 days), and provides India-based artist support. You keep 75% of all streaming royalties — no annual fee eating into your earnings.',
+    a: 'TuneCore is US-built and US-focused. WB Digital is built specifically for the Indian music market. WB Digital distributes to JioSaavn, Gaana, Hungama, and Resso with priority, costs ₹0 upfront (TuneCore costs $14.99/release), is backed by Warner Music India for major-label credibility, goes live in 48 hours (TuneCore takes 7–10 days), and provides India-based artist support. You keep 75% of all streaming royalties, no annual fee eating into your earnings.',
   },
   {
     q: 'How does WB Digital compare to CD Baby for Indian artists?',
-    a: 'WB Digital wins on every metric for Indian artists: Price (₹0 upfront vs $9.99/release), Royalties (75% to you vs 91% — CD Baby takes 9% AND charges per release), India-first distribution (WB Digital has JioSaavn and Gaana priority), Warner Music India backing (CD Baby has no equivalent), and go-live speed (48 hrs vs 5–7 days). CD Baby has no dedicated presence in the Indian music market.',
+    a: 'WB Digital wins on every metric for Indian artists: Price (₹0 upfront vs $9.99/release), Royalties (75% to you vs 91%, CD Baby takes 9% AND charges per release), India-first distribution (WB Digital has JioSaavn and Gaana priority), Warner Music India backing (CD Baby has no equivalent), and go-live speed (48 hrs vs 5–7 days). CD Baby has no dedicated presence in the Indian music market.',
   },
   {
     q: 'Does WB Digital distribute to JioSaavn and Gaana?',
-    a: 'Yes — and we prioritize them. WB Digital distributes to JioSaavn, Gaana, Hungama, Resso, Wynk Music, and all major Indian platforms, along with Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music India partnership gives us priority placement on Indian DSPs — something DistroKid, TuneCore, CD Baby, Ditto Music, and other foreign distributors cannot match.',
+    a: 'Yes, and we prioritize them. WB Digital distributes to JioSaavn, Gaana, Hungama, Resso, Wynk Music, and all major Indian platforms, along with Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music India partnership gives us priority placement on Indian DSPs, something DistroKid, TuneCore, CD Baby, Ditto Music, and other foreign distributors cannot match.',
   },
   {
     q: 'What does the Warner Music India partnership mean for me as an artist?',
-    a: "WB Digital is officially backed by Warner Music India (@warnermusicindia), one of the world's three major record labels. This means major-label credibility on your releases, priority placement on Indian streaming platforms, access to WMI's network of playlist curators and industry contacts, audio quality standards that match major-label releases, and faster processing on platforms. No independent distributor in India — not Ditto Music, Believe, Orchard, Mad Verse, Fore Vision Digital, or anyone else — has this exclusive partnership.",
+    a: "WB Digital is officially backed by Warner Music India (@warnermusicindia), one of the world's three major record labels. This means major-label credibility on your releases, priority placement on Indian streaming platforms, access to WMI's network of playlist curators and industry contacts, audio quality standards that match major-label releases, and faster processing on platforms. No independent distributor in India, not Ditto Music, Believe, Orchard, Mad Verse, Fore Vision Digital, or anyone else, has this exclusive partnership.",
   },
   {
     q: 'How fast does WB Digital get music live on streaming platforms?',
@@ -270,15 +271,15 @@ const FAQS = [
   },
   {
     q: 'How does WB Digital\'s royalty model work?',
-    a: 'WB Digital pays you 75% of all streaming royalties — directly, every month. We take 25% only when you earn (never upfront). Compare: CD Baby takes 9% AND charges $9.99/release; Believe takes 15–30%; The Orchard operates on revenue share. WB Digital costs ₹0 to start, and we only earn when you earn. That\'s fully aligned with your success.',
+    a: 'WB Digital pays you 75% of all streaming royalties, directly, every month. We take 25% only when you earn (never upfront). Compare: CD Baby takes 9% AND charges $9.99/release; Believe takes 15–30%; The Orchard operates on revenue share. WB Digital costs ₹0 to start, and we only earn when you earn. That\'s fully aligned with your success.',
   },
   {
     q: 'Can I switch from DistroKid, TuneCore, or CD Baby to WB Digital?',
-    a: "Absolutely. You can migrate from any distributor — DistroKid, TuneCore, CD Baby, Ditto Music, Believe, or any other. Contact us at contact@westernbeats.com or DM us @wb_digital_ on Instagram and our team will guide you through the migration at zero cost. Your existing ISRC codes and metadata are fully portable.",
+    a: "Absolutely. You can migrate from any distributor: DistroKid, TuneCore, CD Baby, Ditto Music, Believe, or any other. Contact us at contact@westernbeats.com or DM us @wb_digital_ on Instagram and our team will guide you through the migration at zero cost. Your existing ISRC codes and metadata are fully portable.",
   },
   {
     q: 'Does WB Digital only offer music distribution?',
-    a: 'No — we are a full-service music company. WB Digital offers Music Distribution, Event Management, Talent Management, Audio Production, Video Direction, and Analytics & Strategy. We give independent artists access to major-label resources — the kind of support that DistroKid, TuneCore, and CD Baby simply do not offer — all under one roof and all at a fraction of the cost.',
+    a: 'No, we are a full-service music company. WB Digital offers Music Distribution, Event Management, Talent Management, Audio Production, Video Direction, and Analytics & Strategy. We give independent artists access to major-label resources, the kind of support that DistroKid, TuneCore, and CD Baby simply do not offer, all under one roof and all at a fraction of the cost.',
   },
 ]
 
@@ -351,9 +352,43 @@ function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
 export default function AboutPage() {
   const statsRef  = useRef(null)
   const statsView = useInView(statsRef, { once: true, margin: '-100px' })
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    registerGSAP()
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.page-hero-line', {
+        y: 80, opacity: 0, skewY: 3, stagger: 0.12,
+        duration: 1.0, ease: 'power4.out', delay: 0.1,
+      })
+      gsap.from('.page-badge', {
+        y: -20, opacity: 0, duration: 0.6, ease: 'power3.out',
+      })
+      gsap.from('.page-subtext', {
+        y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5,
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-card').forEach((el) => {
+        const cards = el.querySelectorAll<HTMLElement>('.card-item')
+        if (!cards.length) return
+        gsap.from(cards, {
+          y: 50, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <div className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
+    <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
 
       {/* ─── NAV ─────────────────────────────────────────────────────────────── */}
       <nav
@@ -361,7 +396,7 @@ export default function AboutPage() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
+            <div className="relative w-10 h-9 flex-shrink-0">
               <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
@@ -427,7 +462,7 @@ export default function AboutPage() {
         />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          {/* Breadcrumb — semantic nav for SEO */}
+          {/* Breadcrumb: semantic nav for SEO */}
           <nav aria-label="Breadcrumb" className="mb-8">
             <ol className="flex items-center gap-2 font-inter text-[12px] text-mut">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
@@ -446,26 +481,26 @@ export default function AboutPage() {
                 ✦ About WB Digital · Official Distribution Partner @warnermusicindia
               </motion.div>
 
-              {/* H1 — primary keyword target */}
+              {/* H1: primary keyword target */}
               <motion.h1
                 variants={fadeUp}
                 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
                 style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
               >
-                <span className="block text-white">India&apos;s #1</span>
-                <span className="block" style={{ color: '#0A64C3' }}>Free Music</span>
-                <span className="block text-white">Distribution</span>
-                <span className="block text-white">Platform.</span>
+                <span className="page-hero-line block text-white">India&apos;s #1</span>
+                <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Free Music</span>
+                <span className="page-hero-line block text-white">Distribution</span>
+                <span className="page-hero-line block text-white">Platform.</span>
               </motion.h1>
 
               <motion.p
                 variants={fadeUp}
-                className="speakable font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-10 max-w-2xl"
+                className="page-subtext speakable font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-10 max-w-2xl"
               >
                 WB Digital by Western Beats Private Limited is India&apos;s most trusted and 100% free music
-                distribution platform — officially backed by <strong className="text-white">Warner Music India</strong>.
+                distribution platform, officially backed by <strong className="text-white">Warner Music India</strong>.
                 Distribute to 150+ platforms including JioSaavn, Gaana, Spotify &amp; Apple Music.
-                Earn <strong className="text-white">75% of every stream</strong> — we only earn when you do. Always free to distribute.
+                Earn <strong className="text-white">75% of every stream</strong>, we only earn when you do. Always free to distribute.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-14">
@@ -522,12 +557,12 @@ export default function AboutPage() {
               </motion.div>
             </motion.div>
 
-            {/* Right column — hero image (desktop only) */}
+            {/* Right column: hero image (desktop only) */}
             <div className="hidden lg:block">
               <div className="relative rounded-3xl overflow-hidden" style={{ aspectRatio: '3/4' }}>
                 <Image
                   src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80&auto=format&fit=crop"
-                  alt="Independent artist performing on stage — WB Digital"
+                  alt="Independent artist performing on stage, WB Digital"
                   fill
                   sizes="(max-width:1280px) 50vw, 600px"
                   className="object-cover object-center"
@@ -549,7 +584,7 @@ export default function AboutPage() {
                 </div>
                 {/* Stat mini-cards at bottom */}
                 <div className="absolute bottom-5 left-4 right-4">
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="gsap-card grid grid-cols-3 gap-2">
                     {[
                       { val: '150+', lbl: 'Platforms' },
                       { val: '48h',  lbl: 'Go Live' },
@@ -602,26 +637,26 @@ export default function AboutPage() {
                 className="font-outfit font-black leading-[1.0] tracking-[-0.02em] mb-6"
                 style={{ fontSize: 'clamp(32px, 4.5vw, 54px)' }}
               >
-                <span className="block text-white">Born in India.</span>
-                <span className="block text-white">Built for</span>
-                <span className="block" style={{ color: '#0A64C3' }}>Independent Artists.</span>
+                <span className="page-hero-line block text-white">Born in India.</span>
+                <span className="page-hero-line block text-white">Built for</span>
+                <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Independent Artists.</span>
               </motion.h2>
               <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-5">
                 Western Beats Private Limited was founded with a single, bold mission: to give every Indian
                 independent artist access to the same distribution power, platform reach, and industry
-                credibility that only major labels once had — at zero cost.
+                credibility that only major labels once had, at zero cost.
               </motion.p>
               <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-5">
                 We watched talented artists get trapped paying annual subscriptions to foreign distributors
-                like DistroKid, TuneCore, and CD Baby — platforms built for the West, with little understanding
+                like DistroKid, TuneCore, and CD Baby, platforms built for the West, with little understanding
                 of the Indian market, Indian platforms, or Indian artists. We knew there was a better way.
               </motion.p>
               <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-5">
-                That&apos;s why we built WB Digital — India-first, artist-first, and backed by the partnership
+                That&apos;s why we built WB Digital: India-first, artist-first, and backed by the partnership
                 that changed everything: <strong className="text-white">Warner Music India</strong>.
               </motion.p>
               <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-8">
-                The same Warner Music India partnership that works with artists like <strong className="text-white">Armaan Malik, Diljit Dosanjh, King, and Darshan Raval</strong> — now powers every independent artist on WB Digital.
+                The same Warner Music India partnership that works with artists like <strong className="text-white">Armaan Malik, Diljit Dosanjh, King, and Darshan Raval</strong>, now powers every independent artist on WB Digital.
               </motion.p>
 
               {/* Mission callout */}
@@ -633,12 +668,12 @@ export default function AboutPage() {
                   &ldquo;Where Independent Meets Major.&rdquo;
                 </p>
                 <footer className="font-inter text-[12px] text-mut mt-2">
-                  — WB Digital Mission Statement · Western Beats Private Limited
+                  WB Digital Mission Statement · Western Beats Private Limited
                 </footer>
               </motion.blockquote>
             </motion.div>
 
-            {/* Right — tall portrait image with milestone overlays */}
+            {/* Right: tall portrait image with milestone overlays */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -649,7 +684,7 @@ export default function AboutPage() {
             >
               <Image
                 src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80&auto=format&fit=crop"
-                alt="Concert stage lights — Western Beats music distribution"
+                alt="Concert stage lights, Western Beats music distribution"
                 fill
                 sizes="(max-width:1024px) 100vw, 50vw"
                 className="object-cover object-center"
@@ -661,7 +696,7 @@ export default function AboutPage() {
               />
               {/* Milestone cards as absolute overlays at bottom */}
               <div className="absolute bottom-4 left-4 right-4">
-                <div className="grid grid-cols-2 gap-2">
+                <div className="gsap-card grid grid-cols-2 gap-2">
                   {[
                     { num: '01', title: 'Founded in India', color: '#C41230' },
                     { num: '02', title: 'Warner Music India', color: '#0A64C3' },
@@ -745,25 +780,25 @@ export default function AboutPage() {
               className="speakable font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl mx-auto"
             >
               WB Digital is India&apos;s only free distribution platform with an exclusive Warner Music India
-              backing — a partnership that no other distributor (DistroKid, TuneCore, CD Baby, Ditto Music,
+              backing, a partnership that no other distributor (DistroKid, TuneCore, CD Baby, Ditto Music,
               Believe, Orchard, Mad Verse, or Fore Vision Digital) can match.
             </motion.p>
           </div>
 
           {/* 4 WMI advantage cards */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+          <div className="gsap-card grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
             {[
               {
                 icon: Award,
                 title: 'Major-Label Credibility',
                 color: '#0A64C3',
-                desc: "Your releases carry the weight of Warner Music India's reputation — the same label behind some of India's biggest artists.",
+                desc: "Your releases carry the weight of Warner Music India's reputation, the same label behind some of India's biggest artists.",
               },
               {
                 icon: Zap,
                 title: 'Priority Platform Placement',
                 color: '#C41230',
-                desc: 'WMI relationships mean your music gets priority on JioSaavn, Gaana, and other Indian DSPs — faster and more prominently than any foreign distributor.',
+                desc: 'WMI relationships mean your music gets priority on JioSaavn, Gaana, and other Indian DSPs, faster and more prominently than any foreign distributor.',
               },
               {
                 icon: Globe2,
@@ -775,7 +810,7 @@ export default function AboutPage() {
                 icon: Shield,
                 title: 'Quality Assurance',
                 color: '#002A8D',
-                desc: 'Every release is checked against WMI quality standards — metadata, audio compliance, and platform specifications — before going live.',
+                desc: 'Every release is checked against WMI quality standards: metadata, audio compliance, and platform specifications, before going live.',
               },
             ].map((card, i) => (
               <motion.div
@@ -810,8 +845,8 @@ export default function AboutPage() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 p-6 sm:p-8 rounded-2xl"
             style={{ background: 'rgba(10,100,195,0.1)', border: '1px solid rgba(10,100,195,0.25)' }}
           >
-            <div className="w-14 h-14 rounded-xl overflow-hidden bg-white p-1 border-2 border-blu/40 flex-shrink-0">
-              <Image src="/wb-digital-logo.png" alt="Western Beats Logo" width={56} height={56} className="object-contain w-full h-full" />
+            <div className="w-14 h-14  flex-shrink-0">
+              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats Logo" width={56} height={56} className="object-contain w-full h-full" />
             </div>
             <div className="text-center sm:text-left">
               <div className="font-inter text-[11px] text-sky tracking-[0.12em] uppercase font-semibold mb-1">
@@ -838,7 +873,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── WHY WB DIGITAL — COMPARISON ─────────────────────────────────────── */}
+      {/* WHY WB DIGITAL: COMPARISON */}
       <section
         id="why-wb"
         aria-labelledby="why-heading"
@@ -880,7 +915,7 @@ export default function AboutPage() {
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl mx-auto"
             >
               Compare WB Digital against DistroKid, TuneCore, CD Baby, Ditto Music, Believe, The Orchard,
-              Mad Verse &amp; Fore Vision Digital — and see why the answer is clear.
+              Mad Verse &amp; Fore Vision Digital, and see why the answer is clear.
             </motion.p>
           </div>
 
@@ -1037,7 +1072,7 @@ export default function AboutPage() {
               className="inline-flex items-center gap-2 px-8 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1"
               style={{ boxShadow: '0 8px 30px rgba(10,100,195,0.35)' }}
             >
-              Start Free — No Credit Card Needed
+              Start Free, No Credit Card Needed
               <ArrowRight size={16} />
             </Link>
           </motion.div>
@@ -1087,12 +1122,12 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-xl mx-auto"
             >
-              Six principles that set us apart from every other music distributor — and the reason
+              Six principles that set us apart from every other music distributor, and the reason
               artists trust WB Digital with their careers.
             </motion.p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          <div className="gsap-card grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {VALUES.map((v, i) => (
               <motion.div
                 key={v.title}
@@ -1233,11 +1268,11 @@ export default function AboutPage() {
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl mx-auto"
             >
               Unlike DistroKid, TuneCore, or CD Baby which only offer distribution, WB Digital is a
-              complete music company — giving you everything you need to build a sustainable career.
+              complete music company, giving you everything you need to build a sustainable career.
             </motion.p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          <div className="gsap-card grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {SERVICES_BRIEF.map((s, i) => (
               <motion.div
                 key={s.title}
@@ -1355,7 +1390,7 @@ export default function AboutPage() {
             transition={{ duration: 0.5, ease: EASE }}
             className="platform-pill mb-6 inline-flex"
           >
-            ✦ Start Today — It&apos;s Free
+            ✦ Start Today, It&apos;s Free
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -1366,7 +1401,7 @@ export default function AboutPage() {
             style={{ fontSize: 'clamp(36px, 5.5vw, 64px)' }}
           >
             <span className="text-white">Ready to Distribute</span>
-            <span className="block" style={{ color: '#0A64C3' }}>Your Music Free?</span>
+            <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Your Music Free?</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -1375,7 +1410,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
             className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-10"
           >
-            Stop paying DistroKid, TuneCore, CD Baby, or Ditto Music. Switch to WB Digital — India&apos;s #1 free
+            Stop paying DistroKid, TuneCore, CD Baby, or Ditto Music. Switch to WB Digital, India&apos;s #1 free
             music distribution platform, officially backed by Warner Music India. One upload. 150+ platforms.
             75% royalties to you. ₹0 upfront. We only earn when you earn.
           </motion.p>
@@ -1428,8 +1463,8 @@ export default function AboutPage() {
         <div className="crm-stripe" />
         <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg overflow-hidden bg-white p-0.5 border border-blu/40">
-              <Image src="/wb-digital-logo.png" alt="Western Beats" width={32} height={32} className="object-contain w-full h-full" />
+            <div className="w-8 h-8 ">
+              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={32} height={32} className="object-contain w-full h-full" />
             </div>
             <div>
               <div className="font-outfit font-black text-white text-[13px] tracking-[0.04em]">WESTERN BEATS</div>

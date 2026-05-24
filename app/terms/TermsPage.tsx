@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import { useEffect, useRef } from 'react'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -69,8 +71,43 @@ For any questions about these terms, contact us at contact@westernbeats.com.`,
 ]
 
 export default function TermsPage() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    registerGSAP()
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.page-hero-line', {
+        y: 80, opacity: 0, skewY: 3, stagger: 0.12,
+        duration: 1.0, ease: 'power4.out', delay: 0.1,
+      })
+      gsap.from('.page-badge', {
+        y: -20, opacity: 0, duration: 0.6, ease: 'power3.out',
+      })
+      gsap.from('.page-subtext', {
+        y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5,
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-card').forEach((el) => {
+        const cards = el.querySelectorAll<HTMLElement>('.card-item')
+        if (!cards.length) return
+        gsap.from(cards, {
+          y: 50, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
+    <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
       <Nav />
 
       {/* Hero */}
@@ -88,12 +125,12 @@ export default function TermsPage() {
           </nav>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
-            <div className="platform-pill mb-6 inline-flex">Legal</div>
+            <div className="platform-pill page-badge mb-6 inline-flex">Legal</div>
             <h1 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-4" style={{ fontSize: 'clamp(38px, 6vw, 68px)' }}>
-              <span className="block text-white">Terms of</span>
-              <span className="block" style={{ color: '#0A64C3' }}>Service.</span>
+              <span className="page-hero-line block text-white">Terms of</span>
+              <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Service.</span>
             </h1>
-            <p className="font-inter text-[14px] text-mut">Last updated: January 2025 · Western Beats Private Limited</p>
+            <p className="page-subtext font-inter text-[14px] text-mut">Last updated: January 2025 · Western Beats Private Limited</p>
           </motion.div>
         </div>
       </section>

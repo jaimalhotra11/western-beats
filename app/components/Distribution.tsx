@@ -23,7 +23,7 @@ const STEPS = [
     icon: Globe,
     num: '02',
     title: 'We Distribute',
-    desc: 'We deliver your music to all 150+ platforms simultaneously — live within 48–72 hours of approval.',
+    desc: 'We deliver your music to all 150+ platforms simultaneously, live within 48–72 hours of approval.',
     color: '#5CB2DC',
   },
   {
@@ -41,9 +41,9 @@ const PLATFORMS_GRID = [
 ]
 
 const FEATURES = [
-  'Free distribution — no annual fees, no per-track fees',
-  '75% of all royalties paid directly to you — monthly',
-  'We only earn when you earn — zero upfront risk',
+  'Free distribution, no annual fees, no per-track fees',
+  '75% of all royalties paid directly to you, monthly',
+  'We only earn when you earn, zero upfront risk',
   'Release to 150+ platforms simultaneously',
   'Live on all platforms in 48–72 hours',
   'ISRC and UPC code generation',
@@ -82,7 +82,7 @@ export default function Distribution() {
           </motion.h2>
           <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed">
             WB Digital distributes your music to every major streaming platform worldwide.
-            We handle the delivery — you focus on the music.
+            We handle the delivery, you focus on the music.
           </motion.p>
         </motion.div>
 
@@ -169,7 +169,7 @@ export default function Distribution() {
             <div className="relative rounded-2xl overflow-hidden mb-8" style={{ aspectRatio: '16/9' }}>
               <Image
                 src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80&auto=format&fit=crop"
-                alt="Artist performing live — WB Digital distribution"
+                alt="Artist performing live, WB Digital distribution"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -236,13 +236,13 @@ export default function Distribution() {
             <div className="relative z-10">
               <div className="font-outfit font-black text-white text-[36px] sm:text-[42px] leading-none mb-2">Free.</div>
               <div className="font-inter text-ice text-[16px] mb-8 leading-relaxed">
-                No annual fees. No per-track charges. You keep 75% of every stream — we only earn when you do.
-                Just upload and distribute — it costs you nothing upfront.
+                No annual fees. No per-track charges. You keep 75% of every stream, we only earn when you do.
+                Just upload and distribute, it costs you nothing upfront.
               </div>
               <div className="flex flex-col gap-3">
-                <div className="font-inter text-white/80 text-[13px]">✦ Instant setup — no approval wait</div>
+                <div className="font-inter text-white/80 text-[13px]">✦ Instant setup, no approval wait</div>
                 <div className="font-inter text-white/80 text-[13px]">✦ Warner Music India backed</div>
-                <div className="font-inter text-white/80 text-[13px]">✦ 75% royalties — 100% ownership of your masters</div>
+                <div className="font-inter text-white/80 text-[13px]">✦ 75% royalties, 100% ownership of your masters</div>
               </div>
               <a
                 href="mailto:contact@westernbeats.com?subject=Distribution Enquiry"

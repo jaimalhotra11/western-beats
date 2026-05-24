@@ -4,6 +4,8 @@ import Link from 'next/link'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { MapPin, Briefcase, Heart, Zap, Users } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -64,8 +66,43 @@ const VALUES = [
 ]
 
 export default function CareersPage() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    registerGSAP()
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.page-hero-line', {
+        y: 80, opacity: 0, skewY: 3, stagger: 0.12,
+        duration: 1.0, ease: 'power4.out', delay: 0.1,
+      })
+      gsap.from('.page-badge', {
+        y: -20, opacity: 0, duration: 0.6, ease: 'power3.out',
+      })
+      gsap.from('.page-subtext', {
+        y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5,
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-card').forEach((el) => {
+        const cards = el.querySelectorAll<HTMLElement>('.card-item')
+        if (!cards.length) return
+        gsap.from(cards, {
+          y: 50, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
+    <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
       <Nav />
 
       {/* Hero */}
@@ -85,13 +122,13 @@ export default function CareersPage() {
           </nav>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
-            <div className="platform-pill mb-6 inline-flex">Careers at Western Beats</div>
+            <div className="platform-pill page-badge mb-6 inline-flex">Careers at Western Beats</div>
             <h1 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6" style={{ fontSize: 'clamp(42px, 7vw, 80px)' }}>
-              <span className="block text-white">Build the Future</span>
-              <span className="block" style={{ color: '#0A64C3' }}>of Indian</span>
-              <span className="block text-white">Music.</span>
+              <span className="page-hero-line block text-white">Build the Future</span>
+              <span className="page-hero-line block" style={{ color: '#0A64C3' }}>of Indian</span>
+              <span className="page-hero-line block text-white">Music.</span>
             </h1>
-            <p className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-2xl">
+            <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-2xl">
               We are Western Beats, India&apos;s most credible music company. Backed by Warner Music India. Our platform WB Digital serves independent artists across the country. We are a small team that moves fast and ships work that matters.
             </p>
             <p className="font-inter text-[14px] text-mut">
@@ -164,7 +201,7 @@ export default function CareersPage() {
       {/* Life at Western Beats */}
       <section className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="mb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="gsap-fade-up mb-12">
             <div className="platform-pill mb-5 inline-flex">Why Work Here</div>
             <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.0]" style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}>
               <span className="text-white">Life at </span>
@@ -172,7 +209,7 @@ export default function CareersPage() {
             </h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-3 gap-5">
+          <div className="gsap-card grid sm:grid-cols-3 gap-5">
             {VALUES.map((v, i) => (
               <motion.div key={v.title}
                 initial={{ opacity: 0, y: 40 }}

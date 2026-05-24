@@ -42,7 +42,7 @@ export default function Artists() {
             <span style={{ color: '#0A64C3' }}>Roster.</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed">
-            From Haryanvi folk to Punjabi hip-hop, Rajasthani heritage to urban fusion — WB Digital
+            From Haryanvi folk to Punjabi hip-hop, Rajasthani heritage to urban fusion, WB Digital
             distributes some of India&apos;s most loved regional voices to 150+ platforms worldwide.
           </motion.p>
         </motion.div>

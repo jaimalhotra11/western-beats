@@ -1,6 +1,7 @@
 'use client'
 import { motion, useInView, Variants } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
@@ -32,12 +33,12 @@ const SERVICES = [
     tag: 'Core · Always Free',
     title: 'Music Distribution',
     headline: 'One Upload. 150+ Platforms. 48 Hours. Free.',
-    desc: 'Upload once and reach every major streaming platform worldwide simultaneously — free distribution with 75% royalties straight to you. Our Warner Music India partnership means priority placement on JioSaavn, Gaana, and every Indian DSP.',
+    desc: 'Upload once and reach every major streaming platform worldwide simultaneously, free distribution with 75% royalties straight to you. Our Warner Music India partnership means priority placement on JioSaavn, Gaana, and every Indian DSP.',
     points: [
-      'Free forever — no annual fee, no per-release charge',
-      '75% royalties paid monthly — we only earn when you earn',
+      'Free forever, no annual fee, no per-release charge',
+      '75% royalties paid monthly, we only earn when you earn',
       '150+ platforms: JioSaavn, Gaana, Spotify, Apple Music & more',
-      'Live in 48 hours — faster than DistroKid & TuneCore',
+      'Live in 48 hours, faster than DistroKid & TuneCore',
       'Free ISRC & UPC code generation',
       'Real-time royalty dashboard',
       'Keep 100% ownership of your masters',
@@ -48,7 +49,7 @@ const SERVICES = [
     steps: [
       { icon: Upload,      num: '01', title: 'Upload',     desc: 'Submit your track, artwork, and release info. We review within 24 hours.' },
       { icon: Globe2,      num: '02', title: 'Distribute', desc: 'We push your music to 150+ platforms simultaneously within 48 hours.' },
-      { icon: DollarSign, num: '03', title: 'Earn 75%',   desc: '75% of every rupee earned flows directly to you monthly. We only earn when you earn — zero upfront cost.' },
+      { icon: DollarSign, num: '03', title: 'Earn 75%',   desc: '75% of every rupee earned flows directly to you monthly. We only earn when you earn, zero upfront cost.' },
     ],
     featured: true,
   },
@@ -59,7 +60,7 @@ const SERVICES = [
     tag: 'Full Production',
     title: 'Event Management',
     headline: 'Concerts, Launches & Live Experiences.',
-    desc: 'From intimate album listening parties to full-scale stadium concerts — WB Digital handles every aspect of live event production. Artist riders, venue booking, PR, live streaming, and on-ground management across India.',
+    desc: 'From intimate album listening parties to full-scale stadium concerts. WB Digital handles every aspect of live event production. Artist riders, venue booking, PR, live streaming, and on-ground management across India.',
     points: [
       'Venue scouting, booking & stage design',
       'Artist rider management & hospitality',
@@ -73,7 +74,7 @@ const SERVICES = [
       'End-to-end budget management',
     ],
     steps: [
-      { icon: Star,    num: '01', title: 'Concept',     desc: 'We design the vision — theme, venue, production scale, and audience experience.' },
+      { icon: Star,    num: '01', title: 'Concept',     desc: 'We design the vision: theme, venue, production scale, and audience experience.' },
       { icon: Users,   num: '02', title: 'Execute',     desc: 'Our production team handles every detail from venue to sound to PR.' },
       { icon: TrendingUp, num: '03', title: 'Amplify', desc: 'Post-event coverage, media clips, and audience growth analytics.' },
     ],
@@ -86,7 +87,7 @@ const SERVICES = [
     tag: 'Artist Growth',
     title: 'Talent Management',
     headline: 'Your Career. Managed by the Best.',
-    desc: 'WB Digital provides end-to-end artist management — from career strategy and brand partnership deals to industry connections through our exclusive Warner Music India network. We grow independent artists into household names.',
+    desc: 'WB Digital provides end-to-end artist management, from career strategy and brand partnership deals to industry connections through our exclusive Warner Music India network. We grow independent artists into household names.',
     points: [
       'Personalized career strategy & roadmap',
       'Brand partnership deals & endorsements',
@@ -113,7 +114,7 @@ const SERVICES = [
     tag: 'Studio Quality',
     title: 'Audio Production',
     headline: 'Major-Label Sound. Independent Spirit.',
-    desc: 'Professional recording, mixing, mastering, and sound design benchmarked against Warner Music India quality standards. From raw demos to chart-ready masters — every release meets international streaming platform requirements.',
+    desc: 'Professional recording, mixing, mastering, and sound design benchmarked against Warner Music India quality standards. From raw demos to chart-ready masters; every release meets international streaming platform requirements.',
     points: [
       'Professional studio recording sessions',
       'Multi-track mixing & arrangement',
@@ -140,7 +141,7 @@ const SERVICES = [
     tag: 'Visual Identity',
     title: 'Video Direction',
     headline: 'Visuals That Go Viral.',
-    desc: 'Music videos, Instagram Reels, YouTube Shorts, promotional campaigns, and social media content — designed to match the WB Digital visual identity and engineered to maximize organic reach and streams.',
+    desc: 'Music videos, Instagram Reels, YouTube Shorts, promotional campaigns, and social media content, designed to match the WB Digital visual identity and engineered to maximize organic reach and streams.',
     points: [
       'Full music video concept & direction',
       'Instagram Reels & YouTube Shorts production',
@@ -155,7 +156,7 @@ const SERVICES = [
     ],
     steps: [
       { icon: Play,        num: '01', title: 'Concept',    desc: 'Creative direction, mood board, location scouting & storyboarding.' },
-      { icon: Video,       num: '02', title: 'Shoot',      desc: 'Full production — crew, camera, lighting, and direction on set.' },
+      { icon: Video,       num: '02', title: 'Shoot',      desc: 'Full production: crew, camera, lighting, and direction on set.' },
       { icon: Star,        num: '03', title: 'Deliver',    desc: 'Edit, grade, VFX, and final delivery in all required formats.' },
     ],
     featured: false,
@@ -183,7 +184,7 @@ const SERVICES = [
     steps: [
       { icon: BarChart3,   num: '01', title: 'Track',     desc: 'Centralized dashboard pulling data from all 150+ platforms in real time.' },
       { icon: TrendingUp,  num: '02', title: 'Analyse',   desc: 'Deep-dive into what is working, what is not, and where to focus.' },
-      { icon: Zap,         num: '03', title: 'Optimise',  desc: 'Data-backed recommendations — release timing, platforms, and strategy.' },
+      { icon: Zap,         num: '03', title: 'Optimise',  desc: 'Data-backed recommendations: release timing, platforms, and strategy.' },
     ],
     featured: false,
   },
@@ -196,23 +197,23 @@ const FAQS = [
   },
   {
     q: 'Is music distribution with WB Digital really free?',
-    a: 'Yes — distribution is completely free. ₹0 forever. No annual subscription, no per-release fee. WB Digital earns a 25% royalty share only when you earn — so you keep 75% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99/release, CD Baby charges $9.99/release AND takes 9% of royalties. WB Digital charges nothing upfront — we are fully invested in your success.',
+    a: 'Yes, distribution is completely free. ₹0 forever. No annual subscription, no per-release fee. WB Digital earns a 25% royalty share only when you earn, so you keep 75% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99/release, CD Baby charges $9.99/release AND takes 9% of royalties. WB Digital charges nothing upfront, we are fully invested in your success.',
   },
   {
     q: 'How quickly does music go live with WB Digital?',
-    a: 'Within 48 hours of submission and approval, your music is live on all 150+ streaming platforms simultaneously — including JioSaavn, Gaana, Spotify, Apple Music, YouTube Music, and more. DistroKid takes 7–10 days, TuneCore takes 7–10 days, CD Baby takes 5–7 days. We are the fastest distributor in India.',
+    a: 'Within 48 hours of submission and approval, your music is live on all 150+ streaming platforms simultaneously, including JioSaavn, Gaana, Spotify, Apple Music, YouTube Music, and more. DistroKid takes 7–10 days, TuneCore takes 7–10 days, CD Baby takes 5–7 days. We are the fastest distributor in India.',
   },
   {
     q: 'Which platforms does WB Digital distribute to?',
-    a: 'WB Digital distributes to 150+ platforms: JioSaavn, Gaana, Hungama, Resso, Wynk, Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, SoundCloud, Boomplay, Pandora, Audiomack, Napster — and 130+ more globally. Our Warner Music India partnership gives us priority placement on Indian DSPs.',
+    a: 'WB Digital distributes to 150+ platforms: JioSaavn, Gaana, Hungama, Resso, Wynk, Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, SoundCloud, Boomplay, Pandora, Audiomack, Napster, and 130+ more globally. Our Warner Music India partnership gives us priority placement on Indian DSPs.',
   },
   {
     q: 'How do I book event management or talent management?',
-    a: 'Simply email contact@westernbeats.com or DM @wb_digital_ on Instagram with your requirements — event type, scale, date, and budget for events; career stage and goals for talent management. Our team responds within 24 hours with a custom proposal.',
+    a: 'Simply email contact@westernbeats.com or DM @wb_digital_ on Instagram with your requirements: event type, scale, date, and budget for events; career stage and goals for talent management. Our team responds within 24 hours with a custom proposal.',
   },
   {
     q: 'What audio quality standards does WB Digital use?',
-    a: "WB Digital's audio production is benchmarked against Warner Music India quality standards — the same standards used by major-label releases. This means LUFS-compliant mastering for each platform, high-resolution audio exports, Dolby Atmos support, and full metadata compliance for every distribution platform.",
+    a: "WB Digital's audio production is benchmarked against Warner Music India quality standards, the same standards used by major-label releases. This means LUFS-compliant mastering for each platform, high-resolution audio exports, Dolby Atmos support, and full metadata compliance for every distribution platform.",
   },
 ]
 
@@ -257,14 +258,49 @@ function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
 
 /* ─── Main Page ──────────────────────────────────────────────────────────────── */
 export default function ServicesPage() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    registerGSAP()
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.page-hero-line', {
+        y: 80, opacity: 0, skewY: 3, stagger: 0.12,
+        duration: 1.0, ease: 'power4.out', delay: 0.1,
+      })
+      gsap.from('.page-badge', {
+        y: -20, opacity: 0, duration: 0.6, ease: 'power3.out',
+      })
+      gsap.from('.page-subtext', {
+        y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5,
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-card').forEach((el) => {
+        const cards = el.querySelectorAll<HTMLElement>('.card-item')
+        if (!cards.length) return
+        gsap.from(cards, {
+          y: 50, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
+    <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
 
       {/* ── NAV ────────────────────────────────────────────────────────────── */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060C18]/95 backdrop-blur-xl border-b border-white/[0.06] py-3">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
+            <div className="relative w-10 h-9 flex-shrink-0">
               <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
@@ -295,7 +331,7 @@ export default function ServicesPage() {
             ))}
           </div>
           <div className="hidden md:flex items-center gap-3">
-            <div className="platform-pill text-[10px]">Warner Music India</div>
+            <div className="platform-pill page-badge text-[10px]">Warner Music India</div>
             <Link href="/#distribution" className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200">
               Distribute Free
             </Link>
@@ -331,12 +367,12 @@ export default function ServicesPage() {
                 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
                 style={{ fontSize: 'clamp(40px, 6.5vw, 82px)' }}
               >
-                <span className="block text-white">Everything</span>
-                <span className="block text-white">Your Music</span>
-                <span className="block" style={{ color: '#0A64C3' }}>Career Needs.</span>
+                <span className="page-hero-line block text-white">Everything</span>
+                <span className="page-hero-line block text-white">Your Music</span>
+                <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Career Needs.</span>
               </motion.h1>
               <motion.p variants={fadeUp} className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-xl">
-                WB Digital is India&apos;s only <strong className="text-white">full-service music company</strong> backed by Warner Music India — offering free distribution, events, talent management, audio production, video direction, and analytics under one roof.
+                WB Digital is India&apos;s only <strong className="text-white">full-service music company</strong> backed by Warner Music India, offering free distribution, events, talent management, audio production, video direction, and analytics under one roof.
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mb-10">
                 <Link href="#distribution" onClick={e => { e.preventDefault(); document.getElementById('distribution')?.scrollIntoView({ behavior: 'smooth' }) }}
@@ -365,10 +401,10 @@ export default function ServicesPage() {
               </motion.div>
             </motion.div>
 
-            {/* Right — 2×3 visual service grid */}
+            {/* Right: 2x3 visual service grid */}
             <motion.div
               initial="hidden" animate="show" variants={container}
-              className="grid grid-cols-2 gap-3"
+              className="gsap-card grid grid-cols-2 gap-3"
             >
               {SERVICES.map((s, i) => (
                 <motion.button
@@ -437,7 +473,7 @@ export default function ServicesPage() {
                 <motion.p
                   initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
-                  className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl mx-auto"
+                  className="page-subtext font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl mx-auto"
                 >
                   {service.desc}
                 </motion.p>
@@ -477,7 +513,7 @@ export default function ServicesPage() {
                   <div className="font-outfit font-extrabold text-white text-[20px] sm:text-[24px] mb-8">
                     Everything Included.
                   </div>
-                  <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
+                  <div className="gsap-card grid sm:grid-cols-2 gap-x-6 gap-y-3">
                     {service.points.map((pt, i) => (
                       <motion.div
                         key={i}
@@ -500,13 +536,13 @@ export default function ServicesPage() {
                       className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-outfit font-bold text-[14px] text-white hover:-translate-y-1 transition-all duration-300"
                       style={{ background: service.color, boxShadow: `0 8px 30px ${service.color}50` }}
                     >
-                      Get Started — {service.id === 'distribution' ? "It's Free" : 'Book Now'}
+                      Get Started: {service.id === 'distribution' ? "It's Free" : 'Book Now'}
                       <ArrowRight size={15} />
                     </Link>
                   </motion.div>
                 </motion.div>
 
-                {/* Visual panel — unique per service */}
+                {/* Visual panel: unique per service */}
                 <motion.div
                   initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
@@ -544,10 +580,10 @@ export default function ServicesPage() {
             </motion.h2>
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
               className="font-inter text-[15px] text-mut max-w-xl mx-auto">
-              One upload reaches all 150+ platforms simultaneously — in 48 hours, for free.
+              One upload reaches all 150+ platforms simultaneously, in 48 hours, for free.
             </motion.p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+          <div className="gsap-card grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
             {PLATFORMS.map((p, i) => {
               const Icon = p.Icon
               return (
@@ -586,7 +622,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── ARTIST GALLERY — proof via real images ──────────────────────────── */}
+      {/* ARTIST GALLERY: proof via real images */}
       <section className="py-24 sm:py-32 relative overflow-hidden">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(10,100,195,0.08) 0%, transparent 60%)' }} />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -605,11 +641,11 @@ export default function ServicesPage() {
             </motion.h2>
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
               className="font-inter text-[15px] text-mut max-w-2xl mx-auto">
-              From Haryanvi folk icons to Punjabi hip-hop stars — our artists collectively reach millions of fans across 150+ platforms worldwide.
+              From Haryanvi folk icons to Punjabi hip-hop stars, our artists collectively reach millions of fans across 150+ platforms worldwide.
             </motion.p>
           </div>
 
-          {/* Featured artist — large */}
+          {/* Featured artist, large */}
           <div className="grid lg:grid-cols-2 gap-6 mb-6">
             {ARTISTS.slice(0, 2).map((a, i) => (
               <motion.div
@@ -643,8 +679,8 @@ export default function ServicesPage() {
             ))}
           </div>
 
-          {/* Rest — smaller grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {/* Rest: smaller grid */}
+          <div className="gsap-card grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {ARTISTS.slice(2, 10).map((a, i) => (
               <motion.div
                 key={a.name}
@@ -679,7 +715,7 @@ export default function ServicesPage() {
               The Companies That <span style={{ color: '#0A64C3' }}>Trust Us.</span>
             </motion.h2>
           </div>
-          <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-4">
+          <div className="gsap-card grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-4">
             {PARTNERS.map((p, i) => (
               <motion.div
                 key={p.name}
@@ -728,7 +764,7 @@ export default function ServicesPage() {
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(10,100,195,0.15) 0%, transparent 70%)' }} />
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="platform-pill mb-6 inline-flex">
-            ✦ Start Today — It&apos;s Free
+            ✦ Start Today, It&apos;s Free
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
@@ -737,14 +773,14 @@ export default function ServicesPage() {
             style={{ fontSize: 'clamp(34px, 5vw, 64px)' }}
           >
             <span className="text-white">Ready to Take Your</span>
-            <span className="block" style={{ color: '#0A64C3' }}>Music Further?</span>
+            <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Music Further?</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
             className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-10">
             Free music distribution to 150+ platforms. Professional events. Expert talent management. Major-label audio & video production. All backed by Warner Music India. One company. Everything you need.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-4 mb-12">
+            className="gsap-fade-up flex flex-wrap justify-center gap-4 mb-12">
             <Link href="/#distribution"
               className="group flex items-center gap-2 px-8 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1"
               style={{ boxShadow: '0 8px 35px rgba(10,100,195,0.4)' }}>
@@ -770,8 +806,8 @@ export default function ServicesPage() {
         <div className="crm-stripe" />
         <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg overflow-hidden bg-white p-0.5 border border-blu/40">
-              <Image src="/wb-digital-logo.png" alt="Western Beats" width={32} height={32} className="object-contain w-full h-full" />
+            <div className="w-8 h-8 ">
+              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={32} height={32} className="object-contain w-full h-full" />
             </div>
             <div>
               <div className="font-outfit font-black text-white text-[13px] tracking-[0.04em]">WESTERN BEATS</div>
@@ -850,7 +886,7 @@ function TalentVisual({ color }: { color: string }) {
   const artists = ARTISTS.slice(0, 4)
   return (
     <div className="rounded-2xl overflow-hidden" style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.08)' }}>
-      <div className="grid grid-cols-2 gap-px">
+      <div className="gsap-card grid grid-cols-2 gap-px">
         {artists.map((a, i) => (
           <div key={a.name} className="relative h-36 overflow-hidden group">
             <Image src={a.image} alt={a.name} fill sizes="200px" className="object-cover object-top transition-transform duration-500 group-hover:scale-105" />
@@ -967,7 +1003,7 @@ function AnalyticsVisual({ color }: { color: string }) {
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="gsap-card grid grid-cols-2 gap-3">
         {[
           { label: 'Platforms Tracked', val: '150+' },
           { label: 'Top Market',         val: 'India' },

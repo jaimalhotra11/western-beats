@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import SubmitPage from './SubmitPage'
 
 export const metadata: Metadata = {
-  title: 'Submit Your Music — Free Distribution to 150+ Platforms | WB Digital · Western Beats',
+  title: 'Submit Your Music: Free Distribution to 150+ Platforms | WB Digital · Western Beats',
   description:
-    'Submit your music to WB Digital for free distribution to 150+ streaming platforms — JioSaavn, Gaana, Spotify, Apple Music & more. Go live in 48 hours. Keep 75% royalties. Backed by Warner Music India. Start today — ₹0 upfront.',
+    'Submit your music to WB Digital for free distribution to 150+ streaming platforms: JioSaavn, Gaana, Spotify, Apple Music & more. Go live in 48 hours. Keep 75% royalties. Backed by Warner Music India. Start today, ₹0 upfront.',
   keywords: [
     'submit music WB Digital',
     'submit music India free',
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://westernbeats.com/submit' },
   openGraph: {
-    title: 'Submit Your Music Free — WB Digital | Western Beats',
+    title: 'Submit Your Music Free: WB Digital | Western Beats',
     description: 'Submit your music for free distribution to 150+ platforms in 48 hours. 75% royalties. Warner Music India backed. ₹0 upfront.',
     url: 'https://westernbeats.com/submit',
-    siteName: 'Western Beats — WB Digital',
+    siteName: 'Western Beats: WB Digital',
     type: 'website',
     locale: 'en_IN',
   },
@@ -44,7 +44,7 @@ const jsonLd = {
       '@type': 'WebPage',
       '@id': 'https://westernbeats.com/submit#webpage',
       url: 'https://westernbeats.com/submit',
-      name: 'Submit Your Music — WB Digital Free Distribution',
+      name: 'Submit Your Music: WB Digital Free Distribution',
       isPartOf: { '@id': 'https://westernbeats.com/#website' },
       breadcrumb: {
         '@type': 'BreadcrumbList',

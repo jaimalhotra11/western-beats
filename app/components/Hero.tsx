@@ -117,7 +117,7 @@ export default function Hero() {
         <div className="w-full h-full" style={{ background: 'radial-gradient(ellipse, rgba(196,18,48,0.1) 0%, transparent 70%)' }} />
       </motion.div>
 
-      {/* Animated orbit ring — Western Beats logo only */}
+      {/* Animated orbit ring: Western Beats logo only */}
       {mounted && (
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
@@ -152,7 +152,7 @@ export default function Hero() {
             transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
             className="absolute inset-[120px] rounded-full border border-blu/10 border-dashed"
           />
-          {/* Logo only — no background */}
+          {/* Logo only, no background */}
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div
               animate={{ y: [0, -10, 0] }}
@@ -175,7 +175,7 @@ export default function Hero() {
           ✦ Official Warner Music India Partner · Bruno Mars · Coldplay · Ed Sheeran · Diljit · King
         </div>
 
-        {/* Headline — GSAP word reveal */}
+        {/* Headline: GSAP word reveal */}
         <div className="max-w-3xl">
           <h1
             ref={headlineRef}
@@ -191,8 +191,8 @@ export default function Hero() {
             ref={subRef}
             className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-8 sm:mb-10 max-w-xl opacity-0"
           >
-            <strong className="text-white">Western Beats</strong> — India&apos;s most credible full-service music company,
-            officially backed by Warner Music India — home to <strong className="text-white">Diljit Dosanjh, King, Karan Aujla &amp; Darshan Raval</strong>.
+            <strong className="text-white">Western Beats</strong>, India&apos;s most credible full-service music company,
+            officially backed by Warner Music India, home to <strong className="text-white">Diljit Dosanjh, King, Karan Aujla &amp; Darshan Raval</strong>.
             Distribute to 150+ platforms free via WB Digital. Keep <strong className="text-white">75% of every stream</strong>. <strong className="text-white">100% ownership. Always free.</strong>
           </p>
 
@@ -217,7 +217,7 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Waveform — GSAP bar reveal */}
+          {/* Waveform: GSAP bar reveal */}
           <div ref={waveRef} className="flex items-end gap-[3px] h-12 mb-3">
             {WAVEFORM_HEIGHTS.map((h, i) => (
               <div
@@ -252,7 +252,7 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* Stats bar — centered */}
+      {/* Stats bar, centered */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

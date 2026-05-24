@@ -1,6 +1,7 @@
 'use client'
 import { motion, useInView, Variants } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
@@ -46,9 +47,9 @@ const STEPS = [
     color: '#5CB2DC',
     title: 'We Distribute',
     subtitle: '150+ platforms in 48 hours',
-    desc: 'Once approved, WB Digital delivers your music to every major streaming platform simultaneously. JioSaavn and Gaana are prioritized for Indian artists — then Spotify, Apple Music, YouTube Music, and 145+ more globally.',
+    desc: 'Once approved, WB Digital delivers your music to every major streaming platform simultaneously. JioSaavn and Gaana are prioritized for Indian artists, then Spotify, Apple Music, YouTube Music, and 145+ more globally.',
     checklist: [
-      'JioSaavn, Gaana, Hungama, Resso, Wynk — India first',
+      'JioSaavn, Gaana, Hungama, Resso, Wynk: India first',
       'Spotify, Apple Music, YouTube Music worldwide',
       'Amazon Music, Tidal, Deezer, SoundCloud & more',
       'Live on all platforms within 48 hours of approval',
@@ -63,10 +64,10 @@ const STEPS = [
     color: '#C41230',
     title: 'Earn 75% Royalties',
     subtitle: 'Paid monthly, every month',
-    desc: '75% of all streaming royalties from every platform flow directly to you every month. We take 25% only when you earn — we never charge you upfront. The more you earn, the more we both earn. Perfectly aligned.',
+    desc: '75% of all streaming royalties from every platform flow directly to you every month. We take 25% only when you earn, we never charge you upfront. The more you earn, the more we both earn. Perfectly aligned.',
     checklist: [
       '75% royalties paid directly to you monthly',
-      'We earn 25% only when you earn — zero upfront cost',
+      'We earn 25% only when you earn, zero upfront cost',
       'Real-time dashboard: track every stream live',
       'Revenue breakdown by platform & territory',
       'Transparent monthly PDF payout reports',
@@ -85,11 +86,11 @@ const TIMELINE = [
 
 const WHY_ITEMS = [
   { icon: Zap,       color: '#0A64C3', title: '48-Hour Go-Live',          desc: 'DistroKid & TuneCore take 7–10 days. Your music is live on JioSaavn, Gaana, Spotify & 148+ platforms in just 48 hours.' },
-  { icon: Shield,    color: '#C41230', title: 'Same Label as Bruno Mars', desc: 'Warner Music Group — home to Bruno Mars (150M+ Spotify listeners), Coldplay, Ed Sheeran & Dua Lipa — backs WB Digital through Warner Music India.' },
-  { icon: Music2,    color: '#5CB2DC', title: "India's Biggest Artists",  desc: 'WMI roster: Armaan Malik, Diljit Dosanjh, King, Darshan Raval, Guru Randhawa & Karan Aujla — all on the same label that now powers your independent release.' },
+  { icon: Shield,    color: '#C41230', title: 'Same Label as Bruno Mars', desc: 'Warner Music Group, home to Bruno Mars (150M+ Spotify listeners), Coldplay, Ed Sheeran & Dua Lipa, backs WB Digital through Warner Music India.' },
+  { icon: Music2,    color: '#5CB2DC', title: "India's Biggest Artists",  desc: 'WMI roster: Armaan Malik, Diljit Dosanjh, King, Darshan Raval, Guru Randhawa & Karan Aujla, all on the same label that now powers your independent release.' },
   { icon: BarChart3, color: '#0A64C3', title: 'Real-Time Analytics',      desc: 'Live streaming data, audience demographics, playlist tracking, and revenue reporting across all 150+ platforms.' },
-  { icon: FileText,  color: '#C41230', title: 'Free ISRC & UPC Codes',    desc: 'We generate your ISRC and UPC codes at no cost — DistroKid charges extra, CD Baby charges $5 each.' },
-  { icon: Clock,     color: '#5CB2DC', title: '24/7 Artist Support',      desc: 'Direct WhatsApp and email support — not a ticket system. Real people, real answers within hours.' },
+  { icon: FileText,  color: '#C41230', title: 'Free ISRC & UPC Codes',    desc: 'We generate your ISRC and UPC codes at no cost; DistroKid charges extra, CD Baby charges $5 each.' },
+  { icon: Clock,     color: '#5CB2DC', title: '24/7 Artist Support',      desc: 'Direct WhatsApp and email support, not a ticket system. Real people, real answers within hours.' },
 ]
 
 export default function HowItWorksPage() {
@@ -98,15 +99,49 @@ export default function HowItWorksPage() {
   const whyRef   = useRef(null)
   const stepsView = useInView(stepsRef, { once: true, margin: '-80px' })
   const whyView   = useInView(whyRef, { once: true, margin: '-80px' })
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    registerGSAP()
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.page-hero-line', {
+        y: 80, opacity: 0, skewY: 3, stagger: 0.12,
+        duration: 1.0, ease: 'power4.out', delay: 0.1,
+      })
+      gsap.from('.page-badge', {
+        y: -20, opacity: 0, duration: 0.6, ease: 'power3.out',
+      })
+      gsap.from('.page-subtext', {
+        y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5,
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-card').forEach((el) => {
+        const cards = el.querySelectorAll<HTMLElement>('.card-item')
+        if (!cards.length) return
+        gsap.from(cards, {
+          y: 50, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <div className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
+    <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
 
       {/* ── NAV ──────────────────────────────────────────────────────────────── */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060C18]/95 backdrop-blur-xl border-b border-white/[0.06] py-3">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
+            <div className="relative w-10 h-9 flex-shrink-0">
               <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
@@ -159,9 +194,9 @@ export default function HowItWorksPage() {
           </nav>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left — headline */}
+            {/* Left: headline */}
             <motion.div variants={container} initial="hidden" animate="show">
-              <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
+              <motion.div variants={fadeUp} className="platform-pill page-badge mb-6 inline-flex">
                 ✦ Simple. Transparent. Free.
               </motion.div>
               <motion.h1
@@ -169,16 +204,16 @@ export default function HowItWorksPage() {
                 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
                 style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
               >
-                <span className="block text-white">3 Steps.</span>
-                <span className="block" style={{ color: '#0A64C3' }}>150+ Platforms.</span>
-                <span className="block text-white">75% Yours.</span>
+                <span className="page-hero-line block text-white">3 Steps.</span>
+                <span className="page-hero-line block" style={{ color: '#0A64C3' }}>150+ Platforms.</span>
+                <span className="page-hero-line block text-white">75% Yours.</span>
               </motion.h1>
               <motion.p
                 variants={fadeUp}
-                className="font-inter text-[16px] sm:text-[17px] text-mut leading-relaxed mb-8 max-w-xl"
+                className="page-subtext font-inter text-[16px] sm:text-[17px] text-mut leading-relaxed mb-8 max-w-xl"
               >
                 WB Digital makes music distribution the simplest thing you&apos;ll do today.
-                Submit your music, we handle the rest — 150+ platforms in 48 hours, 75% royalties straight to you.
+                Submit your music, we handle the rest: 150+ platforms in 48 hours, 75% royalties straight to you.
                 <strong className="text-white"> Always free. 100% ownership yours.</strong>
               </motion.p>
 
@@ -206,7 +241,7 @@ export default function HowItWorksPage() {
               </motion.div>
             </motion.div>
 
-            {/* Right — Timeline */}
+            {/* Right: Timeline */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -360,12 +395,12 @@ export default function HowItWorksPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
               className="font-inter text-[15px] text-mut leading-relaxed mt-4 max-w-xl mx-auto"
             >
-              Warner Music Group — home to Bruno Mars, Coldplay, Ed Sheeran & Dua Lipa globally — backs WB Digital
+              Warner Music Group, home to Bruno Mars, Coldplay, Ed Sheeran & Dua Lipa globally, backs WB Digital
               through Warner Music India, the label of Armaan Malik, Diljit Dosanjh, King &amp; Darshan Raval.
             </motion.p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="gsap-card grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {WHY_ITEMS.map((item, i) => {
               const Icon = item.icon
               return (

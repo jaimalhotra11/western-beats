@@ -4,7 +4,8 @@ import Link from 'next/link'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { Mail, Phone, MessageCircle, MapPin } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -47,7 +48,41 @@ const CONTACT_CARDS = [
 ]
 
 export default function ContactPage() {
+  const sectionRef = useRef<HTMLDivElement>(null)
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+
+  useEffect(() => {
+    registerGSAP()
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.page-hero-line', {
+        y: 80, opacity: 0, skewY: 3, stagger: 0.12,
+        duration: 1.0, ease: 'power4.out', delay: 0.1,
+      })
+      gsap.from('.page-badge', {
+        y: -20, opacity: 0, duration: 0.6, ease: 'power3.out',
+      })
+      gsap.from('.page-subtext', {
+        y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5,
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-card').forEach((el) => {
+        const cards = el.querySelectorAll<HTMLElement>('.card-item')
+        if (!cards.length) return
+        gsap.from(cards, {
+          y: 50, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -72,7 +107,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
+    <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
       <Nav />
 
       {/* Hero */}
@@ -92,12 +127,12 @@ export default function ContactPage() {
           </nav>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
-            <div className="platform-pill mb-6 inline-flex">Get in Touch</div>
+            <div className="platform-pill page-badge mb-6 inline-flex">Get in Touch</div>
             <h1 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6" style={{ fontSize: 'clamp(42px, 7vw, 80px)' }}>
-              <span className="block text-white">Talk to</span>
-              <span className="block" style={{ color: '#0A64C3' }}>Our Team.</span>
+              <span className="page-hero-line block text-white">Talk to</span>
+              <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Our Team.</span>
             </h1>
-            <p className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed max-w-xl">
+            <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed max-w-xl">
               Questions about distribution, royalties, or our services. We are a real team based in Delhi and we reply fast.
             </p>
           </motion.div>
@@ -107,7 +142,7 @@ export default function ContactPage() {
       {/* Contact Cards */}
       <section className="py-16" style={{ background: '#060C18' }}>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="gsap-card grid sm:grid-cols-3 gap-4">
             {CONTACT_CARDS.map((c, i) => (
               <motion.a key={c.title} href={c.href}
                 target={c.href.startsWith('http') ? '_blank' : undefined}
@@ -146,7 +181,7 @@ export default function ContactPage() {
               </h2>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="gsap-card grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="font-inter text-[12px] text-mut mb-1.5 block">Name</label>
                     <input name="name" required placeholder="Your name"

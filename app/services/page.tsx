@@ -4,7 +4,7 @@ import ServicesPage from './ServicesPage'
 /* ─── SEO Metadata ──────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
   title:
-    "Services — Music Distribution, Events, Talent & Production | Western Beats India",
+    "Services: Music Distribution, Events, Talent & Production | Western Beats India",
   description:
     "Western Beats offers India's best full-service music company experience: Free music distribution via WB Digital to 150+ platforms, professional event management, talent management, audio production, video direction & analytics. Officially backed by Warner Music India. Better than DistroKid, TuneCore & CD Baby.",
   keywords: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     'music label services India',
   ],
   authors: [{ name: 'Western Beats', url: 'https://westernbeats.com' }],
-  creator: 'Western Beats Private Limited — WB Digital',
+  creator: 'Western Beats Private Limited: WB Digital',
   publisher: 'Western Beats Private Limited',
   robots: {
     index: true,
@@ -56,11 +56,11 @@ export const metadata: Metadata = {
     canonical: 'https://westernbeats.com/services',
   },
   openGraph: {
-    title: "Western Beats Services — India's #1 Full-Service Music Company | Free Distribution + Events + Production",
+    title: "Western Beats Services: India's #1 Full-Service Music Company | Free Distribution + Events + Production",
     description:
       'Free music distribution to 150+ platforms in 48 hours, event management, talent management, audio & video production, and real-time analytics. All backed by Warner Music India.',
     url: 'https://westernbeats.com/services',
-    siteName: 'Western Beats — WB Digital',
+    siteName: 'Western Beats: WB Digital',
     type: 'website',
     locale: 'en_IN',
     images: [
@@ -68,13 +68,13 @@ export const metadata: Metadata = {
         url: 'https://westernbeats.com/og-services.jpg',
         width: 1200,
         height: 630,
-        alt: 'WB Digital Services — Free Music Distribution, Events & Production in India',
+        alt: 'WB Digital Services: Free Music Distribution, Events & Production in India',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Western Beats Services — India's Best Full-Service Music Company",
+    title: "Western Beats Services: India's Best Full-Service Music Company",
     description:
       'Free distribution to 150+ platforms. Event management. Talent management. Audio & Video production. Backed by Warner Music India.',
     images: ['https://westernbeats.com/og-services.jpg'],
@@ -91,9 +91,9 @@ const jsonLd = {
       '@type': 'WebPage',
       '@id': 'https://westernbeats.com/services#webpage',
       url: 'https://westernbeats.com/services',
-      name: "WB Digital Services — India's #1 Full-Service Music Company",
+      name: "WB Digital Services: India's #1 Full-Service Music Company",
       description:
-        "WB Digital's complete suite of music services: free distribution, event management, talent management, audio production, video direction, and analytics — all backed by Warner Music India.",
+        "WB Digital's complete suite of music services: free distribution, event management, talent management, audio production, video direction, and analytics, all backed by Warner Music India.",
       isPartOf: { '@id': 'https://westernbeats.com/#website' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
@@ -115,7 +115,7 @@ const jsonLd = {
             '@type': 'Service',
             name: 'Free Music Distribution',
             description:
-              'Distribute your music to 150+ streaming platforms worldwide for free. You keep 75% of royalties — we only earn when you earn. Live in 48 hours. Backed by Warner Music India.',
+              'Distribute your music to 150+ streaming platforms worldwide for free. You keep 75% of royalties, we only earn when you earn. Live in 48 hours. Backed by Warner Music India.',
             provider: { '@id': 'https://westernbeats.com/#organization' },
             areaServed: 'Worldwide',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
@@ -128,7 +128,7 @@ const jsonLd = {
             '@type': 'Service',
             name: 'Event Management',
             description:
-              'Full-service concert and event production — artist concerts, album launches, listening parties, brand activations.',
+              'Full-service concert and event production: artist concerts, album launches, listening parties, brand activations.',
             provider: { '@id': 'https://westernbeats.com/#organization' },
             areaServed: 'India',
           },
@@ -199,7 +199,7 @@ const jsonLd = {
           name: 'Is WB Digital music distribution really free?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes — WB Digital music distribution is 100% free to start. No annual fees, no per-release charges. You keep 75% of all streaming royalties — we take a 25% share only when you earn. Unlike DistroKid ($22.99/year), TuneCore ($14.99/release), or CD Baby ($9.99/release + 9% royalties), WB Digital costs ₹0 upfront.',
+            text: 'Yes, WB Digital music distribution is 100% free to start. No annual fees, no per-release charges. You keep 75% of all streaming royalties, we take a 25% share only when you earn. Unlike DistroKid ($22.99/year), TuneCore ($14.99/release), or CD Baby ($9.99/release + 9% royalties), WB Digital costs ₹0 upfront.',
           },
         },
         {
@@ -215,7 +215,7 @@ const jsonLd = {
           name: 'Does WB Digital distribute to JioSaavn and Gaana?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. WB Digital distributes to JioSaavn, Gaana, Hungama, Resso, Wynk Music, and all major Indian platforms as a priority — in addition to Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music India backing gives us priority placement that no foreign distributor can match.',
+            text: 'Yes. WB Digital distributes to JioSaavn, Gaana, Hungama, Resso, Wynk Music, and all major Indian platforms as a priority, in addition to Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music India backing gives us priority placement that no foreign distributor can match.',
           },
         },
         {
@@ -231,7 +231,7 @@ const jsonLd = {
           name: 'What makes WB Digital different from other music companies?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "WB Digital is India's only free full-service music company officially backed by Warner Music India. While competitors like DistroKid, TuneCore, and CD Baby only offer distribution (and charge for it), WB Digital provides distribution, event management, talent management, audio production, video direction, and analytics — all in one place, all with major-label quality standards.",
+            text: "WB Digital is India's only free full-service music company officially backed by Warner Music India. While competitors like DistroKid, TuneCore, and CD Baby only offer distribution (and charge for it), WB Digital provides distribution, event management, talent management, audio production, video direction, and analytics, all in one place, all with major-label quality standards.",
           },
         },
       ],

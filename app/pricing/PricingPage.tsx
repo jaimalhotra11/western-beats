@@ -1,6 +1,7 @@
 'use client'
 import { motion, useInView, Variants } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { gsap, registerGSAP } from '../lib/gsapUtils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Check, X, ArrowRight, ChevronDown, Zap, Shield, Globe2, Music2 } from 'lucide-react'
@@ -34,12 +35,12 @@ const DISTRIBUTORS = [
     highlight: true,
     badge: 'Best for India',
     color: '#0A64C3',
-    price: 'FREE — ₹0 Forever',
+    price: 'FREE: ₹0 Forever',
     priceNote: '25% revenue share only when you earn',
     data: [
       '150+ (India-first)',
       '75% to you',
-      '₹0 — none ever',
+      '₹0, none ever',
       true,
       true,
       '48 Hours',
@@ -58,7 +59,7 @@ const DISTRIBUTORS = [
     data: [
       '150+',
       '100% (after annual fee)',
-      '$22.99/yr — mandatory',
+      '$22.99/yr, mandatory',
       false,
       false,
       '7–10 Days',
@@ -77,7 +78,7 @@ const DISTRIBUTORS = [
     data: [
       '150+',
       '100% (after per-release fee)',
-      '$14.99/release — mandatory',
+      '$14.99/release, mandatory',
       false,
       false,
       '7–10 Days',
@@ -115,7 +116,7 @@ const DISTRIBUTORS = [
     data: [
       '150+',
       '100% (after annual fee)',
-      '£19/yr — mandatory',
+      '£19/yr, mandatory',
       false,
       false,
       '3–5 Days',
@@ -148,16 +149,16 @@ const DISTRIBUTORS = [
 
 const FAQS = [
   {
-    q: 'Is WB Digital distribution really free — forever?',
-    a: 'Yes. Distribution costs ₹0 upfront — no annual fee, no per-release charge, ever. WB Digital earns a 25% royalty share only when you earn. We never charge you a single rupee before you make money. Think of it as a partner who only gets paid when you succeed.',
+    q: 'Is WB Digital distribution really free, forever?',
+    a: 'Yes. Distribution costs ₹0 upfront, no annual fee, no per-release charge, ever. WB Digital earns a 25% royalty share only when you earn. We never charge you a single rupee before you make money. Think of it as a partner who only gets paid when you succeed.',
   },
   {
     q: 'How does the 75/25 royalty split work?',
-    a: 'When your music generates streaming royalties, WB Digital pays you 75% directly every month. We keep 25% as our service fee. There are no upfront costs — we only earn when you earn. This aligns our interests completely with yours: the more you earn, the more we both earn.',
+    a: 'When your music generates streaming royalties, WB Digital pays you 75% directly every month. We keep 25% as our service fee. There are no upfront costs, we only earn when you earn. This aligns our interests completely with yours: the more you earn, the more we both earn.',
   },
   {
     q: 'Is WB Digital cheaper than DistroKid for Indian artists?',
-    a: 'Absolutely. DistroKid charges $22.99/year (₹1,900+) regardless of whether you earn anything. WB Digital charges ₹0 upfront — our 25% service fee only applies when royalties are generated. If you earn ₹0, you pay ₹0.',
+    a: 'Absolutely. DistroKid charges $22.99/year (₹1,900+) regardless of whether you earn anything. WB Digital charges ₹0 upfront, our 25% service fee only applies when royalties are generated. If you earn ₹0, you pay ₹0.',
   },
   {
     q: 'How does WB Digital compare to CD Baby?',
@@ -169,7 +170,7 @@ const FAQS = [
   },
   {
     q: 'Are there any hidden fees I should know about?',
-    a: 'No hidden fees. Free means free — no premium tier required for basic features, no charge for ISRC/UPC codes, no take-down fees if you want to remove a release, no fee to update metadata. What you see is exactly what you get.',
+    a: 'No hidden fees. Free means free, no premium tier required for basic features, no charge for ISRC/UPC codes, no take-down fees if you want to remove a release, no fee to update metadata. What you see is exactly what you get.',
   },
 ]
 
@@ -215,15 +216,49 @@ export default function PricingPage() {
   const heroRef    = useRef(null)
   const tableRef   = useRef(null)
   const tableView  = useInView(tableRef, { once: true, margin: '-80px' })
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    registerGSAP()
+    if (!sectionRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.page-hero-line', {
+        y: 80, opacity: 0, skewY: 3, stagger: 0.12,
+        duration: 1.0, ease: 'power4.out', delay: 0.1,
+      })
+      gsap.from('.page-badge', {
+        y: -20, opacity: 0, duration: 0.6, ease: 'power3.out',
+      })
+      gsap.from('.page-subtext', {
+        y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5,
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        })
+      })
+      gsap.utils.toArray<HTMLElement>('.gsap-card').forEach((el) => {
+        const cards = el.querySelectorAll<HTMLElement>('.card-item')
+        if (!cards.length) return
+        gsap.from(cards, {
+          y: 50, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <div className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
+    <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
 
       {/* ── NAV ──────────────────────────────────────────────────────────────── */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060C18]/95 backdrop-blur-xl border-b border-white/[0.06] py-3">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0 group-hover:shadow-[0_0_12px_rgba(10,100,195,0.5)] transition-all duration-300">
+            <div className="relative w-10 h-9 flex-shrink-0">
               <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
@@ -276,9 +311,9 @@ export default function PricingPage() {
           </nav>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left — headline */}
+            {/* Left: headline */}
             <motion.div variants={container} initial="hidden" animate="show">
-              <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
+              <motion.div variants={fadeUp} className="platform-pill page-badge mb-6 inline-flex">
                 ✦ Transparent. No Surprises.
               </motion.div>
               <motion.h1
@@ -286,14 +321,14 @@ export default function PricingPage() {
                 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
                 style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
               >
-                <span className="block" style={{ color: '#0A64C3' }}>₹0 Forever.</span>
-                <span className="block text-white">75% Yours.</span>
+                <span className="page-hero-line block" style={{ color: '#0A64C3' }}>₹0 Forever.</span>
+                <span className="page-hero-line block text-white">75% Yours.</span>
               </motion.h1>
               <motion.p
                 variants={fadeUp}
-                className="font-inter text-[16px] sm:text-[17px] text-mut leading-relaxed mb-10 max-w-xl"
+                className="page-subtext font-inter text-[16px] sm:text-[17px] text-mut leading-relaxed mb-10 max-w-xl"
               >
-                WB Digital charges <strong className="text-white">zero upfront</strong> — no annual fee, no per-release charge.
+                WB Digital charges <strong className="text-white">zero upfront</strong>, no annual fee, no per-release charge.
                 We earn a <strong className="text-white">25% revenue share only when you earn</strong>.
                 If you earn ₹0, we take ₹0. Simple, aligned, honest.
               </motion.p>
@@ -306,7 +341,7 @@ export default function PricingPage() {
               </motion.div>
             </motion.div>
 
-            {/* Right — Price hero card */}
+            {/* Right: Price hero card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -316,13 +351,13 @@ export default function PricingPage() {
             >
               <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.07) 50%, transparent 60%)' }} />
               <div className="relative z-10 w-full">
-                <div className="platform-pill bg-white/10 text-white border-white/20 mb-4 self-start">WB Digital — Core Plan</div>
+                <div className="platform-pill bg-white/10 text-white border-white/20 mb-4 self-start">WB Digital: Core Plan</div>
                 <div className="font-outfit font-black text-white text-[52px] sm:text-[64px] leading-none mb-1">₹0</div>
                 <div className="font-inter text-ice/80 text-[14px] mb-6">Forever. No card required. No hidden fees.</div>
                 <div className="w-full h-px bg-white/15 mb-6" />
                 <div className="flex flex-col gap-3 mb-8">
                   {[
-                    '150+ platforms — India-first',
+                    '150+ platforms, India-first',
                     '75% royalties paid to you monthly',
                     '25% service fee only when you earn',
                     '48-hour go-live time',
@@ -342,7 +377,7 @@ export default function PricingPage() {
                   className="w-full flex items-center justify-center gap-2 py-4 bg-[#080F1A] rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0A1535] transition-colors duration-200"
                 >
                   <Zap size={16} />
-                  Start Free — Submit Your Music
+                  Start Free: Submit Your Music
                 </Link>
               </div>
             </motion.div>
@@ -485,12 +520,12 @@ export default function PricingPage() {
       <section className="py-16 sm:py-24 relative">
         <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,21,53,0.5) 0%, transparent 100%)' }} />
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="gsap-card grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: Globe2,   color: '#0A64C3', title: 'India First', desc: 'JioSaavn, Gaana & Hungama distribution with Warner Music India priority — no foreign distributor can match this.' },
-              { icon: Shield,   color: '#C41230', title: 'Zero Risk',    desc: 'No upfront cost means zero financial risk. Submit your music for free — we only earn when you earn.' },
+              { icon: Globe2,   color: '#0A64C3', title: 'India First', desc: 'JioSaavn, Gaana & Hungama distribution with Warner Music India priority, no foreign distributor can match this.' },
+              { icon: Shield,   color: '#C41230', title: 'Zero Risk',    desc: 'No upfront cost means zero financial risk. Submit your music for free, we only earn when you earn.' },
               { icon: Zap,      color: '#5CB2DC', title: '48-Hour Live', desc: 'Fastest distribution in India. DistroKid takes 7–10 days. WB Digital gets you live in 48 hours.' },
-              { icon: Music2,   color: '#0A64C3', title: 'Full Service', desc: 'Distribution is just the start. Events, talent management, audio production, video direction — all under one roof.' },
+              { icon: Music2,   color: '#0A64C3', title: 'Full Service', desc: 'Distribution is just the start. Events, talent management, audio production, video direction, all under one roof.' },
             ].map((item, i) => {
               const Icon = item.icon
               return (
@@ -527,7 +562,7 @@ export default function PricingPage() {
             <div className="hidden md:block w-px h-8 bg-white/10" />
             <div className="font-outfit font-extrabold text-white text-[20px]">Warner Music India</div>
             <div className="hidden md:block w-px h-8 bg-white/10" />
-            <div className="font-inter text-[12px] text-mut">The same label that works with Armaan Malik, Diljit Dosanjh, King &amp; Darshan Raval — now powers WB Digital artists.</div>
+            <div className="font-inter text-[12px] text-mut">The same label that works with Armaan Malik, Diljit Dosanjh, King &amp; Darshan Raval, now powers WB Digital artists.</div>
           </motion.div>
         </div>
       </section>
@@ -563,7 +598,7 @@ export default function PricingPage() {
             <div className="relative z-10">
               <div className="font-outfit font-black text-white text-[40px] sm:text-[52px] leading-none mb-3">₹0 to Start.</div>
               <div className="font-inter text-ice/90 text-[16px] sm:text-[18px] mb-8 leading-relaxed">
-                Submit your music now — live on 150+ platforms in 48 hours.
+                Submit your music now, live on 150+ platforms in 48 hours.
                 <br /><strong className="text-white">No card required. No annual fee. 75% royalties. Free forever.</strong>
               </div>
               <div className="flex flex-wrap gap-4 justify-center">

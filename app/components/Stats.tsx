@@ -109,7 +109,7 @@ export default function Stats() {
             <span style={{ color: '#0A64C3' }}>Don&apos;t Lie.</span>
           </h2>
           <p className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mt-5 max-w-xl mx-auto">
-            Real metrics from a real, growing music platform — built by independent artists, for independent artists.
+            Real metrics from a real, growing music platform, built by independent artists, for independent artists.
           </p>
         </div>
 
