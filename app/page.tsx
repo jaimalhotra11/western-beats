@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import ScrollProgress  from './components/ScrollProgress'
-import Loader          from './components/Loader'
+import ClientLoader    from './components/ClientLoader'
 import Nav             from './components/Nav'
 import Hero            from './components/Hero'
 import About           from './components/About'
@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <main>
       <ScrollProgress />
-      <Loader />
+      <ClientLoader />
       <Nav />
       <Hero />
       <Partners />
