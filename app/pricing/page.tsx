@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import PricingPage from './PricingPage'
 
 export const metadata: Metadata = {
-  title: 'Pricing: Free Music Distribution, 70% Royalties | WB Digital · Western Beats',
+  title: 'Pricing: Free Music Distribution, 75% Royalties | WB Digital · Western Beats',
   description:
-    'WB Digital music distribution is 100% free: ₹0 upfront forever. You earn 75% of every stream, we take 25% only when you earn. Compare vs DistroKid ($22.99/yr), TuneCore ($14.99/release), CD Baby ($9.99 + 9%), Ditto Music, and Believe. Best value for Indian artists.',
+    'WB Digital music distribution is 100% free: ₹0 upfront forever. You earn 75% of all net royalties, WB takes 25% only when you earn. Compare vs DistroKid ($22.99/yr), TuneCore ($14.99/release), CD Baby ($9.99 + 9%), Ditto Music, and Believe. Best value for Indian artists.',
   keywords: [
     'WB Digital pricing',
     'free music distribution India',
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     'DistroKid vs WB Digital',
     'TuneCore alternative India free',
     'CD Baby alternative free India',
-    'music distribution free 70 percent royalties',
+    'music distribution free 75 percent royalties',
     'best free music distributor India',
     'music distribution comparison India',
     'WB Digital free forever',
     'Western Beats pricing',
     'indie artist distribution cost India',
-    'music royalties 70 percent India',
+    'music royalties 75 percent India',
     'no fee music distribution India',
     'Warner Music India distribution pricing',
   ],
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'WB Digital Pricing: ₹0 Forever | Western Beats',
-    description: 'Free music distribution. 70% royalties. No hidden fees. Better than DistroKid, TuneCore & CD Baby for Indian artists.',
+    description: 'Free music distribution. 75% royalties. No hidden fees. Better than DistroKid, TuneCore & CD Baby for Indian artists.',
     site: '@wb_digital_',
   },
 }
@@ -59,7 +59,7 @@ const jsonLd = {
     {
       '@type': 'Product',
       name: 'WB Digital Music Distribution',
-      description: 'Free music distribution to 150+ streaming platforms. 70% royalties to artist, 25% to WB Digital, only when you earn. Zero upfront cost. Warner Music India backed.',
+      description: 'Free music distribution to 150+ streaming platforms. 75% royalties to artist, 25% to WB Digital, only when you earn. Zero upfront cost. Warner Music India backed.',
       brand: { '@type': 'Brand', name: 'WB Digital by Western Beats' },
       offers: {
         '@type': 'Offer',

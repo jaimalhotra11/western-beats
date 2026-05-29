@@ -4,7 +4,7 @@ import HowItWorksPage from './HowItWorksPage'
 export const metadata: Metadata = {
   title: 'How It Works: Free Music Distribution in 3 Steps | WB Digital · Western Beats',
   description:
-    'See exactly how WB Digital works: Submit your music → We distribute to 150+ platforms in 48 hours → You earn 75% of every stream. Free forever. Backed by Warner Music India. Faster than DistroKid, TuneCore & CD Baby.',
+    'See exactly how WB Digital works: Submit your music → We distribute to 150+ platforms in 48-72 hours → You earn 75% of net royalties (100% IP ownership yours). Free forever. Backed by Warner Music India. Faster than DistroKid, TuneCore & CD Baby.',
   keywords: [
     'how does WB Digital work',
     'how to distribute music India',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'WB Digital how it works',
     'indie artist distribution guide India',
     'how to earn royalties India',
-    '70 percent royalties music India',
+    '75 percent royalties music India',
     'how to distribute music free India',
     'Western Beats distribution process',
   ],
