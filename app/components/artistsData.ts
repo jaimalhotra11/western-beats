@@ -17,7 +17,7 @@ export type Artist = {
 export const ARTISTS: Artist[] = [
   {
     name: 'Sapna Choudhary',
-    image: '/artists/sapnachoudhary-DkPyzJGL.jpg',
+    image: '/artists/sapna-choudhary.jpeg',
     genre: 'Haryanvi / Folk Pop',
     location: 'Haryana, India',
     experience: '12+ Years',
@@ -31,7 +31,7 @@ export const ARTISTS: Artist[] = [
   },
   {
     name: 'Sumit Parta',
-    image: '/artists/sumitparta.jpg',
+    image: '/artists/sumit-parta.jpeg',
     genre: 'Haryanvi / Folk',
     location: 'Haryana, India',
     experience: '6+ Years',
@@ -43,7 +43,7 @@ export const ARTISTS: Artist[] = [
   },
   {
     name: 'Renuka Panwar',
-    image: '/artists/renukapanwar-AsuFBi3-.jpg',
+    image: '/artists/renuka-panwar.jpg',
     genre: 'Haryanvi / Pop',
     location: 'Haryana, India',
     experience: '8+ Years',
@@ -57,7 +57,7 @@ export const ARTISTS: Artist[] = [
   },
   {
     name: 'Harsh Sandhu',
-    image: '/artists/harshsandhu-CfMNV-ao.jpeg',
+    image: '/artists/harsh-sandhu.jpeg',
     genre: 'Punjabi / Hip-Hop',
     location: 'Punjab, India',
     experience: '6+ Years',
@@ -71,7 +71,7 @@ export const ARTISTS: Artist[] = [
   },
   {
     name: 'RJ Spider',
-    image: '/artists/rjspider-Hof4RhHx.jpg',
+    image: '/artists/rj-spider.jpg',
     genre: 'Hip-Hop / Electronic',
     location: 'Mumbai, India',
     experience: '7+ Years',
@@ -85,7 +85,7 @@ export const ARTISTS: Artist[] = [
   },
   {
     name: 'Khotu Kharkhada',
-    image: '/artists/khotukharkhada-Bt2vw7sN.jpg',
+    image: '/artists/khotu-kharkhada.jpg',
     genre: 'Haryanvi / Traditional Folk',
     location: 'Haryana, India',
     experience: '15+ Years',
@@ -98,7 +98,7 @@ export const ARTISTS: Artist[] = [
   },
   {
     name: 'Kalakaar',
-    image: '/artists/kalakaar-xIyvru5G.jpg',
+    image: '/artists/kalakaar.jpg',
     genre: 'Fusion / World',
     location: 'Delhi, India',
     experience: '9+ Years',
@@ -112,7 +112,7 @@ export const ARTISTS: Artist[] = [
   },
   {
     name: 'Nidhi Sharma',
-    image: '/artists/nidhisharma-CGmPjw--.jpeg',
+    image: '/artists/nidhi-sharma.jpeg',
     genre: 'Bollywood / Pop',
     location: 'India',
     experience: '5+ Years',
@@ -126,7 +126,7 @@ export const ARTISTS: Artist[] = [
   },
   {
     name: 'Vikram Sarkar',
-    image: '/artists/vikramsarkar.jpg',
+    image: '/artists/vikram-sarkar.jpeg',
     genre: 'Punjabi / Pop',
     location: 'Punjab, India',
     experience: '5+ Years',
@@ -138,7 +138,7 @@ export const ARTISTS: Artist[] = [
   },
   {
     name: 'R Maan',
-    image: '/artists/rmaan-CLokcRnr.jpeg',
+    image: '/artists/r-maan.jpeg',
     genre: 'Punjabi / Folk',
     location: 'Punjab, India',
     experience: '8+ Years',
@@ -147,6 +147,30 @@ export const ARTISTS: Artist[] = [
     achievements: ['Folk Icon', 'Platinum Artist', 'Cultural Ambassador'],
     hits: ['Popular Singles', 'Folk Classics', 'Collaborations'],
     instagram: 'https://www.instagram.com/rmaan',
+  },
+  {
+    name: 'Harkirat Sanga',
+    image: '/artists/harkirat-sanga.jpeg',
+    genre: 'Punjabi / Pop',
+    location: 'Punjab, India',
+    experience: '5+ Years',
+    followers: '1.5M+',
+    description: 'Fresh Punjabi voice bringing a bold contemporary edge to modern pop with infectious beats and heartfelt lyrics.',
+    achievements: ['Punjabi Rising Star', 'Trending Artist', 'Youth Favourite'],
+    hits: ['Hit Singles', 'Trending Tracks', 'Live Performances'],
+    instagram: 'https://www.instagram.com/harkiratsanga',
+  },
+  {
+    name: 'Young Veer',
+    image: '/artists/young-veer.jpeg',
+    genre: 'Punjabi / Hip-Hop',
+    location: 'Punjab, India',
+    experience: '4+ Years',
+    followers: '900K+',
+    description: 'Dynamic young rapper and singer fusing Punjabi culture with modern hip-hop energy, redefining what it means to be a next-gen Indian artist.',
+    achievements: ['Hip-Hop Rising Star', 'Featured Artist', 'Digital Hit Maker'],
+    hits: ['Viral Tracks', 'Collaboration Hits', 'Live Gigs'],
+    instagram: 'https://www.instagram.com/youngveer',
   },
   {
     name: 'Ajay Hooda',

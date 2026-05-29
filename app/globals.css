@@ -66,8 +66,11 @@ section[id] { scroll-margin-top: 80px; }
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  /* Prevents sub-pixel jitter on loop restart */
   transform-style: preserve-3d;
+  /* Force independent GPU compositing layer — eliminates loop-restart jerk */
+  isolation: isolate;
+  /* Prevent ancestor layout changes from restarting the animation */
+  contain: layout style;
 }
 .artist-slider-track     { animation: marquee    40s linear infinite; }
 .artist-slider-track-rev { animation: marqueRev  40s linear infinite; }

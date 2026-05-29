@@ -23,9 +23,9 @@ function ArtistCard({ a }: { a: typeof ARTISTS[number] }) {
           fill
           sizes="210px"
           className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+          loading="eager"
           unoptimized
           onError={(e) => {
-            // fallback: hide broken image, show gradient bg
             (e.target as HTMLImageElement).style.display = 'none'
           }}
         />
@@ -154,11 +154,11 @@ export default function Artists() {
 
       {/* Carousel — forward direction */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
+        initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.8, delay: 0.3 }}
         className="relative overflow-hidden mb-5"
       >
-        <div className="flex gap-4 artist-slider-track py-2 px-4">
+        <div className="flex gap-4 artist-slider-track py-2">
           {double.map((a, i) => (
             <ArtistCard key={`${a.name}-${i}`} a={a} />
           ))}
@@ -172,11 +172,11 @@ export default function Artists() {
 
       {/* Carousel — reverse direction */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.7, delay: 0.42, ease: EASE }}
+        initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.8, delay: 0.42 }}
         className="relative overflow-hidden"
       >
-        <div className="flex gap-4 artist-slider-track-rev py-2 px-4">
+        <div className="flex gap-4 artist-slider-track-rev py-2">
           {[...double].reverse().map((a, i) => (
             <ArtistCard key={`rev-${a.name}-${i}`} a={a} />
           ))}
