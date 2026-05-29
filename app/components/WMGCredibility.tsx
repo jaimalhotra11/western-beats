@@ -219,7 +219,7 @@ export default function WMGCredibility() {
             transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
             className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl"
           >
-            WB Digital is officially backed by <strong className="text-white">Warner Music India</strong>, the Indian arm of
+            WB is officially backed by <strong className="text-white">Warner Music India</strong>, the Indian arm of
             Warner Music Group. The same infrastructure powering Bruno Mars, Coldplay &amp; Ed Sheeran globally
             now powers <strong className="text-white">your independent music career</strong>.
           </motion.p>
@@ -260,7 +260,7 @@ export default function WMGCredibility() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="my-6"
         >
-          <KineticStrip text="Warner Music India · WB Digital · Official Partner" color="#C41230" />
+          <KineticStrip text="Warner Music India · WB · Official Partner" color="#C41230" />
         </motion.div>
 
         {/* ── Global Artists Slider ── */}

@@ -46,13 +46,13 @@ const STEPS = [
     icon: Globe2,
     color: '#5CB2DC',
     title: 'We Distribute',
-    subtitle: '150+ platforms in 48 hours',
+    subtitle: '150+ platforms in 48-72 hours',
     desc: 'Once approved, WB Digital delivers your music to every major streaming platform simultaneously. JioSaavn and Gaana are prioritized for Indian artists, then Spotify, Apple Music, YouTube Music, and 145+ more globally.',
     checklist: [
-      'JioSaavn, Gaana, Hungama, Resso, Wynk: India first',
+      'JioSaavn, Gaana: India first',
       'Spotify, Apple Music, YouTube Music worldwide',
       'Amazon Music, Tidal, Deezer, SoundCloud & more',
-      'Live on all platforms within 48 hours of approval',
+      'Live on all platforms within 48-72 hours · Friday uploads go live Monday',
       'Priority processing via Warner Music India partnership',
     ],
     badge: 'Step 2',
@@ -62,11 +62,11 @@ const STEPS = [
     num: '03',
     icon: DollarSign,
     color: '#C41230',
-    title: 'Earn 75% Royalties',
+    title: 'Earn 100% Royalties',
     subtitle: 'Paid monthly, every month',
-    desc: '75% of all streaming royalties from every platform flow directly to you every month. We take 25% only when you earn, we never charge you upfront. The more you earn, the more we both earn. Perfectly aligned.',
+    desc: '100% of all streaming royalties from every platform flow directly to you every month. We take 25% only when you earn, we never charge you upfront. The more you earn, the more we both earn. Perfectly aligned.',
     checklist: [
-      '75% royalties paid directly to you monthly',
+      '100% ownership (T&C apply) paid directly to you monthly',
       'We earn 25% only when you earn, zero upfront cost',
       'Real-time dashboard: track every stream live',
       'Revenue breakdown by platform & territory',
@@ -85,7 +85,7 @@ const TIMELINE = [
 ]
 
 const WHY_ITEMS = [
-  { icon: Zap,       color: '#0A64C3', title: '48-Hour Go-Live',          desc: 'DistroKid & TuneCore take 7–10 days. Your music is live on JioSaavn, Gaana, Spotify & 148+ platforms in just 48 hours.' },
+  { icon: Zap,       color: '#0A64C3', title: '48-Hour Go-Live',          desc: 'DistroKid & TuneCore take 7–10 days. Your music is live on 150+ platforms in just 48-72 hours. Music uploaded Friday goes live Monday.' },
   { icon: Shield,    color: '#C41230', title: 'Same Label as Bruno Mars', desc: 'Warner Music Group, home to Bruno Mars (150M+ Spotify listeners), Coldplay, Ed Sheeran & Dua Lipa, backs WB Digital through Warner Music India.' },
   { icon: Music2,    color: '#5CB2DC', title: "India's Biggest Artists",  desc: 'WMI roster: Armaan Malik, Diljit Dosanjh, King, Darshan Raval, Guru Randhawa & Karan Aujla, all on the same label that now powers your independent release.' },
   { icon: BarChart3, color: '#0A64C3', title: 'Real-Time Analytics',      desc: 'Live streaming data, audience demographics, playlist tracking, and revenue reporting across all 150+ platforms.' },
@@ -206,14 +206,14 @@ export default function HowItWorksPage() {
               >
                 <span className="page-hero-line block text-white">3 Steps.</span>
                 <span className="page-hero-line block" style={{ color: '#0A64C3' }}>150+ Platforms.</span>
-                <span className="page-hero-line block text-white">75% Yours.</span>
+                <span className="page-hero-line block text-white">100% Yours.</span>
               </motion.h1>
               <motion.p
                 variants={fadeUp}
                 className="page-subtext font-inter text-[16px] sm:text-[17px] text-mut leading-relaxed mb-8 max-w-xl"
               >
                 WB Digital makes music distribution the simplest thing you&apos;ll do today.
-                Submit your music, we handle the rest: 150+ platforms in 48 hours, 75% royalties straight to you.
+                Submit your music, we handle the rest: 150+ platforms in 48-72 hours, 100% ownership (T&C apply) straight to you.
                 <strong className="text-white"> Always free. 100% ownership yours.</strong>
               </motion.p>
 
@@ -441,9 +441,9 @@ export default function HowItWorksPage() {
             <div className="relative z-10">
               <div className="font-outfit font-black text-white text-[40px] sm:text-[52px] leading-none mb-3">Ready?</div>
               <div className="font-inter text-ice/90 text-[16px] sm:text-[18px] mb-8 leading-relaxed">
-                Submit your music today. Live on 150+ platforms in 48 hours.
+                Submit your music today. Live on 150+ platforms in 48-72 hours.
                 <br />
-                <strong className="text-white">75% royalties. Free forever.</strong>
+                <strong className="text-white">100% ownership (T&C apply). Free forever.</strong>
               </div>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link

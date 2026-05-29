@@ -1,171 +1,219 @@
 'use client'
-import { motion, useInView, Variants } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
-import { FaInstagram, FaYoutube, FaSpotify, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaInstagram, FaYoutube, FaSpotify } from 'react-icons/fa'
 import { ARTISTS } from './artistsData'
 
 const EASE = [0.22, 1, 0.36, 1] as const
-const fadeUp: Variants = {
-  hidden: { y: 30, opacity: 0 },
-  show: { y: 0, opacity: 1, transition: { duration: 0.7, ease: EASE } },
+
+function ArtistCard({ a }: { a: typeof ARTISTS[number] }) {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.03, y: -6 }}
+      transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+      className="relative flex-shrink-0 w-[190px] sm:w-[210px] rounded-2xl overflow-hidden cursor-pointer group"
+      style={{ aspectRatio: '3/4' }}
+    >
+      {/* Photo */}
+      <div className="absolute inset-0 bg-[#0A1535]">
+        <Image
+          src={a.image}
+          alt={a.name}
+          fill
+          sizes="210px"
+          className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+          unoptimized
+          onError={(e) => {
+            // fallback: hide broken image, show gradient bg
+            (e.target as HTMLImageElement).style.display = 'none'
+          }}
+        />
+      </div>
+
+      {/* Gradient overlay */}
+      <div
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(180deg, rgba(4,10,20,0.05) 0%, rgba(4,10,20,0.55) 55%, rgba(4,10,20,0.98) 100%)' }}
+      />
+
+      {/* Top colour bar */}
+      <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: '#0A64C3' }} />
+
+      {/* WB badge */}
+      <div
+        className="absolute top-3 left-3 font-inter text-[8px] font-bold tracking-[0.14em] uppercase px-2 py-1 rounded-full backdrop-blur-sm"
+        style={{ background: 'rgba(10,100,195,0.3)', color: '#5CB2DC', border: '1px solid rgba(10,100,195,0.5)' }}
+      >
+        WB Artist
+      </div>
+
+      {/* Follower badge */}
+      <div
+        className="absolute top-3 right-3 font-outfit font-bold text-[9px] text-white px-2 py-1 rounded-full backdrop-blur-sm"
+        style={{ background: 'rgba(10,100,195,0.9)' }}
+      >
+        {a.followers}
+      </div>
+
+      {/* Info */}
+      <div className="absolute bottom-0 left-0 right-0 p-4">
+        <div className="font-outfit font-extrabold text-white text-[15px] leading-tight mb-0.5">{a.name}</div>
+        <div className="font-inter text-[11px] tracking-wide mb-2" style={{ color: '#5CB2DC' }}>{a.genre}</div>
+
+        {/* Social icons */}
+        <div className="flex items-center gap-2">
+          {a.instagram && (
+            <a href={a.instagram} target="_blank" rel="noopener noreferrer"
+              className="text-white/60 hover:text-white transition-colors" aria-label="Instagram">
+              <FaInstagram size={13} />
+            </a>
+          )}
+          {a.youtube && (
+            <a href={a.youtube} target="_blank" rel="noopener noreferrer"
+              className="text-white/60 hover:text-white transition-colors" aria-label="YouTube">
+              <FaYoutube size={13} />
+            </a>
+          )}
+          {a.spotify && (
+            <a href={a.spotify} target="_blank" rel="noopener noreferrer"
+              className="text-white/60 hover:text-white transition-colors" aria-label="Spotify">
+              <FaSpotify size={13} />
+            </a>
+          )}
+        </div>
+      </div>
+
+      {/* Hover border glow */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{ boxShadow: 'inset 0 0 0 1px rgba(10,100,195,0.5)' }}
+      />
+    </motion.div>
+  )
 }
 
 export default function Artists() {
-  const ref = useRef(null)
+  const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
+  // Double the array for seamless loop
+  const double = [...ARTISTS, ...ARTISTS]
+
   return (
-    <section id="artists" className="py-24 sm:py-32 relative overflow-hidden" ref={ref}>
+    <section id="artists" ref={ref} className="py-20 sm:py-28 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[#040A14]" />
+      {/* Ambient glow */}
       <div
-        className="absolute inset-0"
-        style={{ background: 'radial-gradient(ellipse at 20% 50%, rgba(10,100,195,0.08) 0%, transparent 60%)' }}
+        className="absolute top-1/2 left-1/4 w-[600px] h-[400px] -translate-y-1/2 rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(10,100,195,0.1) 0%, transparent 70%)' }}
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
-        <motion.div
-          initial="hidden"
-          animate={inView ? 'show' : 'hidden'}
-          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
-          className="text-center max-w-3xl mx-auto mb-16 sm:mb-20"
-        >
-          <motion.div variants={fadeUp} className="platform-pill mb-5 inline-flex">
-            Recording Artists
-          </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="font-outfit font-black tracking-[-0.02em] leading-[1.05] mb-5"
-            style={{ fontSize: 'clamp(34px, 5vw, 58px)' }}
+        <div className="mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, ease: EASE }}
+            className="platform-pill mb-5 inline-flex"
           >
-            <span className="text-white">Meet Our</span>{' '}
-            <span style={{ color: '#0A64C3' }}>Roster.</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed">
-            From Haryanvi folk to Punjabi hip-hop, Rajasthani heritage to urban fusion, WB Digital
-            distributes some of India&apos;s most loved regional voices to 150+ platforms worldwide.
-          </motion.p>
-        </motion.div>
+            ✦ WB Recording Artists
+          </motion.div>
 
-        {/* Artist grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-          {ARTISTS.map((a, i) => (
-            <motion.div
-              key={a.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.06, ease: EASE }}
-              className="group rounded-2xl overflow-hidden relative"
-              style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.08)' }}
+          <div className="overflow-hidden mb-3">
+            <motion.h2
+              initial={{ y: 80, opacity: 0 }} animate={inView ? { y: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.9, ease: EASE }}
+              className="font-outfit font-black tracking-[-0.03em] leading-[0.95] text-white"
+              style={{ fontSize: 'clamp(32px, 5.5vw, 64px)' }}
             >
-              {/* Photo */}
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <Image
-                  src={a.image}
-                  alt={a.name}
-                  fill
-                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      'linear-gradient(180deg, transparent 40%, rgba(8,15,26,0.75) 80%, #080F1A 100%)',
-                  }}
-                />
-                {/* Followers badge */}
-                <div className="absolute top-4 right-4">
-                  <div
-                    className="px-2.5 py-1 rounded-full font-outfit font-bold text-[10px] text-white"
-                    style={{ background: 'rgba(10,100,195,0.9)', backdropFilter: 'blur(6px)' }}
-                  >
-                    {a.followers}
-                  </div>
-                </div>
-                {/* Name + genre overlay */}
-                <div className="absolute left-0 right-0 bottom-0 p-5">
-                  <div className="font-outfit font-black text-white text-[22px] leading-tight">
-                    {a.name}
-                  </div>
-                  <div className="font-inter text-[11.5px] text-blu mt-0.5 uppercase tracking-[0.08em]">
-                    {a.genre}
-                  </div>
-                </div>
-              </div>
+              Meet Our
+            </motion.h2>
+          </div>
+          <div className="overflow-hidden mb-6">
+            <motion.h2
+              initial={{ y: 80, opacity: 0 }} animate={inView ? { y: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.9, delay: 0.08, ease: EASE }}
+              className="font-outfit font-black tracking-[-0.03em] leading-[0.95]"
+              style={{ fontSize: 'clamp(32px, 5.5vw, 64px)', color: '#0A64C3' }}
+            >
+              Roster.
+            </motion.h2>
+          </div>
 
-              {/* Body */}
-              <div className="p-5">
-                <div className="flex items-center gap-1.5 text-mut font-inter text-[11px] mb-3">
-                  <FaMapMarkerAlt size={11} />
-                  <span>{a.location}</span>
-                  <span className="opacity-40">·</span>
-                  <span>{a.experience}</span>
-                </div>
-                <p className="font-inter text-[12.5px] text-ice/85 leading-relaxed mb-4 line-clamp-3">
-                  {a.description}
-                </p>
-                {/* Hits */}
-                <div className="mb-4">
-                  <div className="font-outfit font-semibold text-white text-[10px] uppercase tracking-[0.1em] mb-2 opacity-70">
-                    Popular Hits
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {a.hits.map(h => (
-                      <span
-                        key={h}
-                        className="px-2 py-0.5 rounded-full font-inter text-[10.5px] text-ice"
-                        style={{ background: 'rgba(10,100,195,0.14)', border: '1px solid rgba(10,100,195,0.25)' }}
-                      >
-                        {h}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                {/* Socials */}
-                <div className="flex items-center gap-2 pt-3 border-t border-white/[0.07]">
-                  {a.instagram && (
-                    <a
-                      href={a.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-mut hover:text-white transition-colors"
-                      style={{ background: 'rgba(255,255,255,0.04)' }}
-                      aria-label={`${a.name} Instagram`}
-                    >
-                      <FaInstagram size={14} />
-                    </a>
-                  )}
-                  {a.youtube && (
-                    <a
-                      href={a.youtube}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-mut hover:text-white transition-colors"
-                      style={{ background: 'rgba(255,255,255,0.04)' }}
-                      aria-label={`${a.name} YouTube`}
-                    >
-                      <FaYoutube size={14} />
-                    </a>
-                  )}
-                  {a.spotify && (
-                    <a
-                      href={a.spotify}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-mut hover:text-white transition-colors"
-                      style={{ background: 'rgba(255,255,255,0.04)' }}
-                      aria-label={`${a.name} Spotify`}
-                    >
-                      <FaSpotify size={14} />
-                    </a>
-                  )}
-                </div>
-              </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+            className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl"
+          >
+            From Haryanvi folk icons to Punjabi hip-hop stars, WB distributes India&apos;s most
+            loved regional voices to 150+ platforms worldwide.
+          </motion.p>
+        </div>
+      </div>
+
+      {/* Carousel — forward direction */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
+        className="relative overflow-hidden mb-5"
+      >
+        <div className="flex gap-4 artist-slider-track py-2 px-4">
+          {double.map((a, i) => (
+            <ArtistCard key={`${a.name}-${i}`} a={a} />
+          ))}
+        </div>
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 pointer-events-none z-10"
+          style={{ background: 'linear-gradient(90deg, #040A14 0%, transparent 100%)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-20 pointer-events-none z-10"
+          style={{ background: 'linear-gradient(270deg, #040A14 0%, transparent 100%)' }} />
+      </motion.div>
+
+      {/* Carousel — reverse direction */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, delay: 0.42, ease: EASE }}
+        className="relative overflow-hidden"
+      >
+        <div className="flex gap-4 artist-slider-track-rev py-2 px-4">
+          {[...double].reverse().map((a, i) => (
+            <ArtistCard key={`rev-${a.name}-${i}`} a={a} />
+          ))}
+        </div>
+        <div className="absolute left-0 top-0 bottom-0 w-20 pointer-events-none z-10"
+          style={{ background: 'linear-gradient(90deg, #040A14 0%, transparent 100%)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-20 pointer-events-none z-10"
+          style={{ background: 'linear-gradient(270deg, #040A14 0%, transparent 100%)' }} />
+      </motion.div>
+
+      {/* Artist count bar */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.55, ease: EASE }}
+        className="max-w-7xl mx-auto px-6 mt-10"
+      >
+        <div
+          className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 px-8 py-5 rounded-2xl"
+          style={{ background: 'rgba(10,100,195,0.08)', border: '1px solid rgba(10,100,195,0.2)' }}
+        >
+          {[
+            { num: '11+',   lbl: 'WB Roster Artists' },
+            { num: '150+',  lbl: 'Platforms Worldwide' },
+            { num: '48-72 hrs', lbl: 'Go-Live Time' },
+            { num: '100%',  lbl: 'Ownership (T&C apply)' },
+          ].map((s, i) => (
+            <motion.div key={i} className="flex flex-col items-center"
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.6 + i * 0.08, ease: EASE }}
+            >
+              <span className="font-outfit font-black text-[22px] sm:text-[26px] text-blu leading-none">{s.num}</span>
+              <span className="font-inter text-[10px] text-mut tracking-[0.08em] uppercase mt-1 text-center">{s.lbl}</span>
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

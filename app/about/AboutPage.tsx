@@ -60,7 +60,7 @@ const DISTRIBUTORS: Distributor[] = [
     badge: 'Best for India',
     data: [
       'FREE: ₹0 Forever',
-      '75% to you',
+      '100% to you',
       true,
       true,
       '48 Hours',
@@ -197,7 +197,7 @@ const VALUES = [
     icon: Heart,
     title: 'Artist First, Always',
     color: '#C41230',
-    desc: 'You keep 75% of every rupee earned, we only make money when you make money. Your music, your rights, your success. We are always on your side.',
+    desc: 'You keep 100% of every rupee earned, we only make money when you make money. Your music, your rights, your success. We are always on your side.',
   },
   {
     icon: Globe2,
@@ -209,7 +209,7 @@ const VALUES = [
     icon: Shield,
     title: 'Radically Honest',
     color: '#5CB2DC',
-    desc: '48 hours means 48 hours. Free means free, no hidden fees, no bait-and-switch, no fine print. What you see is exactly what you get.',
+    desc: '48-72 hours means 48-72 hours. Free means free, no hidden fees, no bait-and-switch, no fine print. What you see is exactly what you get.',
   },
   {
     icon: Award,
@@ -221,7 +221,7 @@ const VALUES = [
     icon: Zap,
     title: 'Speed & Reliability',
     color: '#0A64C3',
-    desc: "48-hour go-live time, zero downtime, real-time royalty reporting. While competitors take 7–10 days, your music is already streaming. That's the WB Digital difference.",
+    desc: "48-72 hour go-live time, zero downtime, real-time royalty reporting. While competitors take 7–10 days, your music is already streaming. That's the WB Digital difference.",
   },
   {
     icon: Star,
@@ -232,7 +232,7 @@ const VALUES = [
 ]
 
 const SERVICES_BRIEF = [
-  { icon: Music2,    title: 'Music Distribution',    color: '#0A64C3', desc: 'Free distribution to 150+ platforms in 48 hours. You keep 75% of royalties, we only earn when you do.' },
+  { icon: Music2,    title: 'Music Distribution',    color: '#0A64C3', desc: 'Free distribution to 150+ platforms in 48-72 hours. You keep 100% of royalties, we only earn when you do.' },
   { icon: Calendar,  title: 'Event Management',       color: '#C41230', desc: 'Full-service concert & album launch production from concept to curtain call.' },
   { icon: Users,     title: 'Talent Management',      color: '#5CB2DC', desc: 'Career strategy, brand deals, and WMI industry connections.' },
   { icon: Mic2,      title: 'Audio Production',       color: '#002A8D', desc: 'Studio recording, mixing & mastering to WMI quality standards.' },
@@ -243,23 +243,23 @@ const SERVICES_BRIEF = [
 const FAQS = [
   {
     q: 'What is WB Digital and how is it different from DistroKid?',
-    a: "WB Digital is India's #1 free music distribution platform by Western Beats Private Limited, officially backed by Warner Music India. Unlike DistroKid, which charges $22.99/year (₹1,900+) with no India-first focus, WB Digital is completely free, prioritizes JioSaavn and Gaana, delivers music in 48 hours, and carries the credibility of Warner Music India, something no other distributor offers.",
+    a: "WB Digital is India's #1 free music distribution platform by Western Beats Private Limited, officially backed by Warner Music India. Unlike DistroKid, which charges $22.99/year (₹1,900+) with no India-first focus, WB Digital is completely free, prioritizes JioSaavn and Gaana, delivers music in 48-72 hours, and carries the credibility of Warner Music India, something no other distributor offers.",
   },
   {
     q: 'Is WB Digital really free, no hidden fees?',
-    a: 'Distribution is completely free: ₹0 upfront. No annual subscription, no per-release fee. WB Digital earns a 25% royalty share only when you earn, so you keep 75% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99 per release, CD Baby charges $9.99 per release AND takes 9% of royalties. With WB Digital, for artists earning under ₹527/month, you are better off than paying DistroKid.',
+    a: 'Distribution is completely free: ₹0 upfront. No annual subscription, no per-release fee. WB Digital earns a 25% royalty share only when you earn, so you keep 100% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99 per release, CD Baby charges $9.99 per release AND takes 9% of royalties. With WB Digital, for artists earning under ₹527/month, you are better off than paying DistroKid.',
   },
   {
     q: 'Why should Indian artists choose WB Digital over TuneCore?',
-    a: 'TuneCore is US-built and US-focused. WB Digital is built specifically for the Indian music market. WB Digital distributes to JioSaavn, Gaana, Hungama, and Resso with priority, costs ₹0 upfront (TuneCore costs $14.99/release), is backed by Warner Music India for major-label credibility, goes live in 48 hours (TuneCore takes 7–10 days), and provides India-based artist support. You keep 75% of all streaming royalties, no annual fee eating into your earnings.',
+    a: 'TuneCore is US-built and US-focused. WB Digital is built specifically for the Indian music market. WB Digital distributes to JioSaavn, Gaana, and  with priority, costs ₹0 upfront (TuneCore costs $14.99/release), is backed by Warner Music India for major-label credibility, goes live in 48-72 hours (TuneCore takes 7–10 days), and provides India-based artist support. You keep 100% of all streaming royalties, no annual fee eating into your earnings.',
   },
   {
     q: 'How does WB Digital compare to CD Baby for Indian artists?',
-    a: 'WB Digital wins on every metric for Indian artists: Price (₹0 upfront vs $9.99/release), Royalties (75% to you vs 91%, CD Baby takes 9% AND charges per release), India-first distribution (WB Digital has JioSaavn and Gaana priority), Warner Music India backing (CD Baby has no equivalent), and go-live speed (48 hrs vs 5–7 days). CD Baby has no dedicated presence in the Indian music market.',
+    a: 'WB Digital wins on every metric for Indian artists: Price (₹0 upfront vs $9.99/release), Royalties (100% to you vs 91%, CD Baby takes 9% AND charges per release), India-first distribution (WB Digital has JioSaavn and Gaana priority), Warner Music India backing (CD Baby has no equivalent), and go-live speed (48 hrs vs 5–7 days). CD Baby has no dedicated presence in the Indian music market.',
   },
   {
     q: 'Does WB Digital distribute to JioSaavn and Gaana?',
-    a: 'Yes, and we prioritize them. WB Digital distributes to JioSaavn, Gaana, Hungama, Resso, Wynk Music, and all major Indian platforms, along with Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music India partnership gives us priority placement on Indian DSPs, something DistroKid, TuneCore, CD Baby, Ditto Music, and other foreign distributors cannot match.',
+    a: 'Yes, and we prioritize them. WB Digital distributes to JioSaavn, Gaana, and all major Indian platforms, along with Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music India partnership gives us priority placement on Indian DSPs, something DistroKid, TuneCore, CD Baby, Ditto Music, and other foreign distributors cannot match.',
   },
   {
     q: 'What does the Warner Music India partnership mean for me as an artist?',
@@ -267,11 +267,11 @@ const FAQS = [
   },
   {
     q: 'How fast does WB Digital get music live on streaming platforms?',
-    a: 'WB Digital delivers your music to streaming platforms within 48 hours. Compare that to: DistroKid (7–10 days), TuneCore (7–10 days), CD Baby (5–7 days), and Ditto Music (3–5 days). Our 48-hour turnaround is possible because of our direct relationships with all major platforms and our Warner Music India partnership.',
+    a: 'WB Digital delivers your music to streaming platforms within 48-72 hours. Compare that to: DistroKid (7–10 days), TuneCore (7–10 days), CD Baby (5–7 days), and Ditto Music (3–5 days). Our 48-72 hour turnaround is possible because of our direct relationships with all major platforms and our Warner Music India partnership.',
   },
   {
     q: 'How does WB Digital\'s royalty model work?',
-    a: 'WB Digital pays you 75% of all streaming royalties, directly, every month. We take 25% only when you earn (never upfront). Compare: CD Baby takes 9% AND charges $9.99/release; Believe takes 15–30%; The Orchard operates on revenue share. WB Digital costs ₹0 to start, and we only earn when you earn. That\'s fully aligned with your success.',
+    a: 'WB Digital pays you 100% of all streaming royalties, directly, every month. We take 25% only when you earn (never upfront). Compare: CD Baby takes 9% AND charges $9.99/release; Believe takes 15–30%; The Orchard operates on revenue share. WB Digital costs ₹0 to start, and we only earn when you earn. That\'s fully aligned with your success.',
   },
   {
     q: 'Can I switch from DistroKid, TuneCore, or CD Baby to WB Digital?',
@@ -500,7 +500,7 @@ export default function AboutPage() {
                 WB Digital by Western Beats Private Limited is India&apos;s most trusted and 100% free music
                 distribution platform, officially backed by <strong className="text-white">Warner Music India</strong>.
                 Distribute to 150+ platforms including JioSaavn, Gaana, Spotify &amp; Apple Music.
-                Earn <strong className="text-white">75% of every stream</strong>, we only earn when you do. Always free to distribute.
+                Earn <strong className="text-white">100% of every stream</strong>, we only earn when you do. Always free to distribute.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-14">
@@ -544,7 +544,7 @@ export default function AboutPage() {
               >
                 {[
                   { val: 'FREE', lbl: 'Forever, Always' },
-                  { val: '75%', lbl: 'Artist Royalties' },
+                  { val: '100%', lbl: 'Artist Royalties' },
                   { val: '150+', lbl: 'Platforms' },
                   { val: '48hrs', lbl: 'Go-Live Time' },
                   { val: 'WMI', lbl: 'Backed & Verified' },
@@ -1412,7 +1412,7 @@ export default function AboutPage() {
           >
             Stop paying DistroKid, TuneCore, CD Baby, or Ditto Music. Switch to WB Digital, India&apos;s #1 free
             music distribution platform, officially backed by Warner Music India. One upload. 150+ platforms.
-            75% royalties to you. ₹0 upfront. We only earn when you earn.
+            100% ownership (T&C apply) to you. ₹0 upfront. We only earn when you earn.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1447,7 +1447,7 @@ export default function AboutPage() {
           >
             {[
               '✓ 100% Free to Distribute',
-              '✓ 75% Royalties to You',
+              '✓ 100% Royalties to You',
               '✓ Warner Music India Backed',
               '✓ JioSaavn & Gaana Priority',
               '✓ Live in 48 Hours',

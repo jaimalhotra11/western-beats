@@ -25,8 +25,8 @@ const LANGUAGES = [
 const STEPS = [
   { Icon: Mail,        color: '#0A64C3', num: '01', title: 'We Review in 24 Hours',     desc: 'Our team checks your metadata, artwork, and audio quality against platform standards.' },
   { Icon: CheckCircle, color: '#5CB2DC', num: '02', title: 'Approval & Onboarding',     desc: 'We confirm distribution details, assign your ISRC/UPC, and finalise your release profile.' },
-  { Icon: Globe2,      color: '#0A64C3', num: '03', title: 'Live on 150+ Platforms',    desc: 'Your music goes live on JioSaavn, Spotify, Apple Music, YouTube Music & 145+ more within 48 hrs.' },
-  { Icon: DollarSign,  color: '#C41230', num: '04', title: 'Earn 75% Every Month',      desc: '75% of every stream goes directly to you. Track it all on your real-time analytics dashboard.' },
+  { Icon: Globe2,      color: '#0A64C3', num: '03', title: 'Live on 150+ Platforms',    desc: 'Your music goes live on 150+ platforms within 48-72 hrs. Music uploaded Friday goes live Monday.' },
+  { Icon: DollarSign,  color: '#C41230', num: '04', title: 'Earn 100% Every Month',      desc: '100% of every stream goes directly to you. Track it all on your real-time analytics dashboard.' },
 ]
 
 const INCLUDE = [
@@ -197,11 +197,11 @@ export default function SubmitPage() {
                 <span className="page-hero-line block text-white">Submit Your</span>
                 <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Music Free.</span>
                 <span className="page-hero-line block text-white">Go Live in</span>
-                <span className="page-hero-line block text-white">48 Hours.</span>
+                <span className="page-hero-line block text-white">48-72 Hours.</span>
               </h1>
               <p className="page-subtext font-inter text-[16px] text-mut leading-relaxed mb-8 max-w-lg">
                 Reach 150+ streaming platforms worldwide: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and more.
-                <strong className="text-white"> Always free. 75% royalties. 100% ownership of your masters.</strong>
+                <strong className="text-white"> Always free. 100% ownership (T&C apply). 100% ownership of your masters.</strong>
               </p>
 
               {/* Quick stats */}
@@ -209,8 +209,8 @@ export default function SubmitPage() {
                 {[
                   { val: 'FREE', lbl: 'To Submit' },
                   { val: '24hrs', lbl: 'Review Time' },
-                  { val: '48hrs', lbl: 'Go-Live Time' },
-                  { val: '75%', lbl: 'Royalties to You' },
+                  { val: '48-72hrs', lbl: 'Go-Live Time' },
+                  { val: '100%', lbl: 'Royalties to You' },
                 ].map(s => (
                   <div key={s.val} className="flex flex-col">
                     <span className="font-outfit font-black text-[26px] sm:text-[30px] leading-none" style={{ color: '#0A64C3' }}>{s.val}</span>

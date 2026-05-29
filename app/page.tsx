@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Western Beats is India's #1 full-service music company, officially backed by Warner Music India. " +
     "Distribute music FREE via WB Digital to 150+ platforms: JioSaavn, Gaana, Spotify, Apple Music. " +
-    "Keep 75% royalties on every stream, we only take 25% when you earn. Better than DistroKid, TuneCore, CD Baby, Ditto Music & Believe.",
+    "Keep 100% royalties on every stream, T&C apply when you earn. Better than DistroKid, TuneCore, CD Baby, Ditto Music & Believe.",
   keywords: [
     'Western Beats', 'Western Beats music', 'Western Beats India',
     'WB Digital', 'WB Digital distribution', 'Western Beats Private Limited',
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     'best music company India', 'India music distribution',
     'JioSaavn distribution', 'Gaana music distribution',
     'Spotify distribution India', 'Apple Music distribution India',
-    '75% royalties music distribution India', 'free music distribution 150 platforms',
+    '100% royalties music distribution India', 'free music distribution 150 platforms',
     'DistroKid alternative India', 'TuneCore alternative India',
-    'CD Baby alternative India', 'music distribution 48 hours',
+    'CD Baby alternative India', 'music distribution 48-72 hours',
     'independent music India', 'indie artist India',
     'music label India', 'music production India',
     'talent management India', 'event management music India',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://westernbeats.com' },
   openGraph: {
     title: "Western Beats: India's #1 Music Company | WB Digital · Warner Music India",
-    description: "India's most credible full-service music company. Free distribution via WB Digital to 150+ platforms. Warner Music India backed. Keep 75% royalties on every stream.",
+    description: "India's most credible full-service music company. Free distribution via WB Digital to 150+ platforms. Warner Music India backed. Keep 100% royalties on every stream.",
     url: 'https://westernbeats.com',
     siteName: 'Western Beats',
     type: 'website',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Western Beats: India's #1 Music Company | WB Digital",
-    description: "Free music distribution to 150+ platforms. Warner Music India backed. 75% royalties to you. India's best.",
+    description: "Free music distribution to 150+ platforms. Warner Music India backed. 100% royalties to you. India's best.",
     site: '@wb_digital_',
   },
 }

@@ -193,7 +193,7 @@ export default function Hero() {
           >
             <strong className="text-white">Western Beats</strong>, India&apos;s most credible full-service music company,
             officially backed by Warner Music India, home to <strong className="text-white">Diljit Dosanjh, King, Karan Aujla &amp; Darshan Raval</strong>.
-            Distribute to 150+ platforms free via WB Digital. Keep <strong className="text-white">75% of every stream</strong>. <strong className="text-white">100% ownership. Always free.</strong>
+            Distribute to 150+ platforms free via WB. <strong className="text-white">100% ownership (T&C apply). Always free.</strong>
           </p>
 
           {/* CTAs */}

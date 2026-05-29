@@ -26,7 +26,7 @@ const FEATURES = [
   'ISRC & UPC codes',
   'Playlist pitching',
   'Artist support',
-  'Keep 100% masters ownership',
+  'Keep 100% ownership (T&C apply, masters ownership',
 ]
 
 const DISTRIBUTORS = [
@@ -39,7 +39,7 @@ const DISTRIBUTORS = [
     priceNote: '25% revenue share only when you earn',
     data: [
       '150+ (India-first)',
-      '75% to you',
+      '100% to you',
       '₹0, none ever',
       true,
       true,
@@ -153,8 +153,8 @@ const FAQS = [
     a: 'Yes. Distribution costs ₹0 upfront, no annual fee, no per-release charge, ever. WB Digital earns a 25% royalty share only when you earn. We never charge you a single rupee before you make money. Think of it as a partner who only gets paid when you succeed.',
   },
   {
-    q: 'How does the 75/25 royalty split work?',
-    a: 'When your music generates streaming royalties, WB Digital pays you 75% directly every month. We keep 25% as our service fee. There are no upfront costs, we only earn when you earn. This aligns our interests completely with yours: the more you earn, the more we both earn.',
+    q: 'How does the 100/0 royalty split work?',
+    a: 'When your music generates streaming royalties, WB Digital pays you 100% directly every month. We keep 25% as our service fee. There are no upfront costs, we only earn when you earn. This aligns our interests completely with yours: the more you earn, the more we both earn.',
   },
   {
     q: 'Is WB Digital cheaper than DistroKid for Indian artists?',
@@ -162,7 +162,7 @@ const FAQS = [
   },
   {
     q: 'How does WB Digital compare to CD Baby?',
-    a: 'WB Digital wins on every metric: ₹0 upfront (vs $9.99/release + 9% royalties), India-first distribution with JioSaavn & Gaana priority (CD Baby has no India focus), Warner Music India backing (CD Baby has no equivalent), 48-hour go-live (vs 5–7 days), and free ISRC codes (CD Baby charges $5 each).',
+    a: 'WB Digital wins on every metric: ₹0 upfront (vs $9.99/release + 9% royalties), India-first distribution with JioSaavn & Gaana priority (CD Baby has no India focus), Warner Music India backing (CD Baby has no equivalent), 48-72 hour go-live (vs 5–7 days), and free ISRC codes (CD Baby charges $5 each).',
   },
   {
     q: 'What happens if I earn nothing from streaming?',
@@ -322,7 +322,7 @@ export default function PricingPage() {
                 style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
               >
                 <span className="page-hero-line block" style={{ color: '#0A64C3' }}>₹0 Forever.</span>
-                <span className="page-hero-line block text-white">75% Yours.</span>
+                <span className="page-hero-line block text-white">100% Yours.</span>
               </motion.h1>
               <motion.p
                 variants={fadeUp}
@@ -335,7 +335,7 @@ export default function PricingPage() {
 
               {/* Quick proof points */}
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
-                {['₹0 upfront forever','75% royalties to you','25% only when you earn','100% ownership','48-hr go-live'].map(pt => (
+                {['₹0 upfront forever','100% ownership (T&C apply) to you','25% only when you earn','100% ownership','48-hr go-live'].map(pt => (
                   <span key={pt} className="px-3 py-1.5 rounded-full font-inter text-[12px] font-semibold text-ice/80" style={{ background: 'rgba(10,100,195,0.15)', border: '1px solid rgba(10,100,195,0.3)' }}>{pt}</span>
                 ))}
               </motion.div>
@@ -358,9 +358,9 @@ export default function PricingPage() {
                 <div className="flex flex-col gap-3 mb-8">
                   {[
                     '150+ platforms, India-first',
-                    '75% royalties paid to you monthly',
+                    '100% ownership (T&C apply) paid to you monthly',
                     '25% service fee only when you earn',
-                    '48-hour go-live time',
+                    '48-72 hour go-live time',
                     'Free ISRC & UPC codes',
                     'Warner Music India backed',
                     'Real-time analytics dashboard',
@@ -522,9 +522,9 @@ export default function PricingPage() {
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="gsap-card grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: Globe2,   color: '#0A64C3', title: 'India First', desc: 'JioSaavn, Gaana & Hungama distribution with Warner Music India priority, no foreign distributor can match this.' },
+              { icon: Globe2,   color: '#0A64C3', title: 'India First', desc: 'JioSaavn, Gaana &  distribution with Warner Music India priority, no foreign distributor can match this.' },
               { icon: Shield,   color: '#C41230', title: 'Zero Risk',    desc: 'No upfront cost means zero financial risk. Submit your music for free, we only earn when you earn.' },
-              { icon: Zap,      color: '#5CB2DC', title: '48-Hour Live', desc: 'Fastest distribution in India. DistroKid takes 7–10 days. WB Digital gets you live in 48 hours.' },
+              { icon: Zap,      color: '#5CB2DC', title: '48-Hour Live', desc: 'Fastest distribution in India. DistroKid takes 7–10 days. WB Digital gets you live in 48-72 hours.' },
               { icon: Music2,   color: '#0A64C3', title: 'Full Service', desc: 'Distribution is just the start. Events, talent management, audio production, video direction, all under one roof.' },
             ].map((item, i) => {
               const Icon = item.icon
@@ -598,8 +598,8 @@ export default function PricingPage() {
             <div className="relative z-10">
               <div className="font-outfit font-black text-white text-[40px] sm:text-[52px] leading-none mb-3">₹0 to Start.</div>
               <div className="font-inter text-ice/90 text-[16px] sm:text-[18px] mb-8 leading-relaxed">
-                Submit your music now, live on 150+ platforms in 48 hours.
-                <br /><strong className="text-white">No card required. No annual fee. 75% royalties. Free forever.</strong>
+                Submit your music now, live on 150+ platforms in 48-72 hours.
+                <br /><strong className="text-white">No card required. No annual fee. 100% ownership (T&C apply). Free forever.</strong>
               </div>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link

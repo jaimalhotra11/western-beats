@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     'DistroKid alternative India',
     'TuneCore alternative India',
     'CD Baby alternative India',
-    'music distribution 48 hours India',
+    'music distribution 48-72 hours India',
     'independent artist services India',
     'music marketing India',
     'ISRC UPC music India',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Western Beats Services: India's #1 Full-Service Music Company | Free Distribution + Events + Production",
     description:
-      'Free music distribution to 150+ platforms in 48 hours, event management, talent management, audio & video production, and real-time analytics. All backed by Warner Music India.',
+      'Free music distribution to 150+ platforms in 48-72 hours, event management, talent management, audio & video production, and real-time analytics. All backed by Warner Music India.',
     url: 'https://westernbeats.com/services',
     siteName: 'Western Beats: WB Digital',
     type: 'website',
@@ -115,7 +115,7 @@ const jsonLd = {
             '@type': 'Service',
             name: 'Free Music Distribution',
             description:
-              'Distribute your music to 150+ streaming platforms worldwide for free. You keep 75% of royalties, we only earn when you earn. Live in 48 hours. Backed by Warner Music India.',
+              'Distribute your music to 150+ streaming platforms worldwide for free. You keep 100% of royalties, we only earn when you earn. Live in 48-72 hours. Backed by Warner Music India.',
             provider: { '@id': 'https://westernbeats.com/#organization' },
             areaServed: 'Worldwide',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
@@ -199,7 +199,7 @@ const jsonLd = {
           name: 'Is WB Digital music distribution really free?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes, WB Digital music distribution is 100% free to start. No annual fees, no per-release charges. You keep 75% of all streaming royalties, we take a 25% share only when you earn. Unlike DistroKid ($22.99/year), TuneCore ($14.99/release), or CD Baby ($9.99/release + 9% royalties), WB Digital costs ₹0 upfront.',
+            text: 'Yes, WB Digital music distribution is 100% free to start. No annual fees, no per-release charges. You keep 100% of all streaming royalties, we take a 25% share only when you earn. Unlike DistroKid ($22.99/year), TuneCore ($14.99/release), or CD Baby ($9.99/release + 9% royalties), WB Digital costs ₹0 upfront.',
           },
         },
         {
@@ -207,7 +207,7 @@ const jsonLd = {
           name: 'How long does music distribution take with WB Digital?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'WB Digital delivers your music to all 150+ streaming platforms within 48 hours of submission and approval. This is faster than DistroKid (7–10 days), TuneCore (7–10 days), CD Baby (5–7 days), and Ditto Music (3–5 days). Our Warner Music India partnership enables priority processing on all major platforms.',
+            text: 'WB Digital delivers your music to all 150+ streaming platforms within 48-72 hours of submission and approval. This is faster than DistroKid (7–10 days), TuneCore (7–10 days), CD Baby (5–7 days), and Ditto Music (3–5 days). Our Warner Music India partnership enables priority processing on all major platforms.',
           },
         },
         {
@@ -215,7 +215,7 @@ const jsonLd = {
           name: 'Does WB Digital distribute to JioSaavn and Gaana?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. WB Digital distributes to JioSaavn, Gaana, Hungama, Resso, Wynk Music, and all major Indian platforms as a priority, in addition to Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music India backing gives us priority placement that no foreign distributor can match.',
+            text: 'Yes. WB Digital distributes to JioSaavn, Gaana, and all major Indian platforms as a priority, in addition to Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music India backing gives us priority placement that no foreign distributor can match.',
           },
         },
         {

@@ -24,7 +24,6 @@ export const PLATFORMS: Platform[] = [
   { name: 'Amazon Music',  tag: 'Prime Listeners',  color: '#00A8E0', Icon: GenericMusic },
   { name: 'Tidal',         tag: 'Hi-Fi Quality',    color: '#FFFFFF', Icon: SiTidal as ComponentType<SVGProps<SVGSVGElement>> },
   { name: 'Deezer',        tag: 'Global Platform',  color: '#A238FF', Icon: GenericMusic },
-  { name: 'Hungama',       tag: 'South Asian',      color: '#FF5B00', Icon: GenericMusic },
   { name: 'SoundCloud',    tag: 'Creator Hub',      color: '#FF5500', Icon: SiSoundcloud as ComponentType<SVGProps<SVGSVGElement>> },
   { name: 'Boomplay',      tag: 'Africa #1',        color: '#FF1493', Icon: GenericMusic },
   { name: 'Pandora',       tag: 'US Radio',         color: '#005483', Icon: SiPandora as ComponentType<SVGProps<SVGSVGElement>> },

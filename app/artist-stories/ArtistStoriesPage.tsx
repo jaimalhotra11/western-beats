@@ -29,7 +29,7 @@ const STORIES = [
     genre: 'Carnatic Fusion',
     location: 'Chennai',
     photo: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&q=80&auto=format&fit=crop',
-    quote: 'My music is niche. I thought I needed a label to get taken seriously on Gaana and Wynk. WB Digital proved me wrong. My last single got featured on a Gaana editorial playlist within a week of going live.',
+    quote: 'My music is niche. I thought I needed a label to get taken seriously on Gaana and . WB Digital proved me wrong. My last single got featured on a Gaana editorial playlist within a week of going live.',
     stats: [
       { label: 'Monthly Streams', value: '890K' },
       { label: 'New Followers', value: '+12K' },
@@ -42,7 +42,7 @@ const STORIES = [
     genre: 'Punjabi Hip-Hop',
     location: 'Chandigarh',
     photo: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80&auto=format&fit=crop',
-    quote: 'I release one track a month. WB Digital makes that possible without any cost. The 48-hour go-live is legit. I dropped a track on a Thursday and it was live on JioSaavn by Saturday morning.',
+    quote: 'I release one track a month. WB Digital makes that possible without any cost. The 48-72 hour go-live is legit. I dropped a track on a Thursday and it was live on JioSaavn by Saturday morning.',
     stats: [
       { label: 'Releases This Year', value: '11' },
       { label: 'Total Streams', value: '5.4M' },
@@ -179,7 +179,7 @@ export default function ArtistStoriesPage() {
               <span style={{ color: '#0A64C3' }}>Story.</span>
             </h2>
             <p className="font-inter text-[15px] text-mut leading-relaxed mb-8">
-              Free distribution. 150+ platforms. 75% royalties. WMI backing. The same platform these artists used.
+              Free distribution. 150+ platforms. 100% royalties. WMI backing. The same platform these artists used.
             </p>
             <Link href="/submit"
               className="inline-flex items-center gap-2 px-8 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300"

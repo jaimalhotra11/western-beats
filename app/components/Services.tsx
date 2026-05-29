@@ -17,8 +17,8 @@ const SERVICES = [
     title: 'Music Distribution',
     tag: 'Core Service',
     color: '#0A64C3',
-    desc: 'Upload once. We deliver to 150+ streaming platforms simultaneously: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145 more. Live in 48-72 hours. 75% royalties to you. Free.',
-    points: ['150+ platforms worldwide', '48-72 hour delivery', '75% royalties, paid monthly', 'ISRC/UPC generation'],
+    desc: 'Upload once. We deliver to 150+ streaming platforms simultaneously: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145 more. Live in 48-72 hours. 100% ownership (T&C apply). Free.',
+    points: ['150+ platforms worldwide', '48-72 hour delivery', '100% ownership · T&C apply', 'ISRC/UPC generation'],
   },
   {
     icon: Calendar,
@@ -49,7 +49,7 @@ const SERVICES = [
     title: 'Video Direction',
     tag: 'Visual Identity',
     color: '#C41230',
-    desc: 'Music video direction, Instagram Reels, YouTube Shorts, promo clips, and social media content designed to go viral and match the WB Digital visual identity.',
+    desc: 'Music video direction, Instagram Reels, YouTube Shorts, promo clips, and social media content designed to go viral and match the WB visual identity.',
     points: ['Music video production', 'Instagram Reels & Shorts', 'Promo & campaign videos', 'BTS & EPK content'],
   },
   {
@@ -146,7 +146,7 @@ export default function Services() {
             <span style={{ color: '#0A64C3' }}>Music Company.</span>
           </h2>
           <p className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed">
-            Distribution is just the beginning. WB Digital provides everything an independent artist
+            Distribution is just the beginning. WB provides everything an independent artist
             needs to build a sustainable music career at major-label scale.
           </p>
         </div>

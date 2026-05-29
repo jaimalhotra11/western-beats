@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     template: '%s | WB Digital · Western Beats',
   },
   description:
-    "WB Digital by Western Beats, India's #1 free music distribution platform, officially backed by Warner Music India. Distribute to JioSaavn, Gaana, Spotify, Apple Music & 150+ platforms. Keep 75% royalties. Zero upfront fee. Same label that powers Diljit Dosanjh, King, Karan Aujla, Guru Randhawa & Darshan Raval.",
+    "WB Digital by Western Beats, India's #1 free music distribution platform, officially backed by Warner Music India. Distribute to JioSaavn, Gaana, Spotify, Apple Music & 150+ platforms. Keep 100% royalties. Zero upfront fee. Same label that powers Diljit Dosanjh, King, Karan Aujla, Guru Randhawa & Darshan Raval.",
   keywords: [
     'free music distribution India',
     'WB Digital',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: 'website',
     title: 'WB Digital: Free Music Distribution India | Warner Music India Partner',
     description:
-      "India's #1 free music distribution. 150+ platforms, 75% royalties, 48-hr go-live. Official Warner Music India partner, same label as Diljit Dosanjh, King, Karan Aujla, Bruno Mars & Coldplay.",
+      "India's #1 free music distribution. 150+ platforms, 100% royalties, 48-hr go-live. Official Warner Music India partner, same label as Diljit Dosanjh, King, Karan Aujla, Bruno Mars & Coldplay.",
     url: 'https://westernbeats.com',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'WB Digital: Western Beats Music Distribution' }],
   },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@wb_digital_',
     title: 'WB Digital: Free Music Distribution India | Warner Music India Partner',
-    description: 'Distribute free to 150+ platforms. 75% royalties. Warner Music India backed. Live in 48 hours. Same label as Diljit Dosanjh & King.',
+    description: 'Distribute free to 150+ platforms. 100% royalties. Warner Music India backed. Live in 48-72 hours. Same label as Diljit Dosanjh & King.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -77,7 +77,7 @@ const ORG_SCHEMA = {
   logo: 'https://westernbeats.com/wb-digital-logo.png',
   image: 'https://westernbeats.com/og-image.jpg',
   description:
-    "India's #1 free music distribution platform, officially backed by Warner Music India, home to Diljit Dosanjh, King, Karan Aujla, Guru Randhawa & Darshan Raval. Distribute to 150+ platforms including JioSaavn, Gaana & Spotify. Keep 75% royalties with zero upfront cost. The same Warner Music Group infrastructure that powers Bruno Mars, Coldplay & Ed Sheeran now powers your independent music career.",
+    "India's #1 free music distribution platform, officially backed by Warner Music India, home to Diljit Dosanjh, King, Karan Aujla, Guru Randhawa & Darshan Raval. Distribute to 150+ platforms including JioSaavn, Gaana & Spotify. Keep 100% royalties with zero upfront cost. The same Warner Music Group infrastructure that powers Bruno Mars, Coldplay & Ed Sheeran now powers your independent music career.",
   foundingDate: '2020',
   foundingLocation: { '@type': 'Country', name: 'India' },
   areaServed: { '@type': 'Country', name: 'India' },
@@ -106,7 +106,7 @@ const ORG_SCHEMA = {
   offers: {
     '@type': 'Offer',
     name: 'Free Music Distribution',
-    description: 'Distribute your music to 150+ streaming platforms worldwide for free. Keep 75% of all royalties.',
+    description: 'Distribute your music to 150+ streaming platforms worldwide for free. Keep 100% of all royalties.',
     price: '0',
     priceCurrency: 'INR',
     availability: 'https://schema.org/InStock',

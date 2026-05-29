@@ -40,8 +40,8 @@ export default function Partners() {
           </motion.p>
         </motion.div>
 
-        {/* Logo grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5">
+        {/* Logo grid — 4 partners */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-5 max-w-3xl mx-auto">
           {PARTNERS.map((p, i) => (
             <motion.div
               key={p.name}

@@ -7,7 +7,7 @@ type Stat = { value: number; suffix: string; prefix?: string; label: string; sub
 
 const STATS: Stat[] = [
   { value: 150, suffix: '+',   label: 'Streaming Platforms',  sub: 'Worldwide distribution',        color: '#0A64C3' },
-  { value: 75,  suffix: '%',   label: 'Artist Royalties',     sub: 'Straight to you, every month',  color: '#C41230' },
+  { value: 100, suffix: '%',   label: 'Ownership Retained',   sub: '100% ownership · T&C apply',    color: '#C41230' },
   { value: 48,  suffix: 'hrs', label: 'Go-Live Time',         sub: 'From upload to platform',       color: '#5CB2DC' },
   { value: 100, suffix: '%',   label: 'Ownership Yours',      sub: 'You keep all your masters',     color: '#0A64C3' },
   { value: 0,   suffix: '',    prefix: '₹', label: 'Cost to Distribute', sub: 'Completely free forever', color: '#C41230' },

@@ -4,7 +4,7 @@ import SubmitPage from './SubmitPage'
 export const metadata: Metadata = {
   title: 'Submit Your Music: Free Distribution to 150+ Platforms | WB Digital · Western Beats',
   description:
-    'Submit your music to WB Digital for free distribution to 150+ streaming platforms: JioSaavn, Gaana, Spotify, Apple Music & more. Go live in 48 hours. Keep 75% royalties. Backed by Warner Music India. Start today, ₹0 upfront.',
+    'Submit your music to WB Digital for free distribution to 150+ streaming platforms: JioSaavn, Gaana, Spotify, Apple Music & more. Go live in 48-72 hours. Keep 100% royalties. Backed by Warner Music India. Start today, ₹0 upfront.',
   keywords: [
     'submit music WB Digital',
     'submit music India free',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://westernbeats.com/submit' },
   openGraph: {
     title: 'Submit Your Music Free: WB Digital | Western Beats',
-    description: 'Submit your music for free distribution to 150+ platforms in 48 hours. 75% royalties. Warner Music India backed. ₹0 upfront.',
+    description: 'Submit your music for free distribution to 150+ platforms in 48-72 hours. 100% royalties. Warner Music India backed. ₹0 upfront.',
     url: 'https://westernbeats.com/submit',
     siteName: 'Western Beats: WB Digital',
     type: 'website',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Submit Your Music to WB Digital | Western Beats',
-    description: '150+ platforms in 48 hours. 75% royalties. Free forever. Backed by Warner Music India.',
+    description: '150+ platforms in 48-72 hours. 100% royalties. Free forever. Backed by Warner Music India.',
     site: '@wb_digital_',
   },
 }

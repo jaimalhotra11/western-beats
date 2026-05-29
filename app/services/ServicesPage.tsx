@@ -33,23 +33,23 @@ const SERVICES = [
     tag: 'Core · Always Free',
     title: 'Music Distribution',
     headline: 'One Upload. 150+ Platforms. 48 Hours. Free.',
-    desc: 'Upload once and reach every major streaming platform worldwide simultaneously, free distribution with 75% royalties straight to you. Our Warner Music India partnership means priority placement on JioSaavn, Gaana, and every Indian DSP.',
+    desc: 'Upload once and reach every major streaming platform worldwide simultaneously, free distribution with 100% ownership (T&C apply) straight to you. Our Warner Music India partnership means priority placement on JioSaavn, Gaana, and every Indian DSP.',
     points: [
       'Free forever, no annual fee, no per-release charge',
-      '75% royalties paid monthly, we only earn when you earn',
+      '100% ownership (T&C apply) paid monthly, we only earn when you earn',
       '150+ platforms: JioSaavn, Gaana, Spotify, Apple Music & more',
-      'Live in 48 hours, faster than DistroKid & TuneCore',
+      'Live in 48-72 hours, faster than DistroKid & TuneCore',
       'Free ISRC & UPC code generation',
       'Real-time royalty dashboard',
-      'Keep 100% ownership of your masters',
+      'Keep 100% ownership (T&C apply, ownership of your masters',
       'Dedicated WhatsApp & email support',
       'Priority placement via Warner Music India',
       'Metadata & artwork compliance guaranteed',
     ],
     steps: [
       { icon: Upload,      num: '01', title: 'Upload',     desc: 'Submit your track, artwork, and release info. We review within 24 hours.' },
-      { icon: Globe2,      num: '02', title: 'Distribute', desc: 'We push your music to 150+ platforms simultaneously within 48 hours.' },
-      { icon: DollarSign, num: '03', title: 'Earn 75%',   desc: '75% of every rupee earned flows directly to you monthly. We only earn when you earn, zero upfront cost.' },
+      { icon: Globe2,      num: '02', title: 'Distribute', desc: 'We push your music to 150+ platforms simultaneously within 48-72 hours.' },
+      { icon: DollarSign, num: '03', title: 'Earn 100%',   desc: '100% of every rupee earned flows directly to you monthly. We only earn when you earn, zero upfront cost.' },
     ],
     featured: true,
   },
@@ -193,19 +193,19 @@ const SERVICES = [
 const FAQS = [
   {
     q: 'What services does WB Digital offer?',
-    a: 'WB Digital offers six core services: Free Music Distribution (to 150+ platforms, 48 hrs, 75% royalties to you), Event Management (concerts, album launches), Talent Management (career strategy, brand deals, WMI network), Audio Production (recording, mixing, mastering), Video Direction (music videos, Reels, Shorts), and Analytics & Strategy (real-time data across all platforms). All backed by Warner Music India.',
+    a: 'WB Digital offers six core services: Free Music Distribution (to 150+ platforms, 48 hrs, 100% ownership (T&C apply) to you), Event Management (concerts, album launches), Talent Management (career strategy, brand deals, WMI network), Audio Production (recording, mixing, mastering), Video Direction (music videos, Reels, Shorts), and Analytics & Strategy (real-time data across all platforms). All backed by Warner Music India.',
   },
   {
     q: 'Is music distribution with WB Digital really free?',
-    a: 'Yes, distribution is completely free. ₹0 forever. No annual subscription, no per-release fee. WB Digital earns a 25% royalty share only when you earn, so you keep 75% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99/release, CD Baby charges $9.99/release AND takes 9% of royalties. WB Digital charges nothing upfront, we are fully invested in your success.',
+    a: 'Yes, distribution is completely free. ₹0 forever. No annual subscription, no per-release fee. WB Digital earns a 25% royalty share only when you earn, so you keep 100% of every stream with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99/release, CD Baby charges $9.99/release AND takes 9% of royalties. WB Digital charges nothing upfront, we are fully invested in your success.',
   },
   {
     q: 'How quickly does music go live with WB Digital?',
-    a: 'Within 48 hours of submission and approval, your music is live on all 150+ streaming platforms simultaneously, including JioSaavn, Gaana, Spotify, Apple Music, YouTube Music, and more. DistroKid takes 7–10 days, TuneCore takes 7–10 days, CD Baby takes 5–7 days. We are the fastest distributor in India.',
+    a: 'Within 48-72 hours of submission and approval, your music is live on all 150+ streaming platforms simultaneously, including JioSaavn, Gaana, Spotify, Apple Music, YouTube Music, and more. DistroKid takes 7–10 days, TuneCore takes 7–10 days, CD Baby takes 5–7 days. We are the fastest distributor in India.',
   },
   {
     q: 'Which platforms does WB Digital distribute to?',
-    a: 'WB Digital distributes to 150+ platforms: JioSaavn, Gaana, Hungama, Resso, Wynk, Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, SoundCloud, Boomplay, Pandora, Audiomack, Napster, and 130+ more globally. Our Warner Music India partnership gives us priority placement on Indian DSPs.',
+    a: 'WB Digital distributes to 150+ platforms: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, SoundCloud, Boomplay, Pandora, Audiomack, Napster, and 130+ more globally. Our Warner Music India partnership gives us priority placement on Indian DSPs.',
   },
   {
     q: 'How do I book event management or talent management?',
@@ -580,7 +580,7 @@ export default function ServicesPage() {
             </motion.h2>
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
               className="font-inter text-[15px] text-mut max-w-xl mx-auto">
-              One upload reaches all 150+ platforms simultaneously, in 48 hours, for free.
+              One upload reaches all 150+ platforms simultaneously, in 48-72 hours, for free.
             </motion.p>
           </div>
           <div className="gsap-card grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">

@@ -29,8 +29,8 @@ const STEPS = [
   {
     icon: DollarSign,
     num: '03',
-    title: 'You Earn 75%',
-    desc: '75% of royalties from every platform flow directly to you. Monthly payouts, full transparency. We only earn when you earn.',
+    title: '100% Yours, Always',
+    desc: 'You keep 100% ownership of your music and earnings (T&C apply). Monthly payouts, full transparency. We only earn when you earn.',
     color: '#C41230',
   },
 ]
@@ -42,13 +42,13 @@ const PLATFORMS_GRID = [
 
 const FEATURES = [
   'Free distribution, no annual fees, no per-track fees',
-  '75% of all royalties paid directly to you, monthly',
+  '100% ownership of your masters & earnings (T&C apply)',
   'We only earn when you earn, zero upfront risk',
   'Release to 150+ platforms simultaneously',
-  'Live on all platforms in 48–72 hours',
-  'ISRC and UPC code generation',
+  'Live on all platforms in 48–72 hours of approval',
+  'Music uploaded on Friday goes live Monday',
+  'ISRC and UPC code generation included',
   'Real-time streaming analytics dashboard',
-  'Keep 100% ownership of your masters',
   'Dedicated support team via WhatsApp & email',
 ]
 
@@ -81,7 +81,7 @@ export default function Distribution() {
             <span className="text-white">Free.</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed">
-            WB Digital distributes your music to every major streaming platform worldwide.
+            WB distributes your music to every major streaming platform worldwide.
             We handle the delivery, you focus on the music.
           </motion.p>
         </motion.div>
