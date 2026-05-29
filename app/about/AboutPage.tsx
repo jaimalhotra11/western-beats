@@ -435,7 +435,7 @@ export default function AboutPage() {
           <div className="hidden md:flex items-center gap-3">
             <div className="platform-pill text-[10px]">Warner Music India</div>
             <Link
-              href="/#distribution"
+              href="/submit"
               className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200"
             >
               Distribute Free
@@ -505,7 +505,7 @@ export default function AboutPage() {
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-14">
                 <Link
-                  href="/#distribution"
+                  href="/submit"
                   className="group flex items-center gap-2 px-7 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1"
                   style={{ boxShadow: '0 8px 30px rgba(10,100,195,0.35)' }}
                 >
@@ -1068,7 +1068,7 @@ export default function AboutPage() {
             className="text-center mt-12"
           >
             <Link
-              href="/#distribution"
+              href="/submit"
               className="inline-flex items-center gap-2 px-8 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1"
               style={{ boxShadow: '0 8px 30px rgba(10,100,195,0.35)' }}
             >
@@ -1307,7 +1307,7 @@ export default function AboutPage() {
             className="text-center mt-12"
           >
             <Link
-              href="/#services"
+              href="/services"
               className="inline-flex items-center gap-2 font-outfit font-bold text-[14px] text-sky hover:text-white transition-colors duration-200"
             >
               Explore All Services
@@ -1422,7 +1422,7 @@ export default function AboutPage() {
             className="flex flex-wrap justify-center gap-4"
           >
             <Link
-              href="/#distribution"
+              href="/submit"
               className="group flex items-center gap-2 px-8 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1"
               style={{ boxShadow: '0 8px 35px rgba(10,100,195,0.4)' }}
             >
@@ -1430,7 +1430,7 @@ export default function AboutPage() {
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
             <Link
-              href="/#contact"
+              href="/contact"
               className="flex items-center gap-2 px-8 py-4 bg-white/[0.06] border border-white/10 rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1"
             >
               Talk to Our Team
@@ -1476,7 +1476,7 @@ export default function AboutPage() {
           </div>
           <div className="flex items-center gap-5">
             <Link href="/" className="font-inter text-[12px] text-mut hover:text-white transition-colors">Home</Link>
-            <Link href="/#contact" className="font-inter text-[12px] text-mut hover:text-white transition-colors">Contact</Link>
+            <Link href="/contact" className="font-inter text-[12px] text-mut hover:text-white transition-colors">Contact</Link>
             <a href="https://instagram.com/wb_digital_" target="_blank" rel="noopener noreferrer" className="font-inter text-[12px] text-mut hover:text-white transition-colors">Instagram</a>
           </div>
         </div>

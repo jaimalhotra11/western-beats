@@ -332,7 +332,7 @@ export default function ServicesPage() {
           </div>
           <div className="hidden md:flex items-center gap-3">
             <div className="platform-pill page-badge text-[10px]">Warner Music India</div>
-            <Link href="/#distribution" className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200">
+            <Link href="/submit" className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200">
               Distribute Free
             </Link>
           </div>
@@ -375,12 +375,12 @@ export default function ServicesPage() {
                 WB Digital is India&apos;s only <strong className="text-white">full-service music company</strong> backed by Warner Music India, offering free distribution, events, talent management, audio production, video direction, and analytics under one roof.
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mb-10">
-                <Link href="#distribution" onClick={e => { e.preventDefault(); document.getElementById('distribution')?.scrollIntoView({ behavior: 'smooth' }) }}
+                <Link href="/submit"
                   className="group flex items-center gap-2 px-6 py-3.5 bg-blu rounded-xl font-outfit font-bold text-[14px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1"
                   style={{ boxShadow: '0 8px 30px rgba(10,100,195,0.35)' }}>
                   Start Distributing Free <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link href="/#contact"
+                <Link href="/contact"
                   className="flex items-center gap-2 px-6 py-3.5 bg-white/[0.06] border border-white/10 rounded-xl font-outfit font-bold text-[14px] text-white hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
                   Book a Service
                 </Link>
@@ -532,7 +532,7 @@ export default function ServicesPage() {
                     className="mt-10"
                   >
                     <Link
-                      href="/#contact"
+                      href="/contact"
                       className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-outfit font-bold text-[14px] text-white hover:-translate-y-1 transition-all duration-300"
                       style={{ background: service.color, boxShadow: `0 8px 30px ${service.color}50` }}
                     >
@@ -781,12 +781,12 @@ export default function ServicesPage() {
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
             className="gsap-fade-up flex flex-wrap justify-center gap-4 mb-12">
-            <Link href="/#distribution"
+            <Link href="/submit"
               className="group flex items-center gap-2 px-8 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1"
               style={{ boxShadow: '0 8px 35px rgba(10,100,195,0.4)' }}>
               Distribute Free Now <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="/#contact"
+            <Link href="/contact"
               className="flex items-center gap-2 px-8 py-4 bg-white/[0.06] border border-white/10 rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
               Book Any Service
             </Link>
@@ -820,7 +820,7 @@ export default function ServicesPage() {
           <div className="flex items-center gap-5">
             <Link href="/" className="font-inter text-[12px] text-mut hover:text-white transition-colors">Home</Link>
             <Link href="/about" className="font-inter text-[12px] text-mut hover:text-white transition-colors">About</Link>
-            <Link href="/#contact" className="font-inter text-[12px] text-mut hover:text-white transition-colors">Contact</Link>
+            <Link href="/contact" className="font-inter text-[12px] text-mut hover:text-white transition-colors">Contact</Link>
           </div>
         </div>
       </footer>

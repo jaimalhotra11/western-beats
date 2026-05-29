@@ -45,7 +45,7 @@ export default function Nav() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
-          <button onClick={() => handleScroll('#hero')} className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 flex-shrink-0">
               <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain drop-shadow-[0_0_8px_rgba(10,100,195,0.4)]" />
             </div>
@@ -53,7 +53,7 @@ export default function Nav() {
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
               <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
             </div>
-          </button>
+          </Link>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-1">
@@ -82,12 +82,12 @@ export default function Nav() {
 
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <button
-              onClick={() => handleScroll('#distribution')}
+            <Link
+              href="/submit"
               className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200"
             >
               Distribute Free
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -139,15 +139,20 @@ export default function Nav() {
                 </motion.button>
               )
             )}
-            <motion.button
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45 }}
-              onClick={() => handleScroll('#distribution')}
-              className="mt-6 px-8 py-3 bg-blu rounded-xl font-outfit font-bold text-lg text-white"
+              className="mt-6"
             >
-              Distribute Free →
-            </motion.button>
+              <Link
+                href="/submit"
+                onClick={() => setMenuOpen(false)}
+                className="block px-8 py-3 bg-blu rounded-xl font-outfit font-bold text-lg text-white"
+              >
+                Distribute Free →
+              </Link>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, Variants } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Play, ChevronDown } from 'lucide-react'
 import { PLATFORMS } from './platforms'
 import { gsap, registerGSAP } from '../lib/gsapUtils'
@@ -198,23 +199,21 @@ export default function Hero() {
 
           {/* CTAs */}
           <div ref={ctaRef} className="flex flex-wrap gap-3 sm:gap-4 mb-12 sm:mb-16">
-            <a
-              href="#distribution"
-              onClick={e => { e.preventDefault(); document.querySelector('#distribution')?.scrollIntoView({ behavior: 'smooth' }) }}
+            <Link
+              href="/submit"
               className="group flex items-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 bg-blu rounded-xl font-outfit font-bold text-[14px] sm:text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1 opacity-0"
               style={{ boxShadow: '0 8px 30px rgba(10,100,195,0.35)' }}
             >
               Start Distributing Free
               <span className="text-ice/80 group-hover:translate-x-1 transition-transform duration-300">→</span>
-            </a>
-            <a
-              href="#services"
-              onClick={e => { e.preventDefault(); document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' }) }}
+            </Link>
+            <Link
+              href="/services"
               className="flex items-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 bg-white/[0.06] border border-white/[0.1] rounded-xl font-outfit font-bold text-[14px] sm:text-[15px] text-white hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300 hover:-translate-y-1 opacity-0"
             >
               <Play size={14} className="fill-white" />
               Our Services
-            </a>
+            </Link>
           </div>
 
           {/* Waveform: GSAP bar reveal */}
