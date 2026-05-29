@@ -162,8 +162,8 @@ export default function Artists() {
   const revRef = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
-  /* ~25 s per full loop — slightly faster than before */
-  useSeamlessTicker(fwdRef, revRef, 280)
+  /* ~100 px/s — smooth, natural scroll speed */
+  useSeamlessTicker(fwdRef, revRef, 100)
 
   const double = [...ARTISTS, ...ARTISTS]
 
