@@ -48,13 +48,29 @@ section[id] { scroll-margin-top: 80px; }
 @keyframes wb-loader-bar  { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes wb-loader-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-@keyframes marquee    { 0% { transform: translateX(0); }    100% { transform: translateX(-50%); } }
-@keyframes marqueRev  { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); }    }
-.marquee-track { animation: marquee 28s linear infinite; }
+/* Use translate3d so the browser composites on the GPU — eliminates jerk on loop */
+@keyframes marquee    { 0% { transform: translate3d(0, 0, 0); }     100% { transform: translate3d(-50%, 0, 0); } }
+@keyframes marqueRev  { 0% { transform: translate3d(-50%, 0, 0); }  100% { transform: translate3d(0, 0, 0); }    }
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
 .marquee-track:hover { animation-play-state: paused; }
-/* Artist card sliders */
-.artist-slider-track     { animation: marquee    35s linear infinite; will-change: transform; }
-.artist-slider-track-rev { animation: marqueRev  35s linear infinite; will-change: transform; }
+
+/* Artist & WMI card sliders */
+.artist-slider-track,
+.artist-slider-track-rev {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Prevents sub-pixel jitter on loop restart */
+  transform-style: preserve-3d;
+}
+.artist-slider-track     { animation: marquee    40s linear infinite; }
+.artist-slider-track-rev { animation: marqueRev  40s linear infinite; }
 .artist-slider-track:hover,
 .artist-slider-track-rev:hover { animation-play-state: paused; }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }

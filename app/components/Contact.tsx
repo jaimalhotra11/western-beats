@@ -20,7 +20,7 @@ const InstagramIcon = () => (
 const CONTACT_ITEMS = [
   { icon: Globe,         label: 'Website',   value: 'westernbeats.com',         href: 'https://westernbeats.com' },
   { icon: Mail,          label: 'Email',     value: 'contact@westernbeats.com',  href: 'mailto:contact@westernbeats.com' },
-  { icon: Phone,         label: 'Phone',     value: '+91 93199 10662',           href: 'tel:+919319910662' },
+  { icon: Phone,         label: 'Phone',     value: '+91 70876 77767',           href: 'tel:+917087677767' },
   { icon: InstagramIcon, label: 'Instagram', value: '@wb_digital_',              href: 'https://instagram.com/wb_digital_' },
 ] as const
 

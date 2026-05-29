@@ -88,7 +88,7 @@ const ORG_SCHEMA = {
   ],
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+91-9319910662',
+    telephone: '+91-7087677767',
     email: 'contact@westernbeats.com',
     contactType: 'customer support',
     areaServed: 'IN',

@@ -142,7 +142,7 @@ export default function Services() {
           <div className="platform-pill mb-5 inline-flex">What We Do</div>
           <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.05] mb-5"
             style={{ fontSize: 'clamp(34px, 5vw, 58px)' }}>
-            <span className="text-white">Full-Service</span>{' '}
+            <span className="text-white">Globally #1 Full-Service</span>{' '}
             <span style={{ color: '#0A64C3' }}>Music Company.</span>
           </h2>
           <p className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed">

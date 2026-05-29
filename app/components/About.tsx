@@ -92,7 +92,7 @@ export default function About() {
               className="font-outfit font-black leading-[1.0] tracking-[-0.02em] mb-6 overflow-hidden"
               style={{ fontSize: 'clamp(34px, 5vw, 58px)' }}
             >
-              <span className="block text-white">India&apos;s #1</span>
+              <span className="block text-white">Globally #1</span>
               <span className="block text-white">Full-Service</span>
               <span className="block" style={{ color: '#0A64C3' }}>Music Company.</span>
             </h2>

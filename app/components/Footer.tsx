@@ -40,7 +40,7 @@ const SOCIALS = [
   { Icon: IgIcon,  href: 'https://instagram.com/wb_digital_', label: 'Instagram' },
   { Icon: Mail,    href: 'mailto:contact@westernbeats.com',   label: 'Email' },
   { Icon: Globe,   href: 'https://westernbeats.com',          label: 'Website' },
-  { Icon: Phone,   href: 'tel:+919319910662',                 label: 'Phone' },
+  { Icon: Phone,   href: 'tel:+917087677767',                 label: 'Phone' },
 ]
 
 export default function Footer() {

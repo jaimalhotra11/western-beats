@@ -33,16 +33,16 @@ const CONTACT_CARDS = [
     icon: MessageCircle,
     title: 'WhatsApp',
     color: '#C41230',
-    primary: '+91 93199 10662',
-    href: 'https://wa.me/919319910662',
+    primary: '+91 70876 77767',
+    href: 'https://wa.me/917087677767',
     sub: 'DM us on WhatsApp',
   },
   {
     icon: Phone,
     title: 'Call Us',
     color: '#5CB2DC',
-    primary: '+91 93199 10662',
-    href: 'tel:+919319910662',
+    primary: '+91 70876 77767',
+    href: 'tel:+917087677767',
     sub: 'Mon to Sat, 10am to 7pm IST',
   },
 ]
@@ -261,7 +261,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex flex-col gap-2 pt-4 border-t border-white/[0.06]">
                   <a href="mailto:contact@westernbeats.com" className="font-inter text-[13px] text-sky hover:text-white transition-colors">contact@westernbeats.com</a>
-                  <a href="tel:+919319910662" className="font-inter text-[13px] text-sky hover:text-white transition-colors">+91 93199 10662</a>
+                  <a href="tel:+917087677767" className="font-inter text-[13px] text-sky hover:text-white transition-colors">+91 70876 77767</a>
                   <a href="https://instagram.com/wb_digital_" target="_blank" rel="noopener noreferrer" className="font-inter text-[13px] text-sky hover:text-white transition-colors">@wb_digital_ on Instagram</a>
                 </div>
               </div>
