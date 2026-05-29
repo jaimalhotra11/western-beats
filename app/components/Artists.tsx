@@ -98,30 +98,35 @@ function useSeamlessTicker(
     let lastTime = -1
     let paused = false
 
-    /* Set will-change so browser creates GPU layers immediately */
     fwd.style.willChange = 'transform'
     rev.style.willChange = 'transform'
 
     const init = () => {
-      const fwdHalf = fwd.scrollWidth / 2
-      const revHalf = rev.scrollWidth / 2
+      /*
+       * Both rows contain identical doubled content, so their scrollWidth
+       * should be the same. Measure from fwd only and share the value —
+       * this guarantees both rows wrap at exactly the same content boundary
+       * and appear to move at exactly the same visual speed.
+       */
+      const halfW = fwd.scrollWidth / 2
 
-      /* Reverse row: start at -half so it appears to move rightward */
-      revX = -revHalf
+      /* Reverse row starts at -halfW so it moves rightward from the start */
+      revX = -halfW
 
       const tick = (now: number) => {
         if (lastTime === -1) lastTime = now
-        /* Cap dt to 2 frames — avoids huge jump when tab was backgrounded */
+        /* Cap dt to 2 frames so a backgrounded tab doesn't cause a jump */
         const dt = Math.min(now - lastTime, 66)
         lastTime = now
 
         if (!paused) {
-          fwdX -= pxPerSec * (dt / 1000)
-          /* Seamless wrap: when we've scrolled exactly one copy, snap back — visually identical */
-          if (fwdX <= -fwdHalf) fwdX += fwdHalf
+          const step = pxPerSec * (dt / 1000)
 
-          revX += pxPerSec * (dt / 1000)
-          if (revX >= 0) revX -= revHalf
+          fwdX -= step
+          if (fwdX <= -halfW) fwdX += halfW   // seamless: content at -halfW === content at 0
+
+          revX += step
+          if (revX >= 0) revX -= halfW          // seamless: content at 0 === content at -halfW
         }
 
         fwd.style.transform = `translate3d(${fwdX}px,0,0)`
@@ -133,7 +138,6 @@ function useSeamlessTicker(
       rafId = requestAnimationFrame(tick)
     }
 
-    /* Pause on hover */
     const onEnter = () => { paused = true }
     const onLeave = () => { paused = false }
     fwd.addEventListener('mouseenter', onEnter)
@@ -141,7 +145,7 @@ function useSeamlessTicker(
     rev.addEventListener('mouseenter', onEnter)
     rev.addEventListener('mouseleave', onLeave)
 
-    /* Wait one frame so scrollWidth is accurate after paint */
+    /* Wait one frame so scrollWidth is settled after first paint */
     const initRaf = requestAnimationFrame(init)
 
     return () => {
