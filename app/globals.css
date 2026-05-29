@@ -60,22 +60,8 @@ section[id] { scroll-margin-top: 80px; }
 }
 .marquee-track:hover { animation-play-state: paused; }
 
-/* Artist & WMI card sliders */
-.artist-slider-track,
-.artist-slider-track-rev {
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transform-style: preserve-3d;
-  /* Force independent GPU compositing layer — eliminates loop-restart jerk */
-  isolation: isolate;
-  /* Prevent ancestor layout changes from restarting the animation */
-  contain: layout style;
-}
-.artist-slider-track     { animation: marquee    40s linear infinite; }
-.artist-slider-track-rev { animation: marqueRev  40s linear infinite; }
-.artist-slider-track:hover,
-.artist-slider-track-rev:hover { animation-play-state: paused; }
+/* Artist carousel tracks — animation driven by RAF ticker in Artists.tsx */
+/* No CSS animation here; transform is set directly via style.transform */
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
 @keyframes wave { 0% { transform: scaleY(0.25); } 100% { transform: scaleY(1); } }
 @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
