@@ -191,5 +191,5 @@ export const PARTNERS = [
   { name: 'Warner Music India',   logo: '/partners/warnermusicindia-3pJs86tg.png' },
   { name: 'JetSynthesys',         logo: '/partners/jetsynthesys-E9Hauft9.png' },
   { name: 'Global Music Junction',logo: '/partners/globalmusicjunction-C0M0W2-z.png' },
-  { name: 'GIG',                  logo: '/partners/gig-logo.png' },   // ← upload gig-logo.png to /public/partners/
+  { name: 'GIG Media',            logo: '/partners/gig-media-logo.png' },
 ]

@@ -40,7 +40,7 @@ export default function Partners() {
           </motion.p>
         </motion.div>
 
-        {/* Logo grid — 4 partners, larger cards */}
+        {/* Logo grid — 4 partners, all identical size */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 lg:gap-6 max-w-4xl mx-auto">
           {PARTNERS.map((p, i) => (
             <motion.div
@@ -48,19 +48,24 @@ export default function Partners() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.05, ease: EASE }}
-              className="rounded-2xl flex flex-col items-center justify-center p-8 lg:p-10 aspect-[4/3] relative group"
-              style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.08)' }}
+              className="rounded-2xl flex flex-col items-center justify-center p-6 lg:p-8 relative group"
+              style={{
+                background: '#0A1535',
+                border: '1px solid rgba(255,255,255,0.08)',
+                aspectRatio: '1 / 1',   /* perfect square — every card identical */
+              }}
             >
-              <div className="relative w-full h-16 sm:h-20">
+              {/* Logo area — fixed height, same for every card */}
+              <div className="relative w-full" style={{ height: '80px' }}>
                 <Image
                   src={p.logo}
                   alt={p.name}
                   fill
-                  sizes="(max-width:640px) 45vw, 220px"
+                  sizes="(max-width:640px) 45vw, 200px"
                   className="object-contain opacity-85 group-hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
-              <div className="mt-3 text-center font-inter text-[11px] sm:text-[12px] text-mut group-hover:text-white transition-colors duration-300">
+              <div className="mt-4 text-center font-inter text-[11px] sm:text-[12px] text-mut group-hover:text-white transition-colors duration-300 leading-tight">
                 {p.name}
               </div>
             </motion.div>
