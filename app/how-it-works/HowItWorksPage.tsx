@@ -62,12 +62,12 @@ const STEPS = [
     num: '03',
     icon: DollarSign,
     color: '#C41230',
-    title: 'Earn 70% Royalties',
-    subtitle: 'Paid within 30 days of your invoice',
-    desc: '70% of all net streaming royalties from every platform flow directly to you. WB retains 30% as a Distribution Fee only when you earn — we never charge you upfront. The more you earn, the more we both earn. Perfectly aligned.',
+    title: 'Earn Your Royalties',
+    subtitle: 'Paid directly to your bank account',
+    desc: 'Your royalties flow directly to you from every platform. 100% ownership always yours. WB Digital only earns when you earn — never upfront. The more you earn, the more we both earn. Perfectly aligned.',
     checklist: [
-      '70% Revenue Share paid within 30 days of invoice',
-      'We earn 30% only when you earn, zero upfront cost',
+      'Royalties paid direct to your bank account',
+      'WB Digital only earns when you earn, zero upfront cost',
       'Real-time dashboard: track every stream live',
       'Revenue breakdown by platform & territory',
       'Transparent monthly PDF payout reports',
@@ -206,14 +206,14 @@ export default function HowItWorksPage() {
               >
                 <span className="page-hero-line block text-white">3 Steps.</span>
                 <span className="page-hero-line block" style={{ color: '#0A64C3' }}>150+ Platforms.</span>
-                <span className="page-hero-line block text-white">70% Yours.</span>
+                <span className="page-hero-line block text-white">100% Yours.</span>
               </motion.h1>
               <motion.p
                 variants={fadeUp}
                 className="page-subtext font-inter text-[16px] sm:text-[17px] text-mut leading-relaxed mb-8 max-w-xl"
               >
                 WB Digital makes music distribution the simplest thing you&apos;ll do today.
-                Submit your music, we handle the rest: 150+ platforms in 48-72 hours, 70% royalties straight to you.
+                Submit your music, we handle the rest: 150+ platforms in 48-72 hours, 100% ownership always yours.
                 <strong className="text-white"> Always free. 100% IP ownership yours.</strong>
               </motion.p>
 
@@ -443,7 +443,7 @@ export default function HowItWorksPage() {
               <div className="font-inter text-ice/90 text-[16px] sm:text-[18px] mb-8 leading-relaxed">
                 Submit your music today. Live on 150+ platforms in 48-72 hours.
                 <br />
-                <strong className="text-white">70% royalties. 100% IP ownership. Free forever.</strong>
+                <strong className="text-white">100% ownership. Direct royalty payments. Free forever.</strong>
               </div>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link

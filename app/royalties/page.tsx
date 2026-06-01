@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import RoyaltiesPage from './RoyaltiesPage'
 
 export const metadata: Metadata = {
-  title: 'Royalties & Payments | WB Digital: 70% to You, Every Month',
+  title: 'Royalties & Payments | WB Digital: 100% Ownership, Always Yours',
   description:
-    'WB Digital pays 70% of all net streaming royalties directly to artists every month. 100% IP ownership always stays yours (T&C apply). Free ISRC and UPC codes. No upfront fees. We only earn when you earn.',
+    'WB Digital pays your royalties directly to your bank account every month. 100% IP ownership always stays yours. Free ISRC and UPC codes. No upfront fees. We only earn when you earn.',
   keywords: [
     'music royalties India',
-    '70% royalties music distribution',
+    '100% ownership music distribution',
     'how music royalties work India',
     'streaming royalties India',
     'music royalty payment India',
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://westernbeats.com/royalties' },
   openGraph: {
-    title: 'WB Digital Royalties: 70% to You, Every Month',
+    title: 'WB Digital Royalties: 100% Ownership, Direct Payments Every Month',
     description:
-      'WB Digital pays 70% of net streaming royalties directly to artists monthly. 100% IP ownership. Free ISRC and UPC. Zero upfront fees. We only earn when you earn.',
+      'WB Digital pays your royalties directly to your bank account. 100% IP ownership always yours. Free ISRC and UPC. Zero upfront fees. We only earn when you earn.',
     url: 'https://westernbeats.com/royalties',
     siteName: 'WB Digital: Western Beats',
     locale: 'en_IN',
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'WB Digital: 70% Royalties to Artists, Every Month',
+    title: 'WB Digital: 100% Ownership, Direct Royalty Payments',
     description:
-      'Transparent 70/30 royalty split. Monthly payments directly to your bank. 100% IP ownership. Free ISRC and UPC. No upfront fees.',
+      '100% IP ownership always yours. Direct royalty payments to your bank. Free ISRC and UPC. No upfront fees.',
     site: '@wb_digital_',
   },
 }
@@ -54,10 +54,10 @@ const SCHEMA = {
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'What percentage of royalties does WB Digital pay artists?',
+          name: 'What royalties does WB Digital pay artists?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'WB Digital pays 70% of all net streaming royalties to artists every month. WB retains 30% as a Distribution Fee. There are no upfront charges — WB only earns a share when you earn.',
+            text: 'WB Digital pays your royalties directly to your bank account. There are no upfront charges — WB only earns when you earn. Full revenue share details are available in our Terms & Conditions at westernbeats.com/terms.',
           },
         },
         {

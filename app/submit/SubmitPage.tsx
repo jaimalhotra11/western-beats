@@ -201,7 +201,7 @@ export default function SubmitPage() {
               </h1>
               <p className="page-subtext font-inter text-[16px] text-mut leading-relaxed mb-8 max-w-lg">
                 Reach 150+ streaming platforms worldwide: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and more.
-                <strong className="text-white"> Always free. 70% royalties to you. 100% IP ownership of your masters.</strong>
+                <strong className="text-white"> Always free. 100% ownership of your masters.</strong>
               </p>
 
               {/* Quick stats */}
@@ -210,7 +210,7 @@ export default function SubmitPage() {
                   { val: 'FREE', lbl: 'To Submit' },
                   { val: '24hrs', lbl: 'Review Time' },
                   { val: '48-72hrs', lbl: 'Go-Live Time' },
-                  { val: '70%',  lbl: 'Royalties to You' },
+                  { val: '100%', lbl: 'Ownership Yours' },
                 ].map(s => (
                   <div key={s.val} className="flex flex-col">
                     <span className="font-outfit font-black text-[26px] sm:text-[30px] leading-none" style={{ color: '#0A64C3' }}>{s.val}</span>

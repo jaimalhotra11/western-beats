@@ -4,7 +4,7 @@ import HowItWorksPage from './HowItWorksPage'
 export const metadata: Metadata = {
   title: 'How It Works: Free Music Distribution in 3 Steps | WB Digital · Western Beats',
   description:
-    'See exactly how WB Digital works: Submit your music → We distribute to 150+ platforms in 48-72 hours → You earn 70% of net royalties (100% IP ownership yours). Free forever. Backed by Warner Music India. Faster than DistroKid, TuneCore & CD Baby.',
+    'See exactly how WB Digital works: Submit your music → We distribute to 150+ platforms in 48-72 hours → 100% IP ownership always yours, royalties paid directly to you. Free forever. Backed by Warner Music India. Faster than DistroKid, TuneCore & CD Baby.',
   keywords: [
     'how does WB Digital work',
     'how to distribute music India',
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     'WB Digital how it works',
     'indie artist distribution guide India',
     'how to earn royalties India',
-    '70 percent royalties music India',
+    '100 percent ownership music India',
     'how to distribute music free India',
     'Western Beats distribution process',
   ],
   alternates: { canonical: 'https://westernbeats.com/how-it-works' },
   openGraph: {
     title: 'How WB Digital Works: 3 Steps to Stream on 150+ Platforms | Western Beats',
-    description: 'Submit → Distribute to 150+ platforms in 48 hrs → Keep 70% royalties. Free forever. Backed by Warner Music India.',
+    description: 'Submit → Distribute to 150+ platforms in 48 hrs → 100% ownership, royalties direct to you. Free forever. Backed by Warner Music India.',
     url: 'https://westernbeats.com/how-it-works',
     siteName: 'Western Beats: WB Digital',
     type: 'website',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'How WB Digital Works | Western Beats',
-    description: '3 simple steps. 150+ platforms. 48 hours. 70% royalties to you. Free forever.',
+    description: '3 simple steps. 150+ platforms. 48 hours. 100% ownership. Free forever.',
     site: '@wb_digital_',
   },
 }
@@ -65,7 +65,7 @@ const jsonLd = {
       step: [
         { '@type': 'HowToStep', position: 1, name: 'Submit Your Music', text: 'Send your track, album artwork, ISRC code, and release details to WB Digital. Our team reviews everything within 24 hours.' },
         { '@type': 'HowToStep', position: 2, name: 'We Distribute', text: 'WB Digital delivers your music to all 150+ streaming platforms simultaneously, including JioSaavn, Gaana, Spotify, Apple Music, and YouTube Music. Live within 48 hours.' },
-        { '@type': 'HowToStep', position: 3, name: 'Earn 70% Royalties', text: '70% of all net streaming royalties flow directly to you. WB retains 30% as a Distribution Fee only when you earn — zero upfront cost.' },
+        { '@type': 'HowToStep', position: 3, name: 'Earn Your Royalties', text: 'Your royalties flow directly to your bank account. 100% IP ownership always yours. WB Digital only earns when you earn — zero upfront cost.' },
       ],
     },
   ],

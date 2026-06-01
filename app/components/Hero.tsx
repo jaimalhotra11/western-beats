@@ -261,7 +261,7 @@ export default function Hero() {
         <div className="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 lg:gap-x-16 gap-y-6">
           {[
             { num: '150+', lbl: 'Streaming Platforms' },
-            { num: '70%',  lbl: 'Artist Royalties' },
+            { num: '100%', lbl: 'Ownership Yours' },
             { num: '48hrs',lbl: 'Go-Live Time' },
             { num: '100%', lbl: 'Ownership Yours' },
             { num: '₹0',   lbl: 'Distribution Cost' },

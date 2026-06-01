@@ -111,7 +111,7 @@ export default function About() {
             >
               From JioSaavn and Gaana to Spotify, Apple Music, YouTube Music, and 145+ more
               platforms worldwide; your music goes everywhere your fans are. One upload,
-              150+ destinations, 70% of your royalties paid straight to you. Always free to distribute. 100% ownership, always yours.
+              150+ destinations, your royalties paid straight to you. Always free to distribute. 100% ownership, always yours.
             </motion.p>
 
             {/* WMI badge */}

@@ -197,7 +197,7 @@ const FAQS = [
   },
   {
     q: 'Is music distribution with WB Digital really free?',
-    a: 'Yes, distribution is completely free. ₹0 forever. No annual subscription, no per-release fee. WB Digital earns a 30% Distribution Fee only when you earn — you keep 70% of net royalties with zero upfront cost. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99/release, CD Baby charges $9.99/release AND takes 9% of royalties. WB Digital charges nothing upfront, we are fully invested in your success.',
+    a: 'Yes, distribution is completely free. ₹0 forever. No annual subscription, no per-release fee. WB Digital only earns when you earn — zero upfront cost. Full details in our Terms & Conditions. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99/release, CD Baby charges $9.99/release AND takes 9% of royalties. WB Digital charges nothing upfront, we are fully invested in your success.',
   },
   {
     q: 'How quickly does music go live with WB Digital?',

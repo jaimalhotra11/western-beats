@@ -39,7 +39,7 @@ const DISTRIBUTORS = [
     priceNote: '30% Distribution Fee only when you earn',
     data: [
       '150+ (India-first)',
-      '70% to you',
+      'Direct (T&C)',
       '₹0, none ever',
       true,
       true,
@@ -150,11 +150,11 @@ const DISTRIBUTORS = [
 const FAQS = [
   {
     q: 'Is WB Digital distribution really free, forever?',
-    a: 'Yes. Distribution costs ₹0 upfront, no annual fee, no per-release charge, ever. WB Digital earns a 30% Distribution Fee only when you earn. We never charge you a single rupee before you make money. Think of it as a partner who only gets paid when you succeed.',
+    a: 'Yes. Distribution costs ₹0 upfront, no annual fee, no per-release charge, ever. WB Digital only earns when you earn. We never charge you a single rupee before you make money. Think of it as a partner who only gets paid when you succeed.',
   },
   {
     q: 'How does the 70/30 royalty split work?',
-    a: 'When your music generates streaming royalties, WB Digital pays you 70% of net royalties. We keep 30% as our Distribution Fee. There are no upfront costs, we only earn when you earn. This aligns our interests completely with yours: the more you earn, the more we both earn.',
+    a: 'When your music generates streaming royalties, WB Digital pays your royalties directly to your bank account with no upfront costs. We only earn when you earn. Full details in our Terms & Conditions. This aligns our interests completely with yours: the more you earn, the more we both earn.',
   },
   {
     q: 'Is WB Digital cheaper than DistroKid for Indian artists?',
@@ -166,7 +166,7 @@ const FAQS = [
   },
   {
     q: 'What happens if I earn nothing from streaming?',
-    a: 'You pay nothing. WB Digital only takes its 30% Distribution Fee when royalties are generated. If your music earns ₹0, WB Digital earns ₹0. Zero risk, zero upfront commitment.',
+    a: 'You pay nothing. WB Digital only earns when you earn — if your music generates nothing, WB Digital earns nothing. If your music earns ₹0, WB Digital earns ₹0. Zero risk, zero upfront commitment.',
   },
   {
     q: 'Are there any hidden fees I should know about?',
@@ -322,20 +322,20 @@ export default function PricingPage() {
                 style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
               >
                 <span className="page-hero-line block" style={{ color: '#0A64C3' }}>₹0 Forever.</span>
-                <span className="page-hero-line block text-white">70% Yours.</span>
+                <span className="page-hero-line block text-white">100% Ownership.</span>
               </motion.h1>
               <motion.p
                 variants={fadeUp}
                 className="page-subtext font-inter text-[16px] sm:text-[17px] text-mut leading-relaxed mb-10 max-w-xl"
               >
                 WB Digital charges <strong className="text-white">zero upfront</strong>, no annual fee, no per-release charge.
-                We earn a <strong className="text-white">30% Distribution Fee only when you earn</strong>.
+                We <strong className="text-white">only earn when you earn</strong> — zero upfront cost, ever.
                 If you earn ₹0, we take ₹0. Simple, aligned, honest.
               </motion.p>
 
               {/* Quick proof points */}
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
-                {['₹0 upfront forever','100% IP ownership (T&C apply)','70% royalties to you','30% only when you earn','48-hr go-live'].map(pt => (
+                {['₹0 upfront forever','100% IP ownership (T&C apply)','Royalties paid direct to you','₹0 upfront forever','48-hr go-live'].map(pt => (
                   <span key={pt} className="px-3 py-1.5 rounded-full font-inter text-[12px] font-semibold text-ice/80" style={{ background: 'rgba(10,100,195,0.15)', border: '1px solid rgba(10,100,195,0.3)' }}>{pt}</span>
                 ))}
               </motion.div>
@@ -358,7 +358,7 @@ export default function PricingPage() {
                 <div className="flex flex-col gap-3 mb-8">
                   {[
                     '150+ platforms, India-first',
-                    '70% Revenue Share paid within 30 days of invoice',
+                    'Royalties paid direct to your bank (T&C)',
                     '30% Distribution Fee only when you earn',
                     '48-72 hour go-live time',
                     'Free ISRC & UPC codes',

@@ -189,7 +189,7 @@ export default function Distribution() {
                     {[
                       { num: '150+', lbl: 'Platforms' },
                       { num: '48h', lbl: 'Go Live' },
-                      { num: '70%', lbl: 'Royalties' },
+                      { num: '100%', lbl: 'Ownership' },
                     ].map(s => (
                       <div key={s.lbl}>
                         <div className="font-outfit font-black text-white text-[20px] sm:text-[24px] leading-none">{s.num}</div>
@@ -236,13 +236,13 @@ export default function Distribution() {
             <div className="relative z-10">
               <div className="font-outfit font-black text-white text-[36px] sm:text-[42px] leading-none mb-2">Free.</div>
               <div className="font-inter text-ice text-[16px] mb-8 leading-relaxed">
-                No annual fees. No per-track charges. You keep 70% of every stream, we only earn when you do.
+                No annual fees. No per-track charges. Your royalties flow directly to you — we only earn when you do.
                 Just upload and distribute, it costs you nothing upfront.
               </div>
               <div className="flex flex-col gap-3">
                 <div className="font-inter text-white/80 text-[13px]">✦ Instant setup, no approval wait</div>
                 <div className="font-inter text-white/80 text-[13px]">✦ Warner Music India backed</div>
-                <div className="font-inter text-white/80 text-[13px]">✦ 70% royalties, 100% ownership of your masters</div>
+                <div className="font-inter text-white/80 text-[13px]">✦ 100% ownership of your masters, always yours</div>
               </div>
               <a
                 href="mailto:contact@westernbeats.com?subject=Distribution Enquiry"

@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import PricingPage from './PricingPage'
 
 export const metadata: Metadata = {
-  title: 'Pricing: Free Music Distribution, 70% Royalties | WB Digital · Western Beats',
+  title: 'Pricing: Free Music Distribution, 100% Ownership | WB Digital · Western Beats',
   description:
-    'WB Digital music distribution is 100% free: ₹0 upfront forever. You earn 70% of all net royalties, WB takes 30% only when you earn. Compare vs DistroKid ($22.99/yr), TuneCore ($14.99/release), CD Baby ($9.99 + 9%), Ditto Music, and Believe. Best value for Indian artists.',
+    'WB Digital music distribution is 100% free: ₹0 upfront forever. 100% IP ownership always yours, WB only earns when you earn. Compare vs DistroKid ($22.99/yr), TuneCore ($14.99/release), CD Baby ($9.99 + 9%), Ditto Music, and Believe. Best value for Indian artists.',
   keywords: [
     'WB Digital pricing',
     'free music distribution India',
@@ -12,20 +12,20 @@ export const metadata: Metadata = {
     'DistroKid vs WB Digital',
     'TuneCore alternative India free',
     'CD Baby alternative free India',
-    'music distribution free 70 percent royalties',
+    'music distribution free 100 percent ownership',
     'best free music distributor India',
     'music distribution comparison India',
     'WB Digital free forever',
     'Western Beats pricing',
     'indie artist distribution cost India',
-    'music royalties 70 percent India',
+    'music royalties 100 percent ownership India',
     'no fee music distribution India',
     'Warner Music India distribution pricing',
   ],
   alternates: { canonical: 'https://westernbeats.com/pricing' },
   openGraph: {
     title: 'WB Digital Pricing: Free Music Distribution | Western Beats',
-    description: '₹0 forever. 70% royalties to you. No annual fee, no per-release charge. We only earn when you earn. Compare vs DistroKid, TuneCore & CD Baby.',
+    description: '₹0 forever. 100% ownership to you. No annual fee, no per-release charge. We only earn when you earn. Compare vs DistroKid, TuneCore & CD Baby.',
     url: 'https://westernbeats.com/pricing',
     siteName: 'Western Beats: WB Digital',
     type: 'website',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'WB Digital Pricing: ₹0 Forever | Western Beats',
-    description: 'Free music distribution. 70% royalties. No hidden fees. Better than DistroKid, TuneCore & CD Baby for Indian artists.',
+    description: 'Free music distribution. 100% ownership. No hidden fees. Better than DistroKid, TuneCore & CD Baby for Indian artists.',
     site: '@wb_digital_',
   },
 }
@@ -59,7 +59,7 @@ const jsonLd = {
     {
       '@type': 'Product',
       name: 'WB Digital Music Distribution',
-      description: 'Free music distribution to 150+ streaming platforms. 70% royalties to artist, 30% to WB Digital, only when you earn. Zero upfront cost. Warner Music India backed.',
+      description: 'Free music distribution to 150+ streaming platforms. 100% IP ownership always yours, no upfront costs ever. Zero upfront cost. Warner Music India backed.',
       brand: { '@type': 'Brand', name: 'WB Digital by Western Beats' },
       offers: {
         '@type': 'Offer',
@@ -77,7 +77,7 @@ const jsonLd = {
           name: 'Is WB Digital music distribution really free?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. WB Digital music distribution is ₹0 upfront, forever. No annual fee, no per-release charge. WB Digital earns a 30% Distribution Fee only when you earn — you keep 70% of every stream. We only make money when you make money.',
+            text: 'Yes. WB Digital music distribution is ₹0 upfront, forever. No annual fee, no per-release charge. WB Digital only earns when you earn — there are no upfront fees. Full details in our Terms & Conditions. We only make money when you make money.',
           },
         },
         {
