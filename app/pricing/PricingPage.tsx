@@ -36,10 +36,10 @@ const DISTRIBUTORS = [
     badge: 'Best for India',
     color: '#0A64C3',
     price: 'FREE: ₹0 Forever',
-    priceNote: '25% revenue share only when you earn',
+    priceNote: '30% Distribution Fee only when you earn',
     data: [
       '150+ (India-first)',
-      '100% to you',
+      '70% to you',
       '₹0, none ever',
       true,
       true,
@@ -150,15 +150,15 @@ const DISTRIBUTORS = [
 const FAQS = [
   {
     q: 'Is WB Digital distribution really free, forever?',
-    a: 'Yes. Distribution costs ₹0 upfront, no annual fee, no per-release charge, ever. WB Digital earns a 25% royalty share only when you earn. We never charge you a single rupee before you make money. Think of it as a partner who only gets paid when you succeed.',
+    a: 'Yes. Distribution costs ₹0 upfront, no annual fee, no per-release charge, ever. WB Digital earns a 30% Distribution Fee only when you earn. We never charge you a single rupee before you make money. Think of it as a partner who only gets paid when you succeed.',
   },
   {
-    q: 'How does the 100/0 royalty split work?',
-    a: 'When your music generates streaming royalties, WB Digital pays you 100% directly every month. We keep 25% as our service fee. There are no upfront costs, we only earn when you earn. This aligns our interests completely with yours: the more you earn, the more we both earn.',
+    q: 'How does the 70/30 royalty split work?',
+    a: 'When your music generates streaming royalties, WB Digital pays you 70% of net royalties. We keep 30% as our Distribution Fee. There are no upfront costs, we only earn when you earn. This aligns our interests completely with yours: the more you earn, the more we both earn.',
   },
   {
     q: 'Is WB Digital cheaper than DistroKid for Indian artists?',
-    a: 'Absolutely. DistroKid charges $22.99/year (₹1,900+) regardless of whether you earn anything. WB Digital charges ₹0 upfront, our 25% service fee only applies when royalties are generated. If you earn ₹0, you pay ₹0.',
+    a: 'Absolutely. DistroKid charges $22.99/year (₹1,900+) regardless of whether you earn anything. WB Digital charges ₹0 upfront, our 30% Distribution Fee only applies when royalties are generated. If you earn ₹0, you pay ₹0.',
   },
   {
     q: 'How does WB Digital compare to CD Baby?',
@@ -166,7 +166,7 @@ const FAQS = [
   },
   {
     q: 'What happens if I earn nothing from streaming?',
-    a: 'You pay nothing. WB Digital only takes its 25% service fee when royalties are generated. If your music earns ₹0, WB Digital earns ₹0. Zero risk, zero upfront commitment.',
+    a: 'You pay nothing. WB Digital only takes its 30% Distribution Fee when royalties are generated. If your music earns ₹0, WB Digital earns ₹0. Zero risk, zero upfront commitment.',
   },
   {
     q: 'Are there any hidden fees I should know about?',
@@ -322,20 +322,20 @@ export default function PricingPage() {
                 style={{ fontSize: 'clamp(42px, 7vw, 88px)' }}
               >
                 <span className="page-hero-line block" style={{ color: '#0A64C3' }}>₹0 Forever.</span>
-                <span className="page-hero-line block text-white">100% Yours.</span>
+                <span className="page-hero-line block text-white">70% Yours.</span>
               </motion.h1>
               <motion.p
                 variants={fadeUp}
                 className="page-subtext font-inter text-[16px] sm:text-[17px] text-mut leading-relaxed mb-10 max-w-xl"
               >
                 WB Digital charges <strong className="text-white">zero upfront</strong>, no annual fee, no per-release charge.
-                We earn a <strong className="text-white">25% revenue share only when you earn</strong>.
+                We earn a <strong className="text-white">30% Distribution Fee only when you earn</strong>.
                 If you earn ₹0, we take ₹0. Simple, aligned, honest.
               </motion.p>
 
               {/* Quick proof points */}
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
-                {['₹0 upfront forever','100% ownership (T&C apply) to you','25% only when you earn','100% ownership','48-hr go-live'].map(pt => (
+                {['₹0 upfront forever','100% IP ownership (T&C apply)','70% royalties to you','30% only when you earn','48-hr go-live'].map(pt => (
                   <span key={pt} className="px-3 py-1.5 rounded-full font-inter text-[12px] font-semibold text-ice/80" style={{ background: 'rgba(10,100,195,0.15)', border: '1px solid rgba(10,100,195,0.3)' }}>{pt}</span>
                 ))}
               </motion.div>
@@ -358,8 +358,8 @@ export default function PricingPage() {
                 <div className="flex flex-col gap-3 mb-8">
                   {[
                     '150+ platforms, India-first',
-                    '100% ownership (T&C apply) paid to you monthly',
-                    '25% service fee only when you earn',
+                    '70% Revenue Share paid within 30 days of invoice',
+                    '30% Distribution Fee only when you earn',
                     '48-72 hour go-live time',
                     'Free ISRC & UPC codes',
                     'Warner Music India backed',

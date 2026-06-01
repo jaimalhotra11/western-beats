@@ -179,7 +179,7 @@ export default function ArtistStoriesPage() {
               <span style={{ color: '#0A64C3' }}>Story.</span>
             </h2>
             <p className="font-inter text-[15px] text-mut leading-relaxed mb-8">
-              Free distribution. 150+ platforms. 100% royalties. WMI backing. The same platform these artists used.
+              Free distribution. 150+ platforms. 70% royalties. WMI backing. The same platform these artists used.
             </p>
             <Link href="/submit"
               className="inline-flex items-center gap-2 px-8 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300"

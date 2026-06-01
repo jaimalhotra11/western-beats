@@ -14,7 +14,7 @@ const MENTIONS = [
     outlet: 'Economic Times',
     date: 'March 2025',
     headline: 'Western Beats Emerges as India\'s Answer to DistroKid, With Warner Music India Backing',
-    excerpt: 'The Delhi-based music company has quietly become the go-to distribution platform for independent artists in India, offering free distribution and a 75/25 royalty split that is hard to beat.',
+    excerpt: 'The Haryana-based music company has quietly become the go-to distribution platform for independent artists in India, offering free distribution and a 70/30 royalty split that is hard to beat.',
     color: '#0A64C3',
   },
   {

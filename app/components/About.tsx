@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { gsap, registerGSAP } from '../lib/gsapUtils'
 
 const PILLARS = [
-  { title: 'Artist First',   color: '#C41230', desc: 'You keep 75% of every rupee earned. We only make money when you make money, so we\'re always on your side.' },
+  { title: 'Artist First',   color: '#C41230', desc: 'You keep 70% of every rupee earned. We only make money when you make money, so we\'re always on your side.' },
   { title: 'India First',    color: '#0A64C3', desc: 'JioSaavn and Gaana before Spotify. Built for India, reaching the world.' },
   { title: 'Honest',         color: '#5CB2DC', desc: '48 hours means 48 hours. No ambiguity, no fine print, no surprises.' },
   { title: 'Major Quality',  color: '#002A8D', desc: 'Warner Music India partnership means major-label standards on every release.' },
@@ -111,7 +111,7 @@ export default function About() {
             >
               From JioSaavn and Gaana to Spotify, Apple Music, YouTube Music, and 145+ more
               platforms worldwide; your music goes everywhere your fans are. One upload,
-              150+ destinations, 75% of your royalties paid straight to you. Always free to distribute. 100% ownership, always yours.
+              150+ destinations, 70% of your royalties paid straight to you. Always free to distribute. 100% ownership, always yours.
             </motion.p>
 
             {/* WMI badge */}

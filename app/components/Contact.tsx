@@ -69,7 +69,7 @@ export default function Contact() {
             <span className="text-white">Today.</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed">
-            One upload. 150+ platforms. 100% royalties. Completely free. Reach out and we&apos;ll set you up within 24 hours.
+            One upload. 150+ platforms. 70% royalties. Completely free. Reach out and we&apos;ll set you up within 24 hours.
           </motion.p>
         </motion.div>
 

@@ -12,7 +12,7 @@ const EASE = [0.22, 1, 0.36, 1] as const
 const FAQS = [
   {
     q: 'When do I get paid?',
-    a: 'Payments are processed monthly. Once royalties are collected from all streaming platforms, we calculate your 100% share and transfer it directly to your bank account within the first two weeks of the following month.',
+    a: 'WB provides reports after 2 months for YouTube and quarterly for OTT platforms. After receiving the report, you raise an invoice and WB pays your 70% Revenue Share within 30 days directly to your registered bank account.',
   },
   {
     q: 'What platforms are included in royalty collection?',
@@ -20,7 +20,7 @@ const FAQS = [
   },
   {
     q: 'Do you deduct any fees before paying me?',
-    a: 'No deductions except our 0% platform share. There are no processing fees, no administrative charges, no minimum payout thresholds that eat into your earnings. You get 100% of every rupee that comes in.',
+    a: 'WB deducts only the 30% Distribution Fee. There are no processing fees, no administrative charges, and no upfront costs. You get 70% of all net royalties earned. We only earn when you earn.',
   },
   {
     q: 'What is an ISRC and do I need one?',
@@ -115,11 +115,11 @@ export default function RoyaltiesPage() {
             <div className="platform-pill page-badge mb-6 inline-flex">Royalties & Payments</div>
             <h1 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6" style={{ fontSize: 'clamp(42px, 7vw, 80px)' }}>
               <span className="page-hero-line block text-white">You Keep</span>
-              <span className="page-hero-line block" style={{ color: '#0A64C3' }}>100%* (T&C apply).</span>
+              <span className="page-hero-line block" style={{ color: '#0A64C3' }}>70%.</span>
               <span className="page-hero-line block text-white">Always.</span>
             </h1>
             <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed max-w-2xl">
-              Every rupee your music earns on streaming platforms gets split 100/0. Three-quarters goes directly to you. One quarter stays with us. No upfront fees. No annual subscriptions. We only earn when you earn.
+              Every rupee your music earns on streaming platforms gets split 70/30. Seventy percent goes directly to you. Thirty percent stays with us as the Distribution Fee. No upfront fees. No annual subscriptions. We only earn when you earn.
             </p>
           </motion.div>
         </div>
@@ -132,7 +132,7 @@ export default function RoyaltiesPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="gsap-fade-up mb-12">
             <div className="platform-pill mb-5 inline-flex">The Split</div>
             <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.0]" style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}>
-              <span className="text-white">How the 100/0 Split Works.</span>
+              <span className="text-white">How the 70/30 Split Works.</span>
             </h2>
           </motion.div>
 
@@ -141,18 +141,18 @@ export default function RoyaltiesPage() {
             {/* Bar */}
             <div className="flex h-12 rounded-xl overflow-hidden mb-6">
               <div className="flex items-center justify-center font-outfit font-black text-white text-[15px]"
-                style={{ width: '100%', background: '#0A64C3' }}>100%</div>
+                style={{ width: '70%', background: '#0A64C3' }}>70%</div>
               <div className="flex items-center justify-center font-outfit font-black text-white text-[15px]"
-                style={{ width: '25%', background: '#C41230' }}>25%</div>
+                style={{ width: '30%', background: '#C41230' }}>30%</div>
             </div>
             <div className="gsap-card grid sm:grid-cols-2 gap-5">
               <div className="rounded-xl p-5" style={{ background: 'rgba(10,100,195,0.12)', border: '1px solid rgba(10,100,195,0.3)' }}>
-                <div className="font-outfit font-black text-white text-[40px] leading-none mb-2" style={{ color: '#0A64C3' }}>100%</div>
+                <div className="font-outfit font-black text-white text-[40px] leading-none mb-2" style={{ color: '#0A64C3' }}>70%</div>
                 <div className="font-outfit font-bold text-white text-[15px] mb-2">Goes to You</div>
-                <p className="font-inter text-[13px] text-mut leading-relaxed">Direct bank transfer every month. No platform minimums. No waiting six months. Your share, paid to you.</p>
+                <p className="font-inter text-[13px] text-mut leading-relaxed">Paid within 30 days of your invoice. Direct bank transfer. No platform minimums. Your share, paid to you.</p>
               </div>
               <div className="rounded-xl p-5" style={{ background: 'rgba(196,18,48,0.08)', border: '1px solid rgba(196,18,48,0.2)' }}>
-                <div className="font-outfit font-black text-[40px] leading-none mb-2" style={{ color: '#C41230' }}>25%</div>
+                <div className="font-outfit font-black text-[40px] leading-none mb-2" style={{ color: '#C41230' }}>30%</div>
                 <div className="font-outfit font-bold text-white text-[15px] mb-2">Goes to WB Digital</div>
                 <p className="font-inter text-[13px] text-mut leading-relaxed">This covers platform operations, distribution costs, WMI partnership maintenance, and 24/7 artist support. We only earn when you earn.</p>
               </div>
@@ -174,7 +174,7 @@ export default function RoyaltiesPage() {
           <div className="flex flex-col gap-4">
             {[
               { step: '01', title: 'Your Music Streams', desc: 'Every stream on every platform generates royalties. These get collected by the platform and passed to us as your distributor.', color: '#0A64C3' },
-              { step: '02', title: 'We Calculate Your Share', desc: 'At the end of each month, we calculate your 100% share from all platforms combined. You get a transparent breakdown.', color: '#C41230' },
+              { step: '02', title: 'We Calculate Your Share', desc: 'After the reporting period (2 months for YouTube, quarterly for OTT), we calculate your 70% Revenue Share from all platforms. You get a transparent breakdown.', color: '#C41230' },
               { step: '03', title: 'Direct Bank Transfer', desc: 'We transfer your royalties directly to your registered Indian bank account. No third-party wallets, no complicated withdrawals.', color: '#5CB2DC' },
               { step: '04', title: 'Monthly Reporting', desc: 'You get a full royalty report showing streams by platform, territory, and time period. Real data, not estimates.', color: '#0A64C3' },
             ].map((s, i) => (
@@ -250,7 +250,7 @@ export default function RoyaltiesPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }}>
             <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.0] mb-5" style={{ fontSize: 'clamp(28px, 4.5vw, 52px)' }}>
               <span className="text-white">Start Earning.</span>
-              <span className="block" style={{ color: '#0A64C3' }}>100% Is Yours.</span>
+              <span className="block" style={{ color: '#0A64C3' }}>70% Is Yours.</span>
             </h2>
             <p className="font-inter text-[15px] text-mut leading-relaxed mb-8">Upload your music today. Free distribution. Free ISRC and UPC. Monthly payments. No upfront cost.</p>
             <Link href="/submit"
