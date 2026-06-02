@@ -66,7 +66,7 @@ const jsonLd = {
         price: '0',
         priceCurrency: 'INR',
         availability: 'https://schema.org/InStock',
-        description: 'Free forever, no annual fee, no per-release charge. 70/30 revenue share only when you earn.',
+        description: 'Free forever, no annual fee, no per-release charge. We only earn when you earn.',
       },
     },
     {
@@ -85,7 +85,7 @@ const jsonLd = {
           name: 'How does WB Digital compare to DistroKid on price?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'DistroKid costs $22.99/year (₹1,900+) for unlimited releases. WB Digital costs ₹0 upfront. WB Digital takes 30% of royalties only when you earn; DistroKid keeps 0% but charges the annual fee. For artists starting out, WB Digital is risk-free since there is no upfront cost.',
+            text: 'DistroKid costs $22.99/year (₹1,900+) for unlimited releases regardless of whether you earn. WB Digital costs ₹0 upfront — no annual fee ever. We only earn when you earn, so for artists starting out, WB Digital is completely risk-free.',
           },
         },
       ],
