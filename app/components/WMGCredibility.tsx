@@ -120,7 +120,7 @@ function ArtistCard({
         className="absolute top-3 left-3 font-inter text-[8px] font-bold tracking-[0.14em] uppercase px-2 py-1 rounded-full backdrop-blur-sm"
         style={{ background: `${color}30`, color, border: `1px solid ${color}50` }}
       >
-        Warner Music India
+        Warner Music
       </div>
 
       {/* Name + genre */}
@@ -219,8 +219,8 @@ export default function WMGCredibility() {
             transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
             className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl"
           >
-            WB is officially backed by <strong className="text-white">Warner Music India</strong>, the Indian arm of
-            Warner Music Group. The same infrastructure powering Bruno Mars, Coldplay &amp; Ed Sheeran globally
+            WB is officially backed by <strong className="text-white">Warner Music Partner</strong>, giving us access to
+            Warner Music Group&apos;s global infrastructure. The same reach powering Bruno Mars, Coldplay &amp; Ed Sheeran globally
             now powers <strong className="text-white">your independent music career</strong>.
           </motion.p>
         </div>
@@ -236,7 +236,7 @@ export default function WMGCredibility() {
               <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India" width={32} height={32} className="object-contain w-full h-full" />
             </div>
             <div>
-              <div className="font-outfit font-extrabold text-white text-[15px]">Warner Music India Artists</div>
+              <div className="font-outfit font-extrabold text-white text-[15px]">Warner Music Group</div>
               <div className="font-inter text-[11px] text-crm uppercase tracking-wide font-semibold">Our official label partner</div>
             </div>
           </div>
@@ -260,7 +260,7 @@ export default function WMGCredibility() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="my-6"
         >
-          <KineticStrip text="Warner Music India · WB · Official Partner" color="#C41230" />
+          <KineticStrip text="Warner Music Partner · WB · Official Partner" color="#C41230" />
         </motion.div>
 
         {/* ── Global Artists Slider ── */}

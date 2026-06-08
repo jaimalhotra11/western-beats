@@ -7,7 +7,7 @@ type Stat = { value: number; suffix: string; prefix?: string; label: string; sub
 
 const STATS: Stat[] = [
   { value: 150, suffix: '+',   label: 'Streaming Platforms',  sub: 'Worldwide distribution',        color: '#0A64C3' },
-  { value: 48,  suffix: 'hrs', label: 'Go-Live Time',         sub: 'From upload to platform',       color: '#5CB2DC' },
+  { value: 72,  suffix: 'hrs', label: 'Go-Live Time',         sub: 'From upload to platform',       color: '#5CB2DC' },
   { value: 100, suffix: '%',   label: 'Ownership Yours',      sub: 'You keep all your masters',     color: '#C41230' },
   { value: 0,   suffix: '',    prefix: '₹', label: 'Cost to Distribute', sub: 'Completely free forever', color: '#0A64C3' },
   { value: 10,  suffix: '+',   label: 'WMI Artists Backed',   sub: 'Same label, same credibility',  color: '#5CB2DC' },
@@ -158,9 +158,9 @@ export default function Stats() {
         >
           <div className="font-inter text-[12px] sm:text-[13px] text-sky tracking-[0.1em] uppercase font-semibold">Official Distribution Partner</div>
           <div className="hidden md:block w-px h-8 bg-white/10" />
-          <div className="font-outfit font-extrabold text-white text-[20px] sm:text-[22px]">Warner Music India</div>
+          <div className="font-outfit font-extrabold text-white text-[20px] sm:text-[22px]">Warner Music Partner</div>
           <div className="hidden md:block w-px h-8 bg-white/10" />
-          <div className="font-inter text-[12px] sm:text-[13px] text-mut">@warnermusicindia · A Warner Music Group Company</div>
+          <div className="font-inter text-[12px] sm:text-[13px] text-mut">Warner Music Group · Official Partnership</div>
         </div>
 
       </div>

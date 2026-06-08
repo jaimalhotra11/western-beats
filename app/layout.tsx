@@ -3,54 +3,76 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'WB Digital: Free Music Distribution India | Warner Music India Partner',
-    template: '%s | WB Digital · Western Beats',
+    default: 'Western Beats | Best Free Music Distribution India — 150+ Platforms, 100% Ownership',
+    template: '%s | Western Beats',
   },
   description:
-    "WB Digital by Western Beats — Globally #1 full-service music company, officially backed by Warner Music India. Distribute to JioSaavn, Gaana, Spotify, Apple Music & 150+ platforms. 100% ownership (T&C apply). Zero upfront fee. Same label that powers Diljit Dosanjh, King, Armaan Malik & Darshan Raval.",
+    "Western Beats — India's best free music distribution company. Distribute to 150+ platforms (JioSaavn, Gaana, Spotify, Apple Music, YouTube Music) in 72 hours. 100% IP ownership always yours. ₹0 upfront forever. Official Warner Music partner. Better than DistroKid, TuneCore & CD Baby.",
   keywords: [
+    // Primary money keywords
+    'best music distribution company',
+    'best music distribution India',
+    'best free music distribution India',
+    'top music distribution company India',
+    'music distribution company India',
     'free music distribution India',
-    'WB Digital',
-    'Western Beats digital',
+    // Brand
+    'Western Beats',
+    'Western Beats distribution',
+    'Western Beats music',
+    'westernbeats.com',
+    // Long-tail global
+    'best music distribution company globally',
+    'best music distributor for independent artists',
+    'best music distribution platform 2025',
+    'best music distribution platform 2026',
+    'top music distribution platforms world',
+    // Competitor comparisons (captures competitor searches)
+    'DistroKid alternative India',
+    'TuneCore alternative India free',
+    'CD Baby alternative free India',
+    'Ditto Music alternative India',
+    'better than DistroKid India',
+    'DistroKid vs Western Beats',
+    // Platform specific
     'music distribution JioSaavn',
     'music distribution Gaana',
-    'Warner Music India distribution',
-    'distribute music India free',
-    'music royalties India',
-    'independent artist distribution India',
-    'DistroKid India alternative',
-    'TuneCore India alternative',
-    'Ditto Music India alternative',
-    'CD Baby India alternative',
-    'upload music to Spotify India',
-    'music distribution 150 platforms',
-    'India music distributor',
-    'best music distribution India 2025',
-    'free ISRC code India',
-    'free UPC barcode music India',
-    'music distribution without upfront fees India',
+    'upload music to Spotify India free',
     'upload song JioSaavn free',
+    'music distribution Apple Music India',
+    // Feature keywords
+    '100 percent ownership music India',
+    'free ISRC code India',
+    'free UPC barcode music',
+    'music distribution without upfront fees',
+    'music distribution 150 platforms',
+    'indie music distribution India',
+    'independent artist distribution India',
+    'music royalties India direct payment',
+    // Niche India
     'music distribution Punjabi Bollywood',
+    'Haryanvi music distribution',
     'Indian independent artist distribution',
     'Warner Music Group India partner',
+    'music distribution startup India',
   ],
   metadataBase: new URL('https://westernbeats.com'),
   alternates: { canonical: 'https://westernbeats.com' },
   openGraph: {
-    siteName: 'WB Digital: Western Beats',
+    siteName: 'Western Beats',
     locale: 'en_IN',
     type: 'website',
-    title: 'WB Digital: Free Music Distribution India | Warner Music India Partner',
+    title: 'Western Beats | Best Free Music Distribution — 150+ Platforms, 100% Ownership',
     description:
-      "Globally #1 full-service music company. Free distribution to 150+ platforms. 100% ownership (T&C apply). 48-72 hr go-live. Official Warner Music India partner — same label as Diljit Dosanjh, King & Armaan Malik.",
+      "India's best free music distribution company. 150+ platforms in 72 hours. 100% IP ownership always yours. ₹0 upfront. Official Warner Music partner. Better than DistroKid & TuneCore.",
     url: 'https://westernbeats.com',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'WB Digital: Western Beats Music Distribution' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Western Beats — Best Free Music Distribution India' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@wb_digital_',
-    title: 'WB Digital: Free Music Distribution India | Warner Music India Partner',
-    description: 'Distribute free to 150+ platforms. 100% IP ownership (T&C apply). Warner Music India backed. Live in 48-72 hrs. Same label as Diljit Dosanjh & King.',
+    title: 'Western Beats | Best Free Music Distribution India',
+    description: 'Best free music distribution — 150+ platforms, 72 hrs, 100% ownership. Official Warner Music partner. ₹0 forever.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -63,7 +85,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Western Beats Private Limited', url: 'https://westernbeats.com' }],
   creator: 'Western Beats Private Limited',
   publisher: 'Western Beats Private Limited',
-  applicationName: 'WB Digital',
+  applicationName: 'Western Beats',
   generator: 'Next.js',
   referrer: 'origin-when-cross-origin',
 }
@@ -72,16 +94,25 @@ const ORG_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Western Beats Private Limited',
-  alternateName: 'WB Digital',
+  alternateName: ['Western Beats', 'WB Digital'],
   url: 'https://westernbeats.com',
-  logo: 'https://westernbeats.com/wb-digital-logo.png',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://westernbeats.com/partners/westernbeats-BpLvGE3e.png',
+    width: 512,
+    height: 512,
+  },
   image: 'https://westernbeats.com/og-image.jpg',
   description:
-    "Globally #1 full-service music company, officially backed by Warner Music India, home to Diljit Dosanjh, King, Armaan Malik & Darshan Raval. Distribute to 150+ platforms including JioSaavn, Gaana & Spotify. 100% IP ownership (T&C apply), zero upfront cost. The same Warner Music Group infrastructure that powers Bruno Mars, Coldplay & Ed Sheeran now powers your independent music career.",
+    "India's best free music distribution company — Western Beats distributes to 150+ platforms (JioSaavn, Gaana, Spotify, Apple Music) in 72 hours. 100% IP ownership always yours, zero upfront cost. Official Warner Music partner. The same Warner Music Group infrastructure that powers Bruno Mars, Coldplay & Ed Sheeran now powers every independent artist in India.",
   foundingDate: '2020',
   foundingLocation: { '@type': 'Country', name: 'India' },
-  areaServed: { '@type': 'Country', name: 'India' },
-  knowsAbout: ['Music Distribution', 'Music Publishing', 'Talent Management', 'Event Management', 'Audio Production', 'Video Production'],
+  areaServed: [
+    { '@type': 'Country', name: 'India' },
+    { '@type': 'Country', name: 'United States' },
+    { '@type': 'Country', name: 'United Kingdom' },
+  ],
+  knowsAbout: ['Music Distribution', 'Music Publishing', 'Talent Management', 'Event Management', 'Audio Production', 'Video Production', 'Music Royalties'],
   sameAs: [
     'https://instagram.com/wb_digital_',
     'https://westernbeats.com',
@@ -106,23 +137,46 @@ const ORG_SCHEMA = {
   offers: {
     '@type': 'Offer',
     name: 'Free Music Distribution',
-    description: 'Distribute your music to 150+ streaming platforms worldwide for free. 100% IP ownership (T&C apply).',
+    description: 'Best free music distribution to 150+ streaming platforms worldwide. 100% IP ownership always yours. ₹0 upfront, forever.',
     price: '0',
     priceCurrency: 'INR',
     availability: 'https://schema.org/InStock',
+    eligibleRegion: { '@type': 'Country', name: 'India' },
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Western Beats Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Music Distribution', description: 'Free distribution to 150+ platforms in 72 hours. 100% IP ownership.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Event Management', description: 'Concerts, album launches, and live events across India.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Talent Management', description: 'Career strategy, brand partnerships, and industry connections.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Audio Production', description: 'Recording, mixing, and mastering to international streaming standards.' } },
+    ],
   },
 }
 
 const WEBSITE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'WB Digital: Western Beats',
+  name: 'Western Beats',
   url: 'https://westernbeats.com',
+  description: "India's best free music distribution company. 150+ platforms. 72 hours. 100% ownership.",
   potentialAction: {
     '@type': 'SearchAction',
     target: { '@type': 'EntryPoint', urlTemplate: 'https://westernbeats.com/?q={search_term_string}' },
     'query-input': 'required name=search_term_string',
   },
+}
+
+const BREADCRUMB_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
+    { '@type': 'ListItem', position: 2, name: 'Music Distribution', item: 'https://westernbeats.com/services' },
+    { '@type': 'ListItem', position: 3, name: 'How It Works', item: 'https://westernbeats.com/how-it-works' },
+    { '@type': 'ListItem', position: 4, name: 'Pricing', item: 'https://westernbeats.com/pricing' },
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -145,6 +199,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_SCHEMA) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
         />
       </head>
       <body suppressHydrationWarning>{children}</body>

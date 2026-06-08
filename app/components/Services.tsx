@@ -17,8 +17,8 @@ const SERVICES = [
     title: 'Music Distribution',
     tag: 'Core Service',
     color: '#0A64C3',
-    desc: 'Upload once. We deliver to 150+ streaming platforms simultaneously: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145 more. Live in 48-72 hours. 100% ownership (T&C apply). Free.',
-    points: ['150+ platforms worldwide', '48-72 hour delivery', '100% ownership · T&C apply', 'ISRC/UPC generation'],
+    desc: 'Upload once. We deliver to 150+ streaming platforms simultaneously: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145 more. Live in 72 hours. 100% ownership (T&C apply). Free.',
+    points: ['150+ platforms worldwide', '72 hour delivery', '100% ownership · T&C apply', 'ISRC/UPC generation'],
   },
   {
     icon: Calendar,
@@ -33,7 +33,7 @@ const SERVICES = [
     title: 'Talent Management',
     tag: 'Artist Growth',
     color: '#5CB2DC',
-    desc: 'End-to-end artist management: brand partnerships, career strategy, booking, and direct access to the Warner Music India ecosystem of curators, labels, and media.',
+    desc: 'End-to-end artist management: brand partnerships, career strategy, booking, and direct access to the Warner Music ecosystem of curators, labels, and media.',
     points: ['Career strategy & planning', 'Brand partnership deals', 'Industry connections via WMI', 'Social media growth'],
   },
   {

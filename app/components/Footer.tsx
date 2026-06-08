@@ -12,7 +12,7 @@ const IgIcon = () => (
 const LINKS: Record<string, { label: string; href: string }[]> = {
   Company: [
     { label: 'About Us', href: '/about' },
-    { label: 'Warner Music India Partnership', href: '/wmi-partnership' },
+    { label: 'Warner Music Partnership', href: '/wmi-partnership' },
     { label: 'Careers', href: '/careers' },
     { label: 'Press & Media', href: '/press' },
   ],
@@ -62,13 +62,13 @@ export default function Footer() {
               </div>
             </div>
             <p className="font-inter text-[14px] text-mut leading-relaxed mb-4 max-w-xs">
-              India&apos;s most credible full-service music company. Our platform WB Digital is officially backed by Warner Music India. Where independent meets major.
+              India&apos;s most credible full-service music company. Officially backed by Warner Music Partner. Where independent meets major.
             </p>
             <div className="flex items-center gap-2 mb-6">
               <div className="relative w-8 h-7 flex-shrink-0">
                 <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India" width={32} height={28} className="object-contain w-full h-full" />
               </div>
-              <span className="font-inter text-[10px] text-sky tracking-[0.08em] uppercase font-semibold">Official Warner Music India Partner</span>
+              <span className="font-inter text-[10px] text-sky tracking-[0.08em] uppercase font-semibold">Official Warner Music Partner</span>
             </div>
             <div className="flex items-center gap-3">
               {SOCIALS.map(s => (
@@ -99,7 +99,7 @@ export default function Footer() {
       <div className="border-t border-white/[0.05]">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="font-inter text-[12px] text-mut">
-            © 2026 Western Beats Private Limited. All rights reserved. · Official Distribution Partner @warnermusicindia
+            © 2026 Western Beats Private Limited. All rights reserved. · Official Warner Music Partner
           </div>
           <button onClick={scrollTop}
             className="flex items-center gap-2 font-inter text-[12px] text-mut hover:text-white transition-colors duration-200 group">

@@ -20,7 +20,7 @@ const FAQS = [
   },
   {
     q: 'Do you deduct any fees before paying me?',
-    a: 'There are no upfront costs, no annual subscription fees, no per-release charges. WB Digital only earns when you earn. Full revenue share details are in our Terms & Conditions.',
+    a: 'There are no upfront costs, no annual subscription fees, no per-release charges. Western Beats only earns when you earn. Full revenue share details are in our Terms & Conditions.',
   },
   {
     q: 'What is an ISRC and do I need one?',
@@ -142,12 +142,12 @@ export default function RoyaltiesPage() {
               <div className="rounded-xl p-5" style={{ background: 'rgba(10,100,195,0.12)', border: '1px solid rgba(10,100,195,0.3)' }}>
                 <div className="font-outfit font-black text-white text-[40px] leading-none mb-2" style={{ color: '#0A64C3' }}>100%</div>
                 <div className="font-outfit font-bold text-white text-[15px] mb-2">IP Ownership — Always Yours</div>
-                <p className="font-inter text-[13px] text-mut leading-relaxed">You own every master, every composition, every piece of artwork. WB Digital never acquires any ownership rights to your music.</p>
+                <p className="font-inter text-[13px] text-mut leading-relaxed">You own every master, every composition, every piece of artwork. Western Beats never acquires any ownership rights to your music.</p>
               </div>
               <div className="rounded-xl p-5" style={{ background: 'rgba(196,18,48,0.08)', border: '1px solid rgba(196,18,48,0.2)' }}>
                 <div className="font-outfit font-black text-[40px] leading-none mb-2" style={{ color: '#C41230' }}>₹0</div>
                 <div className="font-outfit font-bold text-white text-[15px] mb-2">Upfront. Forever.</div>
-                <p className="font-inter text-[13px] text-mut leading-relaxed">No annual fee. No per-release charge. No hidden fees. WB Digital only earns when you earn — completely aligned with your success.</p>
+                <p className="font-inter text-[13px] text-mut leading-relaxed">No annual fee. No per-release charge. No hidden fees. Western Beats only earns when you earn — completely aligned with your success.</p>
               </div>
             </div>
           </motion.div>

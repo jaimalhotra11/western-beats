@@ -25,7 +25,7 @@ const LANGUAGES = [
 const STEPS = [
   { Icon: Mail,        color: '#0A64C3', num: '01', title: 'We Review in 24 Hours',     desc: 'Our team checks your metadata, artwork, and audio quality against platform standards.' },
   { Icon: CheckCircle, color: '#5CB2DC', num: '02', title: 'Approval & Onboarding',     desc: 'We confirm distribution details, assign your ISRC/UPC, and finalise your release profile.' },
-  { Icon: Globe2,      color: '#0A64C3', num: '03', title: 'Live on 150+ Platforms',    desc: 'Your music goes live on 150+ platforms within 48-72 hrs. Music uploaded Friday goes live Monday.' },
+  { Icon: Globe2,      color: '#0A64C3', num: '03', title: 'Live on 150+ Platforms',    desc: 'Your music goes live on 150+ platforms within 72 hrs. Music uploaded Friday goes live Monday.' },
   { Icon: DollarSign,  color: '#C41230', num: '04', title: 'Earn 100% Every Month',      desc: '100% of every stream goes directly to you. Track it all on your real-time analytics dashboard.' },
 ]
 
@@ -142,7 +142,7 @@ export default function SubmitPage() {
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
+              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music Partner</div>
             </div>
           </Link>
           <div className="hidden md:flex items-center gap-1">
@@ -191,13 +191,13 @@ export default function SubmitPage() {
 
             {/* LEFT: Headline + info */}
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
-              <div className="platform-pill page-badge mb-6 inline-flex">✦ Free. Fast. Warner Music India Backed.</div>
+              <div className="platform-pill page-badge mb-6 inline-flex">✦ Free. Fast. Warner Music Partner Backed.</div>
               <h1 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
                 style={{ fontSize: 'clamp(36px, 5.5vw, 70px)' }}>
                 <span className="page-hero-line block text-white">Submit Your</span>
                 <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Music Free.</span>
                 <span className="page-hero-line block text-white">Go Live in</span>
-                <span className="page-hero-line block text-white">48-72 Hours.</span>
+                <span className="page-hero-line block text-white">72 Hours.</span>
               </h1>
               <p className="page-subtext font-inter text-[16px] text-mut leading-relaxed mb-8 max-w-lg">
                 Reach 150+ streaming platforms worldwide: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and more.
@@ -209,7 +209,7 @@ export default function SubmitPage() {
                 {[
                   { val: 'FREE', lbl: 'To Submit' },
                   { val: '24hrs', lbl: 'Review Time' },
-                  { val: '48-72hrs', lbl: 'Go-Live Time' },
+                  { val: '72hrs', lbl: 'Go-Live Time' },
                   { val: '100%', lbl: 'Ownership Yours' },
                 ].map(s => (
                   <div key={s.val} className="flex flex-col">
@@ -247,7 +247,7 @@ export default function SubmitPage() {
                   <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India" fill sizes="40px" className="object-contain" />
                 </div>
                 <div>
-                  <div className="font-outfit font-extrabold text-white text-[13px]">Warner Music India Partner</div>
+                  <div className="font-outfit font-extrabold text-white text-[13px]">Warner Music Partner</div>
                   <div className="font-inter text-[11px] text-mut">Major-label credibility. Priority DSP placement.</div>
                 </div>
               </div>
@@ -441,7 +441,7 @@ export default function SubmitPage() {
       {/* ── FOOTER ──────────────────────────────────────────────────────────── */}
       <footer className="border-t border-white/[0.06] py-10" style={{ background: '#040810' }}>
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="font-inter text-[12px] text-mut">© 2026 Western Beats Private Limited · WB Digital</div>
+          <div className="font-inter text-[12px] text-mut">© 2026 Western Beats Private Limited · Western Beats</div>
           <div className="flex items-center gap-5">
             {[
               { href: '/', label: 'Home' },

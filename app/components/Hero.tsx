@@ -171,10 +171,7 @@ export default function Hero() {
         style={{ y: y1, opacity }}
         className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-28 pb-12 sm:pt-32 sm:pb-16"
       >
-        {/* Badge */}
-        <div ref={badgeRef} className="platform-pill mb-6 inline-flex opacity-0">
-          ✦ Official Warner Music India Partner · Bruno Mars · Coldplay · Ed Sheeran · Diljit · King
-        </div>
+        {/* Badge hidden per brand guidelines */}
 
         {/* Headline: GSAP word reveal */}
         <div className="max-w-3xl">
@@ -193,8 +190,8 @@ export default function Hero() {
             className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-8 sm:mb-10 max-w-xl opacity-0"
           >
             <strong className="text-white">Western Beats</strong>, India&apos;s most credible full-service music company,
-            officially backed by Warner Music India, home to <strong className="text-white">Diljit Dosanjh, King, Karan Aujla &amp; Darshan Raval</strong>.
-            Distribute to 150+ platforms free via WB. <strong className="text-white">100% ownership (T&C apply). Always free.</strong>
+            officially backed by Warner Music Partner.
+            Distribute to 150+ platforms. <strong className="text-white">100% ownership (T&C apply). Always free.</strong>
           </p>
 
           {/* CTAs */}
@@ -262,7 +259,7 @@ export default function Hero() {
           {[
             { num: '150+', lbl: 'Streaming Platforms' },
             { num: '100%', lbl: 'Ownership Yours' },
-            { num: '48hrs',lbl: 'Go-Live Time' },
+            { num: '72hrs',lbl: 'Go-Live Time' },
             { num: '100%', lbl: 'Ownership Yours' },
             { num: '₹0',   lbl: 'Distribution Cost' },
           ].map((s, i) => (

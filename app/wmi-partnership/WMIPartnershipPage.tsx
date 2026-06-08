@@ -15,7 +15,7 @@ const BENEFITS = [
     icon: Award,
     title: 'Major Label Infrastructure',
     color: '#0A64C3',
-    desc: 'Your releases go through the same distribution infrastructure that Warner Music India uses for its signed artists. That means higher quality metadata checks, better audio compliance, and releases that meet major-label standards.',
+    desc: 'Your releases go through the same distribution infrastructure that Warner Music Group uses for its signed artists. That means higher quality metadata checks, better audio compliance, and releases that meet major-label standards.',
   },
   {
     icon: Zap,
@@ -33,7 +33,7 @@ const BENEFITS = [
     icon: Shield,
     title: 'Co-sign Credibility',
     color: '#0A64C3',
-    desc: 'Having Warner Music India backing is the most powerful co-sign an independent artist in India can get. It signals quality. Labels, booking agents, and brands notice. It opens doors that no self-release or foreign distributor can open for you.',
+    desc: 'Having Warner Music partnership backing is the most powerful co-sign an independent artist in India can get. It signals quality. Labels, booking agents, and brands notice. It opens doors that no self-release or foreign distributor can open for you.',
   },
 ]
 
@@ -94,7 +94,7 @@ export default function WMIPartnershipPage() {
             <ol className="flex items-center gap-2 font-inter text-[12px] text-mut">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li className="text-white/20">›</li>
-              <li className="text-sky">Warner Music India Partnership</li>
+              <li className="text-sky">Warner Music Partnership</li>
             </ol>
           </nav>
 
@@ -107,7 +107,7 @@ export default function WMIPartnershipPage() {
                 <span className="page-hero-line block text-white">India.</span>
               </h1>
               <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-xl">
-                WB Digital is the only free distribution platform in India with an official Warner Music India backing. This is not a logo on a landing page. It is a real partnership that changes what is possible for independent artists.
+                Western Beats is the only free distribution platform in India with an official Warner Music partnership backing. This is not a logo on a landing page. It is a real partnership that changes what is possible for independent artists.
               </p>
               <Link href="/submit"
                 className="group inline-flex items-center gap-2 px-7 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300"
@@ -131,7 +131,7 @@ export default function WMIPartnershipPage() {
                 <div className="w-px h-8 bg-white/10" />
                 <div className="text-center">
                   <div className="font-inter text-[11px] text-sky tracking-[0.12em] uppercase mb-1">Official Partner</div>
-                  <div className="font-outfit font-black text-white text-[18px]">WB Digital</div>
+                  <div className="font-outfit font-black text-white text-[18px]">Western Beats</div>
                   <div className="font-inter text-[11px] text-mut mt-1">by Western Beats Private Limited</div>
                 </div>
               </div>
@@ -181,13 +181,13 @@ export default function WMIPartnershipPage() {
       <section className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} className="gsap-fade-up mb-10">
-            <div className="platform-pill mb-5 inline-flex">The Warner Music India Roster</div>
+            <div className="platform-pill mb-5 inline-flex">The Warner Music Roster</div>
             <h2 className="font-outfit font-black tracking-[-0.02em] leading-[1.0] mb-4" style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}>
               <span className="text-white">Artists in the Same </span>
               <span style={{ color: '#0A64C3' }}>Network.</span>
             </h2>
             <p className="font-inter text-[14px] text-mut max-w-2xl">
-              When you distribute through WB Digital, you are operating in the same ecosystem as these artists. The infrastructure they use is the infrastructure you get.
+              When you distribute through Western Beats, you are operating in the same ecosystem as these artists. The infrastructure they use is the infrastructure you get.
             </p>
           </motion.div>
 

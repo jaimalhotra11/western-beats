@@ -16,7 +16,7 @@ const JOBS = [
     location: 'Delhi/NCR',
     type: 'Full-time',
     color: '#0A64C3',
-    desc: 'Lead the end-to-end release process for artists on WB Digital. You will coordinate with DSPs, manage metadata quality, and ensure every release goes live within our 48-hour promise. Deep knowledge of Indian streaming platforms is a must.',
+    desc: 'Lead the end-to-end release process for artists on Western Beats. You will coordinate with DSPs, manage metadata quality, and ensure every release goes live within our 48-hour promise. Deep knowledge of Indian streaming platforms is a must.',
   },
   {
     title: 'Artist Relations Executive',
@@ -32,7 +32,7 @@ const JOBS = [
     location: 'Mumbai',
     type: 'Full-time',
     color: '#5CB2DC',
-    desc: 'Own our social media presence, run performance campaigns, and build the WB Digital brand across Instagram, YouTube, and beyond. Strong understanding of the Indian music scene is key.',
+    desc: 'Own our social media presence, run performance campaigns, and build the Western Beats brand across Instagram, YouTube, and beyond. Strong understanding of the Indian music scene is key.',
   },
   {
     title: 'Full Stack Developer',
@@ -40,7 +40,7 @@ const JOBS = [
     location: 'Remote (India)',
     type: 'Full-time',
     color: '#0A64C3',
-    desc: 'Build and maintain the WB Digital platform. You will work on artist dashboards, royalty reporting tools, and integrations with DSP APIs. We use Next.js, TypeScript, and Node.js. Passion for music is a bonus.',
+    desc: 'Build and maintain the Western Beats platform. You will work on artist dashboards, royalty reporting tools, and integrations with DSP APIs. We use Next.js, TypeScript, and Node.js. Passion for music is a bonus.',
   },
 ]
 
@@ -129,7 +129,7 @@ export default function CareersPage() {
               <span className="page-hero-line block text-white">Music.</span>
             </h1>
             <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-2xl">
-              We are Western Beats, India&apos;s most credible music company. Backed by Warner Music India. Our platform WB Digital serves independent artists across the country. We are a small team that moves fast and ships work that matters.
+              We are Western Beats, India&apos;s most credible music company. Backed by Warner Music India. Our platform Western Beats serves independent artists across the country. We are a small team that moves fast and ships work that matters.
             </p>
             <p className="font-inter text-[14px] text-mut">
               Interested? Send your CV to{' '}

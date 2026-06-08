@@ -169,7 +169,7 @@ export default function Distribution() {
             <div className="relative rounded-2xl overflow-hidden mb-8" style={{ aspectRatio: '16/9' }}>
               <Image
                 src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80&auto=format&fit=crop"
-                alt="Artist performing live, WB Digital distribution"
+                alt="Artist performing live, Western Beats distribution"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -188,7 +188,7 @@ export default function Distribution() {
                   <div className="flex items-end gap-6 mb-3">
                     {[
                       { num: '150+', lbl: 'Platforms' },
-                      { num: '48h', lbl: 'Go Live' },
+                      { num: '72h', lbl: 'Go Live' },
                       { num: '100%', lbl: 'Ownership' },
                     ].map(s => (
                       <div key={s.lbl}>
@@ -198,7 +198,7 @@ export default function Distribution() {
                     ))}
                   </div>
                   <div className="font-inter text-[10px] text-sky tracking-[0.08em] uppercase font-semibold">
-                    ✦ Backed by Warner Music India
+                    ✦ Backed by Warner Music Partner
                   </div>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export default function Distribution() {
               </div>
               <div className="flex flex-col gap-3">
                 <div className="font-inter text-white/80 text-[13px]">✦ Instant setup, no approval wait</div>
-                <div className="font-inter text-white/80 text-[13px]">✦ Warner Music India backed</div>
+                <div className="font-inter text-white/80 text-[13px]">✦ Warner Music Partner backed</div>
                 <div className="font-inter text-white/80 text-[13px]">✦ 100% ownership of your masters, always yours</div>
               </div>
               <a

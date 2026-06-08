@@ -16,7 +16,7 @@ const STORIES = [
     genre: 'Indie Pop / Hindi',
     location: 'Mumbai',
     photo: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80&auto=format&fit=crop',
-    quote: 'I was paying DistroKid $22 every year and getting maybe 500 streams on JioSaavn. Switched to WB Digital and within three months I was charting on JioSaavn\'s New Arrivals. The WMI backing is real.',
+    quote: 'I was paying DistroKid $22 every year and getting maybe 500 streams on JioSaavn. Switched to Western Beats and within three months I was charting on JioSaavn\'s New Arrivals. The WMI backing is real.',
     stats: [
       { label: 'Monthly Streams', value: '2.1M' },
       { label: 'Platforms', value: '150+' },
@@ -29,7 +29,7 @@ const STORIES = [
     genre: 'Carnatic Fusion',
     location: 'Chennai',
     photo: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&q=80&auto=format&fit=crop',
-    quote: 'My music is niche. I thought I needed a label to get taken seriously on Gaana and . WB Digital proved me wrong. My last single got featured on a Gaana editorial playlist within a week of going live.',
+    quote: 'My music is niche. I thought I needed a label to get taken seriously on Gaana and . Western Beats proved me wrong. My last single got featured on a Gaana editorial playlist within a week of going live.',
     stats: [
       { label: 'Monthly Streams', value: '890K' },
       { label: 'New Followers', value: '+12K' },
@@ -42,7 +42,7 @@ const STORIES = [
     genre: 'Punjabi Hip-Hop',
     location: 'Chandigarh',
     photo: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80&auto=format&fit=crop',
-    quote: 'I release one track a month. WB Digital makes that possible without any cost. The 48-72 hour go-live is legit. I dropped a track on a Thursday and it was live on JioSaavn by Saturday morning.',
+    quote: 'I release one track a month. Western Beats makes that possible without any cost. The 72 hour go-live is legit. I dropped a track on a Thursday and it was live on JioSaavn by Saturday morning.',
     stats: [
       { label: 'Releases This Year', value: '11' },
       { label: 'Total Streams', value: '5.4M' },
@@ -115,7 +115,7 @@ export default function ArtistStoriesPage() {
               <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Real Results.</span>
             </h1>
             <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed max-w-2xl">
-              Independent artists across India are using WB Digital to build real careers. Here are three of their stories.
+              Independent artists across India are using Western Beats to build real careers. Here are three of their stories.
             </p>
           </motion.div>
         </div>

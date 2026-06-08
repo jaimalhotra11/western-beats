@@ -11,7 +11,7 @@ const EASE = [0.22, 1, 0.36, 1] as const
 const SECTIONS = [
   {
     title: '1. What We Collect',
-    content: `When you create an account and use WB Digital, we collect:
+    content: `When you create an account and use Western Beats, we collect:
 
 - Account information: name, email address, phone number, and bank details for royalty payments
 - Music content: audio files, cover art, and metadata submitted for distribution
@@ -28,7 +28,7 @@ We do not collect more data than we need to provide our services.`,
 - Process royalty payments to your bank account
 - Send you release confirmations, payment reports, and platform updates
 - Provide customer support
-- Improve the WB Digital platform
+- Improve the Western Beats platform
 
 We do not sell your personal data to third parties. Ever.`,
   },
@@ -38,7 +38,7 @@ We do not sell your personal data to third parties. Ever.`,
 
 - Streaming platforms receive metadata (artist name, track title, ISRC) required to list your music
 - Payment processors receive your bank details to send royalty payments
-- Warner Music India receives release data relevant to our distribution partnership
+- Warner Music receives release data relevant to our distribution partnership
 
 All third parties are contractually required to protect your data.`,
   },

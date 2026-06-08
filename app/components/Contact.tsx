@@ -37,7 +37,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    const subject = `WB Digital Enquiry: ${form.service || 'General'}: ${form.name}`
+    const subject = `Western Beats Enquiry: ${form.service || 'General'}: ${form.name}`
     const body = `Name: ${form.name}\nEmail: ${form.email}\nService: ${form.service}\n\n${form.message}`
     window.location.href = `mailto:contact@westernbeats.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     setSent(true)
@@ -107,7 +107,7 @@ export default function Contact() {
               <div className="relative z-10">
                 <div className="font-outfit font-black text-white text-[26px] leading-tight mb-3">"Where Independent<br/>Meets Major."</div>
                 <div className="font-inter text-ice text-[14px] mb-5 leading-relaxed">
-                  WB Digital · Western Beats Private Limited<br/>Official Distribution Partner · @warnermusicindia
+                  Western Beats Private Limited<br/>Official Distribution Partner · @warnermusicindia
                 </div>
                 <div className="font-outfit font-bold text-white text-[13px]">Instagram @wb_digital_ · Verified ✓</div>
               </div>

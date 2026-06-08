@@ -257,7 +257,7 @@ export default function Artists() {
           {[
             { num: '13+',       lbl: 'WB Roster Artists' },
             { num: '150+',      lbl: 'Platforms Worldwide' },
-            { num: '48-72 hrs', lbl: 'Go-Live Time' },
+            { num: '72 hrs',    lbl: 'Go-Live Time' },
             { num: '100%',      lbl: 'Ownership (T&C apply)' },
           ].map((s, i) => (
             <motion.div key={i} className="flex flex-col items-center"

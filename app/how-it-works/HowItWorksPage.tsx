@@ -46,14 +46,14 @@ const STEPS = [
     icon: Globe2,
     color: '#5CB2DC',
     title: 'We Distribute',
-    subtitle: '150+ platforms in 48-72 hours',
-    desc: 'Once approved, WB Digital delivers your music to every major streaming platform simultaneously. JioSaavn and Gaana are prioritized for Indian artists, then Spotify, Apple Music, YouTube Music, and 145+ more globally.',
+    subtitle: '150+ platforms in 72 hours',
+    desc: 'Once approved, we deliver your music to every major streaming platform simultaneously. JioSaavn and Gaana are prioritized for Indian artists, then Spotify, Apple Music, YouTube Music, and 145+ more globally.',
     checklist: [
       'JioSaavn, Gaana: India first',
       'Spotify, Apple Music, YouTube Music worldwide',
       'Amazon Music, Tidal, Deezer, SoundCloud & more',
-      'Live on all platforms within 48-72 hours · Friday uploads go live Monday',
-      'Priority processing via Warner Music India partnership',
+      'Live on all platforms within 72 hours · Friday uploads go live Monday',
+      'Priority processing via our Warner Music partnership',
     ],
     badge: 'Step 2',
     badgeColor: '#5CB2DC',
@@ -64,10 +64,10 @@ const STEPS = [
     color: '#C41230',
     title: 'Earn Your Royalties',
     subtitle: 'Paid directly to your bank account',
-    desc: 'Your royalties flow directly to you from every platform. 100% ownership always yours. WB Digital only earns when you earn — never upfront. The more you earn, the more we both earn. Perfectly aligned.',
+    desc: 'Your royalties flow directly to you from every platform. 100% ownership always yours. We only earn when you earn — never upfront. The more you earn, the more we both earn. Perfectly aligned.',
     checklist: [
       'Royalties paid direct to your bank account',
-      'WB Digital only earns when you earn, zero upfront cost',
+      'We only earn when you earn, zero upfront cost',
       'Real-time dashboard: track every stream live',
       'Revenue breakdown by platform & territory',
       'Transparent monthly PDF payout reports',
@@ -79,15 +79,15 @@ const STEPS = [
 
 const TIMELINE = [
   { time: 'Day 0', event: 'You submit your music', icon: Upload, color: '#0A64C3' },
-  { time: '< 24 hrs', event: 'WB Digital reviews & approves', icon: CheckCircle, color: '#5CB2DC' },
-  { time: '< 48 hrs', event: 'Live on JioSaavn, Gaana, Spotify & 147+ platforms', icon: Globe2, color: '#0A64C3' },
+  { time: '< 24 hrs', event: 'Our team reviews & approves', icon: CheckCircle, color: '#5CB2DC' },
+  { time: '< 72 hrs', event: 'Live on JioSaavn, Gaana, Spotify & 147+ platforms', icon: Globe2, color: '#0A64C3' },
   { time: 'Monthly', event: 'Royalties paid directly to you', icon: DollarSign, color: '#C41230' },
 ]
 
 const WHY_ITEMS = [
-  { icon: Zap,       color: '#0A64C3', title: '48-Hour Go-Live',          desc: 'DistroKid & TuneCore take 7–10 days. Your music is live on 150+ platforms in just 48-72 hours. Music uploaded Friday goes live Monday.' },
-  { icon: Shield,    color: '#C41230', title: 'Same Label as Bruno Mars', desc: 'Warner Music Group, home to Bruno Mars (150M+ Spotify listeners), Coldplay, Ed Sheeran & Dua Lipa, backs WB Digital through Warner Music India.' },
-  { icon: Music2,    color: '#5CB2DC', title: "India's Biggest Artists",  desc: 'WMI roster: Armaan Malik, Diljit Dosanjh, King, Darshan Raval, Guru Randhawa & Karan Aujla, all on the same label that now powers your independent release.' },
+  { icon: Zap,       color: '#0A64C3', title: '72-Hour Go-Live',          desc: 'DistroKid & TuneCore take 7–10 days. Your music is live on 150+ platforms in just 72 hours. Music uploaded Friday goes live Monday.' },
+  { icon: Shield,    color: '#C41230', title: 'Same Network as Bruno Mars', desc: 'Warner Music Group, home to Bruno Mars (150M+ Spotify listeners), Coldplay, Ed Sheeran & Dua Lipa, backs us through our Warner Music partnership.' },
+  { icon: Music2,    color: '#5CB2DC', title: "Major-Label Reach",  desc: 'Our Warner Music partnership means major-label quality standards and distribution reach — without major-label restrictions — for every independent artist.' },
   { icon: BarChart3, color: '#0A64C3', title: 'Real-Time Analytics',      desc: 'Live streaming data, audience demographics, playlist tracking, and revenue reporting across all 150+ platforms.' },
   { icon: FileText,  color: '#C41230', title: 'Free ISRC & UPC Codes',    desc: 'We generate your ISRC and UPC codes at no cost; DistroKid charges extra, CD Baby charges $5 each.' },
   { icon: Clock,     color: '#5CB2DC', title: '24/7 Artist Support',      desc: 'Direct WhatsApp and email support, not a ticket system. Real people, real answers within hours.' },
@@ -146,7 +146,7 @@ export default function HowItWorksPage() {
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
+              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music Partner</div>
             </div>
           </Link>
           <div className="hidden md:flex items-center gap-1">
@@ -212,8 +212,8 @@ export default function HowItWorksPage() {
                 variants={fadeUp}
                 className="page-subtext font-inter text-[16px] sm:text-[17px] text-mut leading-relaxed mb-8 max-w-xl"
               >
-                WB Digital makes music distribution the simplest thing you&apos;ll do today.
-                Submit your music, we handle the rest: 150+ platforms in 48-72 hours, 100% ownership always yours.
+                Western Beats makes music distribution the simplest thing you&apos;ll do today.
+                Submit your music, we handle the rest: 150+ platforms in 72 hours, 100% ownership always yours.
                 <strong className="text-white"> Always free. 100% IP ownership yours.</strong>
               </motion.p>
 
@@ -377,7 +377,7 @@ export default function HowItWorksPage() {
               transition={{ duration: 0.5, ease: EASE }}
               className="platform-pill mb-5 inline-flex"
             >
-              Why WB Digital
+              Why Western Beats
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -395,8 +395,8 @@ export default function HowItWorksPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
               className="font-inter text-[15px] text-mut leading-relaxed mt-4 max-w-xl mx-auto"
             >
-              Warner Music Group, home to Bruno Mars, Coldplay, Ed Sheeran & Dua Lipa globally, backs WB Digital
-              through Warner Music India, the label of Armaan Malik, Diljit Dosanjh, King &amp; Darshan Raval.
+              Warner Music Group, home to Bruno Mars, Coldplay, Ed Sheeran & Dua Lipa globally,
+              backs us through our exclusive Warner Music partnership.
             </motion.p>
           </div>
 
@@ -441,7 +441,7 @@ export default function HowItWorksPage() {
             <div className="relative z-10">
               <div className="font-outfit font-black text-white text-[40px] sm:text-[52px] leading-none mb-3">Ready?</div>
               <div className="font-inter text-ice/90 text-[16px] sm:text-[18px] mb-8 leading-relaxed">
-                Submit your music today. Live on 150+ platforms in 48-72 hours.
+                Submit your music today. Live on 150+ platforms in 72 hours.
                 <br />
                 <strong className="text-white">100% ownership. Direct royalty payments. Free forever.</strong>
               </div>
@@ -469,7 +469,7 @@ export default function HowItWorksPage() {
       {/* Footer */}
       <footer className="border-t border-white/[0.06] py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="font-inter text-[12px] text-mut">© 2025 Western Beats Private Limited · WB Digital</div>
+          <div className="font-inter text-[12px] text-mut">© 2025 Western Beats Private Limited · Western Beats</div>
           <div className="flex items-center gap-5">
             {[
               { href: '/', label: 'Home' },

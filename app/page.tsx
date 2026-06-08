@@ -14,31 +14,46 @@ import Contact         from './components/Contact'
 import Footer          from './components/Footer'
 
 export const metadata: Metadata = {
-  title: "Western Beats: India's #1 Music Company | Free Distribution via WB Digital · Warner Music India",
+  title: "Western Beats | Best Free Music Distribution Company — 150+ Platforms, 100% Ownership",
   description:
-    "Western Beats is India's #1 full-service music company, officially backed by Warner Music India. " +
-    "Distribute music FREE via WB Digital to 150+ platforms: JioSaavn, Gaana, Spotify, Apple Music. " +
-    "Keep 100% ownership of your masters & IP (T&C apply). Better than DistroKid, TuneCore, CD Baby, Ditto Music & Believe.",
+    "Western Beats — India's best free music distribution company. Distribute to 150+ platforms including JioSaavn, Gaana, Spotify & Apple Music in 72 hours. 100% IP ownership always yours. ₹0 upfront forever. Official Warner Music partner. The best alternative to DistroKid, TuneCore, CD Baby & Ditto Music.",
   keywords: [
-    'Western Beats', 'Western Beats music', 'Western Beats India',
-    'WB Digital', 'WB Digital distribution', 'Western Beats Private Limited',
-    'music distribution India', 'free music distribution India',
-    'Warner Music India', 'Warner Music India distribution partner',
-    'best music company India', 'India music distribution',
-    'JioSaavn distribution', 'Gaana music distribution',
-    'Spotify distribution India', 'Apple Music distribution India',
-    '100% ownership music distribution India', 'free music distribution 150 platforms',
-    'DistroKid alternative India', 'TuneCore alternative India',
-    'CD Baby alternative India', 'music distribution 48-72 hours',
-    'independent music India', 'indie artist India',
-    'music label India', 'music production India',
-    'talent management India', 'event management music India',
-    'Haryanvi music distribution', 'Punjabi music distribution',
+    // Primary ranking targets
+    'best music distribution company',
+    'best music distribution company India',
+    'best free music distribution',
+    'top music distribution company',
+    'best music distributor India',
+    'Western Beats',
+    'Western Beats music distribution',
+    'Western Beats Private Limited',
+    // Feature keywords
+    'free music distribution India',
+    'music distribution JioSaavn',
+    'music distribution Gaana',
+    'Spotify distribution India free',
+    'Apple Music distribution India',
+    '100% ownership music India',
+    'music distribution 150 platforms',
+    'free ISRC UPC India',
+    // Competitor comparisons
+    'DistroKid alternative India',
+    'TuneCore alternative India',
+    'CD Baby alternative India',
+    'better than DistroKid',
+    'DistroKid vs Western Beats',
+    // Niche
+    'Haryanvi music distribution',
+    'Punjabi music distribution',
+    'Bollywood music distribution',
+    'independent artist India',
+    'music distribution 72 hours India',
+    'Warner Music partner India',
   ],
   alternates: { canonical: 'https://westernbeats.com' },
   openGraph: {
-    title: "Western Beats: India's #1 Music Company | WB Digital · Warner Music India",
-    description: "India's most credible full-service music company. Free distribution via WB Digital to 150+ platforms. Warner Music India backed. Keep 100% ownership of your masters.",
+    title: "Western Beats | Best Free Music Distribution — 150+ Platforms, 100% Ownership",
+    description: "India's best free music distribution. 150+ platforms in 72 hours. 100% IP ownership always yours. ₹0 upfront. Official Warner Music partner.",
     url: 'https://westernbeats.com',
     siteName: 'Western Beats',
     type: 'website',
@@ -46,8 +61,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Western Beats: India's #1 Music Company | WB Digital",
-    description: "Free music distribution to 150+ platforms. Warner Music India backed. 100% ownership to you. India's best.",
+    title: "Western Beats | Best Free Music Distribution Company",
+    description: "Best free music distribution — 150+ platforms, 72 hrs, 100% ownership. Official Warner Music partner. ₹0 forever.",
     site: '@wb_digital_',
   },
 }

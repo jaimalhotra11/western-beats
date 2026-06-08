@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import PlatformsPage from './PlatformsPage'
 
 export const metadata: Metadata = {
-  title: 'Platform Coverage | WB Digital: 150+ Streaming Platforms',
-  description: 'Distribute your music to 150+ streaming platforms including JioSaavn, Gaana, Spotify, Apple Music and YouTube Music through WB Digital. Free distribution, India first, backed by Warner Music India.',
+  title: 'Platform Coverage | Western Beats: 150+ Streaming Platforms',
+  description: 'Distribute your music to 150+ streaming platforms including JioSaavn, Gaana, Spotify, Apple Music and YouTube Music through Western Beats. Free distribution, India first, backed by Warner Music India.',
   keywords: [
     'music distribution platforms India',
     'JioSaavn music distribution',
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'Spotify distribution India free',
     'Apple Music distribution India',
     'YouTube Music distribution India',
-    'WB Digital platforms',
+    'Western Beats platforms',
     '150+ streaming platforms India',
     'music distribution Hungama',
     'music distribution Wynk',
@@ -21,16 +21,16 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://westernbeats.com/platforms' },
   openGraph: {
-    title: 'WB Digital: Distribute to 150+ Platforms, India First',
-    description: 'Distribute your music to JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145+ more platforms. Free distribution with Warner Music India backing.',
+    title: 'Western Beats: Distribute to 150+ Platforms, India First',
+    description: 'Distribute your music to JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145+ more platforms. Free distribution with Warner Music partnership backing.',
     url: 'https://westernbeats.com/platforms',
-    siteName: 'WB Digital: Western Beats',
+    siteName: 'Western Beats',
     locale: 'en_IN',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'WB Digital: 150+ Streaming Platforms, India First',
+    title: 'Western Beats: 150+ Streaming Platforms, India First',
     description: 'JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145+ more. Free distribution backed by Warner Music India.',
     site: '@wb_digital_',
   },

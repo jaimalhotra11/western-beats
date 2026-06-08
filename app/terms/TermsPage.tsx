@@ -43,7 +43,7 @@ const SECTIONS: Section[] = [
       },
       {
         heading: 'What the Agreement Covers',
-        body: 'By using WB Digital, you agree to license your content to WB for distribution, promotion, monetisation, and marketing across 150+ digital platforms globally, subject to the terms below. These terms constitute a legally binding agreement governed by the laws of India.',
+        body: 'By using Western Beats, you agree to license your content to WB for distribution, promotion, monetisation, and marketing across 150+ digital platforms globally, subject to the terms below. These terms constitute a legally binding agreement governed by the laws of India.',
       },
       {
         type: 'note',
@@ -265,7 +265,7 @@ const SECTIONS: Section[] = [
     items: [
       {
         heading: 'Review Process',
-        body: 'All submissions are reviewed by the WB Digital team. Content that meets our standards proceeds to distribution. Content that does not meet standards will be rejected with a reason communicated to you. You agree to ensure Content conforms to specifications agreed in your Content Licensing Agreement.',
+        body: 'All submissions are reviewed by the Western Beats team. Content that meets our standards proceeds to distribution. Content that does not meet standards will be rejected with a reason communicated to you. You agree to ensure Content conforms to specifications agreed in your Content Licensing Agreement.',
       },
       {
         heading: 'Prohibited Content',
@@ -354,7 +354,7 @@ const SECTIONS: Section[] = [
     title: '11. Limitation of Liability',
     items: [
       {
-        body: 'Western Beats Private Limited provides the WB Digital platform on an "as is" and "as available" basis. To the maximum extent permitted by applicable law, we disclaim all warranties, express or implied, regarding the platform.',
+        body: 'Western Beats Private Limited provides the Western Beats platform on an "as is" and "as available" basis. To the maximum extent permitted by applicable law, we disclaim all warranties, express or implied, regarding the platform.',
       },
       {
         body: 'WB shall not be liable for:\n• Indirect, incidental, special, punitive, or consequential damages\n• Loss of revenue, profits, or anticipated earnings\n• Delays caused by third-party streaming platforms\n• Playlist or algorithmic decisions made by streaming platforms\n• Temporary platform unavailability due to maintenance or technical issues\n• Platform-level penalties or bans beyond WB\'s control',
@@ -647,7 +647,7 @@ export default function TermsPage() {
               </div>
               <div>
                 <div className="font-outfit font-extrabold text-white text-[14px] sm:text-[15px] mb-1">
-                  Revenue Split: <span style={{ color: '#f87171' }}>70% Artist · 30% WB Digital</span>
+                  Revenue Split: <span style={{ color: '#f87171' }}>70% Artist · 30% Western Beats</span>
                 </div>
                 <div className="font-inter text-[12.5px] text-mut leading-relaxed">
                   &ldquo;100% ownership&rdquo; in our marketing refers to your{' '}

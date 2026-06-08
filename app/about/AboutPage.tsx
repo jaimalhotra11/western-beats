@@ -29,7 +29,7 @@ const container: Variants = {
 const STATS = [
   { value: 150,  suffix: '+',   prefix: '',  label: 'Streaming Platforms', color: '#0A64C3' },
   { value: 100,  suffix: '%',   prefix: '',  label: 'IP Ownership',          color: '#C41230' },
-  { value: 48,   suffix: 'hrs', prefix: '',  label: 'Go-Live Time',         color: '#5CB2DC' },
+  { value: 72,   suffix: 'hrs', prefix: '',  label: 'Go-Live Time',         color: '#5CB2DC' },
   { value: 0,    suffix: '',    prefix: '₹', label: 'Cost to Distribute',   color: '#0A64C3' },
 ]
 
@@ -38,7 +38,7 @@ const COMPARE_FEATURES = [
   'Price',
   'Royalties Kept',
   'India-First (JioSaavn & Gaana)',
-  'Warner Music India Backing',
+  'Warner Music Partnership',
   'Go-Live Time',
   'Platforms',
   'ISRC / UPC',
@@ -55,7 +55,7 @@ type Distributor = {
 
 const DISTRIBUTORS: Distributor[] = [
   {
-    name: 'WB Digital',
+    name: 'Western Beats',
     isUs: true,
     badge: 'Best for India',
     data: [
@@ -63,7 +63,7 @@ const DISTRIBUTORS: Distributor[] = [
       'Direct to you (T&C)',
       true,
       true,
-      '48 Hours',
+      '72 Hours',
       '150+',
       'Free Included',
       true,
@@ -209,19 +209,19 @@ const VALUES = [
     icon: Shield,
     title: 'Radically Honest',
     color: '#5CB2DC',
-    desc: '48-72 hours means 48-72 hours. Free means free, no hidden fees, no bait-and-switch, no fine print. What you see is exactly what you get.',
+    desc: '72 hours means 72 hours. Free means free, no hidden fees, no bait-and-switch, no fine print. What you see is exactly what you get.',
   },
   {
     icon: Award,
     title: 'Major-Label Quality',
     color: '#002A8D',
-    desc: "Warner Music India partnership means major-label quality standards on every release: metadata, audio quality, and platform compliance you can't get elsewhere.",
+    desc: "Our Warner Music partnership means major-label quality standards on every release: metadata, audio quality, and platform compliance you can't get elsewhere.",
   },
   {
     icon: Zap,
     title: 'Speed & Reliability',
     color: '#0A64C3',
-    desc: "48-72 hour go-live time, zero downtime, real-time royalty reporting. While competitors take 7–10 days, your music is already streaming. That's the WB Digital difference.",
+    desc: "72-hour go-live time, zero downtime, real-time royalty reporting. While competitors take 7–10 days, your music is already streaming. That's the Western Beats difference.",
   },
   {
     icon: Star,
@@ -232,7 +232,7 @@ const VALUES = [
 ]
 
 const SERVICES_BRIEF = [
-  { icon: Music2,    title: 'Music Distribution',    color: '#0A64C3', desc: 'Free distribution to 150+ platforms in 48-72 hours. You keep 100% of royalties, we only earn when you do.' },
+  { icon: Music2,    title: 'Music Distribution',    color: '#0A64C3', desc: 'Free distribution to 150+ platforms in 72 hours. You keep 100% of royalties, we only earn when you do.' },
   { icon: Calendar,  title: 'Event Management',       color: '#C41230', desc: 'Full-service concert & album launch production from concept to curtain call.' },
   { icon: Users,     title: 'Talent Management',      color: '#5CB2DC', desc: 'Career strategy, brand deals, and WMI industry connections.' },
   { icon: Mic2,      title: 'Audio Production',       color: '#002A8D', desc: 'Studio recording, mixing & mastering to WMI quality standards.' },
@@ -242,44 +242,44 @@ const SERVICES_BRIEF = [
 
 const FAQS = [
   {
-    q: 'What is WB Digital and how is it different from DistroKid?',
-    a: "WB Digital is India's #1 free music distribution platform by Western Beats Private Limited, officially backed by Warner Music India. Unlike DistroKid, which charges $22.99/year (₹1,900+) with no India-first focus, WB Digital is completely free, prioritizes JioSaavn and Gaana, delivers music in 48-72 hours, and carries the credibility of Warner Music India, something no other distributor offers.",
+    q: 'What is Western Beats and how is it different from DistroKid?',
+    a: "Western Beats is India's #1 free music distribution platform by Western Beats Private Limited, officially backed by our Warner Music partnership. Unlike DistroKid, which charges $22.99/year (₹1,900+) with no India-first focus, Western Beats is completely free, prioritizes JioSaavn and Gaana, delivers music in 72 hours, and carries the credibility of our Warner Music partnership, something no other distributor offers.",
   },
   {
-    q: 'Is WB Digital really free, no hidden fees?',
-    a: 'Distribution is completely free: ₹0 upfront. No annual subscription, no per-release fee. WB Digital earns only when you earn — there are no upfront costs and no annual fees. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99 per release, CD Baby charges $9.99 per release AND takes 9% of royalties. With WB Digital, there is no upfront risk — you only pay (via revenue share) when you earn.',
+    q: 'Is Western Beats really free, no hidden fees?',
+    a: 'Distribution is completely free: ₹0 upfront. No annual subscription, no per-release fee. Western Beats earns only when you earn — there are no upfront costs and no annual fees. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99 per release, CD Baby charges $9.99 per release AND takes 9% of royalties. With Western Beats, there is no upfront risk — you only pay (via revenue share) when you earn.',
   },
   {
-    q: 'Why should Indian artists choose WB Digital over TuneCore?',
-    a: 'TuneCore is US-built and US-focused. WB Digital is built specifically for the Indian music market. WB Digital distributes to JioSaavn, Gaana, and more with priority, costs ₹0 upfront (TuneCore costs $14.99/release), is backed by Warner Music India for major-label credibility, goes live in 48-72 hours (TuneCore takes 7–10 days), and provides India-based artist support. Your royalties flow directly to you with no upfront fee.',
+    q: 'Why should Indian artists choose Western Beats over TuneCore?',
+    a: 'TuneCore is US-built and US-focused. Western Beats is built specifically for the Indian music market. Western Beats distributes to JioSaavn, Gaana, and more with priority, costs ₹0 upfront (TuneCore costs $14.99/release), is backed by our Warner Music partnership for major-label credibility, goes live in 72 hours (TuneCore takes 7–10 days), and provides India-based artist support. Your royalties flow directly to you with no upfront fee.',
   },
   {
-    q: 'How does WB Digital compare to CD Baby for Indian artists?',
-    a: 'WB Digital wins on every metric for Indian artists: Price (₹0 upfront vs $9.99/release), Royalties (direct to you vs CD Baby taking 9% AND charging $9.99/release upfront, making WB Digital more cost-effective), India-first distribution (WB Digital has JioSaavn and Gaana priority), Warner Music India backing (CD Baby has no equivalent), and go-live speed (48 hrs vs 5–7 days). CD Baby has no dedicated presence in the Indian music market.',
+    q: 'How does Western Beats compare to CD Baby for Indian artists?',
+    a: 'Western Beats wins on every metric for Indian artists: Price (₹0 upfront vs $9.99/release), Royalties (direct to you vs CD Baby taking 9% AND charging $9.99/release upfront, making Western Beats more cost-effective), India-first distribution (Western Beats has JioSaavn and Gaana priority), Warner Music partnership backing (CD Baby has no equivalent), and go-live speed (72 hrs vs 5–7 days). CD Baby has no dedicated presence in the Indian music market.',
   },
   {
-    q: 'Does WB Digital distribute to JioSaavn and Gaana?',
-    a: 'Yes, and we prioritize them. WB Digital distributes to JioSaavn, Gaana, and all major Indian platforms, along with Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music India partnership gives us priority placement on Indian DSPs, something DistroKid, TuneCore, CD Baby, Ditto Music, and other foreign distributors cannot match.',
+    q: 'Does Western Beats distribute to JioSaavn and Gaana?',
+    a: 'Yes, and we prioritize them. Western Beats distributes to JioSaavn, Gaana, and all major Indian platforms, along with Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music partnership gives us priority placement on Indian DSPs, something DistroKid, TuneCore, CD Baby, Ditto Music, and other foreign distributors cannot match.',
   },
   {
-    q: 'What does the Warner Music India partnership mean for me as an artist?',
-    a: "WB Digital is officially backed by Warner Music India (@warnermusicindia), one of the world's three major record labels. This means major-label credibility on your releases, priority placement on Indian streaming platforms, access to WMI's network of playlist curators and industry contacts, audio quality standards that match major-label releases, and faster processing on platforms. No independent distributor in India, not Ditto Music, Believe, Orchard, Mad Verse, Fore Vision Digital, or anyone else, has this exclusive partnership.",
+    q: 'What does the Warner Music partnership mean for me as an artist?',
+    a: "Western Beats has an exclusive Warner Music partnership — one of the world's three major record label groups. This means major-label credibility on your releases, priority placement on Indian streaming platforms, access to Warner Music's network of playlist curators and industry contacts, audio quality standards that match major-label releases, and faster processing on platforms. No independent distributor in India, not Ditto Music, Believe, Orchard, Mad Verse, Fore Vision Digital, or anyone else, has this exclusive partnership.",
   },
   {
-    q: 'How fast does WB Digital get music live on streaming platforms?',
-    a: 'WB Digital delivers your music to streaming platforms within 48-72 hours. Compare that to: DistroKid (7–10 days), TuneCore (7–10 days), CD Baby (5–7 days), and Ditto Music (3–5 days). Our 48-72 hour turnaround is possible because of our direct relationships with all major platforms and our Warner Music India partnership.',
+    q: 'How fast does Western Beats get music live on streaming platforms?',
+    a: 'Western Beats delivers your music to streaming platforms within 72 hours. Compare that to: DistroKid (7–10 days), TuneCore (7–10 days), CD Baby (5–7 days), and Ditto Music (3–5 days). Our 72-hour turnaround is possible because of our direct relationships with all major platforms and our Warner Music partnership.',
   },
   {
-    q: 'How does WB Digital\'s royalty model work?',
-    a: 'WB Digital pays your royalties directly to your bank account. We only earn when you earn — never upfront. Compare: CD Baby takes 9% AND charges $9.99/release; Believe takes 15–30%; The Orchard operates on revenue share. WB Digital costs ₹0 to start, and we only earn when you earn. That\'s fully aligned with your success.',
+    q: 'How does Western Beats\'s royalty model work?',
+    a: 'Western Beats pays your royalties directly to your bank account. We only earn when you earn — never upfront. Compare: CD Baby takes 9% AND charges $9.99/release; Believe takes 15–30%; The Orchard operates on revenue share. Western Beats costs ₹0 to start, and we only earn when you earn. That\'s fully aligned with your success.',
   },
   {
-    q: 'Can I switch from DistroKid, TuneCore, or CD Baby to WB Digital?',
+    q: 'Can I switch from DistroKid, TuneCore, or CD Baby to Western Beats?',
     a: "Absolutely. You can migrate from any distributor: DistroKid, TuneCore, CD Baby, Ditto Music, Believe, or any other. Contact us at contact@westernbeats.com or DM us @wb_digital_ on Instagram and our team will guide you through the migration at zero cost. Your existing ISRC codes and metadata are fully portable.",
   },
   {
-    q: 'Does WB Digital only offer music distribution?',
-    a: 'No, we are a full-service music company. WB Digital offers Music Distribution, Event Management, Talent Management, Audio Production, Video Direction, and Analytics & Strategy. We give independent artists access to major-label resources, the kind of support that DistroKid, TuneCore, and CD Baby simply do not offer, all under one roof and all at a fraction of the cost.',
+    q: 'Does Western Beats only offer music distribution?',
+    a: 'No, we are a full-service music company. Western Beats offers Music Distribution, Event Management, Talent Management, Audio Production, Video Direction, and Analytics & Strategy. We give independent artists access to major-label resources, the kind of support that DistroKid, TuneCore, and CD Baby simply do not offer, all under one roof and all at a fraction of the cost.',
   },
 ]
 
@@ -401,7 +401,7 @@ export default function AboutPage() {
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
+              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music Partner</div>
             </div>
           </Link>
 
@@ -433,7 +433,7 @@ export default function AboutPage() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <div className="platform-pill text-[10px]">Warner Music India</div>
+            <div className="platform-pill text-[10px]">Warner Music Partner</div>
             <Link
               href="/submit"
               className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200"
@@ -446,7 +446,7 @@ export default function AboutPage() {
 
       {/* ─── HERO ────────────────────────────────────────────────────────────── */}
       <section
-        aria-label="About WB Digital Hero"
+        aria-label="About Western Beats Hero"
         className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden"
       >
         {/* Background glows */}
@@ -467,7 +467,7 @@ export default function AboutPage() {
             <ol className="flex items-center gap-2 font-inter text-[12px] text-mut">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li className="text-white/20">›</li>
-              <li className="text-sky">About WB Digital</li>
+              <li className="text-sky">About Western Beats</li>
             </ol>
           </nav>
 
@@ -478,7 +478,7 @@ export default function AboutPage() {
               animate="show"
             >
               <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
-                ✦ About WB Digital · Official Distribution Partner @warnermusicindia
+                ✦ About Western Beats · Official Distribution Partner @warnermusicindia
               </motion.div>
 
               {/* H1: primary keyword target */}
@@ -497,8 +497,8 @@ export default function AboutPage() {
                 variants={fadeUp}
                 className="page-subtext speakable font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-10 max-w-2xl"
               >
-                WB Digital by Western Beats Private Limited is India&apos;s most trusted and 100% free music
-                distribution platform, officially backed by <strong className="text-white">Warner Music India</strong>.
+                Western Beats Private Limited is India&apos;s most trusted and 100% free music
+                distribution platform, officially backed by our <strong className="text-white">Warner Music partnership</strong>.
                 Distribute to 150+ platforms including JioSaavn, Gaana, Spotify &amp; Apple Music.
                 Earn <strong className="text-white">royalties from every stream</strong>, we only earn when you do. Always free to distribute.
               </motion.p>
@@ -546,7 +546,7 @@ export default function AboutPage() {
                   { val: 'FREE', lbl: 'Forever, Always' },
                   { val: '100%', lbl: 'IP Ownership' },
                   { val: '150+', lbl: 'Platforms' },
-                  { val: '48hrs', lbl: 'Go-Live Time' },
+                  { val: '72hrs', lbl: 'Go-Live Time' },
                   { val: 'WMI', lbl: 'Backed & Verified' },
                 ].map(s => (
                   <div key={s.val} className="flex flex-col">
@@ -562,7 +562,7 @@ export default function AboutPage() {
               <div className="relative rounded-3xl overflow-hidden" style={{ aspectRatio: '3/4' }}>
                 <Image
                   src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80&auto=format&fit=crop"
-                  alt="Independent artist performing on stage, WB Digital"
+                  alt="Independent artist performing on stage, Western Beats"
                   fill
                   sizes="(max-width:1280px) 50vw, 600px"
                   className="object-cover object-center"
@@ -579,7 +579,7 @@ export default function AboutPage() {
                     className="font-outfit font-bold text-white text-[11px] tracking-[0.06em] px-3 py-1.5 rounded-full"
                     style={{ background: '#C41230', boxShadow: '0 4px 16px rgba(196,18,48,0.4)' }}
                   >
-                    ✦ Warner Music India Partner
+                    ✦ Warner Music Partner
                   </div>
                 </div>
                 {/* Stat mini-cards at bottom */}
@@ -587,7 +587,7 @@ export default function AboutPage() {
                   <div className="gsap-card grid grid-cols-3 gap-2">
                     {[
                       { val: '150+', lbl: 'Platforms' },
-                      { val: '48h',  lbl: 'Go Live' },
+                      { val: '72h',  lbl: 'Go Live' },
                       { val: '₹0',   lbl: 'Forever Free' },
                     ].map(s => (
                       <div
@@ -652,11 +652,11 @@ export default function AboutPage() {
                 of the Indian market, Indian platforms, or Indian artists. We knew there was a better way.
               </motion.p>
               <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-5">
-                That&apos;s why we built WB Digital: India-first, artist-first, and backed by the partnership
-                that changed everything: <strong className="text-white">Warner Music India</strong>.
+                That&apos;s why we built Western Beats: India-first, artist-first, and backed by the partnership
+                that changed everything: our <strong className="text-white">Warner Music partnership</strong>.
               </motion.p>
               <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-8">
-                The same Warner Music India partnership that works with artists like <strong className="text-white">Armaan Malik, Diljit Dosanjh, King, and Darshan Raval</strong>, now powers every independent artist on WB Digital.
+                The same Warner Music Group that powers global superstars now powers every independent artist on Western Beats.
               </motion.p>
 
               {/* Mission callout */}
@@ -668,7 +668,7 @@ export default function AboutPage() {
                   &ldquo;Where Independent Meets Major.&rdquo;
                 </p>
                 <footer className="font-inter text-[12px] text-mut mt-2">
-                  WB Digital Mission Statement · Western Beats Private Limited
+                  Western Beats Mission Statement · Western Beats Private Limited
                 </footer>
               </motion.blockquote>
             </motion.div>
@@ -699,7 +699,7 @@ export default function AboutPage() {
                 <div className="gsap-card grid grid-cols-2 gap-2">
                   {[
                     { num: '01', title: 'Founded in India', color: '#C41230' },
-                    { num: '02', title: 'Warner Music India', color: '#0A64C3' },
+                    { num: '02', title: 'Warner Music Partner', color: '#0A64C3' },
                     { num: '03', title: '150+ Platforms', color: '#5CB2DC' },
                     { num: '04', title: 'Always Free', color: '#002A8D' },
                   ].map(card => (
@@ -769,7 +769,7 @@ export default function AboutPage() {
               style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}
             >
               <span className="text-white">The </span>
-              <span style={{ color: '#0A64C3' }}>Warner Music India</span>
+              <span style={{ color: '#0A64C3' }}>Warner Music Partnership</span>
               <span className="text-white"> Advantage.</span>
             </motion.h2>
             <motion.p
@@ -779,8 +779,8 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
               className="speakable font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl mx-auto"
             >
-              WB Digital is India&apos;s only free distribution platform with an exclusive Warner Music India
-              backing, a partnership that no other distributor (DistroKid, TuneCore, CD Baby, Ditto Music,
+              Western Beats is India&apos;s only free distribution platform with an exclusive Warner Music partnership —
+              a backing that no other distributor (DistroKid, TuneCore, CD Baby, Ditto Music,
               Believe, Orchard, Mad Verse, or Fore Vision Digital) can match.
             </motion.p>
           </div>
@@ -792,7 +792,7 @@ export default function AboutPage() {
                 icon: Award,
                 title: 'Major-Label Credibility',
                 color: '#0A64C3',
-                desc: "Your releases carry the weight of Warner Music India's reputation, the same label behind some of India's biggest artists.",
+                desc: "Your releases carry the weight of our Warner Music partnership — major-label credibility on every release.",
               },
               {
                 icon: Zap,
@@ -853,10 +853,10 @@ export default function AboutPage() {
                 Officially Backed By
               </div>
               <div className="font-outfit font-black text-white text-[22px] sm:text-[26px] leading-none">
-                Warner Music India
+                Warner Music Partner
               </div>
               <div className="font-inter text-[12px] text-mut mt-1">
-                @warnermusicindia · A Warner Music Group Company
+                Warner Music Group · Official Partnership
               </div>
             </div>
             <div className="hidden sm:block w-px h-12 bg-white/10" />
@@ -904,7 +904,7 @@ export default function AboutPage() {
               style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}
             >
               <span className="text-white">Why Indian Artists Choose </span>
-              <span style={{ color: '#0A64C3' }}>WB Digital</span>
+              <span style={{ color: '#0A64C3' }}>Western Beats</span>
               <span className="text-white"> Over Everyone Else.</span>
             </motion.h2>
             <motion.p
@@ -914,7 +914,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl mx-auto"
             >
-              Compare WB Digital against DistroKid, TuneCore, CD Baby, Ditto Music, Believe, The Orchard,
+              Compare Western Beats against DistroKid, TuneCore, CD Baby, Ditto Music, Believe, The Orchard,
               Mad Verse &amp; Fore Vision Digital, and see why the answer is clear.
             </motion.p>
           </div>
@@ -1123,7 +1123,7 @@ export default function AboutPage() {
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-xl mx-auto"
             >
               Six principles that set us apart from every other music distributor, and the reason
-              artists trust WB Digital with their careers.
+              artists trust Western Beats with their careers.
             </motion.p>
           </div>
 
@@ -1267,7 +1267,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl mx-auto"
             >
-              Unlike DistroKid, TuneCore, or CD Baby which only offer distribution, WB Digital is a
+              Unlike DistroKid, TuneCore, or CD Baby which only offer distribution, Western Beats is a
               complete music company, giving you everything you need to build a sustainable career.
             </motion.p>
           </div>
@@ -1357,7 +1357,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed"
             >
-              Comparing WB Digital vs DistroKid, TuneCore, CD Baby, Ditto Music and more? We answer it all.
+              Comparing Western Beats vs DistroKid, TuneCore, CD Baby, Ditto Music and more? We answer it all.
             </motion.p>
           </div>
 
@@ -1410,8 +1410,8 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
             className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-10"
           >
-            Stop paying DistroKid, TuneCore, CD Baby, or Ditto Music. Switch to WB Digital, India&apos;s #1 free
-            music distribution platform, officially backed by Warner Music India. One upload. 150+ platforms.
+            Stop paying DistroKid, TuneCore, CD Baby, or Ditto Music. Switch to Western Beats, India&apos;s #1 free
+            music distribution platform, officially backed by our Warner Music partnership. One upload. 150+ platforms.
             100% ownership always yours. ₹0 upfront. We only earn when you earn.
           </motion.p>
           <motion.div
@@ -1448,9 +1448,9 @@ export default function AboutPage() {
             {[
               '✓ 100% Free to Distribute',
               '✓ 100% Ownership Yours',
-              '✓ Warner Music India Backed',
+              '✓ Warner Music Partner Backed',
               '✓ JioSaavn & Gaana Priority',
-              '✓ Live in 48 Hours',
+              '✓ Live in 72 Hours',
             ].map(badge => (
               <span key={badge} className="font-inter text-[12px] text-mut">{badge}</span>
             ))}

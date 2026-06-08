@@ -162,7 +162,7 @@ export default function PlatformsPage() {
               Most foreign distributors treat Indian platforms as an afterthought. We treat JioSaavn, Gaana, Wynk, and Hungama as the priority. For Indian artists, these platforms drive the majority of your streams and your income.
             </p>
             <p className="font-inter text-[14px] sm:text-[15px] text-mut leading-relaxed">
-              Our Warner Music India partnership also means we have direct relationships with Indian DSPs. That translates to faster uploads, better metadata processing, and access to editorial playlists that foreign distributors simply cannot offer.
+              Our Warner Music partnership also means we have direct relationships with Indian DSPs. That translates to faster uploads, better metadata processing, and access to editorial playlists that foreign distributors simply cannot offer.
             </p>
           </motion.div>
         </div>

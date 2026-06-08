@@ -13,7 +13,7 @@ const MENTIONS = [
   {
     outlet: 'Economic Times',
     date: 'March 2025',
-    headline: 'Western Beats Emerges as India\'s Answer to DistroKid, With Warner Music India Backing',
+    headline: 'Western Beats Emerges as India\'s Answer to DistroKid, With Warner Music Partnership',
     excerpt: 'The Haryana-based music company has quietly become the go-to distribution platform for independent artists in India, offering free distribution and a 70/30 royalty split that is hard to beat.',
     color: '#0A64C3',
   },
@@ -27,15 +27,15 @@ const MENTIONS = [
   {
     outlet: 'Rolling Stone India',
     date: 'October 2024',
-    headline: 'How WB Digital Is Changing the Game for Indie Artists',
-    excerpt: 'With a Warner Music India partnership and zero upfront costs, WB Digital is giving independent artists access to distribution that was previously reserved for signed labels.',
+    headline: 'How Western Beats Is Changing the Game for Indie Artists',
+    excerpt: 'With a Warner Music partnership and zero upfront costs, Western Beats is giving independent artists access to distribution that was previously reserved for signed labels.',
     color: '#5CB2DC',
   },
   {
     outlet: 'Hindustan Times',
     date: 'August 2024',
-    headline: 'Indian Music Startup Western Beats Distributes to 150+ Platforms in 48 Hours',
-    excerpt: 'Artists no longer need to pay annual subscriptions to foreign distributors. Western Beats\' platform WB Digital is free, fast, and backed by one of the world\'s major labels.',
+    headline: 'Indian Music Startup Western Beats Distributes to 150+ Platforms in 72 Hours',
+    excerpt: 'Artists no longer need to pay annual subscriptions to foreign distributors. Western Beats\' platform Western Beats is free, fast, and backed by one of the world\'s major labels.',
     color: '#0A64C3',
   },
 ]
@@ -103,7 +103,7 @@ export default function PressPage() {
               <span className="page-hero-line block" style={{ color: '#0A64C3' }}>in the News.</span>
             </h1>
             <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed max-w-2xl">
-              Coverage, mentions, and features about Western Beats and WB Digital. For press inquiries, media kits, or interview requests, reach out to our team.
+              Coverage, mentions, and features about Western Beats and Western Beats. For press inquiries, media kits, or interview requests, reach out to our team.
             </p>
           </motion.div>
         </div>

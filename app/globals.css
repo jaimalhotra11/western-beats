@@ -68,8 +68,8 @@ section[id] { scroll-margin-top: 80px; }
   -webkit-backface-visibility: hidden;
   transform-style: preserve-3d;
 }
-.artist-slider-track     { animation: marquee    35s linear infinite; }
-.artist-slider-track-rev { animation: marqueRev  35s linear infinite; }
+.artist-slider-track     { animation: marquee    12s linear infinite; }
+.artist-slider-track-rev { animation: marqueRev  12s linear infinite; }
 .artist-slider-track:hover,
 .artist-slider-track-rev:hover { animation-play-state: paused; }
 

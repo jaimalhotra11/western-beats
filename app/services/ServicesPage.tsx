@@ -32,13 +32,13 @@ const SERVICES = [
     color: '#0A64C3',
     tag: 'Core · Always Free',
     title: 'Music Distribution',
-    headline: 'One Upload. 150+ Platforms. 48 Hours. Free.',
-    desc: 'Upload once and reach every major streaming platform worldwide simultaneously, free distribution with 100% ownership (T&C apply) straight to you. Our Warner Music India partnership means priority placement on JioSaavn, Gaana, and every Indian DSP.',
+    headline: 'One Upload. 150+ Platforms. 72 Hours. Free.',
+    desc: 'Upload once and reach every major streaming platform worldwide simultaneously, free distribution with 100% ownership (T&C apply) straight to you. Our Warner Music partnership means priority placement on JioSaavn, Gaana, and every Indian DSP.',
     points: [
       'Free forever, no annual fee, no per-release charge',
       '100% ownership (T&C apply) paid monthly, we only earn when you earn',
       '150+ platforms: JioSaavn, Gaana, Spotify, Apple Music & more',
-      'Live in 48-72 hours, faster than DistroKid & TuneCore',
+      'Live in 72 hours, faster than DistroKid & TuneCore',
       'Free ISRC & UPC code generation',
       'Real-time royalty dashboard',
       'Keep 100% ownership (T&C apply, ownership of your masters',
@@ -48,7 +48,7 @@ const SERVICES = [
     ],
     steps: [
       { icon: Upload,      num: '01', title: 'Upload',     desc: 'Submit your track, artwork, and release info. We review within 24 hours.' },
-      { icon: Globe2,      num: '02', title: 'Distribute', desc: 'We push your music to 150+ platforms simultaneously within 48-72 hours.' },
+      { icon: Globe2,      num: '02', title: 'Distribute', desc: 'We push your music to 150+ platforms simultaneously within 72 hours.' },
       { icon: DollarSign, num: '03', title: 'Earn 100%',   desc: '100% of every rupee earned flows directly to you monthly. We only earn when you earn, zero upfront cost.' },
     ],
     featured: true,
@@ -60,7 +60,7 @@ const SERVICES = [
     tag: 'Full Production',
     title: 'Event Management',
     headline: 'Concerts, Launches & Live Experiences.',
-    desc: 'From intimate album listening parties to full-scale stadium concerts. WB Digital handles every aspect of live event production. Artist riders, venue booking, PR, live streaming, and on-ground management across India.',
+    desc: 'From intimate album listening parties to full-scale stadium concerts. Western Beats handles every aspect of live event production. Artist riders, venue booking, PR, live streaming, and on-ground management across India.',
     points: [
       'Venue scouting, booking & stage design',
       'Artist rider management & hospitality',
@@ -87,7 +87,7 @@ const SERVICES = [
     tag: 'Artist Growth',
     title: 'Talent Management',
     headline: 'Your Career. Managed by the Best.',
-    desc: 'WB Digital provides end-to-end artist management, from career strategy and brand partnership deals to industry connections through our exclusive Warner Music India network. We grow independent artists into household names.',
+    desc: 'Western Beats provides end-to-end artist management, from career strategy and brand partnership deals to industry connections through our exclusive Warner Music network. We grow independent artists into household names.',
     points: [
       'Personalized career strategy & roadmap',
       'Brand partnership deals & endorsements',
@@ -114,7 +114,7 @@ const SERVICES = [
     tag: 'Studio Quality',
     title: 'Audio Production',
     headline: 'Major-Label Sound. Independent Spirit.',
-    desc: 'Professional recording, mixing, mastering, and sound design benchmarked against Warner Music India quality standards. From raw demos to chart-ready masters; every release meets international streaming platform requirements.',
+    desc: 'Professional recording, mixing, mastering, and sound design benchmarked against Warner Music quality standards. From raw demos to chart-ready masters; every release meets international streaming platform requirements.',
     points: [
       'Professional studio recording sessions',
       'Multi-track mixing & arrangement',
@@ -141,7 +141,7 @@ const SERVICES = [
     tag: 'Visual Identity',
     title: 'Video Direction',
     headline: 'Visuals That Go Viral.',
-    desc: 'Music videos, Instagram Reels, YouTube Shorts, promotional campaigns, and social media content, designed to match the WB Digital visual identity and engineered to maximize organic reach and streams.',
+    desc: 'Music videos, Instagram Reels, YouTube Shorts, promotional campaigns, and social media content, designed to match the Western Beats visual identity and engineered to maximize organic reach and streams.',
     points: [
       'Full music video concept & direction',
       'Instagram Reels & YouTube Shorts production',
@@ -192,28 +192,28 @@ const SERVICES = [
 
 const FAQS = [
   {
-    q: 'What services does WB Digital offer?',
-    a: 'WB Digital offers six core services: Free Music Distribution (to 150+ platforms, 48 hrs, 100% ownership (T&C apply) to you), Event Management (concerts, album launches), Talent Management (career strategy, brand deals, WMI network), Audio Production (recording, mixing, mastering), Video Direction (music videos, Reels, Shorts), and Analytics & Strategy (real-time data across all platforms). All backed by Warner Music India.',
+    q: 'What services does Western Beats offer?',
+    a: 'Western Beats offers six core services: Free Music Distribution (to 150+ platforms, 72 hrs, 100% ownership (T&C apply) to you), Event Management (concerts, album launches), Talent Management (career strategy, brand deals, WMI network), Audio Production (recording, mixing, mastering), Video Direction (music videos, Reels, Shorts), and Analytics & Strategy (real-time data across all platforms). All backed by Warner Music India.',
   },
   {
-    q: 'Is music distribution with WB Digital really free?',
-    a: 'Yes, distribution is completely free. ₹0 forever. No annual subscription, no per-release fee. WB Digital only earns when you earn — zero upfront cost. Full details in our Terms & Conditions. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99/release, CD Baby charges $9.99/release AND takes 9% of royalties. WB Digital charges nothing upfront, we are fully invested in your success.',
+    q: 'Is music distribution with Western Beats really free?',
+    a: 'Yes, distribution is completely free. ₹0 forever. No annual subscription, no per-release fee. Western Beats only earns when you earn — zero upfront cost. Full details in our Terms & Conditions. Compare: DistroKid charges $22.99/yr, TuneCore charges $14.99/release, CD Baby charges $9.99/release AND takes 9% of royalties. Western Beats charges nothing upfront, we are fully invested in your success.',
   },
   {
-    q: 'How quickly does music go live with WB Digital?',
-    a: 'Within 48-72 hours of submission and approval, your music is live on all 150+ streaming platforms simultaneously, including JioSaavn, Gaana, Spotify, Apple Music, YouTube Music, and more. DistroKid takes 7–10 days, TuneCore takes 7–10 days, CD Baby takes 5–7 days. We are the fastest distributor in India.',
+    q: 'How quickly does music go live with Western Beats?',
+    a: 'Within 72 hours of submission and approval, your music is live on all 150+ streaming platforms simultaneously, including JioSaavn, Gaana, Spotify, Apple Music, YouTube Music, and more. DistroKid takes 7–10 days, TuneCore takes 7–10 days, CD Baby takes 5–7 days. We are the fastest distributor in India.',
   },
   {
-    q: 'Which platforms does WB Digital distribute to?',
-    a: 'WB Digital distributes to 150+ platforms: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, SoundCloud, Boomplay, Pandora, Audiomack, Napster, and 130+ more globally. Our Warner Music India partnership gives us priority placement on Indian DSPs.',
+    q: 'Which platforms does Western Beats distribute to?',
+    a: 'Western Beats distributes to 150+ platforms: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, SoundCloud, Boomplay, Pandora, Audiomack, Napster, and 130+ more globally. Our Warner Music partnership gives us priority placement on Indian DSPs.',
   },
   {
     q: 'How do I book event management or talent management?',
     a: 'Simply email contact@westernbeats.com or DM @wb_digital_ on Instagram with your requirements: event type, scale, date, and budget for events; career stage and goals for talent management. Our team responds within 24 hours with a custom proposal.',
   },
   {
-    q: 'What audio quality standards does WB Digital use?',
-    a: "WB Digital's audio production is benchmarked against Warner Music India quality standards, the same standards used by major-label releases. This means LUFS-compliant mastering for each platform, high-resolution audio exports, Dolby Atmos support, and full metadata compliance for every distribution platform.",
+    q: 'What audio quality standards does Western Beats use?',
+    a: "Western Beats's audio production is benchmarked against Warner Music quality standards, the same standards used by major-label releases. This means LUFS-compliant mastering for each platform, high-resolution audio exports, Dolby Atmos support, and full metadata compliance for every distribution platform.",
   },
 ]
 
@@ -305,7 +305,7 @@ export default function ServicesPage() {
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
+              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music Partner</div>
             </div>
           </Link>
           <div className="hidden md:flex items-center gap-1">
@@ -360,7 +360,7 @@ export default function ServicesPage() {
             {/* Left */}
             <motion.div variants={container} initial="hidden" animate="show">
               <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
-                ✦ Full-Service Music Company · Warner Music India Backed
+                ✦ Full-Service Music Company · Warner Music Partner Backed
               </motion.div>
               <motion.h1
                 variants={fadeUp}
@@ -372,7 +372,7 @@ export default function ServicesPage() {
                 <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Career Needs.</span>
               </motion.h1>
               <motion.p variants={fadeUp} className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-xl">
-                WB Digital is India&apos;s only <strong className="text-white">full-service music company</strong> backed by Warner Music India, offering free distribution, events, talent management, audio production, video direction, and analytics under one roof.
+                Western Beats is India&apos;s only <strong className="text-white">full-service music company</strong> backed by Warner Music India, offering free distribution, events, talent management, audio production, video direction, and analytics under one roof.
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mb-10">
                 <Link href="/submit"
@@ -580,7 +580,7 @@ export default function ServicesPage() {
             </motion.h2>
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
               className="font-inter text-[15px] text-mut max-w-xl mx-auto">
-              One upload reaches all 150+ platforms simultaneously, in 48-72 hours, for free.
+              One upload reaches all 150+ platforms simultaneously, in 72 hours, for free.
             </motion.p>
           </div>
           <div className="gsap-card grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
@@ -637,7 +637,7 @@ export default function ServicesPage() {
               style={{ fontSize: 'clamp(30px, 4.5vw, 56px)' }}
             >
               <span className="text-white">Artists Who Trust </span>
-              <span style={{ color: '#0A64C3' }}>WB Digital.</span>
+              <span style={{ color: '#0A64C3' }}>Western Beats.</span>
             </motion.h2>
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
               className="font-inter text-[15px] text-mut max-w-2xl mx-auto">
@@ -794,7 +794,7 @@ export default function ServicesPage() {
           {/* Trust badges */}
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
             className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-            {['✓ 100% Free Forever', '✓ 100% Royalties Kept', '✓ Warner Music India Backed', '✓ Live in 48 Hours', '✓ JioSaavn & Gaana Priority'].map(b => (
+            {['✓ 100% Free Forever', '✓ 100% Royalties Kept', '✓ Warner Music Partner Backed', '✓ Live in 72 Hours', '✓ JioSaavn & Gaana Priority'].map(b => (
               <span key={b} className="font-inter text-[12px] text-mut">{b}</span>
             ))}
           </motion.div>
@@ -852,7 +852,7 @@ function DistributionVisual({ color }: { color: string }) {
         </div>
         <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10">
           <Shield size={14} className="text-white" />
-          <span className="font-inter text-[12px] text-white/90">Warner Music India Backed</span>
+          <span className="font-inter text-[12px] text-white/90">Warner Music Partner Backed</span>
         </div>
       </div>
     </div>
@@ -863,7 +863,7 @@ function EventsVisual({ color }: { color: string }) {
   return (
     <div className="rounded-2xl overflow-hidden relative" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
       <div className="relative h-56">
-        <Image src="/artists/sapnachoudhary-DkPyzJGL.jpg" alt="WB Digital Live Event" fill sizes="600px" className="object-cover object-top" />
+        <Image src="/artists/sapnachoudhary-DkPyzJGL.jpg" alt="Western Beats Live Event" fill sizes="600px" className="object-cover object-top" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(196,18,48,0.7) 100%)' }} />
         <div className="absolute bottom-4 left-4">
           <div className="font-outfit font-black text-white text-[20px]">Live Events</div>
@@ -947,7 +947,7 @@ function VideoVisual({ color }: { color: string }) {
   return (
     <div className="rounded-2xl overflow-hidden" style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.08)' }}>
       <div className="relative h-52 overflow-hidden group">
-        <Image src="/artists/harshsandhu-CfMNV-ao.jpeg" alt="WB Digital Video Production" fill sizes="600px" className="object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+        <Image src="/artists/harshsandhu-CfMNV-ao.jpeg" alt="Western Beats Video Production" fill sizes="600px" className="object-cover object-top transition-transform duration-700 group-hover:scale-105" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(196,18,48,0.6) 100%)' }} />
         {/* Play button overlay */}
         <div className="absolute inset-0 flex items-center justify-center">

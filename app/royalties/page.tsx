@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import RoyaltiesPage from './RoyaltiesPage'
 
 export const metadata: Metadata = {
-  title: 'Royalties & Payments | WB Digital: 100% Ownership, Always Yours',
+  title: 'Royalties & Payments | Western Beats: 100% Ownership, Always Yours',
   description:
-    'WB Digital pays your royalties directly to your bank account every month. 100% IP ownership always stays yours. Free ISRC and UPC codes. No upfront fees. We only earn when you earn.',
+    'Western Beats pays your royalties directly to your bank account every month. 100% IP ownership always stays yours. Free ISRC and UPC codes. No upfront fees. We only earn when you earn.',
   keywords: [
     'music royalties India',
     '100% ownership music distribution',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     'music royalty payment India',
     'ISRC code free India',
     'UPC barcode free India',
-    'WB Digital royalties',
+    'Western Beats royalties',
     'Western Beats royalty split',
     'music earnings India streaming',
     'artist revenue share India',
@@ -22,17 +22,17 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://westernbeats.com/royalties' },
   openGraph: {
-    title: 'WB Digital Royalties: 100% Ownership, Direct Payments Every Month',
+    title: 'Western Beats Royalties: 100% Ownership, Direct Payments Every Month',
     description:
-      'WB Digital pays your royalties directly to your bank account. 100% IP ownership always yours. Free ISRC and UPC. Zero upfront fees. We only earn when you earn.',
+      'Western Beats pays your royalties directly to your bank account. 100% IP ownership always yours. Free ISRC and UPC. Zero upfront fees. We only earn when you earn.',
     url: 'https://westernbeats.com/royalties',
-    siteName: 'WB Digital: Western Beats',
+    siteName: 'Western Beats',
     locale: 'en_IN',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'WB Digital: 100% Ownership, Direct Royalty Payments',
+    title: 'Western Beats: 100% Ownership, Direct Royalty Payments',
     description:
       '100% IP ownership always yours. Direct royalty payments to your bank. Free ISRC and UPC. No upfront fees.',
     site: '@wb_digital_',
@@ -54,26 +54,26 @@ const SCHEMA = {
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'What royalties does WB Digital pay artists?',
+          name: 'What royalties does Western Beats pay artists?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'WB Digital pays your royalties directly to your bank account. There are no upfront charges — WB only earns when you earn. Full revenue share details are available in our Terms & Conditions at westernbeats.com/terms.',
+            text: 'Western Beats pays your royalties directly to your bank account. There are no upfront charges — WB only earns when you earn. Full revenue share details are available in our Terms & Conditions at westernbeats.com/terms.',
           },
         },
         {
           '@type': 'Question',
-          name: 'When does WB Digital pay royalties?',
+          name: 'When does Western Beats pay royalties?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'WB Digital pays within 30 days of receiving a valid invoice from you. YouTube reports are issued after 2 months; OTT and other platform reports are issued quarterly. After receiving your report, you raise an invoice and WB pays within 30 days.',
+            text: 'Western Beats pays within 30 days of receiving a valid invoice from you. YouTube reports are issued after 2 months; OTT and other platform reports are issued quarterly. After receiving your report, you raise an invoice and WB pays within 30 days.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Does WB Digital provide free ISRC and UPC codes?',
+          name: 'Does Western Beats provide free ISRC and UPC codes?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. WB Digital provides ISRC codes for every track and UPC barcodes for every release at no charge. These are industry-standard identifiers required for streaming platform distribution.',
+            text: 'Yes. Western Beats provides ISRC codes for every track and UPC barcodes for every release at no charge. These are industry-standard identifiers required for streaming platform distribution.',
           },
         },
       ],

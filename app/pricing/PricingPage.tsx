@@ -21,7 +21,7 @@ const FEATURES = [
   'Artist royalty share',
   'Annual / per-release fee',
   'India-First (JioSaavn & Gaana)',
-  'Warner Music India backing',
+  'Warner Music partnership',
   'Go-live time',
   'ISRC & UPC codes',
   'Playlist pitching',
@@ -31,7 +31,7 @@ const FEATURES = [
 
 const DISTRIBUTORS = [
   {
-    name: 'WB Digital',
+    name: 'Western Beats',
     highlight: true,
     badge: 'Best for India',
     color: '#0A64C3',
@@ -43,7 +43,7 @@ const DISTRIBUTORS = [
       '₹0, none ever',
       true,
       true,
-      '48 Hours',
+      '72 Hours',
       'Free Included',
       true,
       'WhatsApp + Email 24/7',
@@ -131,7 +131,7 @@ const DISTRIBUTORS = [
     highlight: false,
     color: '#6B7A8D',
     price: '15–25% revenue share',
-    priceNote: 'Higher cut than WB Digital',
+    priceNote: 'Higher cut than Western Beats',
     data: [
       '100+',
       '70–85%',
@@ -149,24 +149,24 @@ const DISTRIBUTORS = [
 
 const FAQS = [
   {
-    q: 'Is WB Digital distribution really free, forever?',
-    a: 'Yes. Distribution costs ₹0 upfront, no annual fee, no per-release charge, ever. WB Digital only earns when you earn. We never charge you a single rupee before you make money. Think of it as a partner who only gets paid when you succeed.',
+    q: 'Is Western Beats distribution really free, forever?',
+    a: 'Yes. Distribution costs ₹0 upfront, no annual fee, no per-release charge, ever. Western Beats only earns when you earn. We never charge you a single rupee before you make money. Think of it as a partner who only gets paid when you succeed.',
   },
   {
     q: 'How does the 70/30 royalty split work?',
-    a: 'When your music generates streaming royalties, WB Digital pays your royalties directly to your bank account with no upfront costs. We only earn when you earn. Full details in our Terms & Conditions. This aligns our interests completely with yours: the more you earn, the more we both earn.',
+    a: 'When your music generates streaming royalties, Western Beats pays your royalties directly to your bank account with no upfront costs. We only earn when you earn. Full details in our Terms & Conditions. This aligns our interests completely with yours: the more you earn, the more we both earn.',
   },
   {
-    q: 'Is WB Digital cheaper than DistroKid for Indian artists?',
-    a: 'Absolutely. DistroKid charges $22.99/year (₹1,900+) regardless of whether you earn anything. WB Digital charges ₹0 upfront, our 30% Distribution Fee only applies when royalties are generated. If you earn ₹0, you pay ₹0.',
+    q: 'Is Western Beats cheaper than DistroKid for Indian artists?',
+    a: 'Absolutely. DistroKid charges $22.99/year (₹1,900+) regardless of whether you earn anything. Western Beats charges ₹0 upfront, our 30% Distribution Fee only applies when royalties are generated. If you earn ₹0, you pay ₹0.',
   },
   {
-    q: 'How does WB Digital compare to CD Baby?',
-    a: 'WB Digital wins on every metric: ₹0 upfront (vs $9.99/release + 9% royalties), India-first distribution with JioSaavn & Gaana priority (CD Baby has no India focus), Warner Music India backing (CD Baby has no equivalent), 48-72 hour go-live (vs 5–7 days), and free ISRC codes (CD Baby charges $5 each).',
+    q: 'How does Western Beats compare to CD Baby?',
+    a: 'Western Beats wins on every metric: ₹0 upfront (vs $9.99/release + 9% royalties), India-first distribution with JioSaavn & Gaana priority (CD Baby has no India focus), Warner Music partnership backing (CD Baby has no equivalent), 72-hour go-live (vs 5–7 days), and free ISRC codes (CD Baby charges $5 each).',
   },
   {
     q: 'What happens if I earn nothing from streaming?',
-    a: 'You pay nothing. WB Digital only earns when you earn — if your music generates nothing, WB Digital earns nothing. If your music earns ₹0, WB Digital earns ₹0. Zero risk, zero upfront commitment.',
+    a: 'You pay nothing. Western Beats only earns when you earn — if your music generates nothing, Western Beats earns nothing. If your music earns ₹0, Western Beats earns ₹0. Zero risk, zero upfront commitment.',
   },
   {
     q: 'Are there any hidden fees I should know about?',
@@ -263,7 +263,7 @@ export default function PricingPage() {
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
+              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music Partner</div>
             </div>
           </Link>
           <div className="hidden md:flex items-center gap-1">
@@ -328,7 +328,7 @@ export default function PricingPage() {
                 variants={fadeUp}
                 className="page-subtext font-inter text-[16px] sm:text-[17px] text-mut leading-relaxed mb-10 max-w-xl"
               >
-                WB Digital charges <strong className="text-white">zero upfront</strong>, no annual fee, no per-release charge.
+                Western Beats charges <strong className="text-white">zero upfront</strong>, no annual fee, no per-release charge.
                 We <strong className="text-white">only earn when you earn</strong> — zero upfront cost, ever.
                 If you earn ₹0, we take ₹0. Simple, aligned, honest.
               </motion.p>
@@ -351,7 +351,7 @@ export default function PricingPage() {
             >
               <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.07) 50%, transparent 60%)' }} />
               <div className="relative z-10 w-full">
-                <div className="platform-pill bg-white/10 text-white border-white/20 mb-4 self-start">WB Digital: Core Plan</div>
+                <div className="platform-pill bg-white/10 text-white border-white/20 mb-4 self-start">Western Beats: Core Plan</div>
                 <div className="font-outfit font-black text-white text-[52px] sm:text-[64px] leading-none mb-1">₹0</div>
                 <div className="font-inter text-ice/80 text-[14px] mb-6">Forever. No card required. No hidden fees.</div>
                 <div className="w-full h-px bg-white/15 mb-6" />
@@ -360,9 +360,9 @@ export default function PricingPage() {
                     '150+ platforms, India-first',
                     'Royalties paid direct to your bank (T&C)',
                     '30% Distribution Fee only when you earn',
-                    '48-72 hour go-live time',
+                    '72 hour go-live time',
                     'Free ISRC & UPC codes',
-                    'Warner Music India backed',
+                    'Warner Music Partner backed',
                     'Real-time analytics dashboard',
                     'WhatsApp & email support',
                   ].map((f, i) => (
@@ -403,7 +403,7 @@ export default function PricingPage() {
               className="font-outfit font-black tracking-[-0.02em] leading-[1.05]"
               style={{ fontSize: 'clamp(28px, 4vw, 50px)' }}
             >
-              <span className="text-white">WB Digital vs</span>{' '}
+              <span className="text-white">Western Beats vs</span>{' '}
               <span style={{ color: '#0A64C3' }}>Everyone Else.</span>
             </motion.h2>
             <motion.p
@@ -412,7 +412,7 @@ export default function PricingPage() {
               transition={{ delay: 0.2 }}
               className="font-inter text-[15px] text-mut leading-relaxed mt-4 max-w-xl mx-auto"
             >
-              How does WB Digital stack up against DistroKid, TuneCore, CD Baby, Ditto Music, and Believe?
+              How does Western Beats stack up against DistroKid, TuneCore, CD Baby, Ditto Music, and Believe?
             </motion.p>
           </div>
 
@@ -522,9 +522,9 @@ export default function PricingPage() {
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="gsap-card grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: Globe2,   color: '#0A64C3', title: 'India First', desc: 'JioSaavn, Gaana &  distribution with Warner Music India priority, no foreign distributor can match this.' },
+              { icon: Globe2,   color: '#0A64C3', title: 'India First', desc: 'JioSaavn, Gaana & distribution with our Warner Music partnership priority, no foreign distributor can match this.' },
               { icon: Shield,   color: '#C41230', title: 'Zero Risk',    desc: 'No upfront cost means zero financial risk. Submit your music for free, we only earn when you earn.' },
-              { icon: Zap,      color: '#5CB2DC', title: '48-Hour Live', desc: 'Fastest distribution in India. DistroKid takes 7–10 days. WB Digital gets you live in 48-72 hours.' },
+              { icon: Zap,      color: '#5CB2DC', title: '72-Hour Live', desc: 'Fastest distribution in India. DistroKid takes 7–10 days. Western Beats gets you live in 72 hours.' },
               { icon: Music2,   color: '#0A64C3', title: 'Full Service', desc: 'Distribution is just the start. Events, talent management, audio production, video direction, all under one roof.' },
             ].map((item, i) => {
               const Icon = item.icon
@@ -560,9 +560,9 @@ export default function PricingPage() {
           >
             <div className="font-inter text-[12px] text-sky tracking-[0.1em] uppercase font-semibold">Official Partner</div>
             <div className="hidden md:block w-px h-8 bg-white/10" />
-            <div className="font-outfit font-extrabold text-white text-[20px]">Warner Music India</div>
+            <div className="font-outfit font-extrabold text-white text-[20px]">Warner Music Partner</div>
             <div className="hidden md:block w-px h-8 bg-white/10" />
-            <div className="font-inter text-[12px] text-mut">The same label that works with Armaan Malik, Diljit Dosanjh, King &amp; Darshan Raval, now powers WB Digital artists.</div>
+            <div className="font-inter text-[12px] text-mut">The same Warner Music Group network that powers global superstars, now powers Western Beats artists.</div>
           </motion.div>
         </div>
       </section>
@@ -598,7 +598,7 @@ export default function PricingPage() {
             <div className="relative z-10">
               <div className="font-outfit font-black text-white text-[40px] sm:text-[52px] leading-none mb-3">₹0 to Start.</div>
               <div className="font-inter text-ice/90 text-[16px] sm:text-[18px] mb-8 leading-relaxed">
-                Submit your music now, live on 150+ platforms in 48-72 hours.
+                Submit your music now, live on 150+ platforms in 72 hours.
                 <br /><strong className="text-white">No card required. No annual fee. 100% ownership (T&C apply). Free forever.</strong>
               </div>
               <div className="flex flex-wrap gap-4 justify-center">
@@ -624,7 +624,7 @@ export default function PricingPage() {
       {/* Footer */}
       <footer className="border-t border-white/[0.06] py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="font-inter text-[12px] text-mut">© 2025 Western Beats Private Limited · WB Digital</div>
+          <div className="font-inter text-[12px] text-mut">© 2025 Western Beats Private Limited · Western Beats</div>
           <div className="flex items-center gap-5">
             {[
               { href: '/', label: 'Home' },

@@ -1,5 +1,5 @@
 /**
- * Shared GSAP utilities for WB Digital
+ * Shared GSAP utilities for Western Beats
  * Registers ScrollTrigger once, exports helpers.
  */
 import { gsap } from 'gsap'
