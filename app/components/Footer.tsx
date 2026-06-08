@@ -28,6 +28,12 @@ const LINKS: Record<string, { label: string; href: string }[]> = {
     { label: 'Platform Coverage', href: '/platforms' },
     { label: 'Artist Stories', href: '/artist-stories' },
   ],
+  Compare: [
+    { label: 'vs DistroKid', href: '/compare/distrokid-vs-western-beats' },
+    { label: 'vs TuneCore', href: '/compare/tunecore-vs-western-beats' },
+    { label: 'vs CD Baby', href: '/compare/cd-baby-vs-western-beats' },
+    { label: 'vs Deliver My Tune', href: '/compare/deliver-my-tune-vs-western-beats' },
+  ],
   Legal: [
     { label: 'Terms of Service', href: '/terms' },
     { label: 'Privacy Policy', href: '/privacy' },

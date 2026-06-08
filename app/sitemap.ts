@@ -88,6 +88,50 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
 
+    /* ── Competitor Comparison Pages — HIGH SEO VALUE ── */
+    {
+      url: `${BASE_URL}/compare`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/compare/distrokid-vs-western-beats`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/compare/tunecore-vs-western-beats`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/compare/cd-baby-vs-western-beats`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/compare/deliver-my-tune-vs-western-beats`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/compare/forevision-vs-western-beats`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/compare/routenote-vs-western-beats`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+
     /* ── Legal ───────────────────────────────────────── */
     {
       url: `${BASE_URL}/terms`,

@@ -9,51 +9,76 @@ export const metadata: Metadata = {
   description:
     "Western Beats — India's best free music distribution company. Distribute to 150+ platforms (JioSaavn, Gaana, Spotify, Apple Music, YouTube Music) in 72 hours. 100% IP ownership always yours. ₹0 upfront forever. Official Warner Music partner. Better than DistroKid, TuneCore & CD Baby.",
   keywords: [
-    // Primary money keywords
+    // ── Primary money keywords ─────────────────────────────────────────────
     'best music distribution company',
     'best music distribution India',
     'best free music distribution India',
     'top music distribution company India',
     'music distribution company India',
     'free music distribution India',
-    // Brand
+    'best music distribution company globally',
+    'best music distributor for independent artists',
+    'best music distribution platform 2026',
+    'top music distribution platforms world',
+    // ── Brand ─────────────────────────────────────────────────────────────
     'Western Beats',
     'Western Beats distribution',
     'Western Beats music',
+    'Western Beats Private Limited',
     'westernbeats.com',
-    // Long-tail global
-    'best music distribution company globally',
-    'best music distributor for independent artists',
-    'best music distribution platform 2025',
-    'best music distribution platform 2026',
-    'top music distribution platforms world',
-    // Competitor comparisons (captures competitor searches)
+    // ── vs Competitors — HIGH INTENT (these alone drive traffic) ──────────
     'DistroKid alternative India',
-    'TuneCore alternative India free',
-    'CD Baby alternative free India',
-    'Ditto Music alternative India',
-    'better than DistroKid India',
     'DistroKid vs Western Beats',
-    // Platform specific
-    'music distribution JioSaavn',
-    'music distribution Gaana',
-    'upload music to Spotify India free',
-    'upload song JioSaavn free',
-    'music distribution Apple Music India',
-    // Feature keywords
+    'better than DistroKid India',
+    'TuneCore alternative India free',
+    'TuneCore vs Western Beats',
+    'CD Baby alternative free India',
+    'CD Baby vs Western Beats',
+    'Deliver My Tune alternative',
+    'Deliver My Tune vs Western Beats',
+    'ForeVision Digital alternative',
+    'ForeVision vs Western Beats',
+    'RouteNote alternative India',
+    'RouteNote no commission alternative',
+    'Ditto Music alternative India',
+    'Believe distribution alternative India',
+    'switch from DistroKid India',
+    'switch from TuneCore India',
+    'DistroKid no JioSaavn alternative',
+    'TuneCore free plan no JioSaavn alternative',
+    // ── Indian Platform Keywords ───────────────────────────────────────────
+    'music distribution JioSaavn free',
+    'music distribution Gaana free',
+    'upload music JioSaavn free India',
+    'upload song Gaana free India',
+    'music distribution Apple Music India free',
+    'Spotify distribution India free',
+    'distribute music Wynk India',
+    'distribute music Hungama India',
+    // ── Caller Tune / CRBT — Unique Indian keyword ────────────────────────
+    'caller tune distribution India',
+    'CRBT distribution India free',
+    'Jio caller tune music distribution',
+    'Airtel Hello Tune distribution',
+    'music distribution caller tune India free',
+    // ── Feature keywords ───────────────────────────────────────────────────
     '100 percent ownership music India',
     'free ISRC code India',
-    'free UPC barcode music',
-    'music distribution without upfront fees',
-    'music distribution 150 platforms',
+    'free UPC barcode music India',
+    'music distribution without upfront fees India',
+    'music distribution 150 platforms free',
+    'no commission music distribution India',
+    'truly free music distribution India',
     'indie music distribution India',
     'independent artist distribution India',
     'music royalties India direct payment',
-    // Niche India
+    'Warner Music Group partner India',
+    // ── Niche India ────────────────────────────────────────────────────────
     'music distribution Punjabi Bollywood',
-    'Haryanvi music distribution',
+    'Haryanvi music distribution India',
+    'Hindi music distribution India',
+    'regional music distribution India',
     'Indian independent artist distribution',
-    'Warner Music Group India partner',
     'music distribution startup India',
   ],
   metadataBase: new URL('https://westernbeats.com'),
@@ -176,7 +201,23 @@ const BREADCRUMB_SCHEMA = {
     { '@type': 'ListItem', position: 2, name: 'Music Distribution', item: 'https://westernbeats.com/services' },
     { '@type': 'ListItem', position: 3, name: 'How It Works', item: 'https://westernbeats.com/how-it-works' },
     { '@type': 'ListItem', position: 4, name: 'Pricing', item: 'https://westernbeats.com/pricing' },
+    { '@type': 'ListItem', position: 5, name: 'Compare Distributors', item: 'https://westernbeats.com/compare' },
   ],
+}
+
+/* ── SiteLinks Searchbox (helps Google show search in SERP) ──────────────── */
+const SITELINKS_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  url: 'https://westernbeats.com',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://westernbeats.com/search?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -209,6 +250,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SITELINKS_SCHEMA) }}
         />
       </head>
       <body suppressHydrationWarning>{children}</body>
