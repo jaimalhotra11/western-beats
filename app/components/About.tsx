@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { gsap, registerGSAP } from '../lib/gsapUtils'
 
 const PILLARS = [
-  { title: 'Artist First',   color: '#C41230', desc: 'You keep 70% of every rupee earned. We only make money when you make money, so we\'re always on your side.' },
+  { title: 'Artist First',   color: '#C41230', desc: '100% IP ownership, always. We only earn when you earn — your success is our only business model.' },
   { title: 'India First',    color: '#0A64C3', desc: 'JioSaavn and Gaana before Spotify. Built for India, reaching the world.' },
   { title: 'Honest',         color: '#5CB2DC', desc: '72 hours means 72 hours. No ambiguity, no fine print, no surprises.' },
   { title: 'Major Quality',  color: '#002A8D', desc: 'Our Warner Music partnership means major-label standards on every release.' },

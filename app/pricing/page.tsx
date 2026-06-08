@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     'indie artist distribution cost India',
     'music royalties 100 percent ownership India',
     'no fee music distribution India',
-    'Warner Music India distribution pricing',
+    'Warner Music Partner distribution pricing',
   ],
   alternates: { canonical: 'https://westernbeats.com/pricing' },
   openGraph: {

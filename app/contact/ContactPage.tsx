@@ -273,7 +273,7 @@ export default function ContactPage() {
                   {[
                     { type: 'Email', time: 'Within 24 hours' },
                     { type: 'WhatsApp', time: 'Within a few hours' },
-                    { type: 'Distribution queries', time: 'Within 48 hours' },
+                    { type: 'Distribution queries', time: 'Within 72 hours' },
                     { type: 'Partnership inquiries', time: '3 to 5 working days' },
                   ].map(r => (
                     <div key={r.type} className="flex justify-between items-center">

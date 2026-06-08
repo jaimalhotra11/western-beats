@@ -4,7 +4,7 @@ import SubmitPage from './SubmitPage'
 export const metadata: Metadata = {
   title: 'Submit Your Music: Free Distribution to 150+ Platforms | Western Beats',
   description:
-    'Submit your music to Western Beats for free distribution to 150+ streaming platforms: JioSaavn, Gaana, Spotify, Apple Music & more. Go live in 72 hours. Keep 100% ownership of your masters. Backed by Warner Music India. Start today, ₹0 upfront.',
+    'Submit your music to Western Beats for free distribution to 150+ streaming platforms: JioSaavn, Gaana, Spotify, Apple Music & more. Go live in 72 hours. Keep 100% ownership of your masters. Backed by Warner Music Partner. Start today, ₹0 upfront.',
   keywords: [
     'submit music Western Beats',
     'submit music India free',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'distribute my music India',
     'music upload India free distribution',
     'indie artist music submission India',
-    'Warner Music India submit music',
+    'Warner Music Partner submit music',
     'submit song for streaming India',
   ],
   alternates: { canonical: 'https://westernbeats.com/submit' },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Submit Your Music to Western Beats | Western Beats',
-    description: '150+ platforms in 72 hours. 100% ownership. Free forever. Backed by Warner Music India.',
+    description: '150+ platforms in 72 hours. 100% ownership. Free forever. Backed by Warner Music Partner.',
     site: '@wb_digital_',
   },
 }

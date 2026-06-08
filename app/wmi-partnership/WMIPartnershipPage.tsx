@@ -122,10 +122,10 @@ export default function WMIPartnershipPage() {
               <div className="rounded-3xl p-10 flex flex-col items-center gap-4"
                 style={{ background: 'rgba(10,100,195,0.1)', border: '1px solid rgba(10,100,195,0.25)' }}>
                 <div className="relative w-20 h-16">
-                  <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India" fill className="object-contain" />
+                  <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music Partner" fill className="object-contain" />
                 </div>
                 <div className="text-center">
-                  <div className="font-outfit font-black text-white text-[22px]">Warner Music India</div>
+                  <div className="font-outfit font-black text-white text-[22px]">Warner Music Partner</div>
                   <div className="font-inter text-[12px] text-mut mt-1">@warnermusicindia</div>
                 </div>
                 <div className="w-px h-8 bg-white/10" />
@@ -219,7 +219,7 @@ export default function WMIPartnershipPage() {
               <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Free, Always.</span>
             </h2>
             <p className="font-inter text-[15px] text-mut leading-relaxed mb-8">
-              It costs nothing to start. Upload your music, get it live on 150+ platforms in 48 hours, and carry the WMI name with you.
+              It costs nothing to start. Upload your music, get it live on 150+ platforms in 72 hours, and carry the WMI name with you.
             </p>
             <Link href="/submit"
               className="inline-flex items-center gap-2 px-8 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300"

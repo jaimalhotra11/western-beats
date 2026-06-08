@@ -16,7 +16,7 @@ const JOBS = [
     location: 'Delhi/NCR',
     type: 'Full-time',
     color: '#0A64C3',
-    desc: 'Lead the end-to-end release process for artists on Western Beats. You will coordinate with DSPs, manage metadata quality, and ensure every release goes live within our 48-hour promise. Deep knowledge of Indian streaming platforms is a must.',
+    desc: 'Lead the end-to-end release process for artists on Western Beats. You will coordinate with DSPs, manage metadata quality, and ensure every release goes live within our 72-hour promise. Deep knowledge of Indian streaming platforms is a must.',
   },
   {
     title: 'Artist Relations Executive',
@@ -55,7 +55,7 @@ const VALUES = [
     icon: Zap,
     title: 'Move Fast',
     color: '#0A64C3',
-    desc: '48 hours is not just our go-live promise. It is how we operate internally too.',
+    desc: '72 hours is not just our go-live promise. It is how we operate internally too.',
   },
   {
     icon: Users,
@@ -129,7 +129,7 @@ export default function CareersPage() {
               <span className="page-hero-line block text-white">Music.</span>
             </h1>
             <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-2xl">
-              We are Western Beats, India&apos;s most credible music company. Backed by Warner Music India. Our platform Western Beats serves independent artists across the country. We are a small team that moves fast and ships work that matters.
+              We are Western Beats, India&apos;s most credible music company. Backed by Warner Music Partner. Our platform Western Beats serves independent artists across the country. We are a small team that moves fast and ships work that matters.
             </p>
             <p className="font-inter text-[14px] text-mut">
               Interested? Send your CV to{' '}

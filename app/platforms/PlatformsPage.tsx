@@ -177,7 +177,7 @@ export default function PlatformsPage() {
               <span className="text-white">Ready to Reach</span>
               <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Every Platform?</span>
             </h2>
-            <p className="font-inter text-[15px] text-mut leading-relaxed mb-8">Free distribution. 48-hour go-live. One upload to 150+ platforms. No fees ever.</p>
+            <p className="font-inter text-[15px] text-mut leading-relaxed mb-8">Free distribution. 72-hour go-live. One upload to 150+ platforms. No fees ever.</p>
             <Link href="/submit"
               className="inline-flex items-center gap-2 px-8 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300"
               style={{ boxShadow: '0 8px 30px rgba(10,100,195,0.35)' }}>

@@ -167,7 +167,7 @@ export default function RoyaltiesPage() {
           <div className="flex flex-col gap-4">
             {[
               { step: '01', title: 'Your Music Streams', desc: 'Every stream on every platform generates royalties. These get collected by the platform and passed to us as your distributor.', color: '#0A64C3' },
-              { step: '02', title: 'We Calculate Your Share', desc: 'After the reporting period (2 months for YouTube, quarterly for OTT), we calculate your 70% Revenue Share from all platforms. You get a transparent breakdown.', color: '#C41230' },
+              { step: '02', title: 'We Calculate Your Share', desc: 'After the reporting period (2 months for YouTube, quarterly for OTT), we calculate your Revenue Share from all platforms. You get a full transparent breakdown per platform.', color: '#C41230' },
               { step: '03', title: 'Direct Bank Transfer', desc: 'We transfer your royalties directly to your registered Indian bank account. No third-party wallets, no complicated withdrawals.', color: '#5CB2DC' },
               { step: '04', title: 'Monthly Reporting', desc: 'You get a full royalty report showing streams by platform, territory, and time period. Real data, not estimates.', color: '#0A64C3' },
             ].map((s, i) => (

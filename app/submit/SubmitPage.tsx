@@ -244,7 +244,7 @@ export default function SubmitPage() {
               <div className="flex items-center gap-4 rounded-xl p-4 mt-5"
                 style={{ background: 'rgba(10,100,195,0.08)', border: '1px solid rgba(10,100,195,0.2)' }}>
                 <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0">
-                  <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India" fill sizes="40px" className="object-contain" />
+                  <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music Partner" fill sizes="40px" className="object-contain" />
                 </div>
                 <div>
                   <div className="font-outfit font-extrabold text-white text-[13px]">Warner Music Partner</div>

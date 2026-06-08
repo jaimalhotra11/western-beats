@@ -43,7 +43,7 @@ const SERVICES = [
       'Real-time royalty dashboard',
       'Keep 100% ownership (T&C apply, ownership of your masters',
       'Dedicated WhatsApp & email support',
-      'Priority placement via Warner Music India',
+      'Priority placement via Warner Music Partner',
       'Metadata & artwork compliance guaranteed',
     ],
     steps: [
@@ -91,7 +91,7 @@ const SERVICES = [
     points: [
       'Personalized career strategy & roadmap',
       'Brand partnership deals & endorsements',
-      'Industry network via Warner Music India',
+      'Industry network via Warner Music Partner',
       'Playlist pitching to editors & curators',
       'Social media growth & content strategy',
       'Booking & live performance management',
@@ -193,7 +193,7 @@ const SERVICES = [
 const FAQS = [
   {
     q: 'What services does Western Beats offer?',
-    a: 'Western Beats offers six core services: Free Music Distribution (to 150+ platforms, 72 hrs, 100% ownership (T&C apply) to you), Event Management (concerts, album launches), Talent Management (career strategy, brand deals, WMI network), Audio Production (recording, mixing, mastering), Video Direction (music videos, Reels, Shorts), and Analytics & Strategy (real-time data across all platforms). All backed by Warner Music India.',
+    a: 'Western Beats offers six core services: Free Music Distribution (to 150+ platforms, 72 hrs, 100% ownership (T&C apply) to you), Event Management (concerts, album launches), Talent Management (career strategy, brand deals, WMI network), Audio Production (recording, mixing, mastering), Video Direction (music videos, Reels, Shorts), and Analytics & Strategy (real-time data across all platforms). All backed by Warner Music Partner.',
   },
   {
     q: 'Is music distribution with Western Beats really free?',
@@ -331,7 +331,7 @@ export default function ServicesPage() {
             ))}
           </div>
           <div className="hidden md:flex items-center gap-3">
-            <div className="platform-pill page-badge text-[10px]">Warner Music India</div>
+            <div className="platform-pill page-badge text-[10px]">Warner Music Partner</div>
             <Link href="/submit" className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200">
               Distribute Free
             </Link>
@@ -372,7 +372,7 @@ export default function ServicesPage() {
                 <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Career Needs.</span>
               </motion.h1>
               <motion.p variants={fadeUp} className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-xl">
-                Western Beats is India&apos;s only <strong className="text-white">full-service music company</strong> backed by Warner Music India, offering free distribution, events, talent management, audio production, video direction, and analytics under one roof.
+                Western Beats is India&apos;s only <strong className="text-white">full-service music company</strong> backed by Warner Music Partner, offering free distribution, events, talent management, audio production, video direction, and analytics under one roof.
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mb-10">
                 <Link href="/submit"
@@ -777,7 +777,7 @@ export default function ServicesPage() {
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
             className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-10">
-            Free music distribution to 150+ platforms. Professional events. Expert talent management. Major-label audio & video production. All backed by Warner Music India. One company. Everything you need.
+            Free music distribution to 150+ platforms. Professional events. Expert talent management. Major-label audio & video production. All backed by Warner Music Partner. One company. Everything you need.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
             className="gsap-fade-up flex flex-wrap justify-center gap-4 mb-12">

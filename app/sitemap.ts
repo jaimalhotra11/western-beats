@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next'
 const BASE_URL = 'https://westernbeats.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date('2025-05-29')
+  const lastModified = new Date('2026-06-08')
 
   return [
     /* ── Core pages ─────────────────────────────────── */

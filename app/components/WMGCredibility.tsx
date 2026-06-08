@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
-/* ─── Warner Music India artists: real WMG CDN + Wikipedia photos ──── */
+/* ─── Warner Music Partner artists: real WMG CDN + Wikipedia photos ──── */
 const INDIA_ARTISTS = [
   {
     name: 'King',
@@ -233,7 +233,7 @@ export default function WMGCredibility() {
         >
           <div className="flex items-center gap-3 mb-5">
             <div className="w-8 h-8 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0">
-              <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India" width={32} height={32} className="object-contain w-full h-full" />
+              <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music Partner" width={32} height={32} className="object-contain w-full h-full" />
             </div>
             <div>
               <div className="font-outfit font-extrabold text-white text-[15px]">Warner Music Group</div>

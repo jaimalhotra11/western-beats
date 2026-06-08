@@ -239,11 +239,11 @@ const SECTIONS: Section[] = [
       },
       {
         heading: 'Copyright Infringement Notices',
-        body: 'If WB or its distributors receive any copyright infringement notice related to your Content, WB will immediately forward it to you. You must respond within 48 hours with all necessary documentation. Failure to respond within 48 hours entitles WB to respond on your behalf, including disclosing your contact information.',
+        body: 'If WB or its distributors receive any copyright infringement notice related to your Content, WB will immediately forward it to you. You must respond within 72 hours with all necessary documentation. Failure to respond within 72 hours entitles WB to respond on your behalf, including disclosing your contact information.',
       },
       {
         heading: 'DMCA & Digital Notices',
-        body: 'For any DMCA takedown, copyright infringement strike, or third-party content match on any platform, you must make all reasonable efforts to retract such notices within 48 hours. You authorise WB to counter such notices on your behalf. You must provide all relevant communication, contact details, and agreements within 72 hours of being notified.',
+        body: 'For any DMCA takedown, copyright infringement strike, or third-party content match on any platform, you must make all reasonable efforts to retract such notices within 72 hours. You authorise WB to counter such notices on your behalf. You must provide all relevant communication, contact details, and agreements within 72 hours of being notified.',
       },
       {
         heading: 'Your Warranties on Content',

@@ -94,7 +94,7 @@ const ORG_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Western Beats Private Limited',
-  alternateName: ['Western Beats', 'WB Digital'],
+  alternateName: ['Western Beats', 'WB'],
   url: 'https://westernbeats.com',
   logo: {
     '@type': 'ImageObject',
@@ -127,7 +127,7 @@ const ORG_SCHEMA = {
   },
   memberOf: {
     '@type': 'Organization',
-    name: 'Warner Music India',
+    name: 'Warner Music Partner',
     parentOrganization: {
       '@type': 'Organization',
       name: 'Warner Music Group',

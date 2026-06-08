@@ -66,7 +66,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-2 mb-6">
               <div className="relative w-8 h-7 flex-shrink-0">
-                <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India" width={32} height={28} className="object-contain w-full h-full" />
+                <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music Partner" width={32} height={28} className="object-contain w-full h-full" />
               </div>
               <span className="font-inter text-[10px] text-sky tracking-[0.08em] uppercase font-semibold">Official Warner Music Partner</span>
             </div>
