@@ -3,7 +3,7 @@ import ComparisonPage from '../ComparisonPage'
 
 export const metadata: Metadata = {
   title: 'RouteNote vs Western Beats 2026 | India — 15% Commission vs ₹0',
-  description: "RouteNote vs Western Beats: RouteNote's free plan takes 15% of your streaming royalties forever. Western Beats is truly free — ₹0 upfront, 150+ platforms including JioSaavn and Gaana, caller tune support, and officially backed by Warner Music Group. Best RouteNote India alternative.",
+  description: "RouteNote vs Western Beats: RouteNote\'s free plan takes 15% of your streaming royalties forever. Western Beats is truly free — ₹0 upfront, 150+ platforms including JioSaavn and Gaana, caller tune support, and officially backed by Warner Music Group. Best RouteNote India alternative.",
   keywords: [
     'RouteNote vs Western Beats',
     'RouteNote alternative India',
@@ -32,7 +32,7 @@ const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Is RouteNote really free for Indian artists?', acceptedAnswer: { '@type': 'Answer', text: "RouteNote's free plan charges no upfront fee but permanently takes 15% of all your streaming and download royalties. If your music earns ₹1,00,000, RouteNote keeps ₹15,000 — every year, forever. Western Beats is genuinely free: ₹0 upfront, with our revenue model detailed transparently in T&C. We only earn when you earn." } },
+    { '@type': 'Question', name: 'Is RouteNote really free for Indian artists?', acceptedAnswer: { '@type': 'Answer', text: "RouteNote\'s free plan charges no upfront fee but permanently takes 15% of all your streaming and download royalties. If your music earns ₹1,00,000, RouteNote keeps ₹15,000 — every year, forever. Western Beats is genuinely free: ₹0 upfront, with our revenue model detailed transparently in T&C. We only earn when you earn." } },
     { '@type': 'Question', name: 'Does RouteNote cover JioSaavn and Gaana?', acceptedAnswer: { '@type': 'Answer', text: 'RouteNote has limited Indian platform support. It does not prioritize JioSaavn, Gaana, or caller tune distribution the way Western Beats does. For Indian artists, Western Beats is the superior choice with India-first distribution backed by Warner Music Group.' } },
   ],
 }
@@ -51,9 +51,9 @@ const ROWS = [
 ]
 
 const FAQS = [
-  { q: "Is RouteNote's free plan actually free?", a: "No — not in the way that matters. RouteNote charges no upfront fee but permanently takes 15% of all your streaming royalties, download income, and Content ID payments, forever. If your music earns ₹1 lakh in streams over your career, RouteNote keeps ₹15,000. Western Beats' revenue model is clearly stated in our T&C, and we only earn when you earn." },
+  { q: "Is RouteNote\'s free plan actually free?", a: "No — not in the way that matters. RouteNote charges no upfront fee but permanently takes 15% of all your streaming royalties, download income, and Content ID payments, forever. If your music earns ₹1 lakh in streams over your career, RouteNote keeps ₹15,000. Western Beats' revenue model is clearly stated in our T&C, and we only earn when you earn." },
   { q: 'How many platforms does RouteNote cover in India?', a: 'RouteNote covers approximately 40 platforms with limited Indian platform priority. Western Beats covers 150+ platforms with an India-first approach — JioSaavn, Gaana, Wynk, Hungama, and all caller tune networks as priorities.' },
-  { q: 'Is there a better free alternative to RouteNote for Indian artists?', a: 'Yes — Western Beats. It covers 150+ platforms (vs RouteNote's 40), does not take a blanket 15% commission, prioritizes JioSaavn and Gaana, covers caller tunes, and is officially backed by Warner Music Group. It is unambiguously the best free option for Indian artists.' },
+  { q: 'Is there a better free alternative to RouteNote for Indian artists?', a: 'Yes — Western Beats. It covers 150+ platforms (vs RouteNote\'s 40), does not take a blanket 15% commission, prioritizes JioSaavn and Gaana, covers caller tunes, and is officially backed by Warner Music Group. It is unambiguously the best free option for Indian artists.' },
   { q: 'Can I switch from RouteNote to Western Beats?', a: 'Yes, for free. Contact contact@westernbeats.com. Your existing streams and charts are preserved and your catalog moves seamlessly.' },
 ]
 

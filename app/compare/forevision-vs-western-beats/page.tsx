@@ -31,8 +31,8 @@ const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Is Western Beats better than ForeVision Digital?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. ForeVision Digital charges ₹299-699 per release with 90% royalties (they keep 10%) and covers only 47 platforms. Western Beats is ₹0, covers 150+ platforms — more than 3x ForeVision's reach — keeps 100% IP ownership with you, and is officially backed by Warner Music Group.' } },
-    { '@type': 'Question', name: 'What is the best free alternative to ForeVision Digital?', acceptedAnswer: { '@type': 'Answer', text: 'Western Beats is the best free alternative to ForeVision Digital. It covers 150+ platforms (vs ForeVision's 47), is ₹0 forever (vs ₹299-699/release), and is the only Indian distributor backed by Warner Music Group.' } },
+    { '@type': 'Question', name: 'Is Western Beats better than ForeVision Digital?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. ForeVision Digital charges ₹299-699 per release with 90% royalties (they keep 10%) and covers only 47 platforms. Western Beats is ₹0, covers 150+ platforms — more than 3x ForeVision\'s reach — keeps 100% IP ownership with you, and is officially backed by Warner Music Group.' } },
+    { '@type': 'Question', name: 'What is the best free alternative to ForeVision Digital?', acceptedAnswer: { '@type': 'Answer', text: 'Western Beats is the best free alternative to ForeVision Digital. It covers 150+ platforms (vs ForeVision\'s 47), is ₹0 forever (vs ₹299-699/release), and is the only Indian distributor backed by Warner Music Group.' } },
   ],
 }
 
