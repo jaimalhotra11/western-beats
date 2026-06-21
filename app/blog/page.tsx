@@ -77,6 +77,33 @@ const POSTS = [
     readTime: '7 min read',
     date: 'June 2026',
   },
+  {
+    slug: 'how-much-jiosaavn-pays-per-stream',
+    title: 'How Much Does JioSaavn Pay Per Stream in India? (2026 Real Rates)',
+    excerpt: 'JioSaavn pays ₹0.08–₹0.15 per stream for Indian listeners. Full breakdown of 2026 royalty rates, earnings calculator by stream count, and how to maximise your JioSaavn income.',
+    tag: 'Royalties',
+    color: '#0A64C3',
+    readTime: '6 min read',
+    date: 'June 2026',
+  },
+  {
+    slug: 'how-to-submit-song-jio-caller-tune',
+    title: 'How to Submit Your Song to Jio Caller Tune (CRBT) Free 2026',
+    excerpt: 'Step-by-step guide to get your song as a Jio Caller Tune. Covers the full submission process, how much Jio pays per CRBT subscription, and which distributors actually include Jio CRBT.',
+    tag: 'Caller Tune',
+    color: '#C41230',
+    readTime: '7 min read',
+    date: 'June 2026',
+  },
+  {
+    slug: 'haryanvi-music-distribution-india',
+    title: 'Haryanvi Music Distribution India Free 2026 — JioSaavn, Gaana, Caller Tune',
+    excerpt: 'Haryanvi music is India\'s fastest-growing genre at +35% YoY. Complete guide for independent Haryanvi artists to distribute music to JioSaavn, Gaana, Jio Caller Tune and 150+ platforms free.',
+    tag: 'Regional Music',
+    color: '#0A64C3',
+    readTime: '6 min read',
+    date: 'June 2026',
+  },
 ]
 
 export default function BlogPage() {

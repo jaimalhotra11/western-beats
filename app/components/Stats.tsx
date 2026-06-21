@@ -88,7 +88,7 @@ export default function Stats() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <Image
           src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1600&q=60&auto=format&fit=crop"
-          alt="" fill sizes="100vw"
+          alt="Music streaming statistics background — Western Beats India" fill sizes="100vw"
           className="object-cover opacity-[0.055] mix-blend-luminosity"
         />
       </div>

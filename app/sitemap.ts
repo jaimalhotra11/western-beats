@@ -189,6 +189,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/blog/how-much-jiosaavn-pays-per-stream`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/blog/how-to-submit-song-jio-caller-tune`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/blog/haryanvi-music-distribution-india`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
 
     /* ── Link-Worthy Asset Pages ─────────────────────── */
     {
