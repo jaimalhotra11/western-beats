@@ -206,6 +206,39 @@ const BREADCRUMB_SCHEMA = {
 }
 
 /* ── SiteLinks Searchbox (helps Google show search in SERP) ──────────────── */
+const LOCAL_BUSINESS_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Western Beats',
+  image: 'https://westernbeats.com/og-image.jpg',
+  url: 'https://westernbeats.com',
+  telephone: '+91-7087677767',
+  email: 'contact@westernbeats.com',
+  priceRange: '₹0',
+  description: "India's best free music distribution company. Distribute to 150+ platforms free in 72 hours. 100% ownership.",
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 20.5937,
+    longitude: 78.9629,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '00:00',
+    closes: '23:59',
+  },
+  sameAs: ['https://instagram.com/wb_digital_', 'https://westernbeats.com'],
+  hasMap: 'https://westernbeats.com/contact',
+  currenciesAccepted: 'INR',
+  paymentAccepted: 'Free',
+  areaServed: { '@type': 'Country', name: 'India' },
+  serviceArea: { '@type': 'Country', name: 'India' },
+}
+
 const SITELINKS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -254,6 +287,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(SITELINKS_SCHEMA) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
         />
       </head>
       <body suppressHydrationWarning>{children}</body>

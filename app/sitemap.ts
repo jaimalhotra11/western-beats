@@ -190,6 +190,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
 
+    /* ── Link-Worthy Asset Pages ─────────────────────── */
+    {
+      url: `${BASE_URL}/royalty-calculator`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/india-music-industry`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+
+    /* ── Regional & Platform Landing Pages ───────────── */
+    {
+      url: `${BASE_URL}/punjabi-music-distribution`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/regional-music-distribution`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/spotify-distribution`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+
     /* ── Legal ───────────────────────────────────────── */
     {
       url: `${BASE_URL}/terms`,
