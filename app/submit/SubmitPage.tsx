@@ -125,7 +125,7 @@ export default function SubmitPage() {
     setStatus('loading')
     setErrorMsg('')
     try {
-      const res = await fetch('https://formspree.io/f/xwkgnezb', {
+      const res = await fetch('https://formspree.io/f/xeebjnrg', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
