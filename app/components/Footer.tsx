@@ -31,9 +31,17 @@ const LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   Resources: [
     { label: 'Blog & Guides', href: '/blog' },
+    { label: 'Royalty Calculator', href: '/royalty-calculator' },
+    { label: 'India Music Industry Stats', href: '/india-music-industry' },
     { label: 'JioSaavn Distribution', href: '/jiosaavn-distribution' },
+    { label: 'Gaana Distribution', href: '/gaana-distribution' },
+    { label: 'Spotify Distribution', href: '/spotify-distribution' },
+    { label: 'Apple Music Distribution', href: '/apple-music-distribution' },
     { label: 'Caller Tune / CRBT', href: '/caller-tune-distribution' },
     { label: 'Free ISRC Codes', href: '/free-isrc-codes' },
+    { label: 'Punjabi Music', href: '/punjabi-music-distribution' },
+    { label: 'Haryanvi / Bhojpuri', href: '/regional-music-distribution' },
+    { label: 'Best Distributor India', href: '/best-music-distributor-india' },
   ],
   Compare: [
     { label: 'vs DistroKid', href: '/compare/distrokid-vs-western-beats' },

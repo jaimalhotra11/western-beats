@@ -207,6 +207,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/blog/how-to-earn-money-from-music-india`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/blog/bhojpuri-music-distribution-india`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+
+    /* ── New Platform Pages ───────────────────────────── */
+    {
+      url: `${BASE_URL}/gaana-distribution`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/apple-music-distribution`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/best-music-distributor-india`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
 
     /* ── Link-Worthy Asset Pages ─────────────────────── */
     {

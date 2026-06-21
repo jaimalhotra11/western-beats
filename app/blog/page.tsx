@@ -104,6 +104,24 @@ const POSTS = [
     readTime: '6 min read',
     date: 'June 2026',
   },
+  {
+    slug: 'how-to-earn-money-from-music-india',
+    title: 'How to Earn Money from Music in India 2026 — 7 Revenue Streams',
+    excerpt: 'All 7 ways Indian independent artists can earn money from music: streaming royalties, caller tunes, YouTube Content ID, sync licensing, live shows, brand deals, and merch — with real earning estimates.',
+    tag: 'Income Guide',
+    color: '#0A64C3',
+    readTime: '9 min read',
+    date: 'June 2026',
+  },
+  {
+    slug: 'bhojpuri-music-distribution-india',
+    title: 'Bhojpuri Music Distribution India Free 2026 — JioSaavn, Gaana, Caller Tune',
+    excerpt: 'Bhojpuri music is growing at +30% YoY with 150M+ speakers. Complete guide for independent Bhojpuri artists to distribute music free to JioSaavn, Gaana, Jio Caller Tune and 150+ platforms.',
+    tag: 'Regional Music',
+    color: '#C41230',
+    readTime: '6 min read',
+    date: 'June 2026',
+  },
 ]
 
 export default function BlogPage() {
