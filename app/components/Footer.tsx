@@ -27,6 +27,13 @@ const LINKS: Record<string, { label: string; href: string }[]> = {
     { label: 'Royalties & Payments', href: '/royalties' },
     { label: 'Platform Coverage', href: '/platforms' },
     { label: 'Artist Stories', href: '/artist-stories' },
+    { label: 'Beginners Guide', href: '/music-distribution-beginners' },
+  ],
+  Resources: [
+    { label: 'Blog & Guides', href: '/blog' },
+    { label: 'JioSaavn Distribution', href: '/jiosaavn-distribution' },
+    { label: 'Caller Tune / CRBT', href: '/caller-tune-distribution' },
+    { label: 'Free ISRC Codes', href: '/free-isrc-codes' },
   ],
   Compare: [
     { label: 'vs DistroKid', href: '/compare/distrokid-vs-western-beats' },

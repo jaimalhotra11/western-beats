@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next'
 const BASE_URL = 'https://westernbeats.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date('2026-06-08')
+  const lastModified = new Date('2026-06-21')
 
   return [
     /* ── Core pages ─────────────────────────────────── */
@@ -127,6 +127,64 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/compare/routenote-vs-western-beats`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+
+    /* ── SEO Landing Pages — Low Competition Keywords ── */
+    {
+      url: `${BASE_URL}/caller-tune-distribution`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/free-isrc-codes`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/jiosaavn-distribution`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/music-distribution-beginners`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+
+    /* ── Blog / Content Hub ──────────────────────────── */
+    {
+      url: `${BASE_URL}/blog`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/blog/how-to-distribute-music-india-free`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/blog/caller-tune-crbt-distribution-india`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/blog/free-isrc-upc-code-india`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/blog/distrokid-india-problems`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.9,
