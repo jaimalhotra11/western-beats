@@ -17,6 +17,28 @@ const GENRES = [
   'Electronic / EDM','R&B / Soul','Classical Fusion','Devotional',
   'Haryanvi','Bhojpuri','Tamil','Telugu','Kannada','Malayalam','Other',
 ]
+const SUB_GENRES: Record<string, string[]> = {
+  'Bollywood / Film': ['Romantic','Item Song','Sad Song','Patriotic','Party','Dance','Ghazal','Qawwali'],
+  'Punjabi': ['Bhangra','Sufi','Sad Punjabi','Desi Pop','Party Punjabi'],
+  'Hip-Hop / Rap': ['Desi Hip-Hop','Trap','Conscious Rap','Battle Rap','Boom Bap'],
+  'Pop': ['Indie Pop','Dance Pop','Electropop','Synth Pop','Dream Pop'],
+  'Indie Pop': ['Acoustic','Alt-Pop','Lo-Fi Pop','Bedroom Pop'],
+  'Electronic / EDM': ['House','Techno','Trance','Dubstep','Drum & Bass','Ambient'],
+  'R&B / Soul': ['Contemporary R&B','Neo Soul','Funk','Gospel'],
+  'Classical Fusion': ['Hindustani','Carnatic','Indo-Jazz','Sufi Fusion'],
+  'Devotional': ['Bhajan','Aarti','Kirtan','Qawwali','Mantra'],
+  'Haryanvi': ['Haryanvi Dance','Haryanvi Folk','Haryanvi Sad'],
+  'Bhojpuri': ['Bhojpuri Film','Bhojpuri Folk','Bhojpuri Dance'],
+  'Tamil': ['Tamil Film','Tamil Folk','Tamil Pop','Kollywood'],
+  'Telugu': ['Telugu Film','Telugu Folk','Telugu Pop','Tollywood'],
+  'Kannada': ['Kannada Film','Kannada Folk','Sandalwood'],
+  'Malayalam': ['Malayalam Film','Malayalam Folk','Mollywood'],
+  'Other': ['Folk','Regional','World Music','Experimental'],
+}
+const MOODS = [
+  'Happy','Sad','Romantic','Energetic','Melancholic','Chill','Party','Motivational',
+  'Devotional','Angry','Nostalgic','Dreamy','Dark','Peaceful','Empowering','Heartbreak',
+]
 const LANGUAGES = [
   'Hindi','Punjabi','English','Tamil','Telugu','Kannada',
   'Malayalam','Bengali','Marathi','Gujarati','Bhojpuri','Other',
@@ -39,13 +61,18 @@ const INCLUDE = [
 ]
 
 type FormFields = {
-  artistName: string; trackName: string; email: string; phone: string;
-  genre: string; language: string; releaseDate: string;
+  artistName: string; trackName: string; albumName: string; email: string; phone: string;
+  genre: string; subGenre: string; language: string; releaseDate: string;
+  singer: string; lyricWriter: string; musicDirector: string; musicArranger: string;
+  director: string; mixer: string; producer: string; moods: string;
   driveLink: string; spotifyLink: string; message: string;
 }
 const EMPTY: FormFields = {
-  artistName: '', trackName: '', email: '', phone: '',
-  genre: '', language: '', releaseDate: '', driveLink: '', spotifyLink: '', message: '',
+  artistName: '', trackName: '', albumName: '', email: '', phone: '',
+  genre: '', subGenre: '', language: '', releaseDate: '',
+  singer: '', lyricWriter: '', musicDirector: '', musicArranger: '',
+  director: '', mixer: '', producer: '', moods: '',
+  driveLink: '', spotifyLink: '', message: '',
 }
 
 export default function SubmitPage() {
@@ -90,6 +117,9 @@ export default function SubmitPage() {
   const set = (k: keyof FormFields) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setFields(f => ({ ...f, [k]: e.target.value }))
 
+  const setGenre = (e: React.ChangeEvent<HTMLSelectElement>) =>
+    setFields(f => ({ ...f, genre: e.target.value, subGenre: '' }))
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     setStatus('loading')
@@ -101,11 +131,21 @@ export default function SubmitPage() {
         body: JSON.stringify({
           'Artist Name': fields.artistName,
           'Track Name': fields.trackName,
+          'Album Name': fields.albumName,
           'Email': fields.email,
           'Phone': fields.phone,
           'Genre': fields.genre,
+          'Sub Genre': fields.subGenre,
           'Language': fields.language,
           'Preferred Release Date': fields.releaseDate,
+          'Singer': fields.singer,
+          'Lyric Writer': fields.lyricWriter,
+          'Music Director': fields.musicDirector,
+          'Music Arranger': fields.musicArranger,
+          'Director': fields.director,
+          'Mixer': fields.mixer,
+          'Producer': fields.producer,
+          'Moods': fields.moods,
           'Drive / WeTransfer Link': fields.driveLink,
           'Spotify / Social Profile': fields.spotifyLink,
           'Message': fields.message,
@@ -120,15 +160,16 @@ export default function SubmitPage() {
       const message = err instanceof Error ? err.message : 'Unknown error'
       setErrorMsg(message)
       setStatus('error')
-      // fallback mailto
       const sub = encodeURIComponent(`Music Submission: ${fields.trackName} by ${fields.artistName}`)
-      const body = encodeURIComponent(`Artist: ${fields.artistName}\nTrack: ${fields.trackName}\nEmail: ${fields.email}\nPhone: ${fields.phone}\nGenre: ${fields.genre}\nLanguage: ${fields.language}\nRelease Date: ${fields.releaseDate}\nDrive Link: ${fields.driveLink}\nSpotify: ${fields.spotifyLink}\nMessage: ${fields.message}`)
+      const body = encodeURIComponent(`Artist: ${fields.artistName}\nTrack: ${fields.trackName}\nAlbum: ${fields.albumName}\nEmail: ${fields.email}\nPhone: ${fields.phone}\nGenre: ${fields.genre}\nSub Genre: ${fields.subGenre}\nLanguage: ${fields.language}\nRelease Date: ${fields.releaseDate}\nSinger: ${fields.singer}\nLyric Writer: ${fields.lyricWriter}\nMusic Director: ${fields.musicDirector}\nMusic Arranger: ${fields.musicArranger}\nDirector: ${fields.director}\nMixer: ${fields.mixer}\nProducer: ${fields.producer}\nMoods: ${fields.moods}\nDrive Link: ${fields.driveLink}\nSpotify: ${fields.spotifyLink}\nMessage: ${fields.message}`)
       window.location.href = `mailto:contact@westernbeats.com?subject=${sub}&body=${body}`
     }
   }
 
   const inputCls = `w-full bg-[#060D1F] border border-white/[0.09] rounded-xl px-4 py-3 font-inter text-[14px] text-white placeholder:text-[#4A5568] focus:outline-none focus:border-[#0A64C3] focus:ring-1 focus:ring-[#0A64C3]/40 transition-all duration-200`
   const labelCls = `block font-outfit font-semibold text-[12px] text-[#8899AA] tracking-[0.08em] uppercase mb-1.5`
+
+  const subGenreOptions = fields.genre ? (SUB_GENRES[fields.genre] || []) : []
 
   return (
     <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
@@ -300,7 +341,7 @@ export default function SubmitPage() {
                     </div>
                   </div>
 
-                  {/* Row 1: Artist + Track */}
+                  {/* Row 1: Artist + Email */}
                   <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label className={labelCls}>Artist Name *</label>
@@ -308,49 +349,143 @@ export default function SubmitPage() {
                         placeholder="Your artist name" className={inputCls} />
                     </div>
                     <div>
-                      <label className={labelCls}>Track / EP / Album Name *</label>
-                      <input required value={fields.trackName} onChange={set('trackName')}
-                        placeholder="Title of your release" className={inputCls} />
-                    </div>
-                  </div>
-
-                  {/* Row 2: Email + Phone */}
-                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
-                    <div>
                       <label className={labelCls}>Email Address *</label>
                       <input required type="email" value={fields.email} onChange={set('email')}
                         placeholder="you@example.com" className={inputCls} />
                     </div>
+                  </div>
+
+                  {/* Row 2: Phone + Release Date */}
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label className={labelCls}>Phone / WhatsApp *</label>
                       <input required type="tel" value={fields.phone} onChange={set('phone')}
                         placeholder="+91 98765 43210" className={inputCls} />
                     </div>
+                    <div>
+                      <label className={labelCls}>Release Date *</label>
+                      <input required type="date" value={fields.releaseDate} onChange={set('releaseDate')} className={inputCls} />
+                    </div>
                   </div>
 
-                  {/* Row 3: Genre + Language */}
+                  {/* Section divider */}
+                  <div className="flex items-center gap-3 mb-4 mt-6">
+                    <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                    <span className="font-outfit font-semibold text-[11px] tracking-[0.1em] uppercase" style={{ color: '#4A5568' }}>Release Details</span>
+                    <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                  </div>
+
+                  {/* Row 3: Language + Track */}
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <label className={labelCls}>Language *</label>
+                      <select required value={fields.language} onChange={set('language')} className={inputCls}>
+                        <option value="" disabled>Select Language</option>
+                        {LANGUAGES.map(l => <option key={l} value={l}>{l}</option>)}
+                      </select>
+                    </div>
+                    <div>
+                      <label className={labelCls}>Track *</label>
+                      <input required value={fields.trackName} onChange={set('trackName')}
+                        placeholder="ex: (Tum Ho)" className={inputCls} />
+                    </div>
+                  </div>
+
+                  {/* Row 4: Album + Singer */}
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <label className={labelCls}>Album <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                      <input value={fields.albumName} onChange={set('albumName')}
+                        placeholder="ex: (Heartbreak Hits)" className={inputCls} />
+                    </div>
+                    <div>
+                      <label className={labelCls}>Singer *</label>
+                      <input required value={fields.singer} onChange={set('singer')}
+                        placeholder="ex: (Arijit Singh)" className={inputCls} />
+                    </div>
+                  </div>
+
+                  {/* Row 5: Lyric Writer + Music Director */}
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <label className={labelCls}>Lyric Writer *</label>
+                      <input required value={fields.lyricWriter} onChange={set('lyricWriter')}
+                        placeholder="ex: (Irshad Kamil)" className={inputCls} />
+                    </div>
+                    <div>
+                      <label className={labelCls}>Music Director *</label>
+                      <input required value={fields.musicDirector} onChange={set('musicDirector')}
+                        placeholder="ex: (Pritam)" className={inputCls} />
+                    </div>
+                  </div>
+
+                  {/* Row 6: Music Arranger + Director */}
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <label className={labelCls}>Music Arranger <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                      <input value={fields.musicArranger} onChange={set('musicArranger')}
+                        placeholder="ex: (A.R. Rahman)" className={inputCls} />
+                    </div>
+                    <div>
+                      <label className={labelCls}>Director <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                      <input value={fields.director} onChange={set('director')}
+                        placeholder="ex: (Rohit Shetty)" className={inputCls} />
+                    </div>
+                  </div>
+
+                  {/* Row 7: Mixer + Producer */}
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <label className={labelCls}>Mixer <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                      <input value={fields.mixer} onChange={set('mixer')}
+                        placeholder="ex: (Eric Pillai)" className={inputCls} />
+                    </div>
+                    <div>
+                      <label className={labelCls}>Producer <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                      <input value={fields.producer} onChange={set('producer')}
+                        placeholder="ex: (Bhushan Kumar)" className={inputCls} />
+                    </div>
+                  </div>
+
+                  {/* Section divider */}
+                  <div className="flex items-center gap-3 mb-4 mt-6">
+                    <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                    <span className="font-outfit font-semibold text-[11px] tracking-[0.1em] uppercase" style={{ color: '#4A5568' }}>Classification</span>
+                    <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                  </div>
+
+                  {/* Row 8: Genre + Sub Genre */}
                   <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label className={labelCls}>Genre *</label>
-                      <select required value={fields.genre} onChange={set('genre')} className={inputCls}>
-                        <option value="" disabled>Select genre</option>
+                      <select required value={fields.genre} onChange={setGenre} className={inputCls}>
+                        <option value="" disabled>Select Genre</option>
                         {GENRES.map(g => <option key={g} value={g}>{g}</option>)}
                       </select>
                     </div>
                     <div>
-                      <label className={labelCls}>Language *</label>
-                      <select required value={fields.language} onChange={set('language')} className={inputCls}>
-                        <option value="" disabled>Select language</option>
-                        {LANGUAGES.map(l => <option key={l} value={l}>{l}</option>)}
+                      <label className={labelCls}>Sub Genre *</label>
+                      <select required value={fields.subGenre} onChange={set('subGenre')} className={inputCls} disabled={!fields.genre}>
+                        <option value="" disabled>Select Sub Genre</option>
+                        {subGenreOptions.map(sg => <option key={sg} value={sg}>{sg}</option>)}
                       </select>
                     </div>
                   </div>
 
-                  {/* Release date */}
+                  {/* Row 9: Moods */}
                   <div className="mb-4">
-                    <label className={labelCls}>Preferred Release Date *</label>
-                    <input required type="date" value={fields.releaseDate} onChange={set('releaseDate')} className={inputCls} />
-                    <p className="font-inter text-[11px] text-mut mt-1.5">Min. 7 days from today for smooth delivery to all platforms.</p>
+                    <label className={labelCls}>Moods *</label>
+                    <select required value={fields.moods} onChange={set('moods')} className={inputCls}>
+                      <option value="" disabled>Select Moods</option>
+                      {MOODS.map(m => <option key={m} value={m}>{m}</option>)}
+                    </select>
+                  </div>
+
+                  {/* Section divider */}
+                  <div className="flex items-center gap-3 mb-4 mt-6">
+                    <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                    <span className="font-outfit font-semibold text-[11px] tracking-[0.1em] uppercase" style={{ color: '#4A5568' }}>Upload & Links</span>
+                    <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
                   </div>
 
                   {/* Drive link */}
