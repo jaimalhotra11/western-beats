@@ -35,11 +35,20 @@ export default function Contact() {
   const [sent, setSent] = useState(false)
   const [form, setForm] = useState({ name: '', email: '', service: '', message: '' })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const subject = `Western Beats Enquiry: ${form.service || 'General'}: ${form.name}`
-    const body = `Name: ${form.name}\nEmail: ${form.email}\nService: ${form.service}\n\n${form.message}`
-    window.location.href = `mailto:contact@westernbeats.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    try {
+      const res = await fetch('https://formspree.io/f/xqevznwk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ 'Name': form.name, 'Email': form.email, 'Service': form.service, 'Message': form.message }),
+      })
+      if (!res.ok) throw new Error()
+    } catch {
+      const subject = `Western Beats Enquiry: ${form.service || 'General'}: ${form.name}`
+      const body = `Name: ${form.name}\nEmail: ${form.email}\nService: ${form.service}\n\n${form.message}`
+      window.location.href = `mailto:contact@westernbeats.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    }
     setSent(true)
     setTimeout(() => setSent(false), 4000)
   }
