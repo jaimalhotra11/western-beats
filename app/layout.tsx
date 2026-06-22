@@ -292,6 +292,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
         />
+        {/* ── Google Analytics 4 ─────────────────────────── */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHW25Y3R86" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DHW25Y3R86');
+            `,
+          }}
+        />
         {/* ── Meta Pixel ──────────────────────────────────── */}
         <script
           dangerouslySetInnerHTML={{
