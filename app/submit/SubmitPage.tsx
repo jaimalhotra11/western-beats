@@ -60,19 +60,36 @@ const INCLUDE = [
   { Icon: AtSign,      title: 'Active Email',      note: 'So we can send approval & royalty updates' },
 ]
 
+const LABELS = [
+  'Western Beats', 'Self-Released / Independent', 'Other',
+]
+
+const YOUTUBE_CONTENT_ID_OPTIONS = [
+  'No Action',
+  'Monetize',
+  'Block',
+  'Track',
+]
+
 type FormFields = {
   artistName: string; trackName: string; albumName: string; email: string; phone: string;
   genre: string; subGenre: string; language: string; releaseDate: string;
   singer: string; lyricWriter: string; musicDirector: string; musicArranger: string;
   director: string; mixer: string; producer: string; moods: string;
-  driveLink: string; spotifyLink: string; message: string;
+  labelName: string; upc: string; isrc: string; productCode: string;
+  youtubeLink: string; instagramLink: string; spotifyLink: string;
+  songLyrics: string; youtubeContentId: string;
+  driveLink: string; message: string;
 }
 const EMPTY: FormFields = {
   artistName: '', trackName: '', albumName: '', email: '', phone: '',
   genre: '', subGenre: '', language: '', releaseDate: '',
   singer: '', lyricWriter: '', musicDirector: '', musicArranger: '',
   director: '', mixer: '', producer: '', moods: '',
-  driveLink: '', spotifyLink: '', message: '',
+  labelName: '', upc: '', isrc: '', productCode: '',
+  youtubeLink: '', instagramLink: '', spotifyLink: '',
+  songLyrics: '', youtubeContentId: 'No Action',
+  driveLink: '', message: '',
 }
 
 export default function SubmitPage() {
@@ -146,8 +163,16 @@ export default function SubmitPage() {
           'Mixer': fields.mixer,
           'Producer': fields.producer,
           'Moods': fields.moods,
+          'Label Name (P&C Owner)': fields.labelName,
+          'UPC': fields.upc,
+          'ISRC': fields.isrc,
+          'Product Code': fields.productCode,
           'Drive / WeTransfer Link': fields.driveLink,
-          'Spotify / Social Profile': fields.spotifyLink,
+          'YouTube Link': fields.youtubeLink,
+          'Instagram Link': fields.instagramLink,
+          'Spotify Profile': fields.spotifyLink,
+          'YouTube Content ID': fields.youtubeContentId,
+          'Song Lyrics': fields.songLyrics,
           'Message': fields.message,
         }),
       })
@@ -161,7 +186,7 @@ export default function SubmitPage() {
       setErrorMsg(message)
       setStatus('error')
       const sub = encodeURIComponent(`Music Submission: ${fields.trackName} by ${fields.artistName}`)
-      const body = encodeURIComponent(`Artist: ${fields.artistName}\nTrack: ${fields.trackName}\nAlbum: ${fields.albumName}\nEmail: ${fields.email}\nPhone: ${fields.phone}\nGenre: ${fields.genre}\nSub Genre: ${fields.subGenre}\nLanguage: ${fields.language}\nRelease Date: ${fields.releaseDate}\nSinger: ${fields.singer}\nLyric Writer: ${fields.lyricWriter}\nMusic Director: ${fields.musicDirector}\nMusic Arranger: ${fields.musicArranger}\nDirector: ${fields.director}\nMixer: ${fields.mixer}\nProducer: ${fields.producer}\nMoods: ${fields.moods}\nDrive Link: ${fields.driveLink}\nSpotify: ${fields.spotifyLink}\nMessage: ${fields.message}`)
+      const body = encodeURIComponent(`Artist: ${fields.artistName}\nTrack: ${fields.trackName}\nAlbum: ${fields.albumName}\nEmail: ${fields.email}\nPhone: ${fields.phone}\nGenre: ${fields.genre}\nSub Genre: ${fields.subGenre}\nLanguage: ${fields.language}\nRelease Date: ${fields.releaseDate}\nSinger: ${fields.singer}\nLyric Writer: ${fields.lyricWriter}\nMusic Director: ${fields.musicDirector}\nMusic Arranger: ${fields.musicArranger}\nDirector: ${fields.director}\nMixer: ${fields.mixer}\nProducer: ${fields.producer}\nMoods: ${fields.moods}\nLabel Name: ${fields.labelName}\nUPC: ${fields.upc}\nISRC: ${fields.isrc}\nProduct Code: ${fields.productCode}\nDrive Link: ${fields.driveLink}\nYouTube: ${fields.youtubeLink}\nInstagram: ${fields.instagramLink}\nSpotify: ${fields.spotifyLink}\nYouTube Content ID: ${fields.youtubeContentId}\nSong Lyrics: ${fields.songLyrics}\nMessage: ${fields.message}`)
       window.location.href = `mailto:contact@westernbeats.com?subject=${sub}&body=${body}`
     }
   }
@@ -481,10 +506,47 @@ export default function SubmitPage() {
                     </select>
                   </div>
 
-                  {/* Section divider */}
+                  {/* Section divider — Labels & Codes */}
                   <div className="flex items-center gap-3 mb-4 mt-6">
                     <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
-                    <span className="font-outfit font-semibold text-[11px] tracking-[0.1em] uppercase" style={{ color: '#4A5568' }}>Upload & Links</span>
+                    <span className="font-outfit font-semibold text-[11px] tracking-[0.1em] uppercase" style={{ color: '#4A5568' }}>Labels &amp; Codes</span>
+                    <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                  </div>
+
+                  {/* Label Name + UPC */}
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <label className={labelCls}>Label Name (P&amp;C Owner) *</label>
+                      <select required value={fields.labelName} onChange={set('labelName')} className={inputCls}>
+                        <option value="" disabled>Select Label</option>
+                        {LABELS.map(l => <option key={l} value={l}>{l}</option>)}
+                      </select>
+                    </div>
+                    <div>
+                      <label className={labelCls}>UPC <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                      <input type="text" value={fields.upc} onChange={set('upc')}
+                        placeholder="upc" className={inputCls} />
+                    </div>
+                  </div>
+
+                  {/* ISRC + Product Code */}
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <label className={labelCls}>ISRC <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                      <input type="text" value={fields.isrc} onChange={set('isrc')}
+                        placeholder="ex: (ING642300741)" className={inputCls} />
+                    </div>
+                    <div>
+                      <label className={labelCls}>Product Code <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                      <input type="text" value={fields.productCode} onChange={set('productCode')}
+                        placeholder="ex: (GMJ00001)" className={inputCls} />
+                    </div>
+                  </div>
+
+                  {/* Section divider — Upload & Links */}
+                  <div className="flex items-center gap-3 mb-4 mt-6">
+                    <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                    <span className="font-outfit font-semibold text-[11px] tracking-[0.1em] uppercase" style={{ color: '#4A5568' }}>Upload &amp; Links</span>
                     <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
                   </div>
 
@@ -496,11 +558,41 @@ export default function SubmitPage() {
                     <p className="font-inter text-[11px] text-mut mt-1.5">Upload your WAV/MP3 audio + square artwork to Drive and share the link here.</p>
                   </div>
 
-                  {/* Spotify / social */}
+                  {/* YouTube + Instagram */}
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <label className={labelCls}>YouTube Link <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                      <input type="url" value={fields.youtubeLink} onChange={set('youtubeLink')}
+                        placeholder="https://youtube.com/..." className={inputCls} />
+                    </div>
+                    <div>
+                      <label className={labelCls}>Instagram Link *</label>
+                      <input required type="url" value={fields.instagramLink} onChange={set('instagramLink')}
+                        placeholder="https://www.instagram.com" className={inputCls} />
+                    </div>
+                  </div>
+
+                  {/* Spotify */}
                   <div className="mb-4">
-                    <label className={labelCls}>Spotify / Social Profile Link <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                    <label className={labelCls}>Spotify Profile Link <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
                     <input type="url" value={fields.spotifyLink} onChange={set('spotifyLink')}
                       placeholder="https://open.spotify.com/artist/..." className={inputCls} />
+                  </div>
+
+                  {/* YouTube Content ID */}
+                  <div className="mb-4">
+                    <label className={labelCls}>YouTube Content ID <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                    <select value={fields.youtubeContentId} onChange={set('youtubeContentId')} className={inputCls}>
+                      {YOUTUBE_CONTENT_ID_OPTIONS.map(o => <option key={o} value={o}>{o}</option>)}
+                    </select>
+                  </div>
+
+                  {/* Song Lyrics */}
+                  <div className="mb-4">
+                    <label className={labelCls}>Song Lyrics <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                    <textarea value={fields.songLyrics} onChange={set('songLyrics')} rows={4}
+                      placeholder="Paste your song lyrics here..."
+                      className={`${inputCls} resize-none`} />
                   </div>
 
                   {/* Message */}
