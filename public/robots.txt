@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Block private/admin paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /404
+Disallow: /500
+
+# Crawl-delay for bots that respect it
+Crawl-delay: 10
+
+# Sitemap
+Sitemap: https://westernbeats.com/sitemap.xml

@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "wb-digital",
+      "name": "western-beats",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "cwd": "/Users/jaimalhotra/Desktop/Western Beats website/wb-digital",

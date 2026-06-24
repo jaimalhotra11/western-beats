@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next'
 const BASE_URL = 'https://westernbeats.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date('2026-06-21')
+  const lastModified = new Date('2026-06-25')
 
   return [
     /* ── Core pages ─────────────────────────────────── */
@@ -269,6 +269,45 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/spotify-distribution`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+
+    /* ── New Platform Pages ─────────────────────────── */
+    {
+      url: `${BASE_URL}/youtube-music-distribution`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wynk-music-distribution`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+    {
+      url: `${BASE_URL}/hungama-music-distribution`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+    /* ── New Blog Posts ──────────────────────────────── */
+    {
+      url: `${BASE_URL}/blog/youtube-content-id-india`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/blog/music-copyright-india`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/blog/how-to-get-verified-spotify-india`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.9,

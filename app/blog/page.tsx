@@ -122,6 +122,33 @@ const POSTS = [
     readTime: '6 min read',
     date: 'June 2026',
   },
+  {
+    slug: 'youtube-content-id-india',
+    title: 'YouTube Content ID India 2026 — What It Is & How to Get It Free',
+    excerpt: 'Every time someone uses your music in a YouTube video, you should earn money. YouTube Content ID makes that happen. Complete guide for Indian independent artists — what it is, how it works, and how to get it free.',
+    tag: 'YouTube Guide',
+    color: '#FF4444',
+    readTime: '8 min read',
+    date: 'June 2026',
+  },
+  {
+    slug: 'music-copyright-india',
+    title: 'Music Copyright India 2026 — Complete Guide for Independent Artists',
+    excerpt: 'Music copyright in India explained — how automatic copyright works, the difference between composition and master rights, ISRC codes, formal registration at copyright.gov.in, and how Western Beats protects your IP.',
+    tag: 'Copyright & Law',
+    color: '#0A64C3',
+    readTime: '10 min read',
+    date: 'June 2026',
+  },
+  {
+    slug: 'how-to-get-verified-spotify-india',
+    title: 'How to Get Verified on Spotify India 2026 — Spotify for Artists Blue Tick',
+    excerpt: 'Complete step-by-step guide to getting the Spotify for Artists verified badge, claiming your profile, pitching to editorial playlists, and growing your Spotify streams in India.',
+    tag: 'Spotify Guide',
+    color: '#1DB954',
+    readTime: '7 min read',
+    date: 'June 2026',
+  },
 ]
 
 export default function BlogPage() {
