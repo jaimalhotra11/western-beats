@@ -297,7 +297,7 @@ export default function PricingPage() {
 
               {/* Quick proof points */}
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
-                {['₹0 upfront forever','100% IP ownership (T&C apply)','Royalties paid direct to you','₹0 upfront forever','48-hr go-live'].map(pt => (
+                {['₹0 upfront forever','100% IP ownership (T&C apply)','Royalties paid direct to you','Free ISRC codes','48-hr go-live'].map(pt => (
                   <span key={pt} className="px-3 py-1.5 rounded-full font-inter text-[12px] font-semibold text-ice/80" style={{ background: 'rgba(10,100,195,0.15)', border: '1px solid rgba(10,100,195,0.3)' }}>{pt}</span>
                 ))}
               </motion.div>

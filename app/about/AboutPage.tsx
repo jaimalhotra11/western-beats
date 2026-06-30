@@ -426,7 +426,7 @@ export default function AboutPage() {
               initial="hidden"
               animate="show"
             >
-              <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
+              <motion.div variants={fadeUp} className="platform-pill page-badge mb-6 inline-flex">
                 ✦ About Western Beats · Official Distribution Partner @warnermusicindia
               </motion.div>
 

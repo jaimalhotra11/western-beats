@@ -319,7 +319,7 @@ export default function ServicesPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left */}
             <motion.div variants={container} initial="hidden" animate="show">
-              <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
+              <motion.div variants={fadeUp} className="platform-pill page-badge mb-6 inline-flex">
                 ✦ Full-Service Music Company · Warner Music India Partner Backed
               </motion.div>
               <motion.h1
