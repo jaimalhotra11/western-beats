@@ -77,8 +77,8 @@ export default function Footer() {
         <div className="grid lg:grid-cols-6 gap-12">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="relative w-12 h-12 flex-shrink-0">
-                <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={48} height={48} className="object-contain w-full h-full drop-shadow-[0_0_8px_rgba(10,100,195,0.4)]" />
+              <div className="relative w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden" style={{ background: 'white', padding: '2px' }}>
+                <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={48} height={48} className="object-contain w-full h-full" />
               </div>
               <div>
                 <div className="font-outfit font-black text-white text-[15px] tracking-[0.04em]">WESTERN BEATS</div>

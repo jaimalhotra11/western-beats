@@ -362,7 +362,7 @@ export default function PricingPage() {
                     '30% Distribution Fee only when you earn',
                     '72 hour go-live time',
                     'Free ISRC & UPC codes',
-                    'Warner Music Partner backed',
+                    'Warner Music India Partner backed',
                     'Real-time analytics dashboard',
                     'WhatsApp & email support',
                   ].map((f, i) => (

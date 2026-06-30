@@ -120,7 +120,7 @@ function ArtistCard({
         className="absolute top-3 left-3 font-inter text-[8px] font-bold tracking-[0.14em] uppercase px-2 py-1 rounded-full backdrop-blur-sm"
         style={{ background: `${color}30`, color, border: `1px solid ${color}50` }}
       >
-        Warner Music
+        Warner Music India
       </div>
 
       {/* Name + genre */}

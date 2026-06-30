@@ -241,7 +241,7 @@ export default function Distribution() {
               </div>
               <div className="flex flex-col gap-3">
                 <div className="font-inter text-white/80 text-[13px]">✦ Instant setup, no approval wait</div>
-                <div className="font-inter text-white/80 text-[13px]">✦ Warner Music Partner backed</div>
+                <div className="font-inter text-white/80 text-[13px]">✦ Warner Music India Partner backed</div>
                 <div className="font-inter text-white/80 text-[13px]">✦ 100% ownership of your masters, always yours</div>
               </div>
               <a

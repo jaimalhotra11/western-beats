@@ -46,8 +46,8 @@ export default function Nav() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 flex-shrink-0" style={{ background: 'transparent' }}>
-              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain drop-shadow-[0_0_8px_rgba(10,100,195,0.4)]" style={{ background: 'transparent', mixBlendMode: 'normal' }} />
+            <div className="relative w-10 h-10 flex-shrink-0 rounded-lg overflow-hidden" style={{ background: 'white', padding: '2px' }}>
+              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
