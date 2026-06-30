@@ -313,6 +313,76 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
 
+    /* ── New Landing Pages (July 2026) ──────────────── */
+    {
+      url: `${BASE_URL}/hindi-music-distribution`,
+      lastModified: new Date('2026-07-01'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/tamil-music-distribution`,
+      lastModified: new Date('2026-07-01'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/telugu-music-distribution`,
+      lastModified: new Date('2026-07-01'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/bollywood-music-distribution`,
+      lastModified: new Date('2026-07-01'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/how-to-upload-song-spotify-india`,
+      lastModified: new Date('2026-07-01'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/music-promotion-india`,
+      lastModified: new Date('2026-07-01'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+
+    /* ── New Blog Posts (July 2026) ──────────────────── */
+    {
+      url: `${BASE_URL}/blog/how-to-get-song-on-jiosaavn`,
+      lastModified: new Date('2026-07-01'),
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+    {
+      url: `${BASE_URL}/blog/best-music-distributors-india-2026`,
+      lastModified: new Date('2026-07-01'),
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+    {
+      url: `${BASE_URL}/blog/spotify-royalties-india-2026`,
+      lastModified: new Date('2026-07-01'),
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+    {
+      url: `${BASE_URL}/blog/music-distribution-guide-hindi`,
+      lastModified: new Date('2026-07-01'),
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+    {
+      url: `${BASE_URL}/blog/how-to-make-money-from-music-india`,
+      lastModified: new Date('2026-07-01'),
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+
     /* ── Legal ───────────────────────────────────────── */
     {
       url: `${BASE_URL}/terms`,

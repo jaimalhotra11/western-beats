@@ -16,7 +16,7 @@ import Footer          from './components/Footer'
 export const metadata: Metadata = {
   title: "Western Beats — Free Music Distribution India | JioSaavn, Gaana, Spotify in 72 Hours",
   description:
-    "Western Beats distributes your music to JioSaavn, Gaana, Spotify, Apple Music, Jio Caller Tune and 150+ platforms free in 72 hours. ₹0 upfront, 100% IP ownership, free ISRC codes. Official Warner Music India Partner. The best alternative to DistroKid and TuneCore for Indian artists.",
+    "India's free music distributor. Get on JioSaavn, Gaana, Spotify, Apple Music & Jio Caller Tune in 72 hours — ₹0 forever. 150+ platforms, 100% ownership, free ISRC codes. Warner Music India Partner. Switch from DistroKid and start reaching 350M+ Indian listeners today.",
   keywords: [
     // Low-competition, high-intent — easier to rank for a new site
     'free music distribution India no subscription',

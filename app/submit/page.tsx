@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import SubmitPage from './SubmitPage'
 
 export const metadata: Metadata = {
-  title: 'Submit Your Music: Free Distribution to 150+ Platforms | Western Beats',
+  title: 'Submit Your Music Free — India Distribution to JioSaavn, Spotify & 150+ Platforms | Western Beats',
   description:
     'Submit your music to Western Beats for free distribution to 150+ streaming platforms: JioSaavn, Gaana, Spotify, Apple Music & more. Go live in 72 hours. Keep 100% ownership of your masters. Backed by Warner Music India Partner. Start today, ₹0 upfront.',
   keywords: [
