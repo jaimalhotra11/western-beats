@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react'
 import { gsap, registerGSAP } from '../lib/gsapUtils'
 import Image from 'next/image'
 import Link from 'next/link'
+import Nav from '../components/Nav'
 import {
   Music2, Calendar, Users, Video, Mic2, BarChart3,
   Upload, Globe2, DollarSign, Zap, CheckCircle,
@@ -296,48 +297,7 @@ export default function ServicesPage() {
   return (
     <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
 
-      {/* ── NAV ────────────────────────────────────────────────────────────── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060C18]/95 backdrop-blur-xl border-b border-white/[0.06] py-3">
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-9 flex-shrink-0">
-              <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" fill sizes="40px" className="object-contain" />
-            </div>
-            <div>
-              <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
-            </div>
-          </Link>
-          <div className="hidden md:flex items-center gap-1">
-            {[
-              { href: '/', label: 'Home' },
-              { href: '/about', label: 'About' },
-              { href: '/services', label: 'Services', active: true },
-              { href: '/how-it-works', label: 'How It Works' },
-              { href: '/pricing', label: 'Pricing' },
-              { href: '/submit', label: 'Submit' },
-            ].map(l => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className={`px-4 py-2 text-[13px] font-semibold tracking-wide transition-colors duration-200 relative group ${l.active ? 'text-white' : 'text-mut hover:text-white'}`}
-              >
-                {l.label}
-                {l.active
-                  ? <span className="absolute bottom-1 left-4 right-4 h-[2px] bg-blu rounded-full" />
-                  : <span className="absolute bottom-1 left-4 right-4 h-[2px] bg-blu scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
-                }
-              </Link>
-            ))}
-          </div>
-          <div className="hidden md:flex items-center gap-3">
-            <div className="platform-pill page-badge text-[10px]">Warner Music India Partner</div>
-            <Link href="/submit" className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200">
-              Distribute Free
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
       <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">

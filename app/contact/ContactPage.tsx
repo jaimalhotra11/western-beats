@@ -183,7 +183,7 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div className="gsap-card grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="font-inter text-[12px] text-mut mb-1.5 block">Name</label>
+                    <label className="font-inter text-[12px] text-mut mb-1.5 block">Name *</label>
                     <input name="name" required placeholder="Your name"
                       className="w-full px-4 py-3 rounded-xl font-inter text-[14px] text-white placeholder:text-mut/50 outline-none focus:ring-1 transition-all duration-200"
                       style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.1)' }}
@@ -192,7 +192,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="font-inter text-[12px] text-mut mb-1.5 block">Email</label>
+                    <label className="font-inter text-[12px] text-mut mb-1.5 block">Email *</label>
                     <input name="email" type="email" required placeholder="your@email.com"
                       className="w-full px-4 py-3 rounded-xl font-inter text-[14px] text-white placeholder:text-mut/50 outline-none transition-all duration-200"
                       style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.1)' }}
@@ -200,6 +200,16 @@ export default function ContactPage() {
                       onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
                     />
                   </div>
+                </div>
+
+                <div>
+                  <label className="font-inter text-[12px] text-mut mb-1.5 block">Phone Number *</label>
+                  <input name="phone" type="tel" required placeholder="+91 98765 43210"
+                    className="w-full px-4 py-3 rounded-xl font-inter text-[14px] text-white placeholder:text-mut/50 outline-none transition-all duration-200"
+                    style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.1)' }}
+                    onFocus={e => (e.target.style.borderColor = '#0A64C3')}
+                    onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+                  />
                 </div>
 
                 <div>
