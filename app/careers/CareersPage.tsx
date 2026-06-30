@@ -129,7 +129,7 @@ export default function CareersPage() {
               <span className="page-hero-line block text-white">Music.</span>
             </h1>
             <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-2xl">
-              We are Western Beats, India&apos;s most credible music company. Backed by Warner Music Partner. Our platform Western Beats serves independent artists across the country. We are a small team that moves fast and ships work that matters.
+              We are Western Beats, India&apos;s most credible music company. Backed by Warner Music India Partner. Our platform Western Beats serves independent artists across the country. We are a small team that moves fast and ships work that matters.
             </p>
             <p className="font-inter text-[14px] text-mut">
               Interested? Send your CV to{' '}

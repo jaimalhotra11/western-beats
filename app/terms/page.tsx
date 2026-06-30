@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'Western Beats 70% royalties artists',
     'artist royalty terms India',
     'free music distribution agreement India',
-    'Warner Music Partner distribution terms',
+    'Warner Music India Partner distribution terms',
     'music distribution legal India',
     'artist lock-in period music distribution',
     'Western Beats artist obligations',

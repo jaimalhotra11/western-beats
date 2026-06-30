@@ -33,7 +33,7 @@ const SERVICES = [
     tag: 'Core · Always Free',
     title: 'Music Distribution',
     headline: 'One Upload. 150+ Platforms. 72 Hours. Free.',
-    desc: 'Upload once and reach every major streaming platform worldwide simultaneously, free distribution with 100% ownership (T&C apply) straight to you. Our Warner Music partnership means priority placement on JioSaavn, Gaana, and every Indian DSP.',
+    desc: 'Upload once and reach every major streaming platform worldwide simultaneously, free distribution with 100% ownership (T&C apply) straight to you. Our Warner Music India Partnership means priority placement on JioSaavn, Gaana, and every Indian DSP.',
     points: [
       'Free forever, no annual fee, no per-release charge',
       '100% ownership (T&C apply) paid monthly, we only earn when you earn',
@@ -43,7 +43,7 @@ const SERVICES = [
       'Real-time royalty dashboard',
       'Keep 100% ownership (T&C apply, ownership of your masters',
       'Dedicated WhatsApp & email support',
-      'Priority placement via Warner Music Partner',
+      'Priority placement via Warner Music India Partner',
       'Metadata & artwork compliance guaranteed',
     ],
     steps: [
@@ -91,7 +91,7 @@ const SERVICES = [
     points: [
       'Personalized career strategy & roadmap',
       'Brand partnership deals & endorsements',
-      'Industry network via Warner Music Partner',
+      'Industry network via Warner Music India Partner',
       'Playlist pitching to editors & curators',
       'Social media growth & content strategy',
       'Booking & live performance management',
@@ -193,7 +193,7 @@ const SERVICES = [
 const FAQS = [
   {
     q: 'What services does Western Beats offer?',
-    a: 'Western Beats offers six core services: Free Music Distribution (to 150+ platforms, 72 hrs, 100% ownership (T&C apply) to you), Event Management (concerts, album launches), Talent Management (career strategy, brand deals, WMI network), Audio Production (recording, mixing, mastering), Video Direction (music videos, Reels, Shorts), and Analytics & Strategy (real-time data across all platforms). All backed by Warner Music Partner.',
+    a: 'Western Beats offers six core services: Free Music Distribution (to 150+ platforms, 72 hrs, 100% ownership (T&C apply) to you), Event Management (concerts, album launches), Talent Management (career strategy, brand deals, WMI network), Audio Production (recording, mixing, mastering), Video Direction (music videos, Reels, Shorts), and Analytics & Strategy (real-time data across all platforms). All backed by Warner Music India Partner.',
   },
   {
     q: 'Is music distribution with Western Beats really free?',
@@ -205,7 +205,7 @@ const FAQS = [
   },
   {
     q: 'Which platforms does Western Beats distribute to?',
-    a: 'Western Beats distributes to 150+ platforms: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, SoundCloud, Boomplay, Pandora, Audiomack, Napster, and 130+ more globally. Our Warner Music partnership gives us priority placement on Indian DSPs.',
+    a: 'Western Beats distributes to 150+ platforms: JioSaavn, Gaana, Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, SoundCloud, Boomplay, Pandora, Audiomack, Napster, and 130+ more globally. Our Warner Music India Partnership gives us priority placement on Indian DSPs.',
   },
   {
     q: 'How do I book event management or talent management?',
@@ -305,7 +305,7 @@ export default function ServicesPage() {
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music Partner</div>
+              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
             </div>
           </Link>
           <div className="hidden md:flex items-center gap-1">
@@ -331,7 +331,7 @@ export default function ServicesPage() {
             ))}
           </div>
           <div className="hidden md:flex items-center gap-3">
-            <div className="platform-pill page-badge text-[10px]">Warner Music Partner</div>
+            <div className="platform-pill page-badge text-[10px]">Warner Music India Partner</div>
             <Link href="/submit" className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200">
               Distribute Free
             </Link>
@@ -360,7 +360,7 @@ export default function ServicesPage() {
             {/* Left */}
             <motion.div variants={container} initial="hidden" animate="show">
               <motion.div variants={fadeUp} className="platform-pill mb-6 inline-flex">
-                ✦ Full-Service Music Company · Warner Music Partner Backed
+                ✦ Full-Service Music Company · Warner Music India Partner Backed
               </motion.div>
               <motion.h1
                 variants={fadeUp}
@@ -372,7 +372,7 @@ export default function ServicesPage() {
                 <span className="page-hero-line block" style={{ color: '#0A64C3' }}>Career Needs.</span>
               </motion.h1>
               <motion.p variants={fadeUp} className="font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-xl">
-                Western Beats is India&apos;s only <strong className="text-white">full-service music company</strong> backed by Warner Music Partner, offering free distribution, events, talent management, audio production, video direction, and analytics under one roof.
+                Western Beats is India&apos;s only <strong className="text-white">full-service music company</strong> backed by Warner Music India Partner, offering free distribution, events, talent management, audio production, video direction, and analytics under one roof.
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mb-10">
                 <Link href="/submit"
@@ -777,7 +777,7 @@ export default function ServicesPage() {
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
             className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-10">
-            Free music distribution to 150+ platforms. Professional events. Expert talent management. Major-label audio & video production. All backed by Warner Music Partner. One company. Everything you need.
+            Free music distribution to 150+ platforms. Professional events. Expert talent management. Major-label audio & video production. All backed by Warner Music India Partner. One company. Everything you need.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
             className="gsap-fade-up flex flex-wrap justify-center gap-4 mb-12">
@@ -794,7 +794,7 @@ export default function ServicesPage() {
           {/* Trust badges */}
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
             className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-            {['✓ 100% Free Forever', '✓ 100% Royalties Kept', '✓ Warner Music Partner Backed', '✓ Live in 72 Hours', '✓ JioSaavn & Gaana Priority'].map(b => (
+            {['✓ 100% Free Forever', '✓ 100% Royalties Kept', '✓ Warner Music India Partner Backed', '✓ Live in 72 Hours', '✓ JioSaavn & Gaana Priority'].map(b => (
               <span key={b} className="font-inter text-[12px] text-mut">{b}</span>
             ))}
           </motion.div>
@@ -852,7 +852,7 @@ function DistributionVisual({ color }: { color: string }) {
         </div>
         <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10">
           <Shield size={14} className="text-white" />
-          <span className="font-inter text-[12px] text-white/90">Warner Music Partner Backed</span>
+          <span className="font-inter text-[12px] text-white/90">Warner Music India Partner Backed</span>
         </div>
       </div>
     </div>

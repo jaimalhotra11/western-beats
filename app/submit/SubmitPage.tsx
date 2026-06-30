@@ -208,7 +208,7 @@ export default function SubmitPage() {
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music Partner</div>
+              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
             </div>
           </Link>
           <div className="hidden md:flex items-center gap-1">
@@ -257,7 +257,7 @@ export default function SubmitPage() {
 
             {/* LEFT: Headline + info */}
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
-              <div className="platform-pill page-badge mb-6 inline-flex">✦ Free. Fast. Warner Music Partner Backed.</div>
+              <div className="platform-pill page-badge mb-6 inline-flex">✦ Free. Fast. Warner Music India Partner Backed.</div>
               <h1 className="font-outfit font-black leading-[0.93] tracking-[-0.03em] mb-6"
                 style={{ fontSize: 'clamp(36px, 5.5vw, 70px)' }}>
                 <span className="page-hero-line block text-white">Submit Your</span>
@@ -310,10 +310,10 @@ export default function SubmitPage() {
               <div className="flex items-center gap-4 rounded-xl p-4 mt-5"
                 style={{ background: 'rgba(10,100,195,0.08)', border: '1px solid rgba(10,100,195,0.2)' }}>
                 <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0">
-                  <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music Partner" fill sizes="40px" className="object-contain" />
+                  <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India Partner" fill sizes="40px" className="object-contain" />
                 </div>
                 <div>
-                  <div className="font-outfit font-extrabold text-white text-[13px]">Warner Music Partner</div>
+                  <div className="font-outfit font-extrabold text-white text-[13px]">Warner Music India Partner</div>
                   <div className="font-inter text-[11px] text-mut">Major-label credibility. Priority DSP placement.</div>
                 </div>
               </div>

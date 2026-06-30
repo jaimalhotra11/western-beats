@@ -8,7 +8,7 @@ const PILLARS = [
   { title: 'Artist First',   color: '#C41230', desc: '100% IP ownership, always. We only earn when you earn — your success is our only business model.' },
   { title: 'India First',    color: '#0A64C3', desc: 'JioSaavn and Gaana before Spotify. Built for India, reaching the world.' },
   { title: 'Honest',         color: '#5CB2DC', desc: '72 hours means 72 hours. No ambiguity, no fine print, no surprises.' },
-  { title: 'Major Quality',  color: '#002A8D', desc: 'Our Warner Music partnership means major-label standards on every release.' },
+  { title: 'Major Quality',  color: '#002A8D', desc: 'Our Warner Music India Partnership means major-label standards on every release.' },
 ]
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -101,7 +101,7 @@ export default function About() {
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-6"
             >
               <strong className="text-white">Western Beats Private Limited</strong> is India&apos;s most credible
-              independent music company, officially backed by our Warner Music partnership.
+              independent music company, officially backed by our Warner Music India Partnership.
               We give every independent artist access to major-label reach without major-label restrictions.
             </motion.p>
             <motion.p
@@ -124,7 +124,7 @@ export default function About() {
                 <Image src="/partners/westernbeats-BpLvGE3e.png" alt="Western Beats" width={36} height={36} className="object-contain w-full h-full" />
               </div>
               <div>
-                <div className="font-inter text-[10px] text-sky tracking-[0.1em] uppercase font-semibold">Western Beats · Official Warner Music Partner</div>
+                <div className="font-inter text-[10px] text-sky tracking-[0.1em] uppercase font-semibold">Western Beats · Official Warner Music India Partner</div>
                 <div className="font-outfit font-bold text-white text-[13px] sm:text-[14px]">Where Independent Meets Major</div>
               </div>
             </motion.div>

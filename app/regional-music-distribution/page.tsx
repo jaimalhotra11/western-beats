@@ -110,7 +110,7 @@ export default function RegionalPage() {
 
         <section style={{ background: '#060C18', padding: '80px 24px', textAlign: 'center' }}>
           <h2 style={{ fontSize: 36, fontWeight: 900, marginBottom: 16 }}>Your Language. Your Music. Free Distribution.</h2>
-          <p style={{ color: '#8899AA', fontSize: 16, marginBottom: 32 }}>150+ platforms · 72 hours · ₹0 · 100% ownership · Warner Music Partner</p>
+          <p style={{ color: '#8899AA', fontSize: 16, marginBottom: 32 }}>150+ platforms · 72 hours · ₹0 · 100% ownership · Warner Music India Partner</p>
           <Link href="/submit" style={{ background: '#0A64C3', color: 'white', padding: '16px 40px', borderRadius: 14, fontWeight: 700, fontSize: 16, textDecoration: 'none' }}>Submit Your Music Free →</Link>
         </section>
       </main>

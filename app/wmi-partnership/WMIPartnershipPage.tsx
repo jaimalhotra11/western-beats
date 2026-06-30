@@ -33,7 +33,7 @@ const BENEFITS = [
     icon: Shield,
     title: 'Co-sign Credibility',
     color: '#0A64C3',
-    desc: 'Having Warner Music partnership backing is the most powerful co-sign an independent artist in India can get. It signals quality. Labels, booking agents, and brands notice. It opens doors that no self-release or foreign distributor can open for you.',
+    desc: 'Having Warner Music India Partnership backing is the most powerful co-sign an independent artist in India can get. It signals quality. Labels, booking agents, and brands notice. It opens doors that no self-release or foreign distributor can open for you.',
   },
 ]
 
@@ -94,7 +94,7 @@ export default function WMIPartnershipPage() {
             <ol className="flex items-center gap-2 font-inter text-[12px] text-mut">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li className="text-white/20">›</li>
-              <li className="text-sky">Warner Music Partnership</li>
+              <li className="text-sky">Warner Music India Partnership</li>
             </ol>
           </nav>
 
@@ -107,7 +107,7 @@ export default function WMIPartnershipPage() {
                 <span className="page-hero-line block text-white">India.</span>
               </h1>
               <p className="page-subtext font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-8 max-w-xl">
-                Western Beats is the only free distribution platform in India with an official Warner Music partnership backing. This is not a logo on a landing page. It is a real partnership that changes what is possible for independent artists.
+                Western Beats is the only free distribution platform in India with an official Warner Music India Partnership backing. This is not a logo on a landing page. It is a real partnership that changes what is possible for independent artists.
               </p>
               <Link href="/submit"
                 className="group inline-flex items-center gap-2 px-7 py-4 bg-blu rounded-xl font-outfit font-bold text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300"
@@ -122,10 +122,10 @@ export default function WMIPartnershipPage() {
               <div className="rounded-3xl p-10 flex flex-col items-center gap-4"
                 style={{ background: 'rgba(10,100,195,0.1)', border: '1px solid rgba(10,100,195,0.25)' }}>
                 <div className="relative w-20 h-16">
-                  <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music Partner" fill className="object-contain" />
+                  <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India Partner" fill className="object-contain" />
                 </div>
                 <div className="text-center">
-                  <div className="font-outfit font-black text-white text-[22px]">Warner Music Partner</div>
+                  <div className="font-outfit font-black text-white text-[22px]">Warner Music India Partner</div>
                   <div className="font-inter text-[12px] text-mut mt-1">@warnermusicindia</div>
                 </div>
                 <div className="w-px h-8 bg-white/10" />

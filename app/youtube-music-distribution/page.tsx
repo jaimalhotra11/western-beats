@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
   title: 'Get Your Song on YouTube Music Free India 2026 | Western Beats',
-  description: 'Distribute your music to YouTube Music India free in 72 hours with Western Beats. Also covers JioSaavn, Gaana, Spotify, Apple Music & 150+ platforms. 100% ownership, ₹0 upfront. Official Warner Music partner.',
+  description: 'Distribute your music to YouTube Music India free in 72 hours with Western Beats. Also covers JioSaavn, Gaana, Spotify, Apple Music & 150+ platforms. 100% ownership, ₹0 upfront. Official Warner Music India Partner.',
   keywords: [
     'YouTube Music distribution India free',
     'upload song YouTube Music India',
@@ -98,7 +98,7 @@ export default function YouTubeMusicDistribution() {
               <span className="text-white">Free in 72 Hours</span>
             </h1>
             <p className="font-inter text-[16px] text-[#8899AA] leading-relaxed mb-8 max-w-2xl">
-              Western Beats distributes your music to YouTube Music India and <strong className="text-white">150+ streaming platforms</strong> — all for free. Keep 100% ownership of your masters. Official Warner Music partner.
+              Western Beats distributes your music to YouTube Music India and <strong className="text-white">150+ streaming platforms</strong> — all for free. Keep 100% ownership of your masters. Official Warner Music India Partner.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/submit"

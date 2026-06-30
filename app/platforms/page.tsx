@@ -3,7 +3,7 @@ import PlatformsPage from './PlatformsPage'
 
 export const metadata: Metadata = {
   title: 'Platform Coverage | Western Beats: 150+ Streaming Platforms',
-  description: 'Distribute your music to 150+ streaming platforms including JioSaavn, Gaana, Spotify, Apple Music and YouTube Music through Western Beats. Free distribution, India first, backed by Warner Music Partner.',
+  description: 'Distribute your music to 150+ streaming platforms including JioSaavn, Gaana, Spotify, Apple Music and YouTube Music through Western Beats. Free distribution, India first, backed by Warner Music India Partner.',
   keywords: [
     'music distribution platforms India',
     'JioSaavn music distribution',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://westernbeats.com/platforms' },
   openGraph: {
     title: 'Western Beats: Distribute to 150+ Platforms, India First',
-    description: 'Distribute your music to JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145+ more platforms. Free distribution with Warner Music partnership backing.',
+    description: 'Distribute your music to JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145+ more platforms. Free distribution with Warner Music India Partnership backing.',
     url: 'https://westernbeats.com/platforms',
     siteName: 'Western Beats',
     locale: 'en_IN',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Western Beats: 150+ Streaming Platforms, India First',
-    description: 'JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145+ more. Free distribution backed by Warner Music Partner.',
+    description: 'JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145+ more. Free distribution backed by Warner Music India Partner.',
     site: '@wb_digital_',
   },
 }

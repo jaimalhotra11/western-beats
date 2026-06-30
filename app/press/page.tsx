@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     'Western Beats brand assets',
     'Western Beats logo download',
     'Indian music company media',
-    'Warner Music Partner press India',
+    'Warner Music India Partner press India',
     'Western Beats press release',
   ],
   alternates: { canonical: 'https://westernbeats.com/press' },

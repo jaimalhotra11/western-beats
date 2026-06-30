@@ -13,7 +13,7 @@ const MENTIONS = [
   {
     outlet: 'Economic Times',
     date: 'March 2025',
-    headline: 'Western Beats Emerges as India\'s Answer to DistroKid, With Warner Music Partnership',
+    headline: 'Western Beats Emerges as India\'s Answer to DistroKid, With Warner Music India Partnership',
     excerpt: 'The Haryana-based music company has quietly become the go-to distribution platform for independent artists in India, offering free distribution and a 70/30 royalty split that is hard to beat.',
     color: '#0A64C3',
   },
@@ -28,7 +28,7 @@ const MENTIONS = [
     outlet: 'Rolling Stone India',
     date: 'October 2024',
     headline: 'How Western Beats Is Changing the Game for Indie Artists',
-    excerpt: 'With a Warner Music partnership and zero upfront costs, Western Beats is giving independent artists access to distribution that was previously reserved for signed labels.',
+    excerpt: 'With a Warner Music India Partnership and zero upfront costs, Western Beats is giving independent artists access to distribution that was previously reserved for signed labels.',
     color: '#5CB2DC',
   },
   {

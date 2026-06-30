@@ -166,7 +166,7 @@ export default function BeginnersPage() {
 
         <section style={{ padding: '80px 24px', textAlign: 'center' }}>
           <h2 style={{ fontSize: 36, fontWeight: 900, marginBottom: 16 }}>Ready for Your First Release?</h2>
-          <p style={{ color: '#8899AA', fontSize: 16, marginBottom: 32 }}>Free forever · 150+ platforms · 72 hours · 100% ownership · Warner Music Partner</p>
+          <p style={{ color: '#8899AA', fontSize: 16, marginBottom: 32 }}>Free forever · 150+ platforms · 72 hours · 100% ownership · Warner Music India Partner</p>
           <Link href="/submit" style={{ background: '#0A64C3', color: 'white', padding: '16px 40px', borderRadius: 14, fontWeight: 700, fontSize: 16, textDecoration: 'none' }}>Submit Your Music Free →</Link>
           <div style={{ marginTop: 24, display: 'flex', gap: 24, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/blog/how-to-distribute-music-india-free" style={{ color: '#5CB2DC', fontSize: 14 }}>Full Distribution Guide →</Link>

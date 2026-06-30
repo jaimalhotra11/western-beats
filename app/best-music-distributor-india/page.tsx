@@ -129,7 +129,7 @@ export default function BestDistributorPage() {
               {[
                 { title: '₹0 — Truly Free', desc: 'No annual fee, no per-release fee, no royalty percentage. Western Beats earns when you earn — there\'s no upfront cost ever.' },
                 { title: 'All Indian Platforms', desc: 'JioSaavn, Gaana, Wynk, Hungama, Jio Caller Tune, Airtel Hello Tune — the platforms that matter for Indian audiences. Most global distributors miss these entirely.' },
-                { title: 'Warner Music Partner', desc: 'The only free Indian distributor backed by Warner Music Group. This gives your releases priority placement, editorial consideration, and major-label credibility.' },
+                { title: 'Warner Music India Partner', desc: 'The only free Indian distributor backed by Warner Music Group. This gives your releases priority placement, editorial consideration, and major-label credibility.' },
                 { title: '150+ Platforms', desc: 'Spotify, Apple Music, Amazon Music, YouTube Music, Deezer, Tidal and 140+ more — global reach included in every free submission.' },
                 { title: '72-Hour Delivery', desc: 'Submit on Monday, live on Thursday. Faster than DistroKid\'s 7-14 day delivery for most platforms.' },
                 { title: 'Free ISRC & UPC', desc: 'Every release gets a free ISRC code and UPC barcode. DistroKid charges extra for custom ISRC codes.' },

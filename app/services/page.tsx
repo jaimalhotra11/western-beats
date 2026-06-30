@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title:
     "Services: Music Distribution, Events, Talent & Production | Western Beats India",
   description:
-    "Western Beats offers India's best full-service music company experience: Free music distribution via Western Beats to 150+ platforms, professional event management, talent management, audio production, video direction & analytics. Officially backed by Warner Music Partner. Better than DistroKid, TuneCore & CD Baby.",
+    "Western Beats offers India's best full-service music company experience: Free music distribution via Western Beats to 150+ platforms, professional event management, talent management, audio production, video direction & analytics. Officially backed by Warner Music India Partner. Better than DistroKid, TuneCore & CD Baby.",
   keywords: [
     'music distribution services India',
     'free music distribution India',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'audio production India',
     'music video production India',
     'full service music company India',
-    'Warner Music Partner distribution',
+    'Warner Music India Partner distribution',
     'Western Beats services',
     'indie music distribution India',
     'music analytics India',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Western Beats Services: India's #1 Full-Service Music Company | Free Distribution + Events + Production",
     description:
-      'Free music distribution to 150+ platforms in 72 hours, event management, talent management, audio & video production, and real-time analytics. All backed by Warner Music Partner.',
+      'Free music distribution to 150+ platforms in 72 hours, event management, talent management, audio & video production, and real-time analytics. All backed by Warner Music India Partner.',
     url: 'https://westernbeats.com/services',
     siteName: 'Western Beats',
     type: 'website',
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Western Beats Services: India's Best Full-Service Music Company",
     description:
-      'Free distribution to 150+ platforms. Event management. Talent management. Audio & Video production. Backed by Warner Music Partner.',
+      'Free distribution to 150+ platforms. Event management. Talent management. Audio & Video production. Backed by Warner Music India Partner.',
     images: ['https://westernbeats.com/og-services.jpg'],
     site: '@wb_digital_',
     creator: '@wb_digital_',
@@ -93,7 +93,7 @@ const jsonLd = {
       url: 'https://westernbeats.com/services',
       name: "Western Beats Services: India's #1 Full-Service Music Company",
       description:
-        "Western Beats's complete suite of music services: free distribution, event management, talent management, audio production, video direction, and analytics, all backed by Warner Music Partner.",
+        "Western Beats's complete suite of music services: free distribution, event management, talent management, audio production, video direction, and analytics, all backed by Warner Music India Partner.",
       isPartOf: { '@id': 'https://westernbeats.com/#website' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
@@ -106,7 +106,7 @@ const jsonLd = {
     {
       '@type': 'ItemList',
       name: 'Western Beats Music Services',
-      description: "India's most complete music services platform backed by Warner Music Partner",
+      description: "India's most complete music services platform backed by Warner Music India Partner",
       itemListElement: [
         {
           '@type': 'ListItem',
@@ -115,7 +115,7 @@ const jsonLd = {
             '@type': 'Service',
             name: 'Free Music Distribution',
             description:
-              'Distribute your music to 150+ streaming platforms worldwide for free. You keep 100% of royalties, we only earn when you earn. Live in 72 hours. Backed by Warner Music Partner.',
+              'Distribute your music to 150+ streaming platforms worldwide for free. You keep 100% of royalties, we only earn when you earn. Live in 72 hours. Backed by Warner Music India Partner.',
             provider: { '@id': 'https://westernbeats.com/#organization' },
             areaServed: 'Worldwide',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
@@ -191,7 +191,7 @@ const jsonLd = {
           name: 'What services does Western Beats offer?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Western Beats offers six core services: (1) Free Music Distribution to 150+ platforms worldwide, (2) Event Management for concerts and album launches, (3) Talent Management including career strategy and brand deals, (4) Audio Production with professional recording and mastering, (5) Video Direction for music videos and social media content, and (6) Analytics & Strategy with real-time streaming data. All services are backed by Warner Music Partner.',
+            text: 'Western Beats offers six core services: (1) Free Music Distribution to 150+ platforms worldwide, (2) Event Management for concerts and album launches, (3) Talent Management including career strategy and brand deals, (4) Audio Production with professional recording and mastering, (5) Video Direction for music videos and social media content, and (6) Analytics & Strategy with real-time streaming data. All services are backed by Warner Music India Partner.',
           },
         },
         {
@@ -207,7 +207,7 @@ const jsonLd = {
           name: 'How long does music distribution take with Western Beats?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Western Beats delivers your music to all 150+ streaming platforms within 72 hours of submission and approval. This is faster than DistroKid (7–10 days), TuneCore (7–10 days), CD Baby (5–7 days), and Ditto Music (3–5 days). Our Warner Music partnership enables priority processing on all major platforms.',
+            text: 'Western Beats delivers your music to all 150+ streaming platforms within 72 hours of submission and approval. This is faster than DistroKid (7–10 days), TuneCore (7–10 days), CD Baby (5–7 days), and Ditto Music (3–5 days). Our Warner Music India Partnership enables priority processing on all major platforms.',
           },
         },
         {
@@ -215,7 +215,7 @@ const jsonLd = {
           name: 'Does Western Beats distribute to JioSaavn and Gaana?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. Western Beats distributes to JioSaavn, Gaana, and all major Indian platforms as a priority, in addition to Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music partnership backing gives us priority placement that no foreign distributor can match.',
+            text: 'Yes. Western Beats distributes to JioSaavn, Gaana, and all major Indian platforms as a priority, in addition to Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music India Partnership backing gives us priority placement that no foreign distributor can match.',
           },
         },
         {
@@ -231,7 +231,7 @@ const jsonLd = {
           name: 'What makes Western Beats different from other music companies?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Western Beats is India's only free full-service music company officially backed by Warner Music Partner. While competitors like DistroKid, TuneCore, and CD Baby only offer distribution (and charge for it), Western Beats provides distribution, event management, talent management, audio production, video direction, and analytics, all in one place, all with major-label quality standards.",
+            text: "Western Beats is India's only free full-service music company officially backed by Warner Music India Partner. While competitors like DistroKid, TuneCore, and CD Baby only offer distribution (and charge for it), Western Beats provides distribution, event management, talent management, audio production, video direction, and analytics, all in one place, all with major-label quality standards.",
           },
         },
       ],

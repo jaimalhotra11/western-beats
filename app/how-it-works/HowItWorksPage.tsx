@@ -53,7 +53,7 @@ const STEPS = [
       'Spotify, Apple Music, YouTube Music worldwide',
       'Amazon Music, Tidal, Deezer, SoundCloud & more',
       'Live on all platforms within 72 hours · Friday uploads go live Monday',
-      'Priority processing via our Warner Music partnership',
+      'Priority processing via our Warner Music India Partnership',
     ],
     badge: 'Step 2',
     badgeColor: '#5CB2DC',
@@ -86,8 +86,8 @@ const TIMELINE = [
 
 const WHY_ITEMS = [
   { icon: Zap,       color: '#0A64C3', title: '72-Hour Go-Live',          desc: 'DistroKid & TuneCore take 7–10 days. Your music is live on 150+ platforms in just 72 hours. Music uploaded Friday goes live Monday.' },
-  { icon: Shield,    color: '#C41230', title: 'Same Network as Bruno Mars', desc: 'Warner Music Group, home to Bruno Mars (150M+ Spotify listeners), Coldplay, Ed Sheeran & Dua Lipa, backs us through our Warner Music partnership.' },
-  { icon: Music2,    color: '#5CB2DC', title: "Major-Label Reach",  desc: 'Our Warner Music partnership means major-label quality standards and distribution reach — without major-label restrictions — for every independent artist.' },
+  { icon: Shield,    color: '#C41230', title: 'Same Network as Bruno Mars', desc: 'Warner Music Group, home to Bruno Mars (150M+ Spotify listeners), Coldplay, Ed Sheeran & Dua Lipa, backs us through our Warner Music India Partnership.' },
+  { icon: Music2,    color: '#5CB2DC', title: "Major-Label Reach",  desc: 'Our Warner Music India Partnership means major-label quality standards and distribution reach — without major-label restrictions — for every independent artist.' },
   { icon: BarChart3, color: '#0A64C3', title: 'Real-Time Analytics',      desc: 'Live streaming data, audience demographics, playlist tracking, and revenue reporting across all 150+ platforms.' },
   { icon: FileText,  color: '#C41230', title: 'Free ISRC & UPC Codes',    desc: 'We generate your ISRC and UPC codes at no cost; DistroKid charges extra, CD Baby charges $5 each.' },
   { icon: Clock,     color: '#5CB2DC', title: '24/7 Artist Support',      desc: 'Direct WhatsApp and email support, not a ticket system. Real people, real answers within hours.' },
@@ -146,7 +146,7 @@ export default function HowItWorksPage() {
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music Partner</div>
+              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
             </div>
           </Link>
           <div className="hidden md:flex items-center gap-1">
@@ -396,7 +396,7 @@ export default function HowItWorksPage() {
               className="font-inter text-[15px] text-mut leading-relaxed mt-4 max-w-xl mx-auto"
             >
               Warner Music Group, home to Bruno Mars, Coldplay, Ed Sheeran & Dua Lipa globally,
-              backs us through our exclusive Warner Music partnership.
+              backs us through our exclusive Warner Music India Partnership.
             </motion.p>
           </div>
 

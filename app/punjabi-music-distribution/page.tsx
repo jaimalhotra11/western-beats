@@ -90,7 +90,7 @@ export default function PunjabiPage() {
             {[
               { title: 'JioSaavn & Gaana Included', desc: 'Punjabi music dominates India\'s top streaming charts. Both JioSaavn (150M users) and Gaana (200M users) are included — most global distributors skip these.' },
               { title: 'Jio Caller Tune Free', desc: 'Punjabi songs are India\'s #1 caller tune genre. We include CRBT distribution to Jio, Airtel, Vi and BSNL — a major revenue stream no global distributor offers.' },
-              { title: 'Warner Music Partner', desc: 'Western Beats is an official Warner Music partner — giving your Punjabi releases major-label credibility, editorial consideration, and playlist access on Indian platforms.' },
+              { title: 'Warner Music India Partner', desc: 'Western Beats is an official Warner Music India Partner — giving your Punjabi releases major-label credibility, editorial consideration, and playlist access on Indian platforms.' },
               { title: '₹0 Forever', desc: 'No annual fee, no per-release charge. Distributors like DistroKid charge $22.99/year and skip JioSaavn. Western Beats is free and covers every platform.' },
               { title: '72 Hours Live', desc: 'Your Punjabi song goes live on all 150+ platforms within 72 hours of approval. Submit on Monday, live on Thursday.' },
               { title: 'All Sub-Genres', desc: 'Bhangra, Sufi, Desi Pop, Sad Punjabi, Party Punjabi — we support all Punjabi music sub-genres with accurate metadata categorisation.' },

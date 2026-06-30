@@ -116,7 +116,7 @@ export default function CallerTuneBlogPost() {
           <h2 style={h2}>How CRBT Distribution Works</h2>
           <p style={s}>To get your song available as a caller tune in India, you need a music distributor that has direct CRBT agreements with Indian telecom operators. Not all distributors have these agreements — this is a key differentiator.</p>
           <p style={s}><strong style={{ color: 'white' }}>Global distributors like DistroKid and TuneCore do not distribute CRBT for Indian telecoms.</strong> They are built for global streaming, not for the India-specific CRBT ecosystem. This means if you use DistroKid or TuneCore, your song will not be available as a Jio or Airtel caller tune.</p>
-          <p style={s}>Western Beats — as an official Warner Music partner operating specifically in India — includes CRBT distribution to all major Indian telecoms as part of its free distribution service.</p>
+          <p style={s}>Western Beats — as an official Warner Music India Partner operating specifically in India — includes CRBT distribution to all major Indian telecoms as part of its free distribution service.</p>
 
           <h3 style={h3}>The CRBT Distribution Process</h3>
           <ul style={{ paddingLeft: 24, marginBottom: 20 }}>

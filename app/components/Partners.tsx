@@ -35,7 +35,7 @@ export default function Partners() {
             <span style={{ color: '#0A64C3' }}>Biggest Names.</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="font-inter text-[15px] text-mut leading-relaxed">
-            Officially backed by our Warner Music partnership and partnered with the labels and platforms
+            Officially backed by our Warner Music India Partnership and partnered with the labels and platforms
             shaping the future of Indian music.
           </motion.p>
         </motion.div>

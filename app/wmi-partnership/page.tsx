@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import WMIPartnershipPage from './WMIPartnershipPage'
 
 export const metadata: Metadata = {
-  title: 'Warner Music Partnership | Western Beats — Official Warner Music Partner India',
+  title: 'Warner Music India Partnership | Western Beats — Official Warner Music Partner India',
   description:
     "Western Beats is India's only free music distributor officially backed by Warner Music Group. Discover what this exclusive partnership means: major-label infrastructure, priority placement on Indian platforms, and global reach — all free for independent artists.",
   keywords: [
     'Warner Music Partner India',
     'Warner Music Group India distribution',
-    'Western Beats Warner Music partnership',
+    'Western Beats Warner Music India Partnership',
     'official Warner Music Partner India',
     'major label distribution India free',
     'Warner Music Group independent artists India',
@@ -42,7 +42,7 @@ const SCHEMA = {
       '@type': 'WebPage',
       '@id': 'https://westernbeats.com/wmi-partnership#webpage',
       url: 'https://westernbeats.com/wmi-partnership',
-      name: 'Western Beats × Warner Music Partnership',
+      name: 'Western Beats × Warner Music India Partnership',
       description:
         "Western Beats is India's only free music distributor officially backed by Warner Music Group.",
       isPartOf: { '@id': 'https://westernbeats.com/#website' },
@@ -50,7 +50,7 @@ const SCHEMA = {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Warner Music Partnership', item: 'https://westernbeats.com/wmi-partnership' },
+          { '@type': 'ListItem', position: 2, name: 'Warner Music India Partnership', item: 'https://westernbeats.com/wmi-partnership' },
         ],
       },
     },
@@ -67,10 +67,10 @@ const SCHEMA = {
         },
         {
           '@type': 'Question',
-          name: 'What does the Warner Music partnership mean for my music?',
+          name: 'What does the Warner Music India Partnership mean for my music?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "The Warner Music partnership gives Western Beats priority placement on Indian streaming platforms like JioSaavn and Gaana, access to WMG's curator and editorial network, faster content processing (72 hours), and the credibility of being associated with the label behind Bruno Mars, Coldplay, and Ed Sheeran — all passed to independent artists at zero cost.",
+            text: "The Warner Music India Partnership gives Western Beats priority placement on Indian streaming platforms like JioSaavn and Gaana, access to WMG's curator and editorial network, faster content processing (72 hours), and the credibility of being associated with the label behind Bruno Mars, Coldplay, and Ed Sheeran — all passed to independent artists at zero cost.",
           },
         },
         {

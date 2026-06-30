@@ -158,7 +158,7 @@ export default function Stats() {
         >
           <div className="font-inter text-[12px] sm:text-[13px] text-sky tracking-[0.1em] uppercase font-semibold">Official Distribution Partner</div>
           <div className="hidden md:block w-px h-8 bg-white/10" />
-          <div className="font-outfit font-extrabold text-white text-[20px] sm:text-[22px]">Warner Music Partner</div>
+          <div className="font-outfit font-extrabold text-white text-[20px] sm:text-[22px]">Warner Music India Partner</div>
           <div className="hidden md:block w-px h-8 bg-white/10" />
           <div className="font-inter text-[12px] sm:text-[13px] text-mut">Warner Music Group · Official Partnership</div>
         </div>

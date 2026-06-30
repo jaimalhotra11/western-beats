@@ -188,7 +188,7 @@ export const ARTISTS: Artist[] = [
 ]
 
 export const PARTNERS = [
-  { name: 'Warner Music Partner',   logo: '/partners/warnermusicindia-3pJs86tg.png' },
+  { name: 'Warner Music India Partner',   logo: '/partners/warnermusicindia-3pJs86tg.png' },
   { name: 'JetSynthesys',         logo: '/partners/jetsynthesys-E9Hauft9.png' },
   { name: 'Global Music Junction',logo: '/partners/globalmusicjunction-C0M0W2-z.png' },
   { name: 'GIG Media',            logo: '/partners/gig-media-logo.png' },

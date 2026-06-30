@@ -190,7 +190,7 @@ export default function Hero() {
             className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-8 sm:mb-10 max-w-xl opacity-0"
           >
             <strong className="text-white">Western Beats</strong>, India&apos;s most credible full-service music company,
-            officially backed by Warner Music Partner.
+            officially backed by Warner Music India Partner.
             Distribute to 150+ platforms. <strong className="text-white">100% ownership (T&C apply). Always free.</strong>
           </p>
 

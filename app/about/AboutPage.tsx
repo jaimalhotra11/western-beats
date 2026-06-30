@@ -38,7 +38,7 @@ const COMPARE_FEATURES = [
   'Price',
   'Royalties Kept',
   'India-First (JioSaavn & Gaana)',
-  'Warner Music Partnership',
+  'Warner Music India Partnership',
   'Go-Live Time',
   'Platforms',
   'ISRC / UPC',
@@ -215,7 +215,7 @@ const VALUES = [
     icon: Award,
     title: 'Major-Label Quality',
     color: '#002A8D',
-    desc: "Our Warner Music partnership means major-label quality standards on every release: metadata, audio quality, and platform compliance you can't get elsewhere.",
+    desc: "Our Warner Music India Partnership means major-label quality standards on every release: metadata, audio quality, and platform compliance you can't get elsewhere.",
   },
   {
     icon: Zap,
@@ -243,7 +243,7 @@ const SERVICES_BRIEF = [
 const FAQS = [
   {
     q: 'What is Western Beats and how is it different from DistroKid?',
-    a: "Western Beats is India's #1 free music distribution platform by Western Beats Private Limited, officially backed by our Warner Music partnership. Unlike DistroKid, which charges $22.99/year (₹1,900+) with no India-first focus, Western Beats is completely free, prioritizes JioSaavn and Gaana, delivers music in 72 hours, and carries the credibility of our Warner Music partnership, something no other distributor offers.",
+    a: "Western Beats is India's #1 free music distribution platform by Western Beats Private Limited, officially backed by our Warner Music India Partnership. Unlike DistroKid, which charges $22.99/year (₹1,900+) with no India-first focus, Western Beats is completely free, prioritizes JioSaavn and Gaana, delivers music in 72 hours, and carries the credibility of our Warner Music India Partnership, something no other distributor offers.",
   },
   {
     q: 'Is Western Beats really free, no hidden fees?',
@@ -251,23 +251,23 @@ const FAQS = [
   },
   {
     q: 'Why should Indian artists choose Western Beats over TuneCore?',
-    a: 'TuneCore is US-built and US-focused. Western Beats is built specifically for the Indian music market. Western Beats distributes to JioSaavn, Gaana, and more with priority, costs ₹0 upfront (TuneCore costs $14.99/release), is backed by our Warner Music partnership for major-label credibility, goes live in 72 hours (TuneCore takes 7–10 days), and provides India-based artist support. Your royalties flow directly to you with no upfront fee.',
+    a: 'TuneCore is US-built and US-focused. Western Beats is built specifically for the Indian music market. Western Beats distributes to JioSaavn, Gaana, and more with priority, costs ₹0 upfront (TuneCore costs $14.99/release), is backed by our Warner Music India Partnership for major-label credibility, goes live in 72 hours (TuneCore takes 7–10 days), and provides India-based artist support. Your royalties flow directly to you with no upfront fee.',
   },
   {
     q: 'How does Western Beats compare to CD Baby for Indian artists?',
-    a: 'Western Beats wins on every metric for Indian artists: Price (₹0 upfront vs $9.99/release), Royalties (direct to you vs CD Baby taking 9% AND charging $9.99/release upfront, making Western Beats more cost-effective), India-first distribution (Western Beats has JioSaavn and Gaana priority), Warner Music partnership backing (CD Baby has no equivalent), and go-live speed (72 hrs vs 5–7 days). CD Baby has no dedicated presence in the Indian music market.',
+    a: 'Western Beats wins on every metric for Indian artists: Price (₹0 upfront vs $9.99/release), Royalties (direct to you vs CD Baby taking 9% AND charging $9.99/release upfront, making Western Beats more cost-effective), India-first distribution (Western Beats has JioSaavn and Gaana priority), Warner Music India Partnership backing (CD Baby has no equivalent), and go-live speed (72 hrs vs 5–7 days). CD Baby has no dedicated presence in the Indian music market.',
   },
   {
     q: 'Does Western Beats distribute to JioSaavn and Gaana?',
-    a: 'Yes, and we prioritize them. Western Beats distributes to JioSaavn, Gaana, and all major Indian platforms, along with Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music partnership gives us priority placement on Indian DSPs, something DistroKid, TuneCore, CD Baby, Ditto Music, and other foreign distributors cannot match.',
+    a: 'Yes, and we prioritize them. Western Beats distributes to JioSaavn, Gaana, and all major Indian platforms, along with Spotify, Apple Music, YouTube Music, Amazon Music, Tidal, Deezer, and 140+ more global platforms. Our Warner Music India Partnership gives us priority placement on Indian DSPs, something DistroKid, TuneCore, CD Baby, Ditto Music, and other foreign distributors cannot match.',
   },
   {
-    q: 'What does the Warner Music partnership mean for me as an artist?',
-    a: "Western Beats has an exclusive Warner Music partnership — one of the world's three major record label groups. This means major-label credibility on your releases, priority placement on Indian streaming platforms, access to Warner Music's network of playlist curators and industry contacts, audio quality standards that match major-label releases, and faster processing on platforms. No independent distributor in India, not Ditto Music, Believe, Orchard, Mad Verse, Fore Vision Digital, or anyone else, has this exclusive partnership.",
+    q: 'What does the Warner Music India Partnership mean for me as an artist?',
+    a: "Western Beats has an exclusive Warner Music India Partnership — one of the world's three major record label groups. This means major-label credibility on your releases, priority placement on Indian streaming platforms, access to Warner Music's network of playlist curators and industry contacts, audio quality standards that match major-label releases, and faster processing on platforms. No independent distributor in India, not Ditto Music, Believe, Orchard, Mad Verse, Fore Vision Digital, or anyone else, has this exclusive partnership.",
   },
   {
     q: 'How fast does Western Beats get music live on streaming platforms?',
-    a: 'Western Beats delivers your music to streaming platforms within 72 hours. Compare that to: DistroKid (7–10 days), TuneCore (7–10 days), CD Baby (5–7 days), and Ditto Music (3–5 days). Our 72-hour turnaround is possible because of our direct relationships with all major platforms and our Warner Music partnership.',
+    a: 'Western Beats delivers your music to streaming platforms within 72 hours. Compare that to: DistroKid (7–10 days), TuneCore (7–10 days), CD Baby (5–7 days), and Ditto Music (3–5 days). Our 72-hour turnaround is possible because of our direct relationships with all major platforms and our Warner Music India Partnership.',
   },
   {
     q: 'How does Western Beats\'s royalty model work?',
@@ -401,7 +401,7 @@ export default function AboutPage() {
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music Partner</div>
+              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
             </div>
           </Link>
 
@@ -433,7 +433,7 @@ export default function AboutPage() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <div className="platform-pill text-[10px]">Warner Music Partner</div>
+            <div className="platform-pill text-[10px]">Warner Music India Partner</div>
             <Link
               href="/submit"
               className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200"
@@ -498,7 +498,7 @@ export default function AboutPage() {
                 className="page-subtext speakable font-inter text-[16px] sm:text-[18px] text-mut leading-relaxed mb-10 max-w-2xl"
               >
                 Western Beats Private Limited is India&apos;s most trusted and 100% free music
-                distribution platform, officially backed by our <strong className="text-white">Warner Music partnership</strong>.
+                distribution platform, officially backed by our <strong className="text-white">Warner Music India Partnership</strong>.
                 Distribute to 150+ platforms including JioSaavn, Gaana, Spotify &amp; Apple Music.
                 Earn <strong className="text-white">royalties from every stream</strong>, we only earn when you do. Always free to distribute.
               </motion.p>
@@ -579,7 +579,7 @@ export default function AboutPage() {
                     className="font-outfit font-bold text-white text-[11px] tracking-[0.06em] px-3 py-1.5 rounded-full"
                     style={{ background: '#C41230', boxShadow: '0 4px 16px rgba(196,18,48,0.4)' }}
                   >
-                    ✦ Warner Music Partner
+                    ✦ Warner Music India Partner
                   </div>
                 </div>
                 {/* Stat mini-cards at bottom */}
@@ -653,7 +653,7 @@ export default function AboutPage() {
               </motion.p>
               <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-5">
                 That&apos;s why we built Western Beats: India-first, artist-first, and backed by the partnership
-                that changed everything: our <strong className="text-white">Warner Music partnership</strong>.
+                that changed everything: our <strong className="text-white">Warner Music India Partnership</strong>.
               </motion.p>
               <motion.p variants={fadeUp} className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed mb-8">
                 The same Warner Music Group that powers global superstars now powers every independent artist on Western Beats.
@@ -699,7 +699,7 @@ export default function AboutPage() {
                 <div className="gsap-card grid grid-cols-2 gap-2">
                   {[
                     { num: '01', title: 'Founded in India', color: '#C41230' },
-                    { num: '02', title: 'Warner Music Partner', color: '#0A64C3' },
+                    { num: '02', title: 'Warner Music India Partner', color: '#0A64C3' },
                     { num: '03', title: '150+ Platforms', color: '#5CB2DC' },
                     { num: '04', title: 'Always Free', color: '#002A8D' },
                   ].map(card => (
@@ -769,7 +769,7 @@ export default function AboutPage() {
               style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}
             >
               <span className="text-white">The </span>
-              <span style={{ color: '#0A64C3' }}>Warner Music Partnership</span>
+              <span style={{ color: '#0A64C3' }}>Warner Music India Partnership</span>
               <span className="text-white"> Advantage.</span>
             </motion.h2>
             <motion.p
@@ -779,7 +779,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
               className="speakable font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl mx-auto"
             >
-              Western Beats is India&apos;s only free distribution platform with an exclusive Warner Music partnership —
+              Western Beats is India&apos;s only free distribution platform with an exclusive Warner Music India Partnership —
               a backing that no other distributor (DistroKid, TuneCore, CD Baby, Ditto Music,
               Believe, Orchard, Mad Verse, or Fore Vision Digital) can match.
             </motion.p>
@@ -792,7 +792,7 @@ export default function AboutPage() {
                 icon: Award,
                 title: 'Major-Label Credibility',
                 color: '#0A64C3',
-                desc: "Your releases carry the weight of our Warner Music partnership — major-label credibility on every release.",
+                desc: "Your releases carry the weight of our Warner Music India Partnership — major-label credibility on every release.",
               },
               {
                 icon: Zap,
@@ -853,7 +853,7 @@ export default function AboutPage() {
                 Officially Backed By
               </div>
               <div className="font-outfit font-black text-white text-[22px] sm:text-[26px] leading-none">
-                Warner Music Partner
+                Warner Music India Partner
               </div>
               <div className="font-inter text-[12px] text-mut mt-1">
                 Warner Music Group · Official Partnership
@@ -1411,7 +1411,7 @@ export default function AboutPage() {
             className="font-inter text-[15px] sm:text-[17px] text-mut leading-relaxed mb-10"
           >
             Stop paying DistroKid, TuneCore, CD Baby, or Ditto Music. Switch to Western Beats, India&apos;s #1 free
-            music distribution platform, officially backed by our Warner Music partnership. One upload. 150+ platforms.
+            music distribution platform, officially backed by our Warner Music India Partnership. One upload. 150+ platforms.
             100% ownership always yours. ₹0 upfront. We only earn when you earn.
           </motion.p>
           <motion.div
@@ -1448,7 +1448,7 @@ export default function AboutPage() {
             {[
               '✓ 100% Free to Distribute',
               '✓ 100% Ownership Yours',
-              '✓ Warner Music Partner Backed',
+              '✓ Warner Music India Partner Backed',
               '✓ JioSaavn & Gaana Priority',
               '✓ Live in 72 Hours',
             ].map(badge => (

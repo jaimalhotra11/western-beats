@@ -16,7 +16,7 @@ import Footer          from './components/Footer'
 export const metadata: Metadata = {
   title: "Western Beats — Free Music Distribution India | JioSaavn, Gaana, Spotify in 72 Hours",
   description:
-    "Western Beats distributes your music to JioSaavn, Gaana, Spotify, Apple Music, Jio Caller Tune and 150+ platforms free in 72 hours. ₹0 upfront, 100% IP ownership, free ISRC codes. Official Warner Music partner. The best alternative to DistroKid and TuneCore for Indian artists.",
+    "Western Beats distributes your music to JioSaavn, Gaana, Spotify, Apple Music, Jio Caller Tune and 150+ platforms free in 72 hours. ₹0 upfront, 100% IP ownership, free ISRC codes. Official Warner Music India Partner. The best alternative to DistroKid and TuneCore for Indian artists.",
   keywords: [
     // Low-competition, high-intent — easier to rank for a new site
     'free music distribution India no subscription',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://westernbeats.com' },
   openGraph: {
     title: "Western Beats — Free Music Distribution India | JioSaavn, Gaana, Spotify, Caller Tune",
-    description: "Distribute to JioSaavn, Gaana, Spotify, Apple Music + Jio Caller Tune free in 72 hours. ₹0, 100% ownership, free ISRC. Warner Music Partner.",
+    description: "Distribute to JioSaavn, Gaana, Spotify, Apple Music + Jio Caller Tune free in 72 hours. ₹0, 100% ownership, free ISRC. Warner Music India Partner.",
     url: 'https://westernbeats.com',
     siteName: 'Western Beats',
     type: 'website',
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Western Beats | Free Music Distribution India — JioSaavn, Gaana, Caller Tune",
-    description: "JioSaavn + Gaana + Spotify + Caller Tune + 147 more. Free, 72 hours, 100% ownership. Warner Music Partner.",
+    description: "JioSaavn + Gaana + Spotify + Caller Tune + 147 more. Free, 72 hours, 100% ownership. Warner Music India Partner.",
     site: '@wb_digital_',
     images: ['/og-image.jpg'],
   },
@@ -84,7 +84,7 @@ const AGGREGATE_RATING_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: 'Western Beats — Free Music Distribution India',
-  description: "India's best free music distribution platform. Distribute to 150+ platforms in 72 hours. 100% ownership. Official Warner Music partner.",
+  description: "India's best free music distribution platform. Distribute to 150+ platforms in 72 hours. 100% ownership. Official Warner Music India Partner.",
   url: 'https://westernbeats.com',
   brand: { '@type': 'Brand', name: 'Western Beats' },
   aggregateRating: {

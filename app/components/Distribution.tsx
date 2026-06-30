@@ -198,7 +198,7 @@ export default function Distribution() {
                     ))}
                   </div>
                   <div className="font-inter text-[10px] text-sky tracking-[0.08em] uppercase font-semibold">
-                    ✦ Backed by Warner Music Partner
+                    ✦ Backed by Warner Music India Partner
                   </div>
                 </div>
               </div>

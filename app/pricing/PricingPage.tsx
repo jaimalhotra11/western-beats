@@ -21,7 +21,7 @@ const FEATURES = [
   'Artist royalty share',
   'Annual / per-release fee',
   'India-First (JioSaavn & Gaana)',
-  'Warner Music partnership',
+  'Warner Music India Partnership',
   'Go-live time',
   'ISRC & UPC codes',
   'Playlist pitching',
@@ -162,7 +162,7 @@ const FAQS = [
   },
   {
     q: 'How does Western Beats compare to CD Baby?',
-    a: 'Western Beats wins on every metric: ₹0 upfront (vs $9.99/release + 9% royalties), India-first distribution with JioSaavn & Gaana priority (CD Baby has no India focus), Warner Music partnership backing (CD Baby has no equivalent), 72-hour go-live (vs 5–7 days), and free ISRC codes (CD Baby charges $5 each).',
+    a: 'Western Beats wins on every metric: ₹0 upfront (vs $9.99/release + 9% royalties), India-first distribution with JioSaavn & Gaana priority (CD Baby has no India focus), Warner Music India Partnership backing (CD Baby has no equivalent), 72-hour go-live (vs 5–7 days), and free ISRC codes (CD Baby charges $5 each).',
   },
   {
     q: 'What happens if I earn nothing from streaming?',
@@ -263,7 +263,7 @@ export default function PricingPage() {
             </div>
             <div>
               <div className="font-outfit font-black text-[15px] tracking-[0.04em] text-white leading-none">WESTERN BEATS</div>
-              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music Partner</div>
+              <div className="font-inter text-[9px] text-mut tracking-[0.12em] uppercase">Official Warner Music India Partner</div>
             </div>
           </Link>
           <div className="hidden md:flex items-center gap-1">
@@ -522,7 +522,7 @@ export default function PricingPage() {
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="gsap-card grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: Globe2,   color: '#0A64C3', title: 'India First', desc: 'JioSaavn, Gaana & distribution with our Warner Music partnership priority, no foreign distributor can match this.' },
+              { icon: Globe2,   color: '#0A64C3', title: 'India First', desc: 'JioSaavn, Gaana & distribution with our Warner Music India Partnership priority, no foreign distributor can match this.' },
               { icon: Shield,   color: '#C41230', title: 'Zero Risk',    desc: 'No upfront cost means zero financial risk. Submit your music for free, we only earn when you earn.' },
               { icon: Zap,      color: '#5CB2DC', title: '72-Hour Live', desc: 'Fastest distribution in India. DistroKid takes 7–10 days. Western Beats gets you live in 72 hours.' },
               { icon: Music2,   color: '#0A64C3', title: 'Full Service', desc: 'Distribution is just the start. Events, talent management, audio production, video direction, all under one roof.' },
@@ -560,7 +560,7 @@ export default function PricingPage() {
           >
             <div className="font-inter text-[12px] text-sky tracking-[0.1em] uppercase font-semibold">Official Partner</div>
             <div className="hidden md:block w-px h-8 bg-white/10" />
-            <div className="font-outfit font-extrabold text-white text-[20px]">Warner Music Partner</div>
+            <div className="font-outfit font-extrabold text-white text-[20px]">Warner Music India Partner</div>
             <div className="hidden md:block w-px h-8 bg-white/10" />
             <div className="font-inter text-[12px] text-mut">The same Warner Music Group network that powers global superstars, now powers Western Beats artists.</div>
           </motion.div>

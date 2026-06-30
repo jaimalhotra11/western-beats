@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://westernbeats.com/jiosaavn-distribution' },
   openGraph: {
     title: 'JioSaavn Music Distribution Free 2026 — Upload Your Song | Western Beats',
-    description: 'Get your song on JioSaavn free with Western Beats. 72 hours, 150+ platforms, 100% ownership, Warner Music Partner.',
+    description: 'Get your song on JioSaavn free with Western Beats. 72 hours, 150+ platforms, 100% ownership, Warner Music India Partner.',
     url: 'https://westernbeats.com/jiosaavn-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
     images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
@@ -148,7 +148,7 @@ export default function JioSaavnPage() {
               { q: 'How long does it take to appear on JioSaavn?', a: 'After our 24-hour review, your music is live on JioSaavn within 72 hours of approval.' },
               { q: 'Does DistroKid distribute to JioSaavn?', a: 'No. DistroKid, TuneCore, and most global distributors do not include JioSaavn. Western Beats distributes to JioSaavn as standard.' },
               { q: 'Can I distribute Punjabi or Bhojpuri music to JioSaavn?', a: 'Yes. Western Beats distributes music in all Indian languages to JioSaavn — Hindi, Punjabi, Tamil, Telugu, Bhojpuri, Haryanvi, and more.' },
-              { q: 'Will my song appear in JioSaavn\'s recommendations?', a: 'Eligibility for JioSaavn editorial playlists and recommendations depends on streams, listener data, and platform algorithms. Western Beats\' Warner Music partnership gives your releases priority consideration for playlist pitching.' },
+              { q: 'Will my song appear in JioSaavn\'s recommendations?', a: 'Eligibility for JioSaavn editorial playlists and recommendations depends on streams, listener data, and platform algorithms. Western Beats\' Warner Music India Partnership gives your releases priority consideration for playlist pitching.' },
             ].map(faq => (
               <div key={faq.q} style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: '20px 24px' }}>
                 <div style={{ fontWeight: 700, color: 'white', marginBottom: 8 }}>{faq.q}</div>

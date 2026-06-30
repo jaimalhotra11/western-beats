@@ -155,7 +155,7 @@ export default function DistroKidBlogPost() {
             <li style={li}><strong style={{ color: 'white' }}>JioSaavn, Gaana, Wynk, Hungama</strong> — all Indian platforms included</li>
             <li style={li}><strong style={{ color: 'white' }}>CRBT distribution</strong> — Jio Caller Tune, Airtel Hello Tune, Vi Hello Tune included</li>
             <li style={li}><strong style={{ color: 'white' }}>150+ platforms</strong> — global + all India-specific</li>
-            <li style={li}><strong style={{ color: 'white' }}>Warner Music Partner</strong> — major-label infrastructure and credibility</li>
+            <li style={li}><strong style={{ color: 'white' }}>Warner Music India Partner</strong> — major-label infrastructure and credibility</li>
             <li style={li}><strong style={{ color: 'white' }}>100% IP ownership</strong> — always yours</li>
           </ul>
 
@@ -173,7 +173,7 @@ export default function DistroKidBlogPost() {
             {[
               { q: 'Does DistroKid distribute to JioSaavn?', a: 'No. DistroKid does not distribute to JioSaavn or Gaana — the two largest music platforms in India.' },
               { q: 'Does DistroKid support Jio caller tune?', a: 'No. DistroKid has no CRBT / caller tune distribution for Indian telecoms. Western Beats includes this for free.' },
-              { q: 'What is the best free DistroKid alternative for Indian artists?', a: 'Western Beats — ₹0 forever, 150+ platforms including JioSaavn & Gaana, CRBT distribution, Warner Music partner, 100% IP ownership.' },
+              { q: 'What is the best free DistroKid alternative for Indian artists?', a: 'Western Beats — ₹0 forever, 150+ platforms including JioSaavn & Gaana, CRBT distribution, Warner Music India Partner, 100% IP ownership.' },
               { q: 'How much does switching from DistroKid to Western Beats cost?', a: 'Nothing. Western Beats is completely free. You do need to remove your music from DistroKid first before re-uploading to avoid duplicate content issues.' },
             ].map(faq => (
               <div key={faq.q} style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: '20px 24px' }}>
@@ -185,7 +185,7 @@ export default function DistroKidBlogPost() {
 
           <div style={{ background: '#0A1535', border: '1px solid rgba(10,100,195,0.3)', borderRadius: 20, padding: '36px', textAlign: 'center', marginTop: 56 }}>
             <h2 style={{ fontSize: 24, fontWeight: 800, marginBottom: 12 }}>Switch to Western Beats — India&apos;s Best Free Distributor</h2>
-            <p style={{ color: '#8899AA', fontSize: 15, marginBottom: 24 }}>JioSaavn + Gaana + Caller Tunes + 147 more platforms. ₹0 forever. Warner Music Partner.</p>
+            <p style={{ color: '#8899AA', fontSize: 15, marginBottom: 24 }}>JioSaavn + Gaana + Caller Tunes + 147 more platforms. ₹0 forever. Warner Music India Partner.</p>
             <Link href="/submit" style={{ background: '#0A64C3', color: 'white', padding: '14px 32px', borderRadius: 12, fontWeight: 700, fontSize: 15, textDecoration: 'none', display: 'inline-block' }}>Submit Your Music Free →</Link>
           </div>
 

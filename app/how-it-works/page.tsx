@@ -4,7 +4,7 @@ import HowItWorksPage from './HowItWorksPage'
 export const metadata: Metadata = {
   title: 'How It Works: Free Music Distribution in 3 Steps | Western Beats',
   description:
-    'See exactly how Western Beats works: Submit your music → We distribute to 150+ platforms in 72 hours → 100% IP ownership always yours, royalties paid directly to you. Free forever. Backed by Warner Music Partner. Faster than DistroKid, TuneCore & CD Baby.',
+    'See exactly how Western Beats works: Submit your music → We distribute to 150+ platforms in 72 hours → 100% IP ownership always yours, royalties paid directly to you. Free forever. Backed by Warner Music India Partner. Faster than DistroKid, TuneCore & CD Baby.',
   keywords: [
     'how does Western Beats work',
     'how to distribute music India',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     'how to upload music to JioSaavn',
     'how to get music on Spotify India free',
     'music distribution 72 hours India',
-    'Warner Music Partner distribution process',
+    'Warner Music India Partner distribution process',
     'Western Beats how it works',
     'indie artist distribution guide India',
     'how to earn royalties India',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://westernbeats.com/how-it-works' },
   openGraph: {
     title: 'How Western Beats Works: 3 Steps to Stream on 150+ Platforms | Western Beats',
-    description: 'Submit → Distribute to 150+ platforms in 72 hrs → 100% ownership, royalties direct to you. Free forever. Backed by Warner Music Partner.',
+    description: 'Submit → Distribute to 150+ platforms in 72 hrs → 100% ownership, royalties direct to you. Free forever. Backed by Warner Music India Partner.',
     url: 'https://westernbeats.com/how-it-works',
     siteName: 'Western Beats',
     type: 'website',

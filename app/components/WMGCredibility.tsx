@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
-/* ─── Warner Music Partner artists: real WMG CDN + Wikipedia photos ──── */
+/* ─── Warner Music India Partner artists: real WMG CDN + Wikipedia photos ──── */
 const INDIA_ARTISTS = [
   {
     name: 'King',
@@ -219,7 +219,7 @@ export default function WMGCredibility() {
             transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
             className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl"
           >
-            WB is officially backed by <strong className="text-white">Warner Music Partner</strong>, giving us access to
+            WB is officially backed by <strong className="text-white">Warner Music India Partner</strong>, giving us access to
             Warner Music Group&apos;s global infrastructure. The same reach powering Bruno Mars, Coldplay &amp; Ed Sheeran globally
             now powers <strong className="text-white">your independent music career</strong>.
           </motion.p>
@@ -233,7 +233,7 @@ export default function WMGCredibility() {
         >
           <div className="flex items-center gap-3 mb-5">
             <div className="w-8 h-8 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0">
-              <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music Partner" width={32} height={32} className="object-contain w-full h-full" />
+              <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India Partner" width={32} height={32} className="object-contain w-full h-full" />
             </div>
             <div>
               <div className="font-outfit font-extrabold text-white text-[15px]">Warner Music Group</div>
@@ -260,7 +260,7 @@ export default function WMGCredibility() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="my-6"
         >
-          <KineticStrip text="Warner Music Partner · WB · Official Partner" color="#C41230" />
+          <KineticStrip text="Warner Music India Partner · WB · Official Partner" color="#C41230" />
         </motion.div>
 
         {/* ── Global Artists Slider ── */}

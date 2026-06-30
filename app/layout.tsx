@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     template: '%s | Western Beats',
   },
   description:
-    "Western Beats — India's best free music distribution company. Distribute to 150+ platforms (JioSaavn, Gaana, Spotify, Apple Music, YouTube Music) in 72 hours. 100% IP ownership always yours. ₹0 upfront forever. Official Warner Music partner. Better than DistroKid, TuneCore & CD Baby.",
+    "Western Beats — India's best free music distribution company. Distribute to 150+ platforms (JioSaavn, Gaana, Spotify, Apple Music, YouTube Music) in 72 hours. 100% IP ownership always yours. ₹0 upfront forever. Official Warner Music India Partner. Better than DistroKid, TuneCore & CD Baby.",
   keywords: [
     // ── Primary money keywords ─────────────────────────────────────────────
     'best music distribution company',
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     type: 'website',
     title: 'Western Beats | Best Free Music Distribution — 150+ Platforms, 100% Ownership',
     description:
-      "India's best free music distribution company. 150+ platforms in 72 hours. 100% IP ownership always yours. ₹0 upfront. Official Warner Music partner. Better than DistroKid & TuneCore.",
+      "India's best free music distribution company. 150+ platforms in 72 hours. 100% IP ownership always yours. ₹0 upfront. Official Warner Music India Partner. Better than DistroKid & TuneCore.",
     url: 'https://westernbeats.com',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Western Beats — Best Free Music Distribution India' }],
   },
@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@wb_digital_',
     title: 'Western Beats | Best Free Music Distribution India',
-    description: 'Best free music distribution — 150+ platforms, 72 hrs, 100% ownership. Official Warner Music partner. ₹0 forever.',
+    description: 'Best free music distribution — 150+ platforms, 72 hrs, 100% ownership. Official Warner Music India Partner. ₹0 forever.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -129,7 +129,7 @@ const ORG_SCHEMA = {
   },
   image: 'https://westernbeats.com/og-image.jpg',
   description:
-    "India's best free music distribution company — Western Beats distributes to 150+ platforms (JioSaavn, Gaana, Spotify, Apple Music) in 72 hours. 100% IP ownership always yours, zero upfront cost. Official Warner Music partner. The same Warner Music Group infrastructure that powers Bruno Mars, Coldplay & Ed Sheeran now powers every independent artist in India.",
+    "India's best free music distribution company — Western Beats distributes to 150+ platforms (JioSaavn, Gaana, Spotify, Apple Music) in 72 hours. 100% IP ownership always yours, zero upfront cost. Official Warner Music India Partner. The same Warner Music Group infrastructure that powers Bruno Mars, Coldplay & Ed Sheeran now powers every independent artist in India.",
   foundingDate: '2020',
   foundingLocation: { '@type': 'Country', name: 'India' },
   areaServed: [
@@ -152,7 +152,7 @@ const ORG_SCHEMA = {
   },
   memberOf: {
     '@type': 'Organization',
-    name: 'Warner Music Partner',
+    name: 'Warner Music India Partner',
     parentOrganization: {
       '@type': 'Organization',
       name: 'Warner Music Group',
