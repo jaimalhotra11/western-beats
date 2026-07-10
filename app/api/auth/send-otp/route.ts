@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
     })
 
     await transporter.sendMail({
-      from: `"Western Beats" <${process.env.GMAIL_USER}>`,
+      from: `"Western Beats" <${process.env.GMAIL_USER || 'contactwesternbeats@gmail.com'}>`,
       to: email,
       subject: `${code} — Your Western Beats OTP`,
       html: `
