@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
 
     // Send OTP email
     await resend.emails.send({
-      from: 'Western Beats <onboarding@resend.dev>',
+      from: 'Western Beats <noreply@westernbeats.com>',
       to: email,
       subject: `${code} — Your Western Beats OTP`,
       html: `
