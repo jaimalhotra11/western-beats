@@ -2,9 +2,15 @@ import { NextRequest, NextResponse } from 'next/server'
 import { connectDB } from '@/lib/mongodb'
 import { OTP } from '@/lib/models/OTP'
 import { User } from '@/lib/models/User'
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+})
 
 function generateOTP() {
   return Math.floor(100000 + Math.random() * 900000).toString()
@@ -37,8 +43,8 @@ export async function POST(req: NextRequest) {
     await OTP.create({ email: email.toLowerCase(), code, expiresAt })
 
     // Send OTP email
-    await resend.emails.send({
-      from: 'Western Beats <noreply@westernbeats.com>',
+    await transporter.sendMail({
+      from: `"Western Beats" <${process.env.GMAIL_USER}>`,
       to: email,
       subject: `${code} — Your Western Beats OTP`,
       html: `
