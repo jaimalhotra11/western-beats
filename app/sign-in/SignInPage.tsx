@@ -104,6 +104,7 @@ export default function SignInPage() {
                     onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
                   />
                   <p style={{ margin: '8px 0 0', fontSize: 12, color: '#4A5568', textAlign: 'center' as const }}>Sent to {email} · <button type="button" onClick={() => { setStep('email'); setError(''); setOtp('') }} style={{ background: 'none', border: 'none', color: '#5CB2DC', cursor: 'pointer', fontSize: 12, padding: 0 }}>Change email</button></p>
+                  <p style={{ margin: '6px 0 0', fontSize: 12, color: '#F59E0B', textAlign: 'center' as const }}>⚠️ Can&apos;t find it? Check your <strong>Spam / Junk</strong> folder.</p>
                 </div>
                 {error && <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 10, padding: '12px 16px', color: '#F87171', fontSize: 14 }}>{error}</div>}
                 <button type="submit" disabled={loading || otp.length !== 6} style={{ background: loading || otp.length !== 6 ? '#0A3A7A' : '#0A64C3', color: '#fff', border: 'none', borderRadius: 12, padding: '15px', fontSize: 15, fontWeight: 700, cursor: loading || otp.length !== 6 ? 'not-allowed' : 'pointer', transition: 'background 0.2s' }}>
