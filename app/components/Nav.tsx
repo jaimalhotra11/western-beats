@@ -83,7 +83,7 @@ export default function Nav() {
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <Link
-              href="/submit"
+              href="/sign-up"
               className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200"
             >
               Distribute Free
@@ -146,7 +146,7 @@ export default function Nav() {
               className="mt-6"
             >
               <Link
-                href="/submit"
+                href="/sign-up"
                 onClick={() => setMenuOpen(false)}
                 className="block px-8 py-3 bg-blu rounded-xl font-outfit font-bold text-lg text-white"
               >
