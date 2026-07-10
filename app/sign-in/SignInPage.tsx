@@ -46,7 +46,7 @@ export default function SignInPage() {
       })
       const data = await res.json()
       if (!res.ok) { setError(data.error); return }
-      router.push('/dashboard')
+      router.push('/submit')
     } catch {
       setError('Something went wrong. Please try again.')
     } finally {
