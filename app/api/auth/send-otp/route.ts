@@ -4,14 +4,6 @@ import { OTP } from '@/lib/models/OTP'
 import { User } from '@/lib/models/User'
 import nodemailer from 'nodemailer'
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASSWORD,
-  },
-})
-
 function generateOTP() {
   return Math.floor(100000 + Math.random() * 900000).toString()
 }
@@ -43,6 +35,14 @@ export async function POST(req: NextRequest) {
     await OTP.create({ email: email.toLowerCase(), code, expiresAt })
 
     // Send OTP email
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    })
+
     await transporter.sendMail({
       from: `"Western Beats" <${process.env.GMAIL_USER}>`,
       to: email,
