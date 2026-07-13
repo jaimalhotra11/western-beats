@@ -97,7 +97,12 @@ export default function SubmitPage() {
   const [fields, setFields] = useState<FormFields>(EMPTY)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const [agreedToTerms, setAgreedToTerms] = useState(false)
+  const [termsError, setTermsError] = useState('')
+  const [releaseDateError, setReleaseDateError] = useState('')
   const sectionRef = useRef<HTMLDivElement>(null)
+
+  const todayISO = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10)
 
   useEffect(() => {
     registerGSAP()
@@ -140,6 +145,12 @@ export default function SubmitPage() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
+
+    setReleaseDateError(''); setTermsError('')
+
+    if (fields.releaseDate < todayISO) { setReleaseDateError('Release Date cannot be in the past. Please choose today or a future date.'); return }
+    if (!agreedToTerms) { setTermsError('You must agree to the Terms & Conditions before submitting.'); return }
+
     setStatus('loading')
     setErrorMsg('')
     try {
@@ -175,6 +186,7 @@ export default function SubmitPage() {
           'YouTube Content ID': fields.youtubeContentId,
           'Song Lyrics': fields.songLyrics,
           'Message': fields.message,
+          'Agreed to Terms & Conditions': 'Yes',
         }),
       })
       if (res.ok) { setStatus('success') }
@@ -307,7 +319,7 @@ export default function SubmitPage() {
                     We&apos;ve received your music submission. Our team will review it and get back to you within <strong className="text-white">24 hours</strong>.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <button onClick={() => { setFields(EMPTY); setStatus('idle') }}
+                    <button onClick={() => { setFields(EMPTY); setAgreedToTerms(false); setTermsError(''); setReleaseDateError(''); setStatus('idle') }}
                       className="px-6 py-3 rounded-xl font-outfit font-bold text-[13px] text-white bg-blu hover:bg-[#0D77E0] transition-colors duration-200">
                       Submit Another Track
                     </button>
@@ -355,7 +367,15 @@ export default function SubmitPage() {
                     </div>
                     <div>
                       <label className={labelCls}>Release Date *</label>
-                      <input required type="date" value={fields.releaseDate} onChange={set('releaseDate')} className={inputCls} />
+                      <input required type="date" min={todayISO} value={fields.releaseDate}
+                        onChange={e => {
+                          set('releaseDate')(e)
+                          setReleaseDateError(e.target.value && e.target.value < todayISO
+                            ? 'Release Date cannot be in the past. Please choose today or a future date.'
+                            : '')
+                        }}
+                        className={inputCls} style={{ borderColor: releaseDateError ? '#C41230' : undefined }} />
+                      {releaseDateError && <p className="font-inter text-[11px] mt-1.5" style={{ color: '#f87171' }}>{releaseDateError}</p>}
                     </div>
                   </div>
 
@@ -567,6 +587,28 @@ export default function SubmitPage() {
                     <textarea value={fields.message} onChange={set('message')} rows={3}
                       placeholder="Mood, references, special instructions, event tie-ins..."
                       className={`${inputCls} resize-none`} />
+                  </div>
+
+                  {/* Terms & Conditions */}
+                  <div className="mb-5">
+                    <label className="flex items-start gap-2.5 cursor-pointer">
+                      <input
+                        required
+                        type="checkbox"
+                        checked={agreedToTerms}
+                        onChange={e => { setAgreedToTerms(e.target.checked); if (e.target.checked) setTermsError('') }}
+                        className="mt-0.5 w-4 h-4 flex-shrink-0 accent-[#0A64C3]"
+                      />
+                      <span className="font-inter text-[13px] text-mut leading-relaxed">
+                        I agree to the{' '}
+                        <Link href="/terms" target="_blank" rel="noopener noreferrer"
+                          className="font-semibold" style={{ color: '#5CB2DC' }}>
+                          Terms &amp; Conditions
+                        </Link>
+                        {' '}*
+                      </span>
+                    </label>
+                    {termsError && <p className="font-inter text-[11px] mt-1.5" style={{ color: '#f87171' }}>{termsError}</p>}
                   </div>
 
                   {/* Error */}

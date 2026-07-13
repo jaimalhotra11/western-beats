@@ -1,11 +1,14 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Nav from '../components/Nav'
 
 export default function SignInPage() {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const rawNext = searchParams.get('next') || '/submit'
+  const next = rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '/submit'
   const [email, setEmail] = useState('')
   const [otp, setOtp] = useState('')
   const [step, setStep] = useState<'email' | 'otp'>('email')
@@ -46,7 +49,7 @@ export default function SignInPage() {
       })
       const data = await res.json()
       if (!res.ok) { setError(data.error); return }
-      router.push('/submit')
+      router.push(next)
     } catch {
       setError('Something went wrong. Please try again.')
     } finally {
@@ -119,7 +122,7 @@ export default function SignInPage() {
             <div style={{ marginTop: 28, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.06)', textAlign: 'center' as const }}>
               <p style={{ margin: 0, color: '#8899AA', fontSize: 14 }}>
                 Don&apos;t have an account?{' '}
-                <Link href="/sign-up" style={{ color: '#5CB2DC', fontWeight: 600, textDecoration: 'none' }}>Sign up free →</Link>
+                <Link href={`/sign-up?next=${encodeURIComponent(next)}`} style={{ color: '#5CB2DC', fontWeight: 600, textDecoration: 'none' }}>Sign up free →</Link>
               </p>
             </div>
           </div>

@@ -197,7 +197,7 @@ export default function Hero() {
           {/* CTAs */}
           <div ref={ctaRef} className="flex flex-wrap gap-3 sm:gap-4 mb-12 sm:mb-16">
             <Link
-              href="/submit"
+              href="/sign-up"
               className="group flex items-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 bg-blu rounded-xl font-outfit font-bold text-[14px] sm:text-[15px] text-white hover:bg-[#0D77E0] transition-all duration-300 hover:-translate-y-1 opacity-0"
               style={{ boxShadow: '0 8px 30px rgba(10,100,195,0.35)' }}
             >

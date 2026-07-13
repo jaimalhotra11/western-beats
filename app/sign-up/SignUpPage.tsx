@@ -1,13 +1,16 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Nav from '../components/Nav'
 
 const GENRES = ['Haryanvi', 'Punjabi', 'Hindi / Bollywood', 'Tamil', 'Telugu', 'Marathi', 'Bengali', 'Kannada', 'Malayalam', 'Bhojpuri', 'Folk / Regional', 'Pop', 'Hip-Hop / Rap', 'Electronic / EDM', 'Other']
 
 export default function SignUpPage() {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const rawNext = searchParams.get('next') || '/submit'
+  const next = rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '/submit'
   const [step, setStep] = useState<'form' | 'otp'>('form')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -53,7 +56,24 @@ export default function SignUpPage() {
       })
       const data = await res.json()
       if (!res.ok) { setError(data.error); return }
-      router.push('/submit')
+
+      try {
+        await fetch('https://formspree.io/f/mnjeqvne', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            'Full Name': form.name,
+            'Artist Name': form.artistName,
+            'Email': form.email,
+            'Phone': form.phone,
+            'Genre': form.genre,
+          }),
+        })
+      } catch {
+        // Best-effort notification copy — account creation already succeeded, don't block on this.
+      }
+
+      router.push(next)
     } catch {
       setError('Something went wrong. Please try again.')
     } finally {
@@ -151,7 +171,7 @@ export default function SignUpPage() {
             <div style={{ marginTop: 28, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.06)', textAlign: 'center' as const }}>
               <p style={{ margin: 0, color: '#8899AA', fontSize: 14 }}>
                 Already have an account?{' '}
-                <Link href="/sign-in" style={{ color: '#5CB2DC', fontWeight: 600, textDecoration: 'none' }}>Sign in →</Link>
+                <Link href={`/sign-in?next=${encodeURIComponent(next)}`} style={{ color: '#5CB2DC', fontWeight: 600, textDecoration: 'none' }}>Sign in →</Link>
               </p>
             </div>
           </div>

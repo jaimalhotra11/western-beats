@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import SignUpPage from './SignUpPage'
 
 export const metadata: Metadata = {
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  return <SignUpPage />
+  return (
+    <Suspense fallback={null}>
+      <SignUpPage />
+    </Suspense>
+  )
 }

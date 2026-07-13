@@ -16,6 +16,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Valid email is required' }, { status: 400 })
     }
 
+    const gmailUser = process.env.GMAIL_USER
+    const gmailPass = process.env.GMAIL_APP_PASSWORD
+    if (!gmailUser || !gmailPass) {
+      console.error('send-otp error: GMAIL_USER / GMAIL_APP_PASSWORD not configured')
+      return NextResponse.json({ error: 'Email service is not configured. Please try again later.' }, { status: 500 })
+    }
+
     await connectDB()
 
     // For sign-in: check user exists
@@ -40,13 +47,13 @@ export async function POST(req: NextRequest) {
       port: 465,
       secure: true,
       auth: {
-        user: process.env.GMAIL_USER || 'contactwesternbeats@gmail.com',
-        pass: process.env.GMAIL_APP_PASSWORD || 'hzdceckogjbaitzu',
+        user: gmailUser,
+        pass: gmailPass,
       },
     })
 
     await transporter.sendMail({
-      from: `"Western Beats" <${process.env.GMAIL_USER || 'contactwesternbeats@gmail.com'}>`,
+      from: `"Western Beats" <${gmailUser}>`,
       to: email,
       subject: `${code} — Your Western Beats OTP`,
       html: `

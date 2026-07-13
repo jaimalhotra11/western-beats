@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { redirect } from 'next/navigation'
+import { getSession } from '@/lib/session'
 import SubmitPage from './SubmitPage'
 
 export const metadata: Metadata = {
@@ -69,7 +71,12 @@ const jsonLd = {
   ],
 }
 
-export default function Submit() {
+export default async function Submit() {
+  const session = await getSession()
+  if (!session.isLoggedIn) {
+    redirect('/sign-in?next=/submit')
+  }
+
   return (
     <>
       <script
