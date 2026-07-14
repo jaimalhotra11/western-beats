@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import HowItWorksPage from './HowItWorksPage'
 
 export const metadata: Metadata = {
-  title: 'How It Works: 3 Steps to Distribute | Western Beats',
+  title: 'How It Works: 3 Steps to Distribute',
   description:
     'Submit your music, we distribute to 150+ platforms in 72 hours, you keep 100% ownership. Free forever. WMI Partner backed.',
   keywords: [

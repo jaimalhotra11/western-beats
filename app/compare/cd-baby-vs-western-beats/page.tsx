@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import ComparisonPage from '../ComparisonPage'
 
 export const metadata: Metadata = {
-  title: 'CD Baby vs Western Beats 2026 | Western Beats',
+  title: 'CD Baby vs Western Beats 2026',
   description: "CD Baby charges $9.99/release + 9% royalties forever. Western Beats is free, 100% ownership, JioSaavn + Gaana, WMG backed.",
   keywords: [
     'CD Baby vs Western Beats',

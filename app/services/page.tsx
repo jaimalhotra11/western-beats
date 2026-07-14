@@ -4,7 +4,7 @@ import ServicesPage from './ServicesPage'
 /* ─── SEO Metadata ──────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
   title:
-    "Music Distribution, Events & Talent | Western Beats",
+    "Music Distribution, Events & Talent",
   description:
     "Free music distribution to 150+ platforms plus event management, talent management, audio & video production. WMI Partner.",
   keywords: [

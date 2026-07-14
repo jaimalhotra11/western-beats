@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import ComparisonPage from '../ComparisonPage'
 
 export const metadata: Metadata = {
-  title: 'TuneCore vs Western Beats 2026 | Western Beats',
+  title: 'TuneCore vs Western Beats 2026',
   description: "TuneCore charges ₹1,599/yr, free plan skips JioSaavn/Gaana. Western Beats is free, covers all Indian platforms, WMG backed.",
   keywords: [
     'TuneCore vs Western Beats',

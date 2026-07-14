@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import ComparisonPage from '../ComparisonPage'
 
 export const metadata: Metadata = {
-  title: 'RouteNote vs Western Beats 2026 | Western Beats',
+  title: 'RouteNote vs Western Beats 2026',
   description: "RouteNote's free plan takes 15% of royalties forever. Western Beats is truly free, 150+ platforms incl. JioSaavn, WMG backed.",
   keywords: [
     'RouteNote vs Western Beats',

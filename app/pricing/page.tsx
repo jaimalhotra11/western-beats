@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PricingPage from './PricingPage'
 
 export const metadata: Metadata = {
-  title: 'Pricing: Free Distribution, 100% Ownership | WB',
+  title: 'Pricing: Free Distribution, 100% Ownership',
   description:
     '100% free forever: ₹0 upfront, 100% ownership always. WB only earns when you earn. Cheaper than DistroKid, TuneCore, CD Baby.',
   keywords: [

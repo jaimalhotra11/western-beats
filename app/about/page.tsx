@@ -4,7 +4,7 @@ import AboutPage from './AboutPage'
 /* ─── Rich SEO Metadata ─────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
   title:
-    "About Western Beats | Free Music Distribution India",
+    "About Us | Free Music Distribution India",
   description:
     "Western Beats Private Limited — India's best free music distributor. 150+ platforms, 100% ownership, WMI Partner backed.",
   keywords: [

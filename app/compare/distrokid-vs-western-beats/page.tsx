@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import ComparisonPage from '../ComparisonPage'
 
 export const metadata: Metadata = {
-  title: 'DistroKid vs Western Beats 2026 | Western Beats',
+  title: 'DistroKid vs Western Beats 2026',
   description: "DistroKid charges $22.99/yr and misses JioSaavn/Gaana. Western Beats is ₹0 forever, WMG backed, 100% ownership.",
   keywords: [
     'DistroKid vs Western Beats',

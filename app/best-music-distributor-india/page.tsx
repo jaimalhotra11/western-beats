@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Best Music Distributor India 2026 | Western Beats',
+  title: 'Best Music Distributor India 2026',
   description: 'India\'s best free music distributor — JioSaavn, Gaana, Spotify, Jio Caller Tune. Better than DistroKid & TuneCore.',
   keywords: [
     'best music distributor India 2026',
