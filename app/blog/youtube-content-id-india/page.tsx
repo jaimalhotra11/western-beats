@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'YouTube Content ID without label India',
     'register music YouTube Content ID India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/blog/youtube-content-id-india' },
+  alternates: { canonical: 'https://www.westernbeats.com/blog/youtube-content-id-india' },
   openGraph: {
     title: 'YouTube Content ID India 2026 — Get It Free | Western Beats',
     description: 'Complete guide to YouTube Content ID for Indian artists. What it is, how it works, how to get it free.',
-    url: 'https://westernbeats.com/blog/youtube-content-id-india',
+    url: 'https://www.westernbeats.com/blog/youtube-content-id-india',
     siteName: 'Western Beats', type: 'article', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'YouTube Content ID India 2026 — Get It Free | Western Beats' },
 }
@@ -34,13 +34,13 @@ const ARTICLE_SCHEMA = {
   '@type': 'Article',
   headline: 'YouTube Content ID India 2026 — What It Is & How to Get It Free',
   description: 'Complete guide to YouTube Content ID for Indian independent artists.',
-  author: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com' },
-  publisher: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com', logo: { '@type': 'ImageObject', url: 'https://westernbeats.com/partners/westernbeats-BpLvGE3e.png' } },
+  author: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com' },
+  publisher: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com', logo: { '@type': 'ImageObject', url: 'https://www.westernbeats.com/partners/westernbeats-BpLvGE3e.png' } },
   datePublished: '2026-06-25',
   dateModified: '2026-06-25',
-  url: 'https://westernbeats.com/blog/youtube-content-id-india',
-  image: 'https://westernbeats.com/og-image.jpg',
-  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://westernbeats.com/blog/youtube-content-id-india' },
+  url: 'https://www.westernbeats.com/blog/youtube-content-id-india',
+  image: 'https://www.westernbeats.com/og-image.jpg',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.westernbeats.com/blog/youtube-content-id-india' },
 }
 
 const FAQ_SCHEMA = {

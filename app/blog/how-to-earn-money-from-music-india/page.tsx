@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     'how to monetize music India',
     'music income independent artist India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/blog/how-to-earn-money-from-music-india' },
+  alternates: { canonical: 'https://www.westernbeats.com/blog/how-to-earn-money-from-music-india' },
   openGraph: {
     title: 'How to Earn Money from Music in India 2026 — 7 Revenue Streams',
     description: 'Streaming, caller tunes, YouTube, sync, live — all 7 revenue streams for Indian musicians with real numbers.',
-    url: 'https://westernbeats.com/blog/how-to-earn-money-from-music-india',
+    url: 'https://www.westernbeats.com/blog/how-to-earn-money-from-music-india',
     siteName: 'Western Beats', type: 'article', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'How to Earn Money from Music India 2026 | Western Beats' },
 }
@@ -38,14 +38,14 @@ const ARTICLE_SCHEMA = {
   description: 'All 7 ways Indian independent artists can earn money from music in 2026, with real earning estimates.',
   datePublished: '2026-06-21',
   dateModified: '2026-06-21',
-  author: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com' },
-  publisher: { '@type': 'Organization', name: 'Western Beats', logo: { '@type': 'ImageObject', url: 'https://westernbeats.com/partners/westernbeats-BpLvGE3e.png' } },
-  image: 'https://westernbeats.com/og-image.jpg',
+  author: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com' },
+  publisher: { '@type': 'Organization', name: 'Western Beats', logo: { '@type': 'ImageObject', url: 'https://www.westernbeats.com/partners/westernbeats-BpLvGE3e.png' } },
+  image: 'https://www.westernbeats.com/og-image.jpg',
   inLanguage: 'en-IN',
   breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://westernbeats.com/blog' },
-    { '@type': 'ListItem', position: 3, name: 'Earn Money from Music India', item: 'https://westernbeats.com/blog/how-to-earn-money-from-music-india' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.westernbeats.com/blog' },
+    { '@type': 'ListItem', position: 3, name: 'Earn Money from Music India', item: 'https://www.westernbeats.com/blog/how-to-earn-money-from-music-india' },
   ]},
 }
 

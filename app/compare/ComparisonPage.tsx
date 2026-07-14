@@ -95,7 +95,7 @@ export default function ComparisonPage({
           <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
             <h2 style={{ fontSize: 36, fontWeight: 900, marginBottom: 16 }}>Ready to Switch?</h2>
             <p style={{ color: '#888', marginBottom: 32 }}>Join thousands of Indian artists already on Western Beats. 100% free, always.</p>
-            <Link href="/submit"
+            <Link href="/sign-up"
               style={{ display: 'inline-block', background: '#C41230', color: '#fff', padding: '16px 48px', borderRadius: 8, fontWeight: 700, fontSize: 18, textDecoration: 'none', letterSpacing: 0.5 }}>
               Distribute Free with Western Beats →
             </Link>

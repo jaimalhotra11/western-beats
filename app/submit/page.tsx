@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     'Warner Music India Partner submit music',
     'submit song for streaming India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/submit' },
+  alternates: { canonical: 'https://www.westernbeats.com/submit' },
   openGraph: {
     title: 'Submit Your Music Free: Western Beats | Western Beats',
     description: 'Submit your music for free distribution to 150+ platforms in 72 hours. 100% ownership. Warner Music Partner backed. ₹0 upfront.',
-    url: 'https://westernbeats.com/submit',
+    url: 'https://www.westernbeats.com/submit',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
@@ -44,15 +44,15 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebPage',
-      '@id': 'https://westernbeats.com/submit#webpage',
-      url: 'https://westernbeats.com/submit',
+      '@id': 'https://www.westernbeats.com/submit#webpage',
+      url: 'https://www.westernbeats.com/submit',
       name: 'Submit Your Music: Western Beats Free Distribution',
-      isPartOf: { '@id': 'https://westernbeats.com/#website' },
+      isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Submit Music', item: 'https://westernbeats.com/submit' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Submit Music', item: 'https://www.westernbeats.com/submit' },
         ],
       },
     },
@@ -60,7 +60,7 @@ const jsonLd = {
       '@type': 'ContactPage',
       name: 'Submit Your Music to Western Beats',
       description: 'Submit your music to Western Beats for free distribution to 150+ streaming platforms. Respond within 24 hours.',
-      url: 'https://westernbeats.com/submit',
+      url: 'https://www.westernbeats.com/submit',
       mainEntity: {
         '@type': 'Organization',
         name: 'Western Beats',

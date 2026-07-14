@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'ISRC registration India',
     'free music codes India distribution',
   ],
-  alternates: { canonical: 'https://westernbeats.com/free-isrc-codes' },
+  alternates: { canonical: 'https://www.westernbeats.com/free-isrc-codes' },
   openGraph: {
     title: 'Free ISRC Code & UPC Barcode for Every Release | Western Beats India',
     description: 'Western Beats assigns free ISRC codes and UPC barcodes to every release. Required for Spotify, JioSaavn & Apple Music. Always free.',
-    url: 'https://westernbeats.com/free-isrc-codes',
+    url: 'https://www.westernbeats.com/free-isrc-codes',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Free ISRC Code & UPC India | Western Beats' },
 }
@@ -34,11 +34,11 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/free-isrc-codes',
+      url: 'https://www.westernbeats.com/free-isrc-codes',
       name: 'Free ISRC Code & UPC Barcode India — For Every Release',
       breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-        { '@type': 'ListItem', position: 2, name: 'Free ISRC Codes', item: 'https://westernbeats.com/free-isrc-codes' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+        { '@type': 'ListItem', position: 2, name: 'Free ISRC Codes', item: 'https://www.westernbeats.com/free-isrc-codes' },
       ]},
     },
     {

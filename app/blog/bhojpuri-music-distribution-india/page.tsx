@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     'distribute Bhojpuri music India',
     'Bhojpuri singer distribution India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/blog/bhojpuri-music-distribution-india' },
+  alternates: { canonical: 'https://www.westernbeats.com/blog/bhojpuri-music-distribution-india' },
   openGraph: {
     title: 'Bhojpuri Music Distribution India Free 2026 — JioSaavn, Gaana, Caller Tune',
     description: 'Distribute Bhojpuri songs to 150+ platforms free in 72 hours. Fastest-growing genre at +30% YoY.',
-    url: 'https://westernbeats.com/blog/bhojpuri-music-distribution-india',
+    url: 'https://www.westernbeats.com/blog/bhojpuri-music-distribution-india',
     siteName: 'Western Beats', type: 'article', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Bhojpuri Music Distribution India Free 2026 | Western Beats' },
 }
@@ -37,14 +37,14 @@ const ARTICLE_SCHEMA = {
   headline: 'Bhojpuri Music Distribution India Free 2026 — Complete Guide',
   datePublished: '2026-06-21',
   dateModified: '2026-06-21',
-  author: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com' },
-  publisher: { '@type': 'Organization', name: 'Western Beats', logo: { '@type': 'ImageObject', url: 'https://westernbeats.com/partners/westernbeats-BpLvGE3e.png' } },
-  image: 'https://westernbeats.com/og-image.jpg',
+  author: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com' },
+  publisher: { '@type': 'Organization', name: 'Western Beats', logo: { '@type': 'ImageObject', url: 'https://www.westernbeats.com/partners/westernbeats-BpLvGE3e.png' } },
+  image: 'https://www.westernbeats.com/og-image.jpg',
   about: { '@type': 'Thing', name: 'Bhojpuri Music Distribution India' },
   breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://westernbeats.com/blog' },
-    { '@type': 'ListItem', position: 3, name: 'Bhojpuri Music Distribution', item: 'https://westernbeats.com/blog/bhojpuri-music-distribution-india' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.westernbeats.com/blog' },
+    { '@type': 'ListItem', position: 3, name: 'Bhojpuri Music Distribution', item: 'https://www.westernbeats.com/blog/bhojpuri-music-distribution-india' },
   ]},
 }
 

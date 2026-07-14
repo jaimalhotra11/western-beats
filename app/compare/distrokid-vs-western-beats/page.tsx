@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'switch from DistroKid India',
     'DistroKid competitor India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/compare/distrokid-vs-western-beats' },
+  alternates: { canonical: 'https://www.westernbeats.com/compare/distrokid-vs-western-beats' },
   openGraph: {
     title: 'DistroKid vs Western Beats 2026 — India Winner: Western Beats',
     description: 'Western Beats beats DistroKid for Indian artists: ₹0 forever vs $22.99/yr, JioSaavn + Gaana + caller tunes, Warner Music Group backing. No contest.',
-    url: 'https://westernbeats.com/compare/distrokid-vs-western-beats',
+    url: 'https://www.westernbeats.com/compare/distrokid-vs-western-beats',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630, alt: 'DistroKid vs Western Beats India' }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630, alt: 'DistroKid vs Western Beats India' }],
   },
   twitter: { card: 'summary_large_image', title: 'DistroKid vs Western Beats 2026 | India', description: 'Western Beats wins: ₹0 forever, JioSaavn + Gaana, WMG backed. DistroKid charges $22.99/yr.', site: '@wb_digital_' },
 }
@@ -34,16 +34,16 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      '@id': 'https://westernbeats.com/compare/distrokid-vs-western-beats#webpage',
-      url: 'https://westernbeats.com/compare/distrokid-vs-western-beats',
+      '@id': 'https://www.westernbeats.com/compare/distrokid-vs-western-beats#webpage',
+      url: 'https://www.westernbeats.com/compare/distrokid-vs-western-beats',
       name: 'DistroKid vs Western Beats 2026 India Comparison',
-      isPartOf: { '@id': 'https://westernbeats.com/#website' },
+      isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://westernbeats.com/compare' },
-          { '@type': 'ListItem', position: 3, name: 'DistroKid vs Western Beats', item: 'https://westernbeats.com/compare/distrokid-vs-western-beats' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://www.westernbeats.com/compare' },
+          { '@type': 'ListItem', position: 3, name: 'DistroKid vs Western Beats', item: 'https://www.westernbeats.com/compare/distrokid-vs-western-beats' },
         ],
       },
     },

@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'ISRC code meaning music India',
     'music barcode free India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/blog/free-isrc-upc-code-india' },
+  alternates: { canonical: 'https://www.westernbeats.com/blog/free-isrc-upc-code-india' },
   openGraph: {
     title: 'Free ISRC & UPC Codes for Indian Artists 2026 | Western Beats',
     description: 'What ISRC and UPC codes are, why you need them, and how to get them free as an independent artist in India.',
-    url: 'https://westernbeats.com/blog/free-isrc-upc-code-india',
+    url: 'https://www.westernbeats.com/blog/free-isrc-upc-code-india',
     siteName: 'Western Beats', type: 'article', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Free ISRC & UPC Codes India 2026 | Western Beats' },
 }
@@ -35,10 +35,10 @@ const SCHEMA = {
     {
       '@type': 'Article',
       headline: 'Free ISRC & UPC Codes for Independent Artists in India — Everything You Need to Know',
-      author: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com' },
-      publisher: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com', logo: { '@type': 'ImageObject', url: 'https://westernbeats.com/icon.png' } },
+      author: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com' },
+      publisher: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com', logo: { '@type': 'ImageObject', url: 'https://www.westernbeats.com/icon.png' } },
       datePublished: '2026-06-01', dateModified: '2026-06-21',
-      url: 'https://westernbeats.com/blog/free-isrc-upc-code-india',
+      url: 'https://www.westernbeats.com/blog/free-isrc-upc-code-india',
     },
     {
       '@type': 'FAQPage',

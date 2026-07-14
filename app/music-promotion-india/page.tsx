@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     'music promotion western beats india',
     'digital music marketing india 2026',
   ],
-  alternates: { canonical: 'https://westernbeats.com/music-promotion-india' },
+  alternates: { canonical: 'https://www.westernbeats.com/music-promotion-india' },
   openGraph: {
     title: 'Free Music Promotion India 2026 — Get More Streams on JioSaavn & Spotify | Western Beats',
     description: 'Proven free music promotion tactics for Indian artists: playlist pitching, social media, YouTube Content ID, caller tunes, and press releases.',
-    url: 'https://westernbeats.com/music-promotion-india',
+    url: 'https://www.westernbeats.com/music-promotion-india',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Free Music Promotion India 2026 | Western Beats' },
   robots: { index: true, follow: true },
@@ -41,14 +41,14 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/music-promotion-india',
+      url: 'https://www.westernbeats.com/music-promotion-india',
       name: 'Free Music Promotion India 2026',
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Resources', item: 'https://westernbeats.com/blog' },
-          { '@type': 'ListItem', position: 3, name: 'Music Promotion India', item: 'https://westernbeats.com/music-promotion-india' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Resources', item: 'https://www.westernbeats.com/blog' },
+          { '@type': 'ListItem', position: 3, name: 'Music Promotion India', item: 'https://www.westernbeats.com/music-promotion-india' },
         ],
       },
     },

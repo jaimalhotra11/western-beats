@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     'Deliver My Tune vs free distributor India',
     'DMT alternative India 2026',
   ],
-  alternates: { canonical: 'https://westernbeats.com/compare/deliver-my-tune-vs-western-beats' },
+  alternates: { canonical: 'https://www.westernbeats.com/compare/deliver-my-tune-vs-western-beats' },
   openGraph: {
     title: 'Deliver My Tune vs Western Beats 2026 — Save ₹1,999+',
     description: 'Deliver My Tune charges ₹1,999+ with 85% royalties. Western Beats: ₹0 forever, 150+ platforms, WMG backed.',
-    url: 'https://westernbeats.com/compare/deliver-my-tune-vs-western-beats',
+    url: 'https://www.westernbeats.com/compare/deliver-my-tune-vs-western-beats',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Deliver My Tune vs Western Beats India 2026', description: 'Deliver My Tune: ₹1,999+ with 85% royalties. Western Beats: ₹0 + WMG backed.', site: '@wb_digital_' },
 }

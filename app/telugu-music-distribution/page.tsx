@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     'telugu music distribution western beats',
     'telugu independent music free distribution',
   ],
-  alternates: { canonical: 'https://westernbeats.com/telugu-music-distribution' },
+  alternates: { canonical: 'https://www.westernbeats.com/telugu-music-distribution' },
   openGraph: {
     title: 'Telugu Music Distribution India Free 2026 — JioSaavn, Gaana & 150+ Platforms | Western Beats',
     description: 'Distribute Telugu music to JioSaavn, Gaana, Spotify and 150+ platforms free. 72 hours, 100% ownership. Western Beats — India\'s free music distributor.',
-    url: 'https://westernbeats.com/telugu-music-distribution',
+    url: 'https://www.westernbeats.com/telugu-music-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Telugu Music Distribution India Free 2026 | Western Beats' },
   robots: { index: true, follow: true },
@@ -41,14 +41,14 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/telugu-music-distribution',
+      url: 'https://www.westernbeats.com/telugu-music-distribution',
       name: 'Telugu Music Distribution India Free 2026',
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Regional Music Distribution', item: 'https://westernbeats.com/regional-music-distribution' },
-          { '@type': 'ListItem', position: 3, name: 'Telugu Music Distribution', item: 'https://westernbeats.com/telugu-music-distribution' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Regional Music Distribution', item: 'https://www.westernbeats.com/regional-music-distribution' },
+          { '@type': 'ListItem', position: 3, name: 'Telugu Music Distribution', item: 'https://www.westernbeats.com/telugu-music-distribution' },
         ],
       },
     },

@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     'CD Baby competitor India 2026',
     'CD Baby vs Indian distributor',
   ],
-  alternates: { canonical: 'https://westernbeats.com/compare/cd-baby-vs-western-beats' },
+  alternates: { canonical: 'https://www.westernbeats.com/compare/cd-baby-vs-western-beats' },
   openGraph: {
     title: 'CD Baby vs Western Beats India 2026',
     description: 'CD Baby takes $9.99/release + 9% of your royalties forever. Western Beats: ₹0 forever, 150+ platforms, WMG backed.',
-    url: 'https://westernbeats.com/compare/cd-baby-vs-western-beats',
+    url: 'https://www.westernbeats.com/compare/cd-baby-vs-western-beats',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'CD Baby vs Western Beats 2026 India', description: 'CD Baby: $9.99 + 9% royalties. Western Beats: ₹0 forever + WMG backed.', site: '@wb_digital_' },
 }

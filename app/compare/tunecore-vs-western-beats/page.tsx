@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     'TuneCore ₹1599 alternative',
     'TuneCore competitor India 2026',
   ],
-  alternates: { canonical: 'https://westernbeats.com/compare/tunecore-vs-western-beats' },
+  alternates: { canonical: 'https://www.westernbeats.com/compare/tunecore-vs-western-beats' },
   openGraph: {
     title: 'TuneCore vs Western Beats India 2026 — Western Beats Wins',
     description: "TuneCore's free plan excludes JioSaavn and Gaana. Western Beats is 100% free with full Indian platform coverage + WMG backing.",
-    url: 'https://westernbeats.com/compare/tunecore-vs-western-beats',
+    url: 'https://www.westernbeats.com/compare/tunecore-vs-western-beats',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630, alt: 'TuneCore vs Western Beats India' }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630, alt: 'TuneCore vs Western Beats India' }],
   },
   twitter: { card: 'summary_large_image', title: 'TuneCore vs Western Beats 2026 India', description: "TuneCore free plan doesn't include JioSaavn. Western Beats: 100% free + all Indian platforms.", site: '@wb_digital_' },
 }
@@ -33,15 +33,15 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/compare/tunecore-vs-western-beats',
+      url: 'https://www.westernbeats.com/compare/tunecore-vs-western-beats',
       name: 'TuneCore vs Western Beats 2026 India',
-      isPartOf: { '@id': 'https://westernbeats.com/#website' },
+      isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://westernbeats.com/compare' },
-          { '@type': 'ListItem', position: 3, name: 'TuneCore vs Western Beats', item: 'https://westernbeats.com/compare/tunecore-vs-western-beats' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://www.westernbeats.com/compare' },
+          { '@type': 'ListItem', position: 3, name: 'TuneCore vs Western Beats', item: 'https://www.westernbeats.com/compare/tunecore-vs-western-beats' },
         ],
       },
     },

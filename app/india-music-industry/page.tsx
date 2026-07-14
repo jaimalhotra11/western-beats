@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     'music industry India growth',
     'streaming music India market share',
   ],
-  alternates: { canonical: 'https://westernbeats.com/india-music-industry' },
+  alternates: { canonical: 'https://www.westernbeats.com/india-music-industry' },
   openGraph: {
     title: 'India Music Industry Statistics 2026 | Western Beats',
     description: 'Streaming users, revenue, royalty rates, platform market share — comprehensive India music industry data 2026.',
-    url: 'https://westernbeats.com/india-music-industry',
+    url: 'https://www.westernbeats.com/india-music-industry',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'India Music Industry Statistics 2026 | Western Beats' },
 }
@@ -36,8 +36,8 @@ const SCHEMA = {
   '@type': 'Dataset',
   name: 'India Music Industry Statistics 2026',
   description: 'Comprehensive statistics on India\'s digital music industry — streaming users, revenue, platform data, and independent artist trends.',
-  url: 'https://westernbeats.com/india-music-industry',
-  publisher: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com' },
+  url: 'https://www.westernbeats.com/india-music-industry',
+  publisher: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com' },
   dateModified: '2026-06-21',
   license: 'https://creativecommons.org/licenses/by/4.0/',
 }

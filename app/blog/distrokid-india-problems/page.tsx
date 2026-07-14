@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     'free DistroKid alternative India',
     'music distribution without DistroKid India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/blog/distrokid-india-problems' },
+  alternates: { canonical: 'https://www.westernbeats.com/blog/distrokid-india-problems' },
   openGraph: {
     title: 'Why DistroKid Doesn\'t Work for Indian Artists 2026 | Western Beats',
     description: 'DistroKid misses JioSaavn, Gaana, and caller tunes. Here\'s the better alternative for Indian independent artists.',
-    url: 'https://westernbeats.com/blog/distrokid-india-problems',
+    url: 'https://www.westernbeats.com/blog/distrokid-india-problems',
     siteName: 'Western Beats', type: 'article', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'DistroKid India Problems & Best Alternative 2026 | Western Beats' },
 }
@@ -37,10 +37,10 @@ const SCHEMA = {
     {
       '@type': 'Article',
       headline: 'Why DistroKid Doesn\'t Work for Indian Artists — And What to Use Instead',
-      author: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com' },
-      publisher: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com', logo: { '@type': 'ImageObject', url: 'https://westernbeats.com/icon.png' } },
+      author: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com' },
+      publisher: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com', logo: { '@type': 'ImageObject', url: 'https://www.westernbeats.com/icon.png' } },
       datePublished: '2026-06-01', dateModified: '2026-06-21',
-      url: 'https://westernbeats.com/blog/distrokid-india-problems',
+      url: 'https://www.westernbeats.com/blog/distrokid-india-problems',
     },
     {
       '@type': 'FAQPage',

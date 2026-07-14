@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     'distribute music Gaana free',
     'Gaana upload song free India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/gaana-distribution' },
+  alternates: { canonical: 'https://www.westernbeats.com/gaana-distribution' },
   openGraph: {
     title: 'Free Gaana Distribution India 2026 — Upload Your Song | Western Beats',
     description: 'Get on Gaana India free in 72 hours, plus JioSaavn, Spotify and 150+ more platforms. No subscription.',
-    url: 'https://westernbeats.com/gaana-distribution',
+    url: 'https://www.westernbeats.com/gaana-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Free Gaana Distribution India 2026 | Western Beats' },
 }
@@ -34,11 +34,11 @@ export const metadata: Metadata = {
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  url: 'https://westernbeats.com/gaana-distribution',
+  url: 'https://www.westernbeats.com/gaana-distribution',
   name: 'Free Gaana Distribution India 2026',
   breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-    { '@type': 'ListItem', position: 2, name: 'Gaana Distribution', item: 'https://westernbeats.com/gaana-distribution' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+    { '@type': 'ListItem', position: 2, name: 'Gaana Distribution', item: 'https://www.westernbeats.com/gaana-distribution' },
   ]},
 }
 

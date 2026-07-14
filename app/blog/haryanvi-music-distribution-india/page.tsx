@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     'Haryanvi music distribution 2026',
     'music distribution Haryanvi',
   ],
-  alternates: { canonical: 'https://westernbeats.com/blog/haryanvi-music-distribution-india' },
+  alternates: { canonical: 'https://www.westernbeats.com/blog/haryanvi-music-distribution-india' },
   openGraph: {
     title: 'Haryanvi Music Distribution India Free 2026 — JioSaavn, Gaana, Caller Tune',
     description: 'Distribute Haryanvi songs to 150+ platforms free in 72 hours. India\'s fastest-growing music genre.',
-    url: 'https://westernbeats.com/blog/haryanvi-music-distribution-india',
+    url: 'https://www.westernbeats.com/blog/haryanvi-music-distribution-india',
     siteName: 'Western Beats', type: 'article', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Haryanvi Music Distribution India Free 2026 | Western Beats' },
 }
@@ -38,14 +38,14 @@ const ARTICLE_SCHEMA = {
   description: 'Complete guide to distributing Haryanvi music in India free to all platforms.',
   datePublished: '2026-06-21',
   dateModified: '2026-06-21',
-  author: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com' },
-  publisher: { '@type': 'Organization', name: 'Western Beats', logo: { '@type': 'ImageObject', url: 'https://westernbeats.com/partners/westernbeats-BpLvGE3e.png' } },
-  image: 'https://westernbeats.com/og-image.jpg',
+  author: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com' },
+  publisher: { '@type': 'Organization', name: 'Western Beats', logo: { '@type': 'ImageObject', url: 'https://www.westernbeats.com/partners/westernbeats-BpLvGE3e.png' } },
+  image: 'https://www.westernbeats.com/og-image.jpg',
   about: { '@type': 'Thing', name: 'Haryanvi Music Distribution India' },
   breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://westernbeats.com/blog' },
-    { '@type': 'ListItem', position: 3, name: 'Haryanvi Music Distribution', item: 'https://westernbeats.com/blog/haryanvi-music-distribution-india' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.westernbeats.com/blog' },
+    { '@type': 'ListItem', position: 3, name: 'Haryanvi Music Distribution', item: 'https://www.westernbeats.com/blog/haryanvi-music-distribution-india' },
   ]},
 }
 

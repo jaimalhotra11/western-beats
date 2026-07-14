@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'distribute music YouTube Music India',
     'YouTube Music artist upload free India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/youtube-music-distribution' },
+  alternates: { canonical: 'https://www.westernbeats.com/youtube-music-distribution' },
   openGraph: {
     title: 'Free YouTube Music Distribution India 2026 | Western Beats',
     description: 'Get on YouTube Music India free in 72 hours. Plus JioSaavn, Gaana, Spotify & 150+ platforms. 100% ownership.',
-    url: 'https://westernbeats.com/youtube-music-distribution',
+    url: 'https://www.westernbeats.com/youtube-music-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Free YouTube Music Distribution India 2026 | Western Beats' },
 }

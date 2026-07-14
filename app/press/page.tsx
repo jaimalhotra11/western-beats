@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     'Warner Music India Partner press India',
     'Western Beats press release',
   ],
-  alternates: { canonical: 'https://westernbeats.com/press' },
+  alternates: { canonical: 'https://www.westernbeats.com/press' },
   openGraph: {
     title: 'Press & Media Kit | Western Beats',
     description: "Western Beats press room: media coverage, press kit, logos, and company facts. India's best free music distribution company, backed by Warner Music Group.",
-    url: 'https://westernbeats.com/press',
+    url: 'https://www.westernbeats.com/press',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
@@ -36,16 +36,16 @@ export const metadata: Metadata = {
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': 'https://westernbeats.com/press#webpage',
-  url: 'https://westernbeats.com/press',
+  '@id': 'https://www.westernbeats.com/press#webpage',
+  url: 'https://www.westernbeats.com/press',
   name: 'Press & Media Kit — Western Beats',
   description: "Western Beats press room. Media coverage and press kit for India's best free music distribution company.",
-  isPartOf: { '@id': 'https://westernbeats.com/#website' },
+  isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
   breadcrumb: {
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-      { '@type': 'ListItem', position: 2, name: 'Press', item: 'https://westernbeats.com/press' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+      { '@type': 'ListItem', position: 2, name: 'Press', item: 'https://www.westernbeats.com/press' },
     ],
   },
 }

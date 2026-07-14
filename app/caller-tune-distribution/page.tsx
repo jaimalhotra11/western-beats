@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'CRBT distribution free India',
     'music caller tune India 2026',
   ],
-  alternates: { canonical: 'https://westernbeats.com/caller-tune-distribution' },
+  alternates: { canonical: 'https://www.westernbeats.com/caller-tune-distribution' },
   openGraph: {
     title: 'Caller Tune Distribution India — Jio, Airtel & Vi | Western Beats',
     description: 'Get your song as a Jio Caller Tune, Airtel Hello Tune & Vi Hello Tune free. Western Beats handles CRBT distribution for all Indian telecoms.',
-    url: 'https://westernbeats.com/caller-tune-distribution',
+    url: 'https://www.westernbeats.com/caller-tune-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Caller Tune Distribution India | Western Beats' },
 }
@@ -34,12 +34,12 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/caller-tune-distribution',
+      url: 'https://www.westernbeats.com/caller-tune-distribution',
       name: 'Caller Tune Distribution India — CRBT for Jio, Airtel & Vi',
       description: 'Distribute your song as a caller tune across all Indian telecoms, free with Western Beats.',
       breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-        { '@type': 'ListItem', position: 2, name: 'Caller Tune Distribution', item: 'https://westernbeats.com/caller-tune-distribution' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+        { '@type': 'ListItem', position: 2, name: 'Caller Tune Distribution', item: 'https://www.westernbeats.com/caller-tune-distribution' },
       ]},
     },
     {

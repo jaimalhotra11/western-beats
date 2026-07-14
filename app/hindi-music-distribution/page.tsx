@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     'hindi song distribution 72 hours',
     'hindi music distribution western beats',
   ],
-  alternates: { canonical: 'https://westernbeats.com/hindi-music-distribution' },
+  alternates: { canonical: 'https://www.westernbeats.com/hindi-music-distribution' },
   openGraph: {
     title: 'Hindi Music Distribution India Free 2026 — 150+ Platforms | Western Beats',
     description: 'Distribute Hindi music to JioSaavn, Gaana, Spotify and 150+ platforms free. 72 hours, 100% ownership. Western Beats — India\'s free music distributor.',
-    url: 'https://westernbeats.com/hindi-music-distribution',
+    url: 'https://www.westernbeats.com/hindi-music-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Hindi Music Distribution India Free 2026 | Western Beats' },
   robots: { index: true, follow: true },
@@ -41,14 +41,14 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/hindi-music-distribution',
+      url: 'https://www.westernbeats.com/hindi-music-distribution',
       name: 'Hindi Music Distribution India Free 2026',
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Distribution', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 3, name: 'Hindi Music Distribution', item: 'https://westernbeats.com/hindi-music-distribution' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Distribution', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 3, name: 'Hindi Music Distribution', item: 'https://www.westernbeats.com/hindi-music-distribution' },
         ],
       },
     },

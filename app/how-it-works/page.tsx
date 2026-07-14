@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     'how to distribute music free India',
     'Western Beats distribution process',
   ],
-  alternates: { canonical: 'https://westernbeats.com/how-it-works' },
+  alternates: { canonical: 'https://www.westernbeats.com/how-it-works' },
   openGraph: {
     title: 'How Western Beats Works: 3 Steps to Stream on 150+ Platforms | Western Beats',
     description: 'Submit → Distribute to 150+ platforms in 72 hrs → 100% ownership, royalties direct to you. Free forever. Backed by Warner Music India Partner.',
-    url: 'https://westernbeats.com/how-it-works',
+    url: 'https://www.westernbeats.com/how-it-works',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
@@ -43,15 +43,15 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebPage',
-      '@id': 'https://westernbeats.com/how-it-works#webpage',
-      url: 'https://westernbeats.com/how-it-works',
+      '@id': 'https://www.westernbeats.com/how-it-works#webpage',
+      url: 'https://www.westernbeats.com/how-it-works',
       name: 'How Western Beats Works: Free Music Distribution',
-      isPartOf: { '@id': 'https://westernbeats.com/#website' },
+      isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'How It Works', item: 'https://westernbeats.com/how-it-works' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'How It Works', item: 'https://www.westernbeats.com/how-it-works' },
         ],
       },
     },

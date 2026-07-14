@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'music rights India',
     'copyright music India free',
   ],
-  alternates: { canonical: 'https://westernbeats.com/blog/music-copyright-india' },
+  alternates: { canonical: 'https://www.westernbeats.com/blog/music-copyright-india' },
   openGraph: {
     title: 'Music Copyright India 2026 — Complete Guide | Western Beats',
     description: 'How to protect your music copyright in India. ISRC codes, registration, rights explained for independent artists.',
-    url: 'https://westernbeats.com/blog/music-copyright-india',
+    url: 'https://www.westernbeats.com/blog/music-copyright-india',
     siteName: 'Western Beats', type: 'article', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Music Copyright India 2026 — Complete Guide | Western Beats' },
 }
@@ -34,13 +34,13 @@ const ARTICLE_SCHEMA = {
   '@type': 'Article',
   headline: 'Music Copyright India 2026 — Complete Guide for Independent Artists',
   description: 'How copyright works in Indian music, how to protect your tracks, and what Western Beats does to protect your IP.',
-  author: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com' },
-  publisher: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com', logo: { '@type': 'ImageObject', url: 'https://westernbeats.com/partners/westernbeats-BpLvGE3e.png' } },
+  author: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com' },
+  publisher: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com', logo: { '@type': 'ImageObject', url: 'https://www.westernbeats.com/partners/westernbeats-BpLvGE3e.png' } },
   datePublished: '2026-06-25',
   dateModified: '2026-06-25',
-  url: 'https://westernbeats.com/blog/music-copyright-india',
-  image: 'https://westernbeats.com/og-image.jpg',
-  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://westernbeats.com/blog/music-copyright-india' },
+  url: 'https://www.westernbeats.com/blog/music-copyright-india',
+  image: 'https://www.westernbeats.com/og-image.jpg',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.westernbeats.com/blog/music-copyright-india' },
 }
 
 const FAQ_SCHEMA = {

@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     'music streaming analytics India',
     'music label services India',
   ],
-  authors: [{ name: 'Western Beats', url: 'https://westernbeats.com' }],
+  authors: [{ name: 'Western Beats', url: 'https://www.westernbeats.com' }],
   creator: 'Western Beats Private Limited',
   publisher: 'Western Beats Private Limited',
   robots: {
@@ -53,19 +53,19 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://westernbeats.com/services',
+    canonical: 'https://www.westernbeats.com/services',
   },
   openGraph: {
     title: "Western Beats Services: India's #1 Full-Service Music Company | Free Distribution + Events + Production",
     description:
       'Free music distribution to 150+ platforms in 72 hours, event management, talent management, audio & video production, and real-time analytics. All backed by Warner Music India Partner.',
-    url: 'https://westernbeats.com/services',
+    url: 'https://www.westernbeats.com/services',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
     images: [
       {
-        url: 'https://westernbeats.com/og-services.jpg',
+        url: 'https://www.westernbeats.com/og-services.jpg',
         width: 1200,
         height: 630,
         alt: 'Western Beats Services: Free Music Distribution, Events & Production in India',
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     title: "Western Beats Services: India's Best Full-Service Music Company",
     description:
       'Free distribution to 150+ platforms. Event management. Talent management. Audio & Video production. Backed by Warner Music India Partner.',
-    images: ['https://westernbeats.com/og-services.jpg'],
+    images: ['https://www.westernbeats.com/og-services.jpg'],
     site: '@wb_digital_',
     creator: '@wb_digital_',
   },
@@ -89,17 +89,17 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebPage',
-      '@id': 'https://westernbeats.com/services#webpage',
-      url: 'https://westernbeats.com/services',
+      '@id': 'https://www.westernbeats.com/services#webpage',
+      url: 'https://www.westernbeats.com/services',
       name: "Western Beats Services: India's #1 Full-Service Music Company",
       description:
         "Western Beats's complete suite of music services: free distribution, event management, talent management, audio production, video direction, and analytics, all backed by Warner Music India Partner.",
-      isPartOf: { '@id': 'https://westernbeats.com/#website' },
+      isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://westernbeats.com/services' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.westernbeats.com/services' },
         ],
       },
     },
@@ -116,7 +116,7 @@ const jsonLd = {
             name: 'Free Music Distribution',
             description:
               'Distribute your music to 150+ streaming platforms worldwide for free. You keep 100% of royalties, we only earn when you earn. Live in 72 hours. Backed by Warner Music India Partner.',
-            provider: { '@id': 'https://westernbeats.com/#organization' },
+            provider: { '@id': 'https://www.westernbeats.com/#organization' },
             areaServed: 'Worldwide',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
           },
@@ -129,7 +129,7 @@ const jsonLd = {
             name: 'Event Management',
             description:
               'Full-service concert and event production: artist concerts, album launches, listening parties, brand activations.',
-            provider: { '@id': 'https://westernbeats.com/#organization' },
+            provider: { '@id': 'https://www.westernbeats.com/#organization' },
             areaServed: 'India',
           },
         },
@@ -141,7 +141,7 @@ const jsonLd = {
             name: 'Talent Management',
             description:
               'End-to-end artist management: career strategy, brand partnerships, booking, and Warner Music network access.',
-            provider: { '@id': 'https://westernbeats.com/#organization' },
+            provider: { '@id': 'https://www.westernbeats.com/#organization' },
             areaServed: 'India',
           },
         },
@@ -153,7 +153,7 @@ const jsonLd = {
             name: 'Audio Production',
             description:
               'Professional recording, mixing, mastering and sound design to Warner Music quality standards.',
-            provider: { '@id': 'https://westernbeats.com/#organization' },
+            provider: { '@id': 'https://www.westernbeats.com/#organization' },
             areaServed: 'India',
           },
         },
@@ -165,7 +165,7 @@ const jsonLd = {
             name: 'Video Direction',
             description:
               'Music video production, Instagram Reels, YouTube Shorts, promotional content, and social media campaigns.',
-            provider: { '@id': 'https://westernbeats.com/#organization' },
+            provider: { '@id': 'https://www.westernbeats.com/#organization' },
             areaServed: 'India',
           },
         },
@@ -177,7 +177,7 @@ const jsonLd = {
             name: 'Analytics & Strategy',
             description:
               'Real-time streaming analytics, audience insights, revenue reporting, and data-driven career strategy.',
-            provider: { '@id': 'https://westernbeats.com/#organization' },
+            provider: { '@id': 'https://www.westernbeats.com/#organization' },
             areaServed: 'Worldwide',
           },
         },

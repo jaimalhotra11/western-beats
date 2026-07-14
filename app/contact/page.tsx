@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     'contact music distributor India',
     'Western Beats help',
   ],
-  alternates: { canonical: 'https://westernbeats.com/contact' },
+  alternates: { canonical: 'https://www.westernbeats.com/contact' },
   openGraph: {
     title: 'Contact Western Beats | Free Music Distribution India',
     description: 'Get in touch — we reply within 24 hours. +91-7087677767 · contact@westernbeats.com',
-    url: 'https://westernbeats.com/contact',
+    url: 'https://www.westernbeats.com/contact',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
@@ -37,21 +37,21 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'ContactPage',
-      '@id': 'https://westernbeats.com/contact#webpage',
-      url: 'https://westernbeats.com/contact',
+      '@id': 'https://www.westernbeats.com/contact#webpage',
+      url: 'https://www.westernbeats.com/contact',
       name: 'Contact Western Beats',
-      isPartOf: { '@id': 'https://westernbeats.com/#website' },
+      isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://westernbeats.com/contact' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://www.westernbeats.com/contact' },
         ],
       },
     },
     {
       '@type': 'Organization',
-      '@id': 'https://westernbeats.com/#organization',
+      '@id': 'https://www.westernbeats.com/#organization',
       name: 'Western Beats Private Limited',
       contactPoint: [
         {

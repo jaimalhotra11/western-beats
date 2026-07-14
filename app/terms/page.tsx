@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     'content licensing agreement music India',
     'Western Beats Private Limited PAN AACCW9613Q',
   ],
-  alternates: { canonical: 'https://westernbeats.com/terms' },
+  alternates: { canonical: 'https://www.westernbeats.com/terms' },
   robots: {
     index: true,
     follow: true,
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Terms & Conditions | Western Beats Private Limited',
     description:
       'Read the full Western Beats Content Licensing Agreement: 70% royalties to you, 100% IP ownership, 2-year term with 12-month lock-in, distribution to 150+ platforms in 72 hours. Transparent, legally precise, India-first.',
-    url: 'https://westernbeats.com/terms',
+    url: 'https://www.westernbeats.com/terms',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
@@ -50,18 +50,18 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebPage',
-      '@id': 'https://westernbeats.com/terms#webpage',
-      url: 'https://westernbeats.com/terms',
+      '@id': 'https://www.westernbeats.com/terms#webpage',
+      url: 'https://www.westernbeats.com/terms',
       name: 'Terms & Conditions | Content Licensing Agreement — Western Beats Private Limited',
       description:
         'Full Terms & Conditions and Content Licensing Agreement for Western Beats Private Limited, covering royalty splits, IP ownership, term & lock-in, distribution services, artist obligations, indemnification, arbitration, and all artist rights.',
-      isPartOf: { '@id': 'https://westernbeats.com/#website' },
-      about: { '@id': 'https://westernbeats.com/#organization' },
+      isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
+      about: { '@id': 'https://www.westernbeats.com/#organization' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Terms & Conditions', item: 'https://westernbeats.com/terms' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Terms & Conditions', item: 'https://www.westernbeats.com/terms' },
         ],
       },
     },

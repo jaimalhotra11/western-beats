@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'Wynk Music distribution without label',
     'free Wynk distribution India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/wynk-music-distribution' },
+  alternates: { canonical: 'https://www.westernbeats.com/wynk-music-distribution' },
   openGraph: {
     title: 'Free Wynk Music Distribution India 2026 | Western Beats',
     description: 'Get on Wynk Music (Airtel) India free in 72 hours. Plus JioSaavn, Gaana, Spotify & 150+ platforms. 100% ownership.',
-    url: 'https://westernbeats.com/wynk-music-distribution',
+    url: 'https://www.westernbeats.com/wynk-music-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Free Wynk Music Distribution India 2026 | Western Beats' },
 }

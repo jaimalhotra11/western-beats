@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     'forevisiondigital.com alternative',
     'best ForeVision alternative 2026',
   ],
-  alternates: { canonical: 'https://westernbeats.com/compare/forevision-vs-western-beats' },
+  alternates: { canonical: 'https://www.westernbeats.com/compare/forevision-vs-western-beats' },
   openGraph: {
     title: 'ForeVision Digital vs Western Beats 2026 India',
     description: 'ForeVision: ₹499/release, 47 platforms, 90% royalties. Western Beats: ₹0, 150+ platforms, 100% ownership, WMG backed.',
-    url: 'https://westernbeats.com/compare/forevision-vs-western-beats',
+    url: 'https://www.westernbeats.com/compare/forevision-vs-western-beats',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'ForeVision Digital vs Western Beats 2026', description: 'ForeVision: ₹499/release, 47 platforms. Western Beats: ₹0, 150+ platforms, WMG backed.', site: '@wb_digital_' },
 }

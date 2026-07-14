@@ -81,8 +81,8 @@ export const metadata: Metadata = {
     'Indian independent artist distribution',
     'music distribution startup India',
   ],
-  metadataBase: new URL('https://westernbeats.com'),
-  alternates: { canonical: 'https://westernbeats.com' },
+  metadataBase: new URL('https://www.westernbeats.com'),
+  alternates: { canonical: 'https://www.westernbeats.com' },
   openGraph: {
     siteName: 'Western Beats',
     locale: 'en_IN',
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     title: 'Western Beats | Best Free Music Distribution — 150+ Platforms, 100% Ownership',
     description:
       "India's best free music distribution company. 150+ platforms in 72 hours. 100% IP ownership always yours. ₹0 upfront. Official Warner Music India Partner. Better than DistroKid & TuneCore.",
-    url: 'https://westernbeats.com',
+    url: 'https://www.westernbeats.com',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Western Beats — Best Free Music Distribution India' }],
   },
   twitter: {
@@ -107,7 +107,7 @@ export const metadata: Metadata = {
   },
   verification: {},
   category: 'music',
-  authors: [{ name: 'Western Beats Private Limited', url: 'https://westernbeats.com' }],
+  authors: [{ name: 'Western Beats Private Limited', url: 'https://www.westernbeats.com' }],
   creator: 'Western Beats Private Limited',
   publisher: 'Western Beats Private Limited',
   applicationName: 'Western Beats',
@@ -120,14 +120,14 @@ const ORG_SCHEMA = {
   '@type': 'Organization',
   name: 'Western Beats Private Limited',
   alternateName: ['Western Beats', 'WB'],
-  url: 'https://westernbeats.com',
+  url: 'https://www.westernbeats.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://westernbeats.com/partners/westernbeats-BpLvGE3e.png',
+    url: 'https://www.westernbeats.com/partners/westernbeats-BpLvGE3e.png',
     width: 512,
     height: 512,
   },
-  image: 'https://westernbeats.com/og-image.jpg',
+  image: 'https://www.westernbeats.com/og-image.jpg',
   description:
     "India's best free music distribution company — Western Beats distributes to 150+ platforms (JioSaavn, Gaana, Spotify, Apple Music) in 72 hours. 100% IP ownership always yours, zero upfront cost. Official Warner Music India Partner. The same Warner Music Group infrastructure that powers Bruno Mars, Coldplay & Ed Sheeran now powers every independent artist in India.",
   foundingDate: '2020',
@@ -140,7 +140,7 @@ const ORG_SCHEMA = {
   knowsAbout: ['Music Distribution', 'Music Publishing', 'Talent Management', 'Event Management', 'Audio Production', 'Video Production', 'Music Royalties'],
   sameAs: [
     'https://instagram.com/wb_digital_',
-    'https://westernbeats.com',
+    'https://www.westernbeats.com',
   ],
   contactPoint: {
     '@type': 'ContactPoint',
@@ -184,11 +184,11 @@ const WEBSITE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Western Beats',
-  url: 'https://westernbeats.com',
+  url: 'https://www.westernbeats.com',
   description: "India's best free music distribution company. 150+ platforms. 72 hours. 100% ownership.",
   potentialAction: {
     '@type': 'SearchAction',
-    target: { '@type': 'EntryPoint', urlTemplate: 'https://westernbeats.com/?q={search_term_string}' },
+    target: { '@type': 'EntryPoint', urlTemplate: 'https://www.westernbeats.com/?q={search_term_string}' },
     'query-input': 'required name=search_term_string',
   },
 }
@@ -197,11 +197,11 @@ const BREADCRUMB_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-    { '@type': 'ListItem', position: 2, name: 'Music Distribution', item: 'https://westernbeats.com/services' },
-    { '@type': 'ListItem', position: 3, name: 'How It Works', item: 'https://westernbeats.com/how-it-works' },
-    { '@type': 'ListItem', position: 4, name: 'Pricing', item: 'https://westernbeats.com/pricing' },
-    { '@type': 'ListItem', position: 5, name: 'Compare Distributors', item: 'https://westernbeats.com/compare' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+    { '@type': 'ListItem', position: 2, name: 'Music Distribution', item: 'https://www.westernbeats.com/services' },
+    { '@type': 'ListItem', position: 3, name: 'How It Works', item: 'https://www.westernbeats.com/how-it-works' },
+    { '@type': 'ListItem', position: 4, name: 'Pricing', item: 'https://www.westernbeats.com/pricing' },
+    { '@type': 'ListItem', position: 5, name: 'Compare Distributors', item: 'https://www.westernbeats.com/compare' },
   ],
 }
 
@@ -210,8 +210,8 @@ const LOCAL_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Western Beats',
-  image: 'https://westernbeats.com/og-image.jpg',
-  url: 'https://westernbeats.com',
+  image: 'https://www.westernbeats.com/og-image.jpg',
+  url: 'https://www.westernbeats.com',
   telephone: '+91-7087677767',
   email: 'contact@westernbeats.com',
   priceRange: '₹0',
@@ -231,8 +231,8 @@ const LOCAL_BUSINESS_SCHEMA = {
     opens: '00:00',
     closes: '23:59',
   },
-  sameAs: ['https://instagram.com/wb_digital_', 'https://westernbeats.com'],
-  hasMap: 'https://westernbeats.com/contact',
+  sameAs: ['https://instagram.com/wb_digital_', 'https://www.westernbeats.com'],
+  hasMap: 'https://www.westernbeats.com/contact',
   currenciesAccepted: 'INR',
   paymentAccepted: 'Free',
   areaServed: { '@type': 'Country', name: 'India' },
@@ -242,12 +242,12 @@ const LOCAL_BUSINESS_SCHEMA = {
 const SITELINKS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  url: 'https://westernbeats.com',
+  url: 'https://www.westernbeats.com',
   potentialAction: {
     '@type': 'SearchAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://westernbeats.com/search?q={search_term_string}',
+      urlTemplate: 'https://www.westernbeats.com/search?q={search_term_string}',
     },
     'query-input': 'required name=search_term_string',
   },

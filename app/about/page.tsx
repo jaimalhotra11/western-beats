@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     'Indian music company',
     'full service music company India',
   ],
-  authors: [{ name: 'Western Beats', url: 'https://westernbeats.com' }],
+  authors: [{ name: 'Western Beats', url: 'https://www.westernbeats.com' }],
   creator: 'Western Beats Private Limited',
   publisher: 'Western Beats Private Limited',
   robots: {
@@ -54,20 +54,20 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://westernbeats.com/about',
+    canonical: 'https://www.westernbeats.com/about',
   },
   openGraph: {
     title:
       "About Western Beats: India's #1 Free Music Distribution | Backed by Warner Music India Partner",
     description:
       "Discover why independent artists choose Western Beats. 100% FREE distribution to 150+ platforms. 100% ownership, royalties paid directly to you. Officially backed by Warner Music India Partner. The best alternative to DistroKid, TuneCore & CD Baby for Indian artists.",
-    url: 'https://westernbeats.com/about',
+    url: 'https://www.westernbeats.com/about',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
     images: [
       {
-        url: 'https://westernbeats.com/og-about.jpg',
+        url: 'https://www.westernbeats.com/og-about.jpg',
         width: 1200,
         height: 630,
         alt: "Western Beats: India's #1 Free Music Distribution Platform Backed by Warner Music India Partner",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     title: "About Western Beats: India's #1 Free Music Distribution Platform",
     description:
       'Free distribution to 150+ platforms. 100% ownership, royalties paid directly to you. Officially backed by Warner Music India Partner. Better than DistroKid & TuneCore for Indian artists.',
-    images: ['https://westernbeats.com/og-about.jpg'],
+    images: ['https://www.westernbeats.com/og-about.jpg'],
     site: '@wb_digital_',
     creator: '@wb_digital_',
   },
@@ -92,14 +92,14 @@ const jsonLd = {
     /* Organization */
     {
       '@type': 'Organization',
-      '@id': 'https://westernbeats.com/#organization',
+      '@id': 'https://www.westernbeats.com/#organization',
       name: 'Western Beats',
       legalName: 'Western Beats Private Limited',
       alternateName: ['Western Beats', 'Western Beats India'],
-      url: 'https://westernbeats.com',
+      url: 'https://www.westernbeats.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://westernbeats.com/logo.jpg',
+        url: 'https://www.westernbeats.com/logo.jpg',
         width: 400,
         height: 400,
       },
@@ -117,7 +117,7 @@ const jsonLd = {
       ],
       sameAs: [
         'https://instagram.com/wb_digital_',
-        'https://westernbeats.com',
+        'https://www.westernbeats.com',
       ],
       contactPoint: [
         {
@@ -159,13 +159,13 @@ const jsonLd = {
     /* WebSite */
     {
       '@type': 'WebSite',
-      '@id': 'https://westernbeats.com/#website',
-      url: 'https://westernbeats.com',
+      '@id': 'https://www.westernbeats.com/#website',
+      url: 'https://www.westernbeats.com',
       name: 'Western Beats',
-      publisher: { '@id': 'https://westernbeats.com/#organization' },
+      publisher: { '@id': 'https://www.westernbeats.com/#organization' },
       potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://westernbeats.com/?s={search_term_string}',
+        target: 'https://www.westernbeats.com/?s={search_term_string}',
         'query-input': 'required name=search_term_string',
       },
     },
@@ -173,13 +173,13 @@ const jsonLd = {
     /* WebPage */
     {
       '@type': 'AboutPage',
-      '@id': 'https://westernbeats.com/about#webpage',
-      url: 'https://westernbeats.com/about',
+      '@id': 'https://www.westernbeats.com/about#webpage',
+      url: 'https://www.westernbeats.com/about',
       name: "About Western Beats: India's #1 Free Music Distribution Platform",
       description:
         "Learn about Western Beats Private Limited, India's most trusted free music distribution platform, officially backed by Warner Music India Partner.",
-      isPartOf: { '@id': 'https://westernbeats.com/#website' },
-      about: { '@id': 'https://westernbeats.com/#organization' },
+      isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
+      about: { '@id': 'https://www.westernbeats.com/#organization' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -187,13 +187,13 @@ const jsonLd = {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://westernbeats.com',
+            item: 'https://www.westernbeats.com',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'About Western Beats',
-            item: 'https://westernbeats.com/about',
+            item: 'https://www.westernbeats.com/about',
           },
         ],
       },

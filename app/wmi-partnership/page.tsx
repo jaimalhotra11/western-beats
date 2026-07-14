@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     'Warner Music Group music company India',
     'best Warner Music affiliated distributor India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/wmi-partnership' },
+  alternates: { canonical: 'https://www.westernbeats.com/wmi-partnership' },
   openGraph: {
     title: "Western Beats × Warner Music: India's Only Free WMG-Backed Distributor",
     description:
       'Western Beats is officially backed by Warner Music Group — the same infrastructure behind Bruno Mars, Coldplay & Ed Sheeran, now available to every independent artist in India. Free.',
-    url: 'https://westernbeats.com/wmi-partnership',
+    url: 'https://www.westernbeats.com/wmi-partnership',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
@@ -40,17 +40,17 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      '@id': 'https://westernbeats.com/wmi-partnership#webpage',
-      url: 'https://westernbeats.com/wmi-partnership',
+      '@id': 'https://www.westernbeats.com/wmi-partnership#webpage',
+      url: 'https://www.westernbeats.com/wmi-partnership',
       name: 'Western Beats × Warner Music India Partnership',
       description:
         "Western Beats is India's only free music distributor officially backed by Warner Music Group.",
-      isPartOf: { '@id': 'https://westernbeats.com/#website' },
+      isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Warner Music India Partnership', item: 'https://westernbeats.com/wmi-partnership' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Warner Music India Partnership', item: 'https://www.westernbeats.com/wmi-partnership' },
         ],
       },
     },

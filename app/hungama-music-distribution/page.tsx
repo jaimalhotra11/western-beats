@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'free Hungama distribution India',
     'Hungama Music royalties India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/hungama-music-distribution' },
+  alternates: { canonical: 'https://www.westernbeats.com/hungama-music-distribution' },
   openGraph: {
     title: 'Free Hungama Music Distribution India 2026 | Western Beats',
     description: 'Get on Hungama Music India free in 72 hours. Plus JioSaavn, Gaana, Spotify & 150+ platforms. 100% ownership.',
-    url: 'https://westernbeats.com/hungama-music-distribution',
+    url: 'https://www.westernbeats.com/hungama-music-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Free Hungama Music Distribution India 2026 | Western Beats' },
 }

@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'get music on JioSaavn without label',
     'JioSaavn distribution India 2026',
   ],
-  alternates: { canonical: 'https://westernbeats.com/jiosaavn-distribution' },
+  alternates: { canonical: 'https://www.westernbeats.com/jiosaavn-distribution' },
   openGraph: {
     title: 'JioSaavn Music Distribution Free 2026 — Upload Your Song | Western Beats',
     description: 'Get your song on JioSaavn free with Western Beats. 72 hours, 150+ platforms, 100% ownership, Warner Music India Partner.',
-    url: 'https://westernbeats.com/jiosaavn-distribution',
+    url: 'https://www.westernbeats.com/jiosaavn-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'JioSaavn Music Distribution Free India | Western Beats' },
 }
@@ -34,11 +34,11 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/jiosaavn-distribution',
+      url: 'https://www.westernbeats.com/jiosaavn-distribution',
       name: 'JioSaavn Music Distribution Free India 2026',
       breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-        { '@type': 'ListItem', position: 2, name: 'JioSaavn Distribution', item: 'https://westernbeats.com/jiosaavn-distribution' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+        { '@type': 'ListItem', position: 2, name: 'JioSaavn Distribution', item: 'https://www.westernbeats.com/jiosaavn-distribution' },
       ]},
     },
     {

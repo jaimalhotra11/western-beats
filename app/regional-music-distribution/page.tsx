@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     'distribute regional music India 2026',
     'Indian regional music distribution platform',
   ],
-  alternates: { canonical: 'https://westernbeats.com/regional-music-distribution' },
+  alternates: { canonical: 'https://www.westernbeats.com/regional-music-distribution' },
   openGraph: {
     title: 'Regional Music Distribution India Free — Bhojpuri, Haryanvi, Tamil & More | Western Beats',
     description: 'Distribute Bhojpuri, Haryanvi, Tamil, Telugu, Malayalam and all regional Indian music free to 150+ platforms.',
-    url: 'https://westernbeats.com/regional-music-distribution',
+    url: 'https://www.westernbeats.com/regional-music-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Regional Music Distribution India Free | Western Beats' },
 }
@@ -34,11 +34,11 @@ export const metadata: Metadata = {
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  url: 'https://westernbeats.com/regional-music-distribution',
+  url: 'https://www.westernbeats.com/regional-music-distribution',
   name: 'Regional Music Distribution India Free 2026',
   breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-    { '@type': 'ListItem', position: 2, name: 'Regional Music Distribution', item: 'https://westernbeats.com/regional-music-distribution' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+    { '@type': 'ListItem', position: 2, name: 'Regional Music Distribution', item: 'https://www.westernbeats.com/regional-music-distribution' },
   ]},
 }
 

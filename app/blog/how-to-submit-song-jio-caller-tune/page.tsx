@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     'how to add song to caller tune India',
     'Jio caller tune music submission',
   ],
-  alternates: { canonical: 'https://westernbeats.com/blog/how-to-submit-song-jio-caller-tune' },
+  alternates: { canonical: 'https://www.westernbeats.com/blog/how-to-submit-song-jio-caller-tune' },
   openGraph: {
     title: 'How to Submit Your Song to Jio Caller Tune (CRBT) Free 2026',
     description: 'Step-by-step: get your song on Jio Caller Tune. Free submission through Western Beats.',
-    url: 'https://westernbeats.com/blog/how-to-submit-song-jio-caller-tune',
+    url: 'https://www.westernbeats.com/blog/how-to-submit-song-jio-caller-tune',
     siteName: 'Western Beats', type: 'article', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'How to Submit Song to Jio Caller Tune 2026 | Western Beats' },
 }
@@ -37,13 +37,13 @@ const ARTICLE_SCHEMA = {
   headline: 'How to Submit Your Song to Jio Caller Tune (CRBT) 2026 — Free',
   datePublished: '2026-06-21',
   dateModified: '2026-06-21',
-  author: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com' },
-  publisher: { '@type': 'Organization', name: 'Western Beats', logo: { '@type': 'ImageObject', url: 'https://westernbeats.com/partners/westernbeats-BpLvGE3e.png' } },
-  image: 'https://westernbeats.com/og-image.jpg',
+  author: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com' },
+  publisher: { '@type': 'Organization', name: 'Western Beats', logo: { '@type': 'ImageObject', url: 'https://www.westernbeats.com/partners/westernbeats-BpLvGE3e.png' } },
+  image: 'https://www.westernbeats.com/og-image.jpg',
   breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://westernbeats.com/blog' },
-    { '@type': 'ListItem', position: 3, name: 'Jio Caller Tune Submission', item: 'https://westernbeats.com/blog/how-to-submit-song-jio-caller-tune' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.westernbeats.com/blog' },
+    { '@type': 'ListItem', position: 3, name: 'Jio Caller Tune Submission', item: 'https://www.westernbeats.com/blog/how-to-submit-song-jio-caller-tune' },
   ]},
 }
 

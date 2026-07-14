@@ -28,15 +28,15 @@ export const metadata: Metadata = {
     'distrokid alternative india',
     'tunecore alternative india',
   ],
-  alternates: { canonical: 'https://westernbeats.com/free-music-distribution-india' },
+  alternates: { canonical: 'https://www.westernbeats.com/free-music-distribution-india' },
   openGraph: {
     title: 'Free Music Distribution India 2026 | Western Beats',
     description: 'Distribute your music free to Spotify, JioSaavn, Gaana, Apple Music and 150+ platforms in 72 hours. 100% ownership, Warner Music India Partner.',
-    url: 'https://westernbeats.com/free-music-distribution-india',
+    url: 'https://www.westernbeats.com/free-music-distribution-india',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Free Music Distribution India 2026 | Western Beats' },
   robots: { index: true, follow: true },
@@ -47,14 +47,14 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/free-music-distribution-india',
+      url: 'https://www.westernbeats.com/free-music-distribution-india',
       name: 'Free Music Distribution India 2026',
       description: 'Free music distribution India to Spotify, JioSaavn, Gaana, Apple Music and 150+ platforms in 72 hours, with 100% ownership retained.',
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Free Music Distribution India', item: 'https://westernbeats.com/free-music-distribution-india' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Free Music Distribution India', item: 'https://www.westernbeats.com/free-music-distribution-india' },
         ],
       },
     },

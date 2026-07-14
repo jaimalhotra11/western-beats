@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     'Apple Music royalty rate India',
     'how much Apple Music pays per stream India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/apple-music-distribution' },
+  alternates: { canonical: 'https://www.westernbeats.com/apple-music-distribution' },
   openGraph: {
     title: 'Free Apple Music Distribution India 2026 — Upload Your Song | Western Beats',
     description: 'Get on Apple Music India free in 72 hours, plus JioSaavn, Gaana, Spotify and 150+ more. No subscription.',
-    url: 'https://westernbeats.com/apple-music-distribution',
+    url: 'https://www.westernbeats.com/apple-music-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Free Apple Music Distribution India 2026 | Western Beats' },
 }
@@ -34,11 +34,11 @@ export const metadata: Metadata = {
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  url: 'https://westernbeats.com/apple-music-distribution',
+  url: 'https://www.westernbeats.com/apple-music-distribution',
   name: 'Free Apple Music Distribution India 2026',
   breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-    { '@type': 'ListItem', position: 2, name: 'Apple Music Distribution', item: 'https://westernbeats.com/apple-music-distribution' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+    { '@type': 'ListItem', position: 2, name: 'Apple Music Distribution', item: 'https://www.westernbeats.com/apple-music-distribution' },
   ]},
 }
 

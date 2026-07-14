@@ -52,6 +52,13 @@ const LINKS: Record<string, { label: string; href: string }[]> = {
     { label: 'vs CD Baby', href: '/compare/cd-baby-vs-western-beats' },
     { label: 'vs Deliver My Tune', href: '/compare/deliver-my-tune-vs-western-beats' },
   ],
+  Global: [
+    { label: 'Best Distributor Worldwide', href: '/best-music-distribution-company' },
+    { label: 'Best Distributor USA', href: '/best-music-distributor-usa' },
+    { label: 'Best Distributor Canada', href: '/best-music-distributor-canada' },
+    { label: 'Best Distributor Australia', href: '/best-music-distributor-australia' },
+    { label: 'Best Distributor UAE', href: '/best-music-distributor-uae' },
+  ],
   Legal: [
     { label: 'Terms of Service', href: '/terms' },
     { label: 'Privacy Policy', href: '/privacy' },
@@ -63,7 +70,7 @@ const LINKS: Record<string, { label: string; href: string }[]> = {
 const SOCIALS = [
   { Icon: IgIcon,  href: 'https://instagram.com/wb_digital_', label: 'Instagram' },
   { Icon: Mail,    href: 'mailto:contact@westernbeats.com',   label: 'Email' },
-  { Icon: Globe,   href: 'https://westernbeats.com',          label: 'Website' },
+  { Icon: Globe,   href: 'https://www.westernbeats.com',          label: 'Website' },
   { Icon: Phone,   href: 'tel:+917087677767',                 label: 'Phone' },
 ]
 

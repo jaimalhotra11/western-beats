@@ -61,15 +61,15 @@ export const metadata: Metadata = {
     'independent artist distribution India',
     'music distribution Warner Music Group India',
   ],
-  alternates: { canonical: 'https://westernbeats.com' },
+  alternates: { canonical: 'https://www.westernbeats.com' },
   openGraph: {
     title: "Western Beats — Free Music Distribution India | JioSaavn, Gaana, Spotify, Caller Tune",
     description: "Distribute to JioSaavn, Gaana, Spotify, Apple Music + Jio Caller Tune free in 72 hours. ₹0, 100% ownership, free ISRC. Warner Music India Partner.",
-    url: 'https://westernbeats.com',
+    url: 'https://www.westernbeats.com',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -85,7 +85,7 @@ const AGGREGATE_RATING_SCHEMA = {
   '@type': 'Product',
   name: 'Western Beats — Free Music Distribution India',
   description: "India's best free music distribution platform. Distribute to 150+ platforms in 72 hours. 100% ownership. Official Warner Music India Partner.",
-  url: 'https://westernbeats.com',
+  url: 'https://www.westernbeats.com',
   brand: { '@type': 'Brand', name: 'Western Beats' },
   aggregateRating: {
     '@type': 'AggregateRating',

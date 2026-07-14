@@ -19,11 +19,11 @@ export const metadata: Metadata = {
     'all streaming platforms India distribution',
     'global music distribution India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/platforms' },
+  alternates: { canonical: 'https://www.westernbeats.com/platforms' },
   openGraph: {
     title: 'Western Beats: Distribute to 150+ Platforms, India First',
     description: 'Distribute your music to JioSaavn, Gaana, Spotify, Apple Music, YouTube Music and 145+ more platforms. Free distribution with Warner Music India Partnership backing.',
-    url: 'https://westernbeats.com/platforms',
+    url: 'https://www.westernbeats.com/platforms',
     siteName: 'Western Beats',
     locale: 'en_IN',
     type: 'website',
@@ -40,8 +40,8 @@ const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-    { '@type': 'ListItem', position: 2, name: 'Platforms', item: 'https://westernbeats.com/platforms' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+    { '@type': 'ListItem', position: 2, name: 'Platforms', item: 'https://www.westernbeats.com/platforms' },
   ],
 }
 

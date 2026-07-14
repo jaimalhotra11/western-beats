@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     'monthly royalty payment India',
     'music distribution royalty India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/royalties' },
+  alternates: { canonical: 'https://www.westernbeats.com/royalties' },
   openGraph: {
     title: 'Western Beats Royalties: 100% Ownership, Direct Payments Every Month',
     description:
       'Western Beats pays your royalties directly to your bank account. 100% IP ownership always yours. Free ISRC and UPC. Zero upfront fees. We only earn when you earn.',
-    url: 'https://westernbeats.com/royalties',
+    url: 'https://www.westernbeats.com/royalties',
     siteName: 'Western Beats',
     locale: 'en_IN',
     type: 'website',
@@ -45,8 +45,8 @@ const SCHEMA = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-        { '@type': 'ListItem', position: 2, name: 'Royalties & Payments', item: 'https://westernbeats.com/royalties' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+        { '@type': 'ListItem', position: 2, name: 'Royalties & Payments', item: 'https://www.westernbeats.com/royalties' },
       ],
     },
     {

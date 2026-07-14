@@ -25,7 +25,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/',
       },
     ],
-    sitemap: 'https://westernbeats.com/sitemap.xml',
-    host: 'https://westernbeats.com',
+    sitemap: 'https://www.westernbeats.com/sitemap.xml',
+    host: 'https://www.westernbeats.com',
   }
 }

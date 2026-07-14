@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     'no fee music distribution India',
     'Warner Music India Partner distribution pricing',
   ],
-  alternates: { canonical: 'https://westernbeats.com/pricing' },
+  alternates: { canonical: 'https://www.westernbeats.com/pricing' },
   openGraph: {
     title: 'Western Beats Pricing: Free Music Distribution | Western Beats',
     description: '₹0 forever. 100% ownership to you. No annual fee, no per-release charge. We only earn when you earn. Compare vs DistroKid, TuneCore & CD Baby.',
-    url: 'https://westernbeats.com/pricing',
+    url: 'https://www.westernbeats.com/pricing',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
@@ -44,15 +44,15 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebPage',
-      '@id': 'https://westernbeats.com/pricing#webpage',
-      url: 'https://westernbeats.com/pricing',
+      '@id': 'https://www.westernbeats.com/pricing#webpage',
+      url: 'https://www.westernbeats.com/pricing',
       name: 'Western Beats Pricing: Free Music Distribution',
-      isPartOf: { '@id': 'https://westernbeats.com/#website' },
+      isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://westernbeats.com/pricing' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://www.westernbeats.com/pricing' },
         ],
       },
     },

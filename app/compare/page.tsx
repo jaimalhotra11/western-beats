@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     'best free music distribution comparison India',
     'Western Beats compare',
   ],
-  alternates: { canonical: 'https://westernbeats.com/compare' },
+  alternates: { canonical: 'https://www.westernbeats.com/compare' },
   openGraph: {
     title: 'Western Beats vs All Competitors 2026 — India Comparison',
     description: 'Western Beats vs DistroKid, TuneCore, CD Baby, Deliver My Tune, ForeVision, RouteNote. See why Western Beats wins for Indian artists.',
-    url: 'https://westernbeats.com/compare',
+    url: 'https://www.westernbeats.com/compare',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Western Beats vs All Competitors India 2026', description: 'See how Western Beats beats every competitor for Indian artists.', site: '@wb_digital_' },
 }
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  url: 'https://westernbeats.com/compare',
+  url: 'https://www.westernbeats.com/compare',
   name: 'Western Beats vs Competitors — India 2026',
-  isPartOf: { '@id': 'https://westernbeats.com/#website' },
+  isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
   breadcrumb: {
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-      { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://westernbeats.com/compare' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+      { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://www.westernbeats.com/compare' },
     ],
   },
 }

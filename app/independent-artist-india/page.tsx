@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     'lo-fi bedroom pop distribution india',
     'indie hip hop distribution india',
   ],
-  alternates: { canonical: 'https://westernbeats.com/independent-artist-india' },
+  alternates: { canonical: 'https://www.westernbeats.com/independent-artist-india' },
   openGraph: {
     title: 'Independent Artist India Music Distribution | Western Beats',
     description: 'No label. No gatekeepers. 100% ownership. Distribute your music to 150+ platforms free, built for India’s independent artist movement.',
-    url: 'https://westernbeats.com/independent-artist-india',
+    url: 'https://www.westernbeats.com/independent-artist-india',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Independent Artist India Music Distribution | Western Beats' },
   robots: { index: true, follow: true },
@@ -43,12 +43,12 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/independent-artist-india',
+      url: 'https://www.westernbeats.com/independent-artist-india',
       name: 'Independent Artist India Music Distribution',
       description: 'Free music distribution for India’s independent artists. No label, no gatekeepers, 100% ownership, 150+ platforms.',
       breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-        { '@type': 'ListItem', position: 2, name: 'Independent Artist India', item: 'https://westernbeats.com/independent-artist-india' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+        { '@type': 'ListItem', position: 2, name: 'Independent Artist India', item: 'https://www.westernbeats.com/independent-artist-india' },
       ]},
     },
     {

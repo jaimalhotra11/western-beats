@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     'spotify distribution india free',
     'upload music spotify india independent artist',
   ],
-  alternates: { canonical: 'https://westernbeats.com/how-to-upload-song-spotify-india' },
+  alternates: { canonical: 'https://www.westernbeats.com/how-to-upload-song-spotify-india' },
   openGraph: {
     title: 'How to Upload Your Song on Spotify India Free in 2026 | Western Beats',
     description: 'Step-by-step guide: upload your song on Spotify India free in 2026 via Western Beats. 72 hours, 150+ platforms, 100% ownership.',
-    url: 'https://westernbeats.com/how-to-upload-song-spotify-india',
+    url: 'https://www.westernbeats.com/how-to-upload-song-spotify-india',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'How to Upload Song on Spotify India Free 2026 | Western Beats' },
   robots: { index: true, follow: true },
@@ -40,14 +40,14 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/how-to-upload-song-spotify-india',
+      url: 'https://www.westernbeats.com/how-to-upload-song-spotify-india',
       name: 'How to Upload Your Song on Spotify India Free in 2026',
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-          { '@type': 'ListItem', position: 2, name: 'Spotify Distribution', item: 'https://westernbeats.com/spotify-distribution' },
-          { '@type': 'ListItem', position: 3, name: 'How to Upload Song on Spotify India', item: 'https://westernbeats.com/how-to-upload-song-spotify-india' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+          { '@type': 'ListItem', position: 2, name: 'Spotify Distribution', item: 'https://www.westernbeats.com/spotify-distribution' },
+          { '@type': 'ListItem', position: 3, name: 'How to Upload Song on Spotify India', item: 'https://www.westernbeats.com/how-to-upload-song-spotify-india' },
         ],
       },
     },

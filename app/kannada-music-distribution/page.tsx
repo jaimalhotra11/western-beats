@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     'kannada music streaming india',
     'kannada song release free india',
   ],
-  alternates: { canonical: 'https://westernbeats.com/kannada-music-distribution' },
+  alternates: { canonical: 'https://www.westernbeats.com/kannada-music-distribution' },
   openGraph: {
     title: 'Kannada Music Distribution Free India 2026 | Western Beats',
     description: 'Distribute Kannada songs to 150+ platforms free in 72 hours. JioSaavn, Gaana, Spotify, Jio Caller Tune included.',
-    url: 'https://westernbeats.com/kannada-music-distribution',
+    url: 'https://www.westernbeats.com/kannada-music-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Kannada Music Distribution Free India | Western Beats' },
   robots: { index: true, follow: true },
@@ -40,12 +40,12 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/kannada-music-distribution',
+      url: 'https://www.westernbeats.com/kannada-music-distribution',
       name: 'Kannada Music Distribution India Free 2026',
       description: 'Free Kannada music distribution to JioSaavn, Gaana, Spotify and 150+ platforms in 72 hours.',
       breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-        { '@type': 'ListItem', position: 2, name: 'Kannada Music Distribution', item: 'https://westernbeats.com/kannada-music-distribution' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+        { '@type': 'ListItem', position: 2, name: 'Kannada Music Distribution', item: 'https://www.westernbeats.com/kannada-music-distribution' },
       ]},
     },
     {

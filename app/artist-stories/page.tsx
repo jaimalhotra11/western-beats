@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     'JioSaavn streams independent artist',
     'free music distribution success India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/artist-stories' },
+  alternates: { canonical: 'https://www.westernbeats.com/artist-stories' },
   openGraph: {
     title: 'Artist Stories | Western Beats — Real Streams, Real Earnings',
     description: 'Independent Indian artists distributing through Western Beats. Real results on JioSaavn, Gaana, Spotify in 72 hours. 100% IP ownership.',
-    url: 'https://westernbeats.com/artist-stories',
+    url: 'https://www.westernbeats.com/artist-stories',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
@@ -36,16 +36,16 @@ export const metadata: Metadata = {
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  '@id': 'https://westernbeats.com/artist-stories#webpage',
-  url: 'https://westernbeats.com/artist-stories',
+  '@id': 'https://www.westernbeats.com/artist-stories#webpage',
+  url: 'https://www.westernbeats.com/artist-stories',
   name: 'Artist Stories — Western Beats',
   description: 'Success stories from independent Indian artists who distributed through Western Beats.',
-  isPartOf: { '@id': 'https://westernbeats.com/#website' },
+  isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
   breadcrumb: {
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-      { '@type': 'ListItem', position: 2, name: 'Artist Stories', item: 'https://westernbeats.com/artist-stories' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+      { '@type': 'ListItem', position: 2, name: 'Artist Stories', item: 'https://www.westernbeats.com/artist-stories' },
     ],
   },
 }

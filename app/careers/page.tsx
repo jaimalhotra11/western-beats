@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     'artist relations job India',
     'music startup jobs India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/careers' },
+  alternates: { canonical: 'https://www.westernbeats.com/careers' },
   openGraph: {
     title: "Careers at Western Beats | India's Best Music Company",
     description: "Join Western Beats — India's WMG-backed music distribution company. Roles in artist relations, marketing, tech, and operations.",
-    url: 'https://westernbeats.com/careers',
+    url: 'https://www.westernbeats.com/careers',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
@@ -35,16 +35,16 @@ export const metadata: Metadata = {
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': 'https://westernbeats.com/careers#webpage',
-  url: 'https://westernbeats.com/careers',
+  '@id': 'https://www.westernbeats.com/careers#webpage',
+  url: 'https://www.westernbeats.com/careers',
   name: 'Careers at Western Beats',
   description: "Join Western Beats — India's best free music distribution company backed by Warner Music Group.",
-  isPartOf: { '@id': 'https://westernbeats.com/#website' },
+  isPartOf: { '@id': 'https://www.westernbeats.com/#website' },
   breadcrumb: {
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-      { '@type': 'ListItem', position: 2, name: 'Careers', item: 'https://westernbeats.com/careers' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+      { '@type': 'ListItem', position: 2, name: 'Careers', item: 'https://www.westernbeats.com/careers' },
     ],
   },
 }

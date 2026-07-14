@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     'truly free music distribution India no commission',
     'RouteNote 15 percent alternative',
   ],
-  alternates: { canonical: 'https://westernbeats.com/compare/routenote-vs-western-beats' },
+  alternates: { canonical: 'https://www.westernbeats.com/compare/routenote-vs-western-beats' },
   openGraph: {
     title: 'RouteNote vs Western Beats India 2026 — Truly Free vs 15% Cut',
     description: "RouteNote takes 15% of your royalties forever. Western Beats is truly free — ₹0 and WMG backed.",
-    url: 'https://westernbeats.com/compare/routenote-vs-western-beats',
+    url: 'https://www.westernbeats.com/compare/routenote-vs-western-beats',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'RouteNote vs Western Beats India 2026', description: "RouteNote takes 15% forever. Western Beats: ₹0 + WMG backed + 150 platforms.", site: '@wb_digital_' },
 }

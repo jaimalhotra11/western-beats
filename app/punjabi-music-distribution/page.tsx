@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'distribute Punjabi music Spotify',
     'Punjabi singer music distribution India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/punjabi-music-distribution' },
+  alternates: { canonical: 'https://www.westernbeats.com/punjabi-music-distribution' },
   openGraph: {
     title: 'Punjabi Music Distribution Free — JioSaavn, Gaana, Caller Tune | Western Beats',
     description: 'Distribute Punjabi songs to 150+ platforms free in 72 hours. JioSaavn, Gaana, Spotify, Jio Caller Tune included.',
-    url: 'https://westernbeats.com/punjabi-music-distribution',
+    url: 'https://www.westernbeats.com/punjabi-music-distribution',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Punjabi Music Distribution Free India | Western Beats' },
 }
@@ -32,12 +32,12 @@ export const metadata: Metadata = {
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  url: 'https://westernbeats.com/punjabi-music-distribution',
+  url: 'https://www.westernbeats.com/punjabi-music-distribution',
   name: 'Punjabi Music Distribution Free India 2026',
   description: 'Free Punjabi music distribution to JioSaavn, Gaana, Spotify and 150+ platforms in 72 hours.',
   breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-    { '@type': 'ListItem', position: 2, name: 'Punjabi Music Distribution', item: 'https://westernbeats.com/punjabi-music-distribution' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+    { '@type': 'ListItem', position: 2, name: 'Punjabi Music Distribution', item: 'https://www.westernbeats.com/punjabi-music-distribution' },
   ]},
 }
 

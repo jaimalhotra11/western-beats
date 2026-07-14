@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://westernbeats.com'
+const BASE_URL = 'https://www.westernbeats.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date('2026-06-25')
@@ -35,12 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/pricing`,
       lastModified,
       changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/submit`,
-      lastModified,
-      changeFrequency: 'weekly',
       priority: 0.85,
     },
     {
@@ -86,6 +80,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.6,
+    },
+
+    /* ── Global / International Landing Pages ────────── */
+    {
+      url: `${BASE_URL}/best-music-distribution-company`,
+      lastModified: new Date('2026-07-14'),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+    {
+      url: `${BASE_URL}/best-music-distributor-usa`,
+      lastModified: new Date('2026-07-14'),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/best-music-distributor-canada`,
+      lastModified: new Date('2026-07-14'),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/best-music-distributor-australia`,
+      lastModified: new Date('2026-07-14'),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/best-music-distributor-uae`,
+      lastModified: new Date('2026-07-14'),
+      changeFrequency: 'monthly',
+      priority: 0.95,
     },
 
     /* ── Competitor Comparison Pages — HIGH SEO VALUE ── */

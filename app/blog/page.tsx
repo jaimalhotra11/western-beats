@@ -18,15 +18,15 @@ export const metadata: Metadata = {
     'free music distribution blog',
     'Western Beats blog',
   ],
-  alternates: { canonical: 'https://westernbeats.com/blog' },
+  alternates: { canonical: 'https://www.westernbeats.com/blog' },
   openGraph: {
     title: 'Music Distribution Blog India 2026 | Western Beats',
     description: 'Free guides for Indian artists: distribute music, get on JioSaavn, understand ISRC codes, caller tunes, and earn royalties.',
-    url: 'https://westernbeats.com/blog',
+    url: 'https://www.westernbeats.com/blog',
     siteName: 'Western Beats',
     type: 'website',
     locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Music Distribution Blog India | Western Beats' },
 }
@@ -34,10 +34,10 @@ export const metadata: Metadata = {
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
-  url: 'https://westernbeats.com/blog',
+  url: 'https://www.westernbeats.com/blog',
   name: 'Western Beats Blog — Music Distribution Guides for Indian Artists',
   description: 'Free guides, tutorials and tips for independent artists in India to distribute their music online and earn royalties.',
-  publisher: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com' },
+  publisher: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com' },
 }
 
 const POSTS = [

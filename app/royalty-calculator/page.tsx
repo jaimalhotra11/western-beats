@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     'Apple Music royalty calculator India',
     'music distribution earnings India',
   ],
-  alternates: { canonical: 'https://westernbeats.com/royalty-calculator' },
+  alternates: { canonical: 'https://www.westernbeats.com/royalty-calculator' },
   openGraph: {
     title: 'Free Music Royalty Calculator India 2026 | Western Beats',
     description: 'Calculate streaming royalties from Spotify, JioSaavn, Apple Music, YouTube Music & more. Free tool for Indian independent artists.',
-    url: 'https://westernbeats.com/royalty-calculator',
+    url: 'https://www.westernbeats.com/royalty-calculator',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Free Music Royalty Calculator India 2026 | Western Beats' },
 }
@@ -36,12 +36,12 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/royalty-calculator',
+      url: 'https://www.westernbeats.com/royalty-calculator',
       name: 'Free Music Royalty Calculator India 2026',
       description: 'Calculate streaming royalties from Spotify, JioSaavn, Apple Music, YouTube Music and more for Indian artists.',
       breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-        { '@type': 'ListItem', position: 2, name: 'Royalty Calculator', item: 'https://westernbeats.com/royalty-calculator' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+        { '@type': 'ListItem', position: 2, name: 'Royalty Calculator', item: 'https://www.westernbeats.com/royalty-calculator' },
       ]},
     },
     {
@@ -51,8 +51,8 @@ const SCHEMA = {
       operatingSystem: 'Web',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
       description: 'Free tool to calculate estimated music streaming royalties from Spotify, JioSaavn, Apple Music, YouTube Music, and other platforms for Indian independent artists.',
-      url: 'https://westernbeats.com/royalty-calculator',
-      provider: { '@type': 'Organization', name: 'Western Beats', url: 'https://westernbeats.com' },
+      url: 'https://www.westernbeats.com/royalty-calculator',
+      provider: { '@type': 'Organization', name: 'Western Beats', url: 'https://www.westernbeats.com' },
     },
     {
       '@type': 'FAQPage',

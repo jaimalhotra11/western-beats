@@ -96,8 +96,6 @@ const SERVICES = [
       'Playlist pitching to editors & curators',
       'Social media growth & content strategy',
       'Booking & live performance management',
-      'Press & media coverage coordination',
-      'Merchandise & licensing opportunities',
       'Contract review & negotiation support',
       'Monthly performance reviews & reporting',
     ],
@@ -848,7 +846,7 @@ function TalentVisual({ color }: { color: string }) {
     <div className="rounded-2xl overflow-hidden" style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.08)' }}>
       <div className="gsap-card grid grid-cols-2 gap-px">
         {artists.map((a, i) => (
-          <div key={a.name} className="relative h-36 overflow-hidden group">
+          <div key={a.name} className="relative aspect-[3/4] overflow-hidden group">
             <Image src={a.image} alt={a.name} fill sizes="200px" className="object-cover object-top transition-transform duration-500 group-hover:scale-105" />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(4,10,20,0.9) 100%)' }} />
             <div className="absolute bottom-2 left-2">

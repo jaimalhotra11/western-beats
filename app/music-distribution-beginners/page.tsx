@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'first release music distribution India',
     'beginner guide music distribution',
   ],
-  alternates: { canonical: 'https://westernbeats.com/music-distribution-beginners' },
+  alternates: { canonical: 'https://www.westernbeats.com/music-distribution-beginners' },
   openGraph: {
     title: 'Music Distribution for Beginners India 2026 | Western Beats',
     description: 'First time distributing music in India? Step-by-step guide — prepare files, pick a distributor, go live on JioSaavn & Spotify in 72 hours.',
-    url: 'https://westernbeats.com/music-distribution-beginners',
+    url: 'https://www.westernbeats.com/music-distribution-beginners',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Music Distribution for Beginners India | Western Beats' },
 }
@@ -34,11 +34,11 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/music-distribution-beginners',
+      url: 'https://www.westernbeats.com/music-distribution-beginners',
       name: 'Music Distribution for Beginners India 2026',
       breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-        { '@type': 'ListItem', position: 2, name: 'Music Distribution Beginners Guide', item: 'https://westernbeats.com/music-distribution-beginners' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+        { '@type': 'ListItem', position: 2, name: 'Music Distribution Beginners Guide', item: 'https://www.westernbeats.com/music-distribution-beginners' },
       ]},
     },
     {

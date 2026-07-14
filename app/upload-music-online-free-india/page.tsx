@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     'how to publish music online india',
     'upload track to apple music free india',
   ],
-  alternates: { canonical: 'https://westernbeats.com/upload-music-online-free-india' },
+  alternates: { canonical: 'https://www.westernbeats.com/upload-music-online-free-india' },
   openGraph: {
     title: 'Upload Music Online Free India 2026 | Western Beats',
     description: 'Step-by-step beginner guide to uploading your music online free in India — Spotify, JioSaavn, Apple Music, Gaana and 150+ platforms.',
-    url: 'https://westernbeats.com/upload-music-online-free-india',
+    url: 'https://www.westernbeats.com/upload-music-online-free-india',
     siteName: 'Western Beats', type: 'website', locale: 'en_IN',
-    images: [{ url: 'https://westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.westernbeats.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', site: '@wb_digital_', title: 'Upload Music Online Free India | Western Beats' },
   robots: { index: true, follow: true },
@@ -43,12 +43,12 @@ const SCHEMA = {
   '@graph': [
     {
       '@type': 'WebPage',
-      url: 'https://westernbeats.com/upload-music-online-free-india',
+      url: 'https://www.westernbeats.com/upload-music-online-free-india',
       name: 'Upload Music Online Free India 2026',
       description: 'Beginner guide to uploading music online free in India to Spotify, JioSaavn, Apple Music, Gaana and 150+ platforms.',
       breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://westernbeats.com' },
-        { '@type': 'ListItem', position: 2, name: 'Upload Music Online Free India', item: 'https://westernbeats.com/upload-music-online-free-india' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.westernbeats.com' },
+        { '@type': 'ListItem', position: 2, name: 'Upload Music Online Free India', item: 'https://www.westernbeats.com/upload-music-online-free-india' },
       ]},
     },
     {
