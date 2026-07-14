@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import PricingPage from './PricingPage'
 
 export const metadata: Metadata = {
-  title: 'Pricing: Free Music Distribution, 100% Ownership | Western Beats',
+  title: 'Pricing: Free Distribution, 100% Ownership | WB',
   description:
-    'Western Beats music distribution is 100% free: ₹0 upfront forever. 100% IP ownership always yours, WB only earns when you earn. Compare vs DistroKid ($22.99/yr), TuneCore ($14.99/release), CD Baby ($9.99 + 9%), Ditto Music, and Believe. Best value for Indian artists.',
+    '100% free forever: ₹0 upfront, 100% ownership always. WB only earns when you earn. Cheaper than DistroKid, TuneCore, CD Baby.',
   keywords: [
     'Western Beats pricing',
     'free music distribution India',

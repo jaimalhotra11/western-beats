@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import ComparisonPage from '../ComparisonPage'
 
 export const metadata: Metadata = {
-  title: 'TuneCore vs Western Beats 2026 | India — Free vs ₹1,599/year',
-  description: "TuneCore vs Western Beats India: TuneCore charges ₹1,599/year and its free plan doesn't cover JioSaavn or Gaana. Western Beats is completely free, covers all Indian platforms, has caller tune support, and is backed by Warner Music Group. Best TuneCore alternative in India 2026.",
+  title: 'TuneCore vs Western Beats 2026 | Western Beats',
+  description: "TuneCore charges ₹1,599/yr, free plan skips JioSaavn/Gaana. Western Beats is free, covers all Indian platforms, WMG backed.",
   keywords: [
     'TuneCore vs Western Beats',
     'TuneCore alternative India',

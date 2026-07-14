@@ -4,9 +4,9 @@ import ServicesPage from './ServicesPage'
 /* ─── SEO Metadata ──────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
   title:
-    "Services: Music Distribution, Events, Talent & Production | Western Beats India",
+    "Music Distribution, Events & Talent | Western Beats",
   description:
-    "Western Beats offers India's best full-service music company experience: Free music distribution via Western Beats to 150+ platforms, professional event management, talent management, audio production, video direction & analytics. Officially backed by Warner Music India Partner. Better than DistroKid, TuneCore & CD Baby.",
+    "Free music distribution to 150+ platforms plus event management, talent management, audio & video production. WMI Partner.",
   keywords: [
     'music distribution services India',
     'free music distribution India',

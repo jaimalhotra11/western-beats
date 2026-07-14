@@ -4,8 +4,8 @@ import Footer from '../components/Footer'
 import CompareHubCards from './CompareHubCards'
 
 export const metadata: Metadata = {
-  title: 'Western Beats vs All Competitors 2026 | Best Music Distribution India',
-  description: "How Western Beats compares to every music distribution competitor — DistroKid, TuneCore, CD Baby, Deliver My Tune, ForeVision Digital, RouteNote. Western Beats wins: ₹0 forever, 150+ platforms, WMG backed, JioSaavn + Gaana + caller tunes.",
+  title: 'Western Beats vs All Competitors 2026',
+  description: "How Western Beats compares to DistroKid, TuneCore, CD Baby & more. ₹0 forever, 150+ platforms, WMG backed, JioSaavn + Gaana.",
   keywords: [
     'Western Beats vs competitors',
     'best music distribution India comparison 2026',

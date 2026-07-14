@@ -4,8 +4,8 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Best Music Distribution Company 2026 — Free, 150+ Platforms Worldwide | Western Beats',
-  description: 'Western Beats is a free music distribution company reaching 150+ platforms worldwide — Spotify, Apple Music, Amazon Music, YouTube Music & more. 100% ownership, no upfront cost, artists from any country welcome.',
+  title: 'Best Music Distribution Company 2026 | Western Beats',
+  description: 'Free distribution to 150+ platforms worldwide — Spotify, Apple Music, Amazon Music & more. 100% ownership, no upfront cost, any country.',
   keywords: [
     'best music distribution company',
     'best music distribution company 2026',

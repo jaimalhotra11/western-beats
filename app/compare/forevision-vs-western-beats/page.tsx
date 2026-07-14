@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import ComparisonPage from '../ComparisonPage'
 
 export const metadata: Metadata = {
-  title: 'ForeVision Digital vs Western Beats 2026 | ₹499/release vs Free',
-  description: "ForeVision Digital vs Western Beats: ForeVision charges ₹299-699 per release with 90% royalties and covers only 47 platforms. Western Beats is completely free, 150+ platforms, 100% IP ownership, and backed by Warner Music Group. Best ForeVision alternative India 2026.",
+  title: 'ForeVision Digital vs Western Beats 2026',
+  description: "ForeVision charges ₹299-699/release, only 47 platforms. Western Beats is free, 150+ platforms, 100% ownership, WMG backed.",
   keywords: [
     'ForeVision Digital vs Western Beats',
     'ForeVision Digital alternative India',

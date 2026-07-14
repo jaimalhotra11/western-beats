@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import ComparisonPage from '../ComparisonPage'
 
 export const metadata: Metadata = {
-  title: 'CD Baby vs Western Beats 2026 | India — ₹0 vs $9.99/release + 9%',
-  description: "CD Baby vs Western Beats for Indian artists: CD Baby charges $9.99 per release + 9% of royalties forever. Western Beats is completely free with 100% IP ownership, covers JioSaavn + Gaana, has WMG backing. Best CD Baby alternative India 2026.",
+  title: 'CD Baby vs Western Beats 2026 | Western Beats',
+  description: "CD Baby charges $9.99/release + 9% royalties forever. Western Beats is free, 100% ownership, JioSaavn + Gaana, WMG backed.",
   keywords: [
     'CD Baby vs Western Beats',
     'CD Baby alternative India',

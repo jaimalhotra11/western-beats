@@ -4,9 +4,9 @@ import AboutPage from './AboutPage'
 /* ─── Rich SEO Metadata ─────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
   title:
-    "About Western Beats | India's Best Free Music Distribution Company | Warner Music India Partner",
+    "About Western Beats | Free Music Distribution India",
   description:
-    "Western Beats Private Limited — India's best free music distribution company. Official Warner Music India Partner. FREE distribution to 150+ platforms including JioSaavn, Gaana, Spotify & Apple Music in 72 hours. Keep 100% IP ownership always yours. ₹0 upfront. Better than DistroKid, TuneCore, CD Baby & Ditto Music.",
+    "Western Beats Private Limited — India's best free music distributor. 150+ platforms, 100% ownership, WMI Partner backed.",
   keywords: [
     'about Western Beats',
     'Western Beats Private Limited',

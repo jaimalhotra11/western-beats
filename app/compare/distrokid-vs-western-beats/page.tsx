@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import ComparisonPage from '../ComparisonPage'
 
 export const metadata: Metadata = {
-  title: 'DistroKid vs Western Beats 2026 | India Comparison — Free Distribution, WMG Partner',
-  description: "DistroKid vs Western Beats: Western Beats wins for Indian artists. Western Beats is ₹0 forever (DistroKid = $22.99/yr), covers JioSaavn + Gaana + caller tunes, is officially backed by Warner Music Group, and gives 100% IP ownership. No annual fee, no renewal, no hidden charges.",
+  title: 'DistroKid vs Western Beats 2026 | Western Beats',
+  description: "DistroKid charges $22.99/yr and misses JioSaavn/Gaana. Western Beats is ₹0 forever, WMG backed, 100% ownership.",
   keywords: [
     'DistroKid vs Western Beats',
     'DistroKid alternative India',

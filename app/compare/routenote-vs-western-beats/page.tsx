@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import ComparisonPage from '../ComparisonPage'
 
 export const metadata: Metadata = {
-  title: 'RouteNote vs Western Beats 2026 | India — 15% Commission vs ₹0',
-  description: "RouteNote vs Western Beats: RouteNote\'s free plan takes 15% of your streaming royalties forever. Western Beats is truly free — ₹0 upfront, 150+ platforms including JioSaavn and Gaana, caller tune support, and officially backed by Warner Music Group. Best RouteNote India alternative.",
+  title: 'RouteNote vs Western Beats 2026 | Western Beats',
+  description: "RouteNote's free plan takes 15% of royalties forever. Western Beats is truly free, 150+ platforms incl. JioSaavn, WMG backed.",
   keywords: [
     'RouteNote vs Western Beats',
     'RouteNote alternative India',

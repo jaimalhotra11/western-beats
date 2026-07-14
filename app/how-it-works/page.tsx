@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import HowItWorksPage from './HowItWorksPage'
 
 export const metadata: Metadata = {
-  title: 'How It Works: Free Music Distribution in 3 Steps | Western Beats',
+  title: 'How It Works: 3 Steps to Distribute | Western Beats',
   description:
-    'See exactly how Western Beats works: Submit your music → We distribute to 150+ platforms in 72 hours → 100% IP ownership always yours, royalties paid directly to you. Free forever. Backed by Warner Music India Partner. Faster than DistroKid, TuneCore & CD Baby.',
+    'Submit your music, we distribute to 150+ platforms in 72 hours, you keep 100% ownership. Free forever. WMI Partner backed.',
   keywords: [
     'how does Western Beats work',
     'how to distribute music India',

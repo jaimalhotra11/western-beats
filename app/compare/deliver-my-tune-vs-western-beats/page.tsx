@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import ComparisonPage from '../ComparisonPage'
 
 export const metadata: Metadata = {
-  title: 'Deliver My Tune vs Western Beats 2026 | Free vs ₹1,999+',
-  description: "Deliver My Tune vs Western Beats: Deliver My Tune charges ₹1,999+ with 85% royalties. Western Beats is completely free, 100% IP ownership, 150+ platforms, and officially backed by Warner Music Group. Best Deliver My Tune alternative India 2026.",
+  title: 'Deliver My Tune vs Western Beats 2026',
+  description: "Deliver My Tune charges ₹1,999+ with 85% royalty share. Western Beats is free, 100% ownership, 150+ platforms, WMG backed.",
   keywords: [
     'Deliver My Tune vs Western Beats',
     'Deliver My Tune alternative India',
