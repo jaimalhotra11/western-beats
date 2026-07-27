@@ -15,7 +15,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https: blob:",
-      "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://formspree.io",
+      "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.cloudinary.com https://res.cloudinary.com",
       "frame-src 'none'",
       "object-src 'none'",
       "base-uri 'self'",
