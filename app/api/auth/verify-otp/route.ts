@@ -3,6 +3,17 @@ import { connectDB } from '@/lib/mongodb'
 import { OTP } from '@/lib/models/OTP'
 import { User } from '@/lib/models/User'
 import { getSession } from '@/lib/session'
+import nodemailer from 'nodemailer'
+
+function mailer() {
+  return nodemailer.createTransport({
+    host: 'smtp.gmail.com', port: 465, secure: true,
+    auth: {
+      user: process.env.GMAIL_USER || 'contactwesternbeats@gmail.com',
+      pass: process.env.GMAIL_APP_PASSWORD || 'hzdceckogjbaitzu',
+    },
+  })
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -48,6 +59,26 @@ export async function POST(req: NextRequest) {
         artistName,
         genre: genre || '',
       })
+
+      // Notify admin of new signup
+      try {
+        await mailer().sendMail({
+          from: `"Western Beats" <contactwesternbeats@gmail.com>`,
+          to: 'contactwesternbeats@gmail.com',
+          subject: `🎤 New Artist Signup: ${artistName}`,
+          html: `
+            <div style="background:#040A14;padding:32px;font-family:Arial,sans-serif;border-radius:12px;">
+              <h2 style="color:#fff;margin:0 0 20px;">🎤 New Artist Signed Up</h2>
+              <table>
+                ${[['Name', name], ['Artist Name', artistName], ['Email', email], ['Phone', phone || '—'], ['Genre', genre || '—']].map(([l,v]) =>
+                  `<tr><td style="color:#8899AA;padding:6px 16px 6px 0;font-size:14px;">${l}</td><td style="color:#fff;font-size:14px;font-weight:600;">${v}</td></tr>`
+                ).join('')}
+              </table>
+              <p style="color:#4A5568;font-size:12px;margin:20px 0 0;">${new Date().toLocaleString('en-IN')}</p>
+            </div>
+          `,
+        })
+      } catch { /* non-blocking */ }
     } else {
       if (!user) {
         return NextResponse.json({ error: 'No account found. Please sign up first.' }, { status: 404 })

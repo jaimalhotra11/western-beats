@@ -100,6 +100,9 @@ export default function SubmitPage() {
   const [agreedToTerms, setAgreedToTerms] = useState(false)
   const [termsError, setTermsError] = useState('')
   const [releaseDateError, setReleaseDateError] = useState('')
+  const [audioFile, setAudioFile] = useState<File | null>(null)
+  const [artworkFile, setArtworkFile] = useState<File | null>(null)
+  const [uploadProgress, setUploadProgress] = useState('')
   const sectionRef = useRef<HTMLDivElement>(null)
 
   const todayISO = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10)
@@ -143,64 +146,54 @@ export default function SubmitPage() {
   const setGenre = (e: React.ChangeEvent<HTMLSelectElement>) =>
     setFields(f => ({ ...f, genre: e.target.value, subGenre: '' }))
 
+  async function uploadFile(file: File, type: 'audio' | 'artwork') {
+    const fd = new FormData()
+    fd.append('file', file)
+    fd.append('type', type)
+    const res = await fetch('/api/upload', { method: 'POST', body: fd })
+    const data = await res.json()
+    if (!res.ok) throw new Error(data.error || 'Upload failed')
+    return { url: data.url as string, publicId: data.publicId as string }
+  }
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
-
     setReleaseDateError(''); setTermsError('')
-
     if (fields.releaseDate < todayISO) { setReleaseDateError('Release Date cannot be in the past. Please choose today or a future date.'); return }
     if (!agreedToTerms) { setTermsError('You must agree to the Terms & Conditions before submitting.'); return }
+    if (!audioFile) { setErrorMsg('Please upload your audio file.'); return }
+    if (!artworkFile) { setErrorMsg('Please upload your cover artwork.'); return }
 
     setStatus('loading')
     setErrorMsg('')
     try {
-      const res = await fetch('https://formspree.io/f/xeebjnrg', {
+      setUploadProgress('Uploading audio file...')
+      const audio = await uploadFile(audioFile, 'audio')
+
+      setUploadProgress('Uploading cover artwork...')
+      const artwork = await uploadFile(artworkFile, 'artwork')
+
+      setUploadProgress('Saving your submission...')
+      const res = await fetch('/api/submissions', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          'Artist Name': fields.artistName,
-          'Track Name': fields.trackName,
-          'Album Name': fields.albumName,
-          'Email': fields.email,
-          'Phone': fields.phone,
-          'Genre': fields.genre,
-          'Sub Genre': fields.subGenre,
-          'Language': fields.language,
-          'Preferred Release Date': fields.releaseDate,
-          'Singer': fields.singer,
-          'Lyric Writer': fields.lyricWriter,
-          'Music Director': fields.musicDirector,
-          'Music Arranger': fields.musicArranger,
-          'Director': fields.director,
-          'Mixer': fields.mixer,
-          'Producer': fields.producer,
-          'Moods': fields.moods,
-          'Label Name (P&C Owner)': fields.labelName,
-          'UPC': fields.upc,
-          'ISRC': fields.isrc,
-          'Product Code': fields.productCode,
-          'Drive / WeTransfer Link': fields.driveLink,
-          'YouTube Link': fields.youtubeLink,
-          'Instagram Link': fields.instagramLink,
-          'Spotify Profile': fields.spotifyLink,
-          'YouTube Content ID': fields.youtubeContentId,
-          'Song Lyrics': fields.songLyrics,
-          'Message': fields.message,
-          'Agreed to Terms & Conditions': 'Yes',
+          ...fields,
+          audioUrl: audio.url,
+          audioPublicId: audio.publicId,
+          artworkUrl: artwork.url,
+          artworkPublicId: artwork.publicId,
         }),
       })
-      if (res.ok) { setStatus('success') }
-      else {
-        const d = await res.json().catch(() => ({}))
-        throw new Error((d as { error?: string }).error || 'Submission failed')
-      }
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Submission failed')
+      setStatus('success')
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Unknown error'
       setErrorMsg(message)
       setStatus('error')
-      const sub = encodeURIComponent(`Music Submission: ${fields.trackName} by ${fields.artistName}`)
-      const body = encodeURIComponent(`Artist: ${fields.artistName}\nTrack: ${fields.trackName}\nAlbum: ${fields.albumName}\nEmail: ${fields.email}\nPhone: ${fields.phone}\nGenre: ${fields.genre}\nSub Genre: ${fields.subGenre}\nLanguage: ${fields.language}\nRelease Date: ${fields.releaseDate}\nSinger: ${fields.singer}\nLyric Writer: ${fields.lyricWriter}\nMusic Director: ${fields.musicDirector}\nMusic Arranger: ${fields.musicArranger}\nDirector: ${fields.director}\nMixer: ${fields.mixer}\nProducer: ${fields.producer}\nMoods: ${fields.moods}\nLabel Name: ${fields.labelName}\nUPC: ${fields.upc}\nISRC: ${fields.isrc}\nProduct Code: ${fields.productCode}\nDrive Link: ${fields.driveLink}\nYouTube: ${fields.youtubeLink}\nInstagram: ${fields.instagramLink}\nSpotify: ${fields.spotifyLink}\nYouTube Content ID: ${fields.youtubeContentId}\nSong Lyrics: ${fields.songLyrics}\nMessage: ${fields.message}`)
-      window.location.href = `mailto:contact@westernbeats.com?subject=${sub}&body=${body}`
+    } finally {
+      setUploadProgress('')
     }
   }
 
@@ -536,12 +529,68 @@ export default function SubmitPage() {
                     <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
                   </div>
 
-                  {/* Drive link */}
+                  {/* Audio File Upload */}
                   <div className="mb-4">
-                    <label className={labelCls}>Google Drive / WeTransfer Link *</label>
-                    <input required type="url" value={fields.driveLink} onChange={set('driveLink')}
-                      placeholder="https://drive.google.com/..." className={inputCls} />
-                    <p className="font-inter text-[11px] text-mut mt-1.5">Upload your WAV/MP3 audio + square artwork to Drive and share the link here.</p>
+                    <label className={labelCls}>Audio File * <span className="normal-case tracking-normal font-normal text-[#4A5568]">(WAV preferred, MP3 320kbps min)</span></label>
+                    <div
+                      onClick={() => document.getElementById('audio-upload')?.click()}
+                      style={{
+                        border: `2px dashed ${audioFile ? '#34D399' : 'rgba(255,255,255,0.12)'}`,
+                        borderRadius: 12, padding: '20px 16px', cursor: 'pointer',
+                        background: audioFile ? 'rgba(16,185,129,0.06)' : 'rgba(10,20,50,0.4)',
+                        textAlign: 'center', transition: 'all 0.2s',
+                      }}
+                    >
+                      <input
+                        id="audio-upload"
+                        type="file"
+                        accept="audio/*,.wav,.mp3,.flac,.aiff"
+                        style={{ display: 'none' }}
+                        onChange={e => setAudioFile(e.target.files?.[0] || null)}
+                      />
+                      {audioFile ? (
+                        <p style={{ color: '#34D399', fontSize: 14, fontWeight: 600, margin: 0 }}>
+                          ✓ {audioFile.name} ({(audioFile.size / 1024 / 1024).toFixed(1)} MB)
+                        </p>
+                      ) : (
+                        <>
+                          <p style={{ color: '#8899AA', fontSize: 14, margin: '0 0 4px' }}>🎵 Click to upload audio file</p>
+                          <p style={{ color: '#4A5568', fontSize: 12, margin: 0 }}>WAV, MP3, FLAC or AIFF · Max 500MB</p>
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Artwork Upload */}
+                  <div className="mb-4">
+                    <label className={labelCls}>Cover Artwork * <span className="normal-case tracking-normal font-normal text-[#4A5568]">(Square JPG/PNG, min 3000×3000px)</span></label>
+                    <div
+                      onClick={() => document.getElementById('artwork-upload')?.click()}
+                      style={{
+                        border: `2px dashed ${artworkFile ? '#5CB2DC' : 'rgba(255,255,255,0.12)'}`,
+                        borderRadius: 12, padding: '20px 16px', cursor: 'pointer',
+                        background: artworkFile ? 'rgba(92,178,220,0.06)' : 'rgba(10,20,50,0.4)',
+                        textAlign: 'center', transition: 'all 0.2s',
+                      }}
+                    >
+                      <input
+                        id="artwork-upload"
+                        type="file"
+                        accept="image/jpeg,image/png,image/jpg"
+                        style={{ display: 'none' }}
+                        onChange={e => setArtworkFile(e.target.files?.[0] || null)}
+                      />
+                      {artworkFile ? (
+                        <p style={{ color: '#5CB2DC', fontSize: 14, fontWeight: 600, margin: 0 }}>
+                          ✓ {artworkFile.name} ({(artworkFile.size / 1024 / 1024).toFixed(1)} MB)
+                        </p>
+                      ) : (
+                        <>
+                          <p style={{ color: '#8899AA', fontSize: 14, margin: '0 0 4px' }}>🖼️ Click to upload cover artwork</p>
+                          <p style={{ color: '#4A5568', fontSize: 12, margin: 0 }}>JPG or PNG · Square · Min 3000×3000px</p>
+                        </>
+                      )}
+                    </div>
                   </div>
 
                   {/* YouTube + Instagram */}
@@ -615,7 +664,15 @@ export default function SubmitPage() {
                   {status === 'error' && (
                     <div className="mb-5 rounded-xl px-4 py-3 font-inter text-[13px]"
                       style={{ background: 'rgba(196,18,48,0.1)', border: '1px solid rgba(196,18,48,0.25)', color: '#f87171' }}>
-                      {errorMsg || 'Something went wrong.'} We&apos;ve opened your email client as a fallback.
+                      {errorMsg || 'Something went wrong. Please try again.'}
+                    </div>
+                  )}
+
+                  {/* Upload progress */}
+                  {status === 'loading' && uploadProgress && (
+                    <div className="mb-4 rounded-xl px-4 py-3 font-inter text-[13px]"
+                      style={{ background: 'rgba(10,100,195,0.1)', border: '1px solid rgba(10,100,195,0.25)', color: '#5CB2DC' }}>
+                      <Loader2 size={14} className="inline animate-spin mr-2" />{uploadProgress}
                     </div>
                   )}
 
@@ -626,7 +683,7 @@ export default function SubmitPage() {
                     onMouseLeave={e => { if (status !== 'loading') (e.currentTarget as HTMLButtonElement).style.background = '#0A64C3' }}
                   >
                     {status === 'loading'
-                      ? <><Loader2 size={18} className="animate-spin" /> Submitting…</>
+                      ? <><Loader2 size={18} className="animate-spin" /> {uploadProgress ? 'Uploading…' : 'Submitting…'}</>
                       : <><Upload size={17} /> Submit My Music <ArrowRight size={15} /></>
                     }
                   </button>
