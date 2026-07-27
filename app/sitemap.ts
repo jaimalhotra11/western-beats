@@ -409,6 +409,50 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.88,
     },
 
+    /* ── SEO Round 2 — Regional & Keyword Pages ─────── */
+    {
+      url: `${BASE_URL}/bengali-music-distribution`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/kannada-music-distribution`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/marathi-music-distribution`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/malayalam-music-distribution`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/free-music-distribution-india`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/independent-artist-india`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/upload-music-online-free-india`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+
     /* ── Legal ───────────────────────────────────────── */
     {
       url: `${BASE_URL}/terms`,
