@@ -409,6 +409,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.88,
     },
 
+    /* ── SEO Round 2 — Blog Posts ────────────────────── */
+    {
+      url: `${BASE_URL}/blog/distrokid-vs-tunecore-vs-western-beats`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/blog/free-music-distribution-no-fees-india`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/blog/how-to-get-isrc-code-free-india`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/blog/youtube-music-royalties-india-2026`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/blog/music-distribution-mistakes-to-avoid-india`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+
     /* ── SEO Round 2 — Regional & Keyword Pages ─────── */
     {
       url: `${BASE_URL}/bengali-music-distribution`,
