@@ -74,7 +74,7 @@ const jsonLd = {
 export default async function Submit() {
   const session = await getSession()
   if (!session.isLoggedIn) {
-    redirect('/sign-in?next=/submit')
+    redirect('/sign-up?next=/submit')
   }
 
   return (
