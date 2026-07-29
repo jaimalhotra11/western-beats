@@ -113,6 +113,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.95,
     },
+    {
+      url: `${BASE_URL}/best-music-distributor-uk`,
+      lastModified: new Date('2026-07-29'),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
 
     /* ── Competitor Comparison Pages — HIGH SEO VALUE ── */
     {
