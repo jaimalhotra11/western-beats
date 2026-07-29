@@ -446,6 +446,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.92,
     },
+    {
+      url: `${BASE_URL}/blog/indian-music-distribution-uk-usa-canada-2026`,
+      lastModified: new Date('2026-07-29'),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
 
     /* ── SEO Round 2 — Regional & Keyword Pages ─────── */
     {

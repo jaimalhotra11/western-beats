@@ -239,6 +239,15 @@ const POSTS = [
     readTime: '9 min read',
     date: 'July 2026',
   },
+  {
+    slug: 'indian-music-distribution-uk-usa-canada-2026',
+    title: 'Music Distribution for Indian Artists in UK, USA & Canada 2026',
+    excerpt: 'NRI artists in the UK, USA, Canada, Australia and UAE: the complete guide to distributing to JioSaavn, Spotify and 150+ platforms free — from anywhere in the world.',
+    tag: 'NRI Artists',
+    color: '#5CB2DC',
+    readTime: '8 min read',
+    date: 'July 2026',
+  },
 ]
 
 export default function BlogPage() {
