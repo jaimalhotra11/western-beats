@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Nav from '../components/Nav'
-import Footer from '../components/Footer'
+import Nav from '../../components/Nav'
+import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
   title: 'Indian Music Distribution for UK, USA & Canada Artists 2026 | Western Beats',
