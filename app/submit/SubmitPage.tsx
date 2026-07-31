@@ -336,25 +336,46 @@ export default function SubmitPage() {
                   initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, ease: EASE }}
                   className="rounded-2xl p-10 text-center"
-                  style={{ background: '#0A1535', border: '1px solid rgba(10,100,195,0.3)' }}
+                  style={{ background: '#0A1535', border: '1px solid rgba(52,211,153,0.25)' }}
                 >
                   <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
-                    style={{ background: 'rgba(10,100,195,0.15)' }}>
-                    <CheckCircle size={32} style={{ color: '#0A64C3' }} />
+                    style={{ background: 'rgba(52,211,153,0.12)' }}>
+                    <CheckCircle size={32} style={{ color: '#34D399' }} />
                   </div>
-                  <h2 className="font-outfit font-black text-white text-[26px] mb-3">Submission Received!</h2>
-                  <p className="font-inter text-[14px] text-mut leading-relaxed mb-8 max-w-sm mx-auto">
-                    We&apos;ve received your music submission. Our team will review it and get back to you within <strong className="text-white">24 hours</strong>.
+                  <h2 className="font-outfit font-black text-white text-[26px] mb-3">Submission Received! 🎵</h2>
+                  <p className="font-inter text-[14px] text-mut leading-relaxed mb-2 max-w-sm mx-auto">
+                    We&apos;ve received your music. Our team will review it within <strong className="text-white">24 hours</strong>.
                   </p>
+                  <p className="font-inter text-[13px] leading-relaxed mb-7 max-w-sm mx-auto" style={{ color: '#5CB2DC' }}>
+                    A confirmation email has been sent to your inbox with a link to track your progress.
+                  </p>
+
+                  {/* Progress steps */}
+                  <div className="flex items-center justify-center gap-1 mb-8 flex-wrap">
+                    {['Submitted', 'Under Review', 'Approved', 'Distributing', 'Live'].map((step, i, arr) => (
+                      <div key={step} className="flex items-center gap-1">
+                        <div className="flex flex-col items-center gap-1">
+                          <div className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold"
+                            style={{ background: i === 0 ? '#34D399' : 'rgba(255,255,255,0.07)', color: i === 0 ? '#040A14' : '#4A5568' }}>
+                            {i === 0 ? '✓' : i + 1}
+                          </div>
+                          <span className="font-inter text-[9px] tracking-wide" style={{ color: i === 0 ? '#34D399' : '#4A5568' }}>{step}</span>
+                        </div>
+                        {i < arr.length - 1 && <div className="w-6 h-[2px] mb-4 rounded-full" style={{ background: 'rgba(255,255,255,0.07)' }} />}
+                      </div>
+                    ))}
+                  </div>
+
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <button onClick={() => { setFields(EMPTY); setAgreedToTerms(false); setTermsError(''); setReleaseDateError(''); setStatus('idle') }}
-                      className="px-6 py-3 rounded-xl font-outfit font-bold text-[13px] text-white bg-blu hover:bg-[#0D77E0] transition-colors duration-200">
+                    <Link href="/my-submissions"
+                      className="px-6 py-3 rounded-xl font-outfit font-bold text-[13px] text-white flex items-center justify-center gap-2"
+                      style={{ background: '#0A64C3' }}>
+                      Track My Submission <ArrowRight size={13} />
+                    </Link>
+                    <button onClick={() => { setFields(EMPTY); setAgreedToTerms(false); setTermsError(''); setReleaseDateError(''); setStatus('idle'); setPanCardFile(null); setGstFile(null); setPassportFile(null); setAudioFile(null); setArtworkFile(null) }}
+                      className="px-6 py-3 rounded-xl font-outfit font-bold text-[13px] text-white border border-white/10 hover:bg-white/[0.05] transition-colors duration-200">
                       Submit Another Track
                     </button>
-                    <Link href="/"
-                      className="px-6 py-3 rounded-xl font-outfit font-bold text-[13px] text-white border border-white/10 hover:bg-white/[0.05] transition-colors duration-200 flex items-center justify-center gap-2">
-                      Back to Home <ArrowRight size={13} />
-                    </Link>
                   </div>
                 </motion.div>
               ) : (
