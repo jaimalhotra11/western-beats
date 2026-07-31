@@ -81,6 +81,7 @@ type FormFields = {
   youtubeLink: string; instagramLink: string; spotifyLink: string;
   songLyrics: string; youtubeContentId: string;
   driveLink: string; message: string;
+  legalName: string; address: string; clientType: 'India' | 'International';
 }
 const EMPTY: FormFields = {
   artistName: '', trackName: '', albumName: '', email: '', phone: '',
@@ -91,6 +92,7 @@ const EMPTY: FormFields = {
   youtubeLink: '', instagramLink: '', spotifyLink: '',
   songLyrics: '', youtubeContentId: 'No Action',
   driveLink: '', message: '',
+  legalName: '', address: '', clientType: 'India',
 }
 
 export default function SubmitPage() {
@@ -102,6 +104,9 @@ export default function SubmitPage() {
   const [releaseDateError, setReleaseDateError] = useState('')
   const [audioFile, setAudioFile] = useState<File | null>(null)
   const [artworkFile, setArtworkFile] = useState<File | null>(null)
+  const [panCardFile, setPanCardFile] = useState<File | null>(null)
+  const [gstFile, setGstFile] = useState<File | null>(null)
+  const [passportFile, setPassportFile] = useState<File | null>(null)
   const [uploadProgress, setUploadProgress] = useState('')
   const sectionRef = useRef<HTMLDivElement>(null)
 
@@ -146,13 +151,12 @@ export default function SubmitPage() {
   const setGenre = (e: React.ChangeEvent<HTMLSelectElement>) =>
     setFields(f => ({ ...f, genre: e.target.value, subGenre: '' }))
 
-  async function uploadFile(file: File, type: 'audio' | 'artwork') {
+  async function uploadFile(file: File, type: 'audio' | 'artwork' | 'document') {
     const fd = new FormData()
     fd.append('file', file)
     fd.append('upload_preset', 'wb_submissions')
     fd.append('folder', 'western-beats/submissions')
-    // Cloudinary uses 'video' resource_type for audio files
-    const resourceType = type === 'audio' ? 'video' : 'image'
+    const resourceType = type === 'audio' ? 'video' : type === 'document' ? 'image' : 'image'
     const res = await fetch(
       `https://api.cloudinary.com/v1_1/sxbb8x9x/${resourceType}/upload`,
       { method: 'POST', body: fd }
@@ -169,6 +173,8 @@ export default function SubmitPage() {
     if (!agreedToTerms) { setTermsError('You must agree to the Terms & Conditions before submitting.'); return }
     if (!audioFile) { setErrorMsg('Please upload your audio file.'); return }
     if (!artworkFile) { setErrorMsg('Please upload your cover artwork.'); return }
+    if (fields.clientType === 'India' && !panCardFile) { setErrorMsg('Please upload your PAN card.'); return }
+    if (fields.clientType === 'International' && !passportFile) { setErrorMsg('Please upload your passport.'); return }
 
     setStatus('loading')
     setErrorMsg('')
@@ -178,6 +184,23 @@ export default function SubmitPage() {
 
       setUploadProgress('Uploading cover artwork...')
       const artwork = await uploadFile(artworkFile, 'artwork')
+
+      let panCard = { url: '', publicId: '' }
+      let gst = { url: '', publicId: '' }
+      let passport = { url: '', publicId: '' }
+
+      if (panCardFile) {
+        setUploadProgress('Uploading PAN card...')
+        panCard = await uploadFile(panCardFile, 'document')
+      }
+      if (gstFile) {
+        setUploadProgress('Uploading GST certificate...')
+        gst = await uploadFile(gstFile, 'document')
+      }
+      if (passportFile) {
+        setUploadProgress('Uploading passport...')
+        passport = await uploadFile(passportFile, 'document')
+      }
 
       setUploadProgress('Saving your submission...')
       const res = await fetch('/api/submissions', {
@@ -189,6 +212,12 @@ export default function SubmitPage() {
           audioPublicId: audio.publicId,
           artworkUrl: artwork.url,
           artworkPublicId: artwork.publicId,
+          panCardUrl: panCard.url,
+          panCardPublicId: panCard.publicId,
+          gstUrl: gst.url,
+          gstPublicId: gst.publicId,
+          passportUrl: passport.url,
+          passportPublicId: passport.publicId,
         }),
       })
       const data = await res.json()
@@ -528,6 +557,89 @@ export default function SubmitPage() {
                   {/* Section divider — Upload & Links */}
                   <div className="flex items-center gap-3 mb-4 mt-6">
                     <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                    <span className="font-outfit font-semibold text-[11px] tracking-[0.1em] uppercase" style={{ color: '#4A5568' }}>KYC &amp; Identity</span>
+                    <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                  </div>
+
+                  {/* Client Type toggle */}
+                  <div className="mb-4">
+                    <label className={labelCls}>Artist Location *</label>
+                    <div className="flex gap-3">
+                      {(['India', 'International'] as const).map(t => (
+                        <button key={t} type="button"
+                          onClick={() => setFields(f => ({ ...f, clientType: t }))}
+                          className={`flex-1 py-3 rounded-xl font-outfit font-bold text-[13px] border transition-all duration-200 ${fields.clientType === t ? 'border-[#0A64C3] bg-[#0A64C3]/20 text-white' : 'border-white/10 bg-[#060D1F] text-[#8899AA]'}`}>
+                          {t === 'India' ? '🇮🇳 India' : '🌍 International'}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Legal Name + Address */}
+                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <label className={labelCls}>Legal Name *</label>
+                      <input required value={fields.legalName} onChange={set('legalName')}
+                        placeholder="Full legal name as per ID" className={inputCls} />
+                    </div>
+                    <div>
+                      <label className={labelCls}>Full Address *</label>
+                      <input required value={fields.address} onChange={set('address')}
+                        placeholder="Street, City, State, PIN" className={inputCls} />
+                    </div>
+                  </div>
+
+                  {/* India KYC — PAN + GST */}
+                  {fields.clientType === 'India' && (
+                    <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <label className={labelCls}>PAN Card * <span className="normal-case tracking-normal font-normal text-[#4A5568]">(JPG/PNG/PDF)</span></label>
+                        <div onClick={() => document.getElementById('pan-upload')?.click()}
+                          style={{ border: '1.5px dashed rgba(255,255,255,0.12)', borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
+                          onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
+                          onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)')}>
+                          <p className="font-inter text-[13px]" style={{ color: panCardFile ? '#34D399' : '#4A5568', margin: 0 }}>
+                            {panCardFile ? `✓ ${panCardFile.name}` : '+ Upload PAN Card'}
+                          </p>
+                        </div>
+                        <input id="pan-upload" type="file" accept="image/*,application/pdf" className="hidden"
+                          onChange={e => setPanCardFile(e.target.files?.[0] || null)} />
+                      </div>
+                      <div>
+                        <label className={labelCls}>GST Certificate <span className="normal-case tracking-normal font-normal text-[#4A5568]">(optional)</span></label>
+                        <div onClick={() => document.getElementById('gst-upload')?.click()}
+                          style={{ border: '1.5px dashed rgba(255,255,255,0.12)', borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
+                          onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
+                          onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)')}>
+                          <p className="font-inter text-[13px]" style={{ color: gstFile ? '#34D399' : '#4A5568', margin: 0 }}>
+                            {gstFile ? `✓ ${gstFile.name}` : '+ Upload GST Certificate'}
+                          </p>
+                        </div>
+                        <input id="gst-upload" type="file" accept="image/*,application/pdf" className="hidden"
+                          onChange={e => setGstFile(e.target.files?.[0] || null)} />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* International KYC — Passport */}
+                  {fields.clientType === 'International' && (
+                    <div className="gsap-card mb-4">
+                      <label className={labelCls}>Passport * <span className="normal-case tracking-normal font-normal text-[#4A5568]">(Photo page — JPG/PNG/PDF)</span></label>
+                      <div onClick={() => document.getElementById('passport-upload')?.click()}
+                        style={{ border: '1.5px dashed rgba(255,255,255,0.12)', borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
+                        onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
+                        onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)')}>
+                        <p className="font-inter text-[13px]" style={{ color: passportFile ? '#34D399' : '#4A5568', margin: 0 }}>
+                          {passportFile ? `✓ ${passportFile.name}` : '+ Upload Passport (photo page)'}
+                        </p>
+                      </div>
+                      <input id="passport-upload" type="file" accept="image/*,application/pdf" className="hidden"
+                        onChange={e => setPassportFile(e.target.files?.[0] || null)} />
+                    </div>
+                  )}
+
+                  {/* Section divider — Upload */}
+                  <div className="flex items-center gap-3 mb-4 mt-6">
                     <span className="font-outfit font-semibold text-[11px] tracking-[0.1em] uppercase" style={{ color: '#4A5568' }}>Upload &amp; Links</span>
                     <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
                   </div>

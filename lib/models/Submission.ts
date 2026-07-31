@@ -30,6 +30,16 @@ export interface ISubmission extends Document {
   youtubeContentId: string
   songLyrics: string
   message: string
+  // KYC / Identity
+  legalName: string
+  address: string
+  clientType: 'India' | 'International'
+  panCardUrl: string
+  panCardPublicId: string
+  gstUrl: string
+  gstPublicId: string
+  passportUrl: string
+  passportPublicId: string
   // Cloudinary file URLs
   audioUrl: string
   audioPublicId: string
@@ -72,6 +82,15 @@ const SubmissionSchema = new Schema<ISubmission>({
   youtubeContentId: { type: String, default: '' },
   songLyrics: { type: String, default: '' },
   message: { type: String, default: '' },
+  legalName: { type: String, default: '' },
+  address: { type: String, default: '' },
+  clientType: { type: String, enum: ['India', 'International'], default: 'India' },
+  panCardUrl: { type: String, default: '' },
+  panCardPublicId: { type: String, default: '' },
+  gstUrl: { type: String, default: '' },
+  gstPublicId: { type: String, default: '' },
+  passportUrl: { type: String, default: '' },
+  passportPublicId: { type: String, default: '' },
   audioUrl: { type: String, default: '' },
   audioPublicId: { type: String, default: '' },
   artworkUrl: { type: String, default: '' },

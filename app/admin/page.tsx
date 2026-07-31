@@ -14,6 +14,8 @@ interface Submission {
   singer: string; lyricWriter: string; musicDirector: string; producer: string
   labelName: string; moods: string; youtubeLink: string; instagramLink: string
   spotifyLink: string; youtubeContentId: string; message: string
+  legalName: string; address: string; clientType: string
+  panCardUrl: string; gstUrl: string; passportUrl: string
 }
 
 export default function AdminPage() {
@@ -164,7 +166,18 @@ export default function AdminPage() {
                 <button onClick={() => setSelected(null)} style={{ background: 'none', border: 'none', color: '#8899AA', cursor: 'pointer', fontSize: 18 }}>✕</button>
               </div>
 
-              {selected.artworkUrl && <img src={selected.artworkUrl} alt="artwork" style={{ width: '100%', borderRadius: 12, marginBottom: 16, maxHeight: 200, objectFit: 'cover' }} />}
+              {selected.artworkUrl && (
+                <div style={{ position: 'relative', marginBottom: 16 }}>
+                  <img src={selected.artworkUrl} alt="artwork" style={{ width: '100%', borderRadius: 12, maxHeight: 200, objectFit: 'cover', display: 'block' }} />
+                  <a
+                    href={selected.artworkUrl}
+                    download={`${selected.trackName}-artwork`}
+                    target="_blank" rel="noopener noreferrer"
+                    style={{ position: 'absolute', bottom: 8, right: 8, background: 'rgba(0,0,0,0.75)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 700, textDecoration: 'none', backdropFilter: 'blur(4px)' }}>
+                    ⬇ Download
+                  </a>
+                </div>
+              )}
 
               {[
                 ['Track', selected.trackName], ['Artist', selected.artistName],
@@ -194,6 +207,21 @@ export default function AdminPage() {
                   <a href={v} target="_blank" rel="noopener noreferrer" style={{ color: '#5CB2DC', fontSize: 13 }}>{l} →</a>
                 </div>
               ))}
+
+              {/* KYC Documents */}
+              {(selected.legalName || selected.panCardUrl || selected.gstUrl || selected.passportUrl) && (
+                <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                  <p style={S.label}>KYC / Identity</p>
+                  {selected.legalName && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Legal Name</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.legalName}</span></div>}
+                  {selected.address && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Address</span><span style={{ color: '#E2E8F0', fontWeight: 600, maxWidth: '60%', textAlign: 'right' as const, wordBreak: 'break-word' as const }}>{selected.address}</span></div>}
+                  {selected.clientType && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Client Type</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.clientType}</span></div>}
+                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' as const, marginTop: 8 }}>
+                    {selected.panCardUrl && <a href={selected.panCardUrl} download target="_blank" rel="noopener noreferrer" style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ PAN Card</a>}
+                    {selected.gstUrl && <a href={selected.gstUrl} download target="_blank" rel="noopener noreferrer" style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ GST Certificate</a>}
+                    {selected.passportUrl && <a href={selected.passportUrl} download target="_blank" rel="noopener noreferrer" style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Passport</a>}
+                  </div>
+                </div>
+              )}
 
               {selected.message && <p style={{ color: '#8899AA', fontSize: 13, margin: '14px 0 0', padding: '10px', background: 'rgba(255,255,255,0.03)', borderRadius: 8 }}>{selected.message}</p>}
 
