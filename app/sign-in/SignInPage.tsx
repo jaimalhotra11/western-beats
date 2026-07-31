@@ -7,8 +7,8 @@ import Nav from '../components/Nav'
 export default function SignInPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const rawNext = searchParams.get('next') || '/submit'
-  const next = rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '/submit'
+  const rawNext = searchParams.get('next') || '/my-submissions'
+  const next = rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '/my-submissions'
   const [email, setEmail] = useState('')
   const [otp, setOtp] = useState('')
   const [step, setStep] = useState<'email' | 'otp'>('email')
