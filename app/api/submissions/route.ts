@@ -135,7 +135,7 @@ export async function POST(req: NextRequest) {
                 <p style="color:#8899AA;font-size:14px;line-height:1.7;margin:0 0 24px;">
                   You can track your submission status anytime by visiting your submissions page. We'll also email you when the status changes.
                 </p>
-                <a href="https://www.westernbeats.com/my-submissions" style="display:inline-block;background:#0A64C3;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">Track Your Submission →</a>
+                <a href="https://www.westernbeats.com/sign-in?next=%2Fmy-submissions" style="display:inline-block;background:#0A64C3;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">Track Your Submission →</a>
                 <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
                   <p style="color:#4A5568;font-size:12px;margin:0;">© 2026 Western Beats Private Limited · India's most credible music distributor</p>
                 </div>

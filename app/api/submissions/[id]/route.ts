@@ -80,7 +80,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
                   <p style="color:#fff;font-size:26px;font-weight:900;margin:0;">${STATUS_EMOJI[status] || ''} ${status}</p>
                 </div>
                 ${statusNote ? `<div style="background:rgba(10,100,195,0.1);border:1px solid rgba(10,100,195,0.3);border-radius:10px;padding:16px 20px;margin-bottom:24px;"><p style="color:#8899AA;font-size:12px;margin:0 0 6px;">Message from our team:</p><p style="color:#E2E8F0;font-size:14px;margin:0;">${statusNote}</p></div>` : ''}
-                <a href="https://www.westernbeats.com/my-submissions" style="display:inline-block;background:#0A64C3;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">View Full Status →</a>
+                <a href="https://www.westernbeats.com/sign-in?next=%2Fmy-submissions" style="display:inline-block;background:#0A64C3;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">View Full Status →</a>
                 <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
                   <p style="color:#4A5568;font-size:12px;margin:0;">© 2026 Western Beats Private Limited</p>
                 </div>

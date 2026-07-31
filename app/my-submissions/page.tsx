@@ -39,7 +39,7 @@ export default function MySubmissionsPage() {
     async function load() {
       try {
         const meRes = await fetch('/api/auth/me')
-        if (!meRes.ok) { window.location.href = '/sign-in'; return }
+        if (!meRes.ok) { window.location.href = '/sign-in?next=/my-submissions'; return }
         const meData = await meRes.json()
         setUser(meData.user)
 

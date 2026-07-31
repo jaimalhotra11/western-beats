@@ -28,7 +28,7 @@ const SUB_GENRES: Record<string, string[]> = {
   'R&B / Soul': ['Contemporary R&B','Neo Soul','Funk','Gospel'],
   'Classical Fusion': ['Hindustani','Carnatic','Indo-Jazz','Sufi Fusion'],
   'Devotional': ['Bhajan','Aarti','Kirtan','Qawwali','Mantra'],
-  'Haryanvi': ['Haryanvi Dance','Haryanvi Folk','Haryanvi Sad'],
+  'Haryanvi': ['Haryanvi Dance','Haryanvi Folk','Haryanvi Sad','Haryanvi Pop'],
   'Bhojpuri': ['Bhojpuri Film','Bhojpuri Folk','Bhojpuri Dance'],
   'Tamil': ['Tamil Film','Tamil Folk','Tamil Pop','Kollywood'],
   'Telugu': ['Telugu Film','Telugu Folk','Telugu Pop','Tollywood'],
@@ -502,10 +502,7 @@ export default function SubmitPage() {
                   <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label className={labelCls}>Label Name (P&amp;C Owner) *</label>
-                      <select required value={fields.labelName} onChange={set('labelName')} className={inputCls}>
-                        <option value="" disabled>Select Label</option>
-                        {LABELS.map(l => <option key={l} value={l}>{l}</option>)}
-                      </select>
+                      <input required type="text" value={fields.labelName} onChange={set('labelName')} className={inputCls} placeholder="e.g. Western Beats, Self-Released" />
                     </div>
                     <div>
                       <label className={labelCls}>UPC <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
