@@ -724,8 +724,8 @@ export default function SubmitPage() {
 
                   {/* Spotify */}
                   <div className="mb-4">
-                    <label className={labelCls}>Spotify Profile Link <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
-                    <input type="url" value={fields.spotifyLink} onChange={set('spotifyLink')}
+                    <label className={labelCls}>Spotify Profile Link *</label>
+                    <input required type="url" value={fields.spotifyLink} onChange={set('spotifyLink')}
                       placeholder="https://open.spotify.com/artist/..." className={inputCls} />
                   </div>
 
