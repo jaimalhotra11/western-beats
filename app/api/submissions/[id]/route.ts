@@ -66,9 +66,14 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
         <table width="100%" cellpadding="0" cellspacing="0" style="background:#040A14;padding:32px 0;">
           <tr><td align="center">
             <table width="560" cellpadding="0" cellspacing="0" style="background:#060C18;border-radius:20px;border:1px solid rgba(255,255,255,0.08);overflow:hidden;max-width:560px;width:100%;">
-              <tr><td style="background:linear-gradient(135deg,#0A1535,#060C18);padding:28px 40px;border-bottom:1px solid rgba(255,255,255,0.06);">
-                <div style="font-size:18px;font-weight:900;color:#fff;">WESTERN BEATS</div>
-                <div style="font-size:10px;color:#5CB2DC;letter-spacing:2px;margin-top:2px;">SUBMISSION STATUS UPDATE</div>
+              <tr><td style="background:linear-gradient(135deg,#0A1535,#060C18);padding:24px 40px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <img src="https://www.westernbeats.com/partners/westernbeats-BpLvGE3e.png" width="40" height="40" alt="Western Beats" style="border-radius:8px;display:block;" />
+                  <div>
+                    <div style="font-size:16px;font-weight:900;color:#fff;letter-spacing:0.04em;">WESTERN BEATS</div>
+                    <div style="font-size:10px;color:#5CB2DC;letter-spacing:2px;margin-top:2px;">SUBMISSION STATUS UPDATE</div>
+                  </div>
+                </div>
               </td></tr>
               <tr><td style="padding:36px 40px;">
                 <p style="color:#5CB2DC;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;">Status Update</p>
