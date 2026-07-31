@@ -132,10 +132,18 @@ export async function POST(req: NextRequest) {
                     ['Current Status', '🟡 Submitted'],
                   ].map(([l, v]) => `<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);"><span style="color:#8899AA;font-size:13px;">${l}</span><span style="color:#E2E8F0;font-size:13px;font-weight:600;">${v}</span></div>`).join('')}
                 </div>
-                <p style="color:#8899AA;font-size:14px;line-height:1.7;margin:0 0 24px;">
-                  You can track your submission status anytime by visiting your submissions page. We'll also email you when the status changes.
+                <div style="background:rgba(10,100,195,0.12);border:1px solid rgba(10,100,195,0.3);border-radius:14px;padding:24px 28px;margin-bottom:28px;">
+                  <p style="color:#5CB2DC;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;">Track Your Progress</p>
+                  <p style="color:#E2E8F0;font-size:15px;font-weight:700;margin:0 0 6px;">Check your submission status live</p>
+                  <p style="color:#8899AA;font-size:13px;line-height:1.7;margin:0 0 18px;">Log in to your Western Beats account to see real-time updates — Submitted → Under Review → Approved → Distributing → Live. We'll also email you every time your status changes.</p>
+                  <a href="https://www.westernbeats.com/sign-in?next=%2Fmy-submissions" style="display:inline-block;background:#0A64C3;color:#fff;padding:13px 26px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;margin-right:10px;">View My Submissions →</a>
+                </div>
+                <p style="color:#8899AA;font-size:13px;line-height:1.7;margin:0 0 6px;">
+                  Not signed up yet? <a href="https://www.westernbeats.com/sign-up" style="color:#5CB2DC;font-weight:700;text-decoration:none;">Create your free account →</a>
                 </p>
-                <a href="https://www.westernbeats.com/sign-in?next=%2Fmy-submissions" style="display:inline-block;background:#0A64C3;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">Track Your Submission →</a>
+                <p style="color:#8899AA;font-size:13px;line-height:1.7;margin:0 0 28px;">
+                  Already have an account? <a href="https://www.westernbeats.com/sign-in?next=%2Fmy-submissions" style="color:#5CB2DC;font-weight:700;text-decoration:none;">Log in to check your status →</a>
+                </p>
                 <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
                   <p style="color:#4A5568;font-size:12px;margin:0;">© 2026 Western Beats Private Limited · India's most credible music distributor</p>
                 </div>

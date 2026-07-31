@@ -41,7 +41,7 @@ const MOODS = [
   'Devotional','Angry','Nostalgic','Dreamy','Dark','Peaceful','Empowering','Heartbreak',
 ]
 const LANGUAGES = [
-  'Hindi','Punjabi','English','Tamil','Telugu','Kannada',
+  'Hindi','Punjabi','Haryanvi','English','Tamil','Telugu','Kannada',
   'Malayalam','Bengali','Marathi','Gujarati','Bhojpuri','Other',
 ]
 

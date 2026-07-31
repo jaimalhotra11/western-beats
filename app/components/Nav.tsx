@@ -82,7 +82,13 @@ export default function Nav() {
           </div>
 
           {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2">
+            <Link
+              href="/sign-in"
+              className="px-4 py-2.5 rounded-lg font-outfit font-bold text-[13px] text-mut hover:text-white border border-white/10 hover:border-white/20 transition-all duration-200"
+            >
+              Log In
+            </Link>
             <Link
               href="/sign-up"
               className="px-5 py-2.5 bg-blu rounded-lg font-outfit font-bold text-[13px] text-white hover:bg-[#0D77E0] transition-colors duration-200"
@@ -144,8 +150,15 @@ export default function Nav() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45 }}
-              className="mt-6"
+              className="mt-6 flex flex-col items-center gap-3"
             >
+              <Link
+                href="/sign-in"
+                onClick={() => setMenuOpen(false)}
+                className="block px-8 py-3 border border-white/20 rounded-xl font-outfit font-bold text-lg text-white"
+              >
+                Log In
+              </Link>
               <Link
                 href="/sign-up"
                 onClick={() => setMenuOpen(false)}
