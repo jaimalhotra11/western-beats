@@ -35,24 +35,23 @@ export default function AdminPage() {
   async function login(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
-    const res = await fetch('/api/submissions')
+    const res = await fetch('/api/submissions', {
+      headers: { 'x-admin-password': password },
+    })
     if (res.status === 200) {
-      // verify password locally against known hash
-      if (password === 'wb-admin-2026' || password === (process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'wb-admin-2026')) {
-        const data = await res.json()
-        setSubmissions(data.submissions || [])
-        setAuthed(true)
-      } else {
-        setAuthError('Wrong password.')
-      }
+      const data = await res.json()
+      setSubmissions(data.submissions || [])
+      setAuthed(true)
     } else {
-      setAuthError('Failed to connect.')
+      setAuthError('Wrong password.')
     }
     setLoading(false)
   }
 
   async function refresh() {
-    const res = await fetch('/api/submissions')
+    const res = await fetch('/api/submissions', {
+      headers: { 'x-admin-password': password },
+    })
     const data = await res.json()
     setSubmissions(data.submissions || [])
   }
@@ -63,8 +62,8 @@ export default function AdminPage() {
     setUpdateMsg('')
     const res = await fetch(`/api/submissions/${selected._id}`, {
       method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status: newStatus, statusNote, adminPassword: password }),
+      headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+      body: JSON.stringify({ status: newStatus, statusNote }),
     })
     const data = await res.json()
     if (res.ok) {

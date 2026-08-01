@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { connectDB } from '@/lib/mongodb'
 import { Submission } from '@/lib/models/Submission'
+import { getSession } from '@/lib/session'
 import nodemailer from 'nodemailer'
+
+function esc(str: unknown): string {
+  return String(str ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
+}
 
 function mailer() {
   return nodemailer.createTransport({
@@ -24,13 +29,20 @@ const STATUS_EMOJI: Record<string, string> = {
   'Rejected': '❌',
 }
 
-// GET single submission by ID (for artist status page)
+// GET single submission by ID — only the owning artist can fetch it
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const session = await getSession()
+    if (!session.isLoggedIn || !session.email) {
+      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
+    }
     await connectDB()
     const { id } = await params
     const sub = await Submission.findById(id).lean()
     if (!sub) return NextResponse.json({ error: 'Not found' }, { status: 404 })
+    if (sub.email !== session.email) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
+    }
     return NextResponse.json({ submission: sub })
   } catch (err: unknown) {
     return NextResponse.json({ error: String(err) }, { status: 500 })
@@ -41,11 +53,12 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await params
-    const { status, statusNote, adminPassword } = await req.json()
-
-    if (adminPassword !== (process.env.ADMIN_PASSWORD || 'wb-admin-2026')) {
+    const adminPassword = req.headers.get('x-admin-password')
+    if (!adminPassword || adminPassword !== (process.env.ADMIN_PASSWORD || 'wb-admin-2026')) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
+
+    const { status, statusNote } = await req.json()
 
     await connectDB()
     const sub = await Submission.findByIdAndUpdate(
@@ -77,14 +90,14 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
               </td></tr>
               <tr><td style="padding:36px 40px;">
                 <p style="color:#5CB2DC;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;">Status Update</p>
-                <h1 style="color:#fff;font-size:26px;font-weight:900;margin:0 0 20px;">Hi ${sub.artistName},<br/>your track status changed!</h1>
+                <h1 style="color:#fff;font-size:26px;font-weight:900;margin:0 0 20px;">Hi ${esc(sub.artistName)},<br/>your track status changed!</h1>
                 <div style="background:#0A1535;border-radius:12px;padding:24px;margin-bottom:24px;text-align:center;">
                   <p style="color:#8899AA;font-size:12px;margin:0 0 8px;">Track</p>
-                  <p style="color:#fff;font-size:18px;font-weight:800;margin:0 0 20px;">${sub.trackName}</p>
+                  <p style="color:#fff;font-size:18px;font-weight:800;margin:0 0 20px;">${esc(sub.trackName)}</p>
                   <p style="color:#8899AA;font-size:12px;margin:0 0 8px;">New Status</p>
-                  <p style="color:#fff;font-size:26px;font-weight:900;margin:0;">${STATUS_EMOJI[status] || ''} ${status}</p>
+                  <p style="color:#fff;font-size:26px;font-weight:900;margin:0;">${STATUS_EMOJI[status] || ''} ${esc(status)}</p>
                 </div>
-                ${statusNote ? `<div style="background:rgba(10,100,195,0.1);border:1px solid rgba(10,100,195,0.3);border-radius:10px;padding:16px 20px;margin-bottom:24px;"><p style="color:#8899AA;font-size:12px;margin:0 0 6px;">Message from our team:</p><p style="color:#E2E8F0;font-size:14px;margin:0;">${statusNote}</p></div>` : ''}
+                ${statusNote ? `<div style="background:rgba(10,100,195,0.1);border:1px solid rgba(10,100,195,0.3);border-radius:10px;padding:16px 20px;margin-bottom:24px;"><p style="color:#8899AA;font-size:12px;margin:0 0 6px;">Message from our team:</p><p style="color:#E2E8F0;font-size:14px;margin:0;">${esc(statusNote)}</p></div>` : ''}
                 <a href="https://www.westernbeats.com/sign-in?next=%2Fmy-submissions" style="display:inline-block;background:#0A64C3;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">View Full Status →</a>
                 <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
                   <p style="color:#4A5568;font-size:12px;margin:0;">© 2026 Western Beats Private Limited</p>

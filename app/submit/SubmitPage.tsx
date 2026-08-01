@@ -461,7 +461,7 @@ export default function SubmitPage() {
                     <div>
                       <label className={labelCls}>Singer *</label>
                       <input required value={fields.singer} onChange={set('singer')}
-                        placeholder="ex: (Arijit Singh)" className={inputCls} />
+                        placeholder="ex: Ed Sheeran" className={inputCls} />
                     </div>
                   </div>
 
@@ -470,12 +470,12 @@ export default function SubmitPage() {
                     <div>
                       <label className={labelCls}>Lyric Writer *</label>
                       <input required value={fields.lyricWriter} onChange={set('lyricWriter')}
-                        placeholder="ex: (Irshad Kamil)" className={inputCls} />
+                        placeholder="ex: Max Martin" className={inputCls} />
                     </div>
                     <div>
                       <label className={labelCls}>Music Director *</label>
                       <input required value={fields.musicDirector} onChange={set('musicDirector')}
-                        placeholder="ex: (Pritam)" className={inputCls} />
+                        placeholder="ex: Hans Zimmer" className={inputCls} />
                     </div>
                   </div>
 
@@ -484,12 +484,12 @@ export default function SubmitPage() {
                     <div>
                       <label className={labelCls}>Music Arranger <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
                       <input value={fields.musicArranger} onChange={set('musicArranger')}
-                        placeholder="ex: (A.R. Rahman)" className={inputCls} />
+                        placeholder="ex: Quincy Jones" className={inputCls} />
                     </div>
                     <div>
                       <label className={labelCls}>Director <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
                       <input value={fields.director} onChange={set('director')}
-                        placeholder="ex: (Rohit Shetty)" className={inputCls} />
+                        placeholder="ex: Martin Scorsese" className={inputCls} />
                     </div>
                   </div>
 
@@ -498,12 +498,12 @@ export default function SubmitPage() {
                     <div>
                       <label className={labelCls}>Mixer <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
                       <input value={fields.mixer} onChange={set('mixer')}
-                        placeholder="ex: (Eric Pillai)" className={inputCls} />
+                        placeholder="ex: Andrew Scheps" className={inputCls} />
                     </div>
                     <div>
                       <label className={labelCls}>Producer <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
                       <input value={fields.producer} onChange={set('producer')}
-                        placeholder="ex: (Bhushan Kumar)" className={inputCls} />
+                        placeholder="ex: Interscope Records" className={inputCls} />
                     </div>
                   </div>
 
