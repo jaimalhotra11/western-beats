@@ -497,6 +497,68 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
 
+    /* ── Resource Hub ───────────────────────────────── */
+    {
+      url: `${BASE_URL}/resources`,
+      lastModified: new Date('2026-08-01'),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/resources/case-studies/independent-hindi-artist-1m-streams`,
+      lastModified: new Date('2026-08-01'),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/resources/case-studies/british-indian-artist-dual-market`,
+      lastModified: new Date('2026-08-01'),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/resources/case-studies/punjabi-artist-canada-diaspora`,
+      lastModified: new Date('2026-08-01'),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/resources/research/state-of-indian-music-streaming-2026`,
+      lastModified: new Date('2026-08-01'),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/resources/research/indian-diaspora-music-market-2026`,
+      lastModified: new Date('2026-08-01'),
+      changeFrequency: 'monthly',
+      priority: 0.93,
+    },
+    {
+      url: `${BASE_URL}/resources/ebooks/complete-guide-music-distribution-india-2026`,
+      lastModified: new Date('2026-08-01'),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/resources/ebooks/music-distribution-nri-artists-guide`,
+      lastModified: new Date('2026-08-01'),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/resources/infographics/streaming-royalties-india-2026`,
+      lastModified: new Date('2026-08-01'),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/resources/infographics/music-distribution-comparison-india`,
+      lastModified: new Date('2026-08-01'),
+      changeFrequency: 'monthly',
+      priority: 0.93,
+    },
+
     /* ── Legal ───────────────────────────────────────── */
     {
       url: `${BASE_URL}/terms`,
