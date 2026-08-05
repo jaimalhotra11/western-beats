@@ -559,6 +559,68 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.93,
     },
 
+    /* ── Competitor Gap Blog Posts (August 2026) ────── */
+    {
+      url: `${BASE_URL}/blog/how-to-get-on-spotify-playlists-india`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/blog/how-to-get-on-jiosaavn-playlists`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/blog/cover-art-size-dimensions-music-distribution`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly',
+      priority: 0.93,
+    },
+    {
+      url: `${BASE_URL}/blog/how-to-get-first-1000-streams-spotify-india`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly',
+      priority: 0.94,
+    },
+    {
+      url: `${BASE_URL}/blog/wav-vs-mp3-audio-format-music-distribution`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/blog/tiktok-for-musicians-india-2026`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly',
+      priority: 0.94,
+    },
+    {
+      url: `${BASE_URL}/blog/music-publishing-india-guide`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly',
+      priority: 0.93,
+    },
+    {
+      url: `${BASE_URL}/blog/music-copyright-india-complete-guide`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly',
+      priority: 0.93,
+    },
+    {
+      url: `${BASE_URL}/blog/how-to-record-music-at-home-india`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/blog/streaming-fraud-india-how-to-avoid`,
+      lastModified: new Date('2026-08-05'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+
     /* ── Legal ───────────────────────────────────────── */
     {
       url: `${BASE_URL}/terms`,
