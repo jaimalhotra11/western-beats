@@ -603,12 +603,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.93,
     },
     {
-      url: `${BASE_URL}/blog/music-copyright-india-complete-guide`,
-      lastModified: new Date('2026-08-05'),
-      changeFrequency: 'monthly',
-      priority: 0.93,
-    },
-    {
       url: `${BASE_URL}/blog/how-to-record-music-at-home-india`,
       lastModified: new Date('2026-08-05'),
       changeFrequency: 'monthly',

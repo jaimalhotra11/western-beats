@@ -320,6 +320,15 @@ const POSTS = [
     readTime: '7 min read',
     date: 'August 2026',
   },
+  {
+    slug: 'how-to-record-music-at-home-india',
+    title: 'How to Record Music at Home India 2026 — Budget Home Studio Guide',
+    excerpt: 'Full budget breakdown for Indian artists: DAW, microphone, audio interface and acoustic treatment at ₹15,000, ₹40,000 and ₹1,00,000+ budgets — plus India-specific recording tips.',
+    tag: 'Studio Guide',
+    color: '#34D399',
+    readTime: '9 min read',
+    date: 'August 2026',
+  },
 ]
 
 export default function BlogPage() {

@@ -32,6 +32,17 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'upload.wikimedia.org' },
     ],
   },
+  async redirects() {
+    return [
+      // Enforce www — single 301 hop, eliminates redirect chains that cause GSC "Redirect error"
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'westernbeats.com' }],
+        destination: 'https://www.westernbeats.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {
