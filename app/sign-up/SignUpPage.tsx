@@ -4,8 +4,6 @@ import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Nav from '../components/Nav'
 
-const GENRES = ['Haryanvi', 'Punjabi', 'Hindi / Bollywood', 'Tamil', 'Telugu', 'Marathi', 'Bengali', 'Kannada', 'Malayalam', 'Bhojpuri', 'Folk / Regional', 'Pop', 'Hip-Hop / Rap', 'Electronic / EDM', 'Other']
-
 export default function SignUpPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -17,7 +15,7 @@ export default function SignUpPage() {
   const [success, setSuccess] = useState('')
   const [otp, setOtp] = useState('')
 
-  const [form, setForm] = useState({ name: '', email: '', phone: '', artistName: '', genre: '' })
+  const [form, setForm] = useState({ name: '', email: '', phone: '', artistName: '' })
 
   function update(field: string, value: string) {
     setForm(f => ({ ...f, [field]: value }))
@@ -66,7 +64,6 @@ export default function SignUpPage() {
             'Artist Name': form.artistName,
             'Email': form.email,
             'Phone': form.phone,
-            'Genre': form.genre,
           }),
         })
       } catch {
@@ -120,14 +117,7 @@ export default function SignUpPage() {
                   <input type="tel" required value={form.phone} onChange={e => update('phone', e.target.value)} placeholder="+91 98765 43210" style={inputStyle}
                     onFocus={e => (e.target.style.borderColor = '#0A64C3')} onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')} />
                 </div>
-                <div>
-                  <label style={labelStyle}>Primary Genre</label>
-                  <select value={form.genre} onChange={e => update('genre', e.target.value)} style={{ ...inputStyle, cursor: 'pointer' }}
-                    onFocus={e => (e.target.style.borderColor = '#0A64C3')} onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}>
-                    <option value="">Select genre (optional)</option>
-                    {GENRES.map(g => <option key={g} value={g}>{g}</option>)}
-                  </select>
-                </div>
+
                 {error && <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 10, padding: '12px 16px', color: '#F87171', fontSize: 14 }}>{error}</div>}
                 <button type="submit" disabled={loading} style={{ background: loading ? '#0A3A7A' : '#0A64C3', color: '#fff', border: 'none', borderRadius: 12, padding: '15px', fontSize: 15, fontWeight: 700, cursor: loading ? 'not-allowed' : 'pointer', marginTop: 4 }}>
                   {loading ? 'Sending OTP...' : 'Get OTP & Create Account →'}

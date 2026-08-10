@@ -13,29 +13,7 @@ import {
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
-const GENRES = [
-  'Bollywood / Film','Punjabi','Hip-Hop / Rap','Pop','Indie Pop',
-  'Electronic / EDM','R&B / Soul','Classical Fusion','Devotional',
-  'Haryanvi','Bhojpuri','Tamil','Telugu','Kannada','Malayalam','Other',
-]
-const SUB_GENRES: Record<string, string[]> = {
-  'Bollywood / Film': ['Romantic','Item Song','Sad Song','Patriotic','Party','Dance','Ghazal','Qawwali'],
-  'Punjabi': ['Bhangra','Sufi','Sad Punjabi','Desi Pop','Party Punjabi'],
-  'Hip-Hop / Rap': ['Desi Hip-Hop','Trap','Conscious Rap','Battle Rap','Boom Bap'],
-  'Pop': ['Indie Pop','Dance Pop','Electropop','Synth Pop','Dream Pop'],
-  'Indie Pop': ['Acoustic','Alt-Pop','Lo-Fi Pop','Bedroom Pop'],
-  'Electronic / EDM': ['House','Techno','Trance','Dubstep','Drum & Bass','Ambient'],
-  'R&B / Soul': ['Contemporary R&B','Neo Soul','Funk','Gospel'],
-  'Classical Fusion': ['Hindustani','Carnatic','Indo-Jazz','Sufi Fusion'],
-  'Devotional': ['Bhajan','Aarti','Kirtan','Qawwali','Mantra'],
-  'Haryanvi': ['Haryanvi Dance','Haryanvi Folk','Haryanvi Sad','Haryanvi Pop'],
-  'Bhojpuri': ['Bhojpuri Film','Bhojpuri Folk','Bhojpuri Dance'],
-  'Tamil': ['Tamil Film','Tamil Folk','Tamil Pop','Kollywood'],
-  'Telugu': ['Telugu Film','Telugu Folk','Telugu Pop','Tollywood'],
-  'Kannada': ['Kannada Film','Kannada Folk','Sandalwood'],
-  'Malayalam': ['Malayalam Film','Malayalam Folk','Mollywood'],
-  'Other': ['Folk','Regional','World Music','Experimental'],
-}
+
 const MOODS = [
   'Happy','Sad','Romantic','Energetic','Melancholic','Chill','Party','Motivational',
   'Devotional','Angry','Nostalgic','Dreamy','Dark','Peaceful','Empowering','Heartbreak',
@@ -56,7 +34,7 @@ const INCLUDE = [
   { Icon: Music,       title: 'Audio File',       note: 'WAV (preferred) or 320kbps MP3' },
   { Icon: FileImage,   title: 'Album Artwork',     note: 'Square JPG/PNG, min 3000×3000px' },
   { Icon: Info,        title: 'Track Details',     note: 'Artist name & track name exactly as you want them' },
-  { Icon: Tag,         title: 'Genre & Language',  note: 'For accurate platform categorisation' },
+  { Icon: Tag,         title: 'Language',  note: 'For accurate platform categorisation' },
   { Icon: ShieldCheck, title: 'Ownership Proof',   note: 'Confirm you own 100% of the recording rights' },
   { Icon: AtSign,      title: 'Active Email',      note: 'So we can send approval & royalty updates' },
 ]
@@ -74,7 +52,7 @@ const YOUTUBE_CONTENT_ID_OPTIONS = [
 
 type FormFields = {
   artistName: string; trackName: string; albumName: string; email: string; phone: string;
-  genre: string; subGenre: string; language: string; releaseDate: string;
+  language: string; releaseDate: string;
   singer: string; lyricWriter: string; musicDirector: string; musicArranger: string;
   director: string; mixer: string; producer: string; moods: string;
   labelName: string; upc: string; isrc: string; productCode: string;
@@ -85,7 +63,7 @@ type FormFields = {
 }
 const EMPTY: FormFields = {
   artistName: '', trackName: '', albumName: '', email: '', phone: '',
-  genre: '', subGenre: '', language: '', releaseDate: '',
+  language: '', releaseDate: '',
   singer: '', lyricWriter: '', musicDirector: '', musicArranger: '',
   director: '', mixer: '', producer: '', moods: '',
   labelName: '', upc: '', isrc: '', productCode: '',
@@ -149,8 +127,6 @@ export default function SubmitPage() {
   const set = (k: keyof FormFields) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setFields(f => ({ ...f, [k]: e.target.value }))
 
-  const setGenre = (e: React.ChangeEvent<HTMLSelectElement>) =>
-    setFields(f => ({ ...f, genre: e.target.value, subGenre: '' }))
 
   async function uploadFile(file: File, type: 'audio' | 'artwork' | 'document') {
     const fd = new FormData()
@@ -244,7 +220,6 @@ export default function SubmitPage() {
   const inputCls = `w-full bg-[#060D1F] border border-white/[0.09] rounded-xl px-4 py-3 font-inter text-[14px] text-white placeholder:text-[#4A5568] focus:outline-none focus:border-[#0A64C3] focus:ring-1 focus:ring-[#0A64C3]/40 transition-all duration-200`
   const labelCls = `block font-outfit font-semibold text-[12px] text-[#8899AA] tracking-[0.08em] uppercase mb-1.5`
 
-  const subGenreOptions = fields.genre ? (SUB_GENRES[fields.genre] || []) : []
 
   return (
     <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
