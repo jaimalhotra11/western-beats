@@ -1,8 +1,0 @@
-{
-  "crons": [
-    {
-      "path": "/api/cron/upload-reminder",
-      "schedule": "30 3 * * *"
-    }
-  ]
-}
