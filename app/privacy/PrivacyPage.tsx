@@ -57,7 +57,7 @@ Metadata submitted to streaming platforms may remain on those platforms even aft
 - Request deletion of your data (subject to legal retention requirements)
 - Withdraw consent for marketing communications at any time
 
-To exercise any of these rights, email us at privacy@westernbeats.com.`,
+To exercise any of these rights, email us at legal@westernbeats.com.`,
   },
   {
     title: '6. Cookies',
@@ -75,7 +75,7 @@ Despite our best efforts, no data transmission over the internet is completely s
     title: '8. Contact Us',
     content: `For any privacy-related questions, requests, or concerns, contact us at:
 
-Email: privacy@westernbeats.com
+Email: legal@westernbeats.com
 General: contact@westernbeats.com
 
 Western Beats Private Limited
@@ -170,7 +170,7 @@ export default function PrivacyPage() {
             className="mt-12 p-5 rounded-xl" style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.07)' }}>
             <p className="font-inter text-[13px] text-mut">
               Privacy questions? Email{' '}
-              <a href="mailto:privacy@westernbeats.com" className="text-sky hover:text-white transition-colors">privacy@westernbeats.com</a>
+              <a href="mailto:legal@westernbeats.com" className="text-sky hover:text-white transition-colors">legal@westernbeats.com</a>
               {' '}or visit our{' '}
               <Link href="/contact" className="text-sky hover:text-white transition-colors">Contact page</Link>.
             </p>
