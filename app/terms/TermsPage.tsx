@@ -14,7 +14,7 @@ import {
 const EASE = [0.22, 1, 0.36, 1] as const
 
 const QUICK_FACTS = [
-  { icon: DollarSign, color: '#0A64C3', title: 'Royalty Split',   value: '70% to You',   sub: 'WB retains 30% as Distribution Fee' },
+  { icon: DollarSign, color: '#0A64C3', title: 'Royalty Split',   value: '80% to You',   sub: 'WB retains 20% as Distribution Fee' },
   { icon: Shield,     color: '#C41230', title: 'IP Ownership',    value: '100% Yours',   sub: 'You own masters & copyright forever' },
   { icon: Globe,      color: '#5CB2DC', title: 'Platforms',       value: '150+',         sub: 'Worldwide distribution included' },
   { icon: Clock,      color: '#0A64C3', title: 'Initial Term',    value: '2 Years',      sub: 'Renewable by mutual agreement' },
@@ -155,15 +155,15 @@ const SECTIONS: Section[] = [
     items: [
       {
         heading: 'The Revenue Split',
-        body: 'WB retains 30% of Net Revenue as the Distribution Fee. You (the Artist/Licensor) receive 70% of Net Revenue after deduction of the Distribution Fee ("Revenue Share"). This fee covers distribution infrastructure, platform relationships, content management, ISRC/UPC generation, marketing support, and ongoing operations.',
+        body: 'WB retains 20% of Net Revenue as the Distribution Fee. You (the Artist/Licensor) receive 80% of Net Revenue after deduction of the Distribution Fee ("Revenue Share"). This fee covers distribution infrastructure, platform relationships, content management, ISRC/UPC generation, marketing support, and ongoing operations.',
       },
       {
         type: 'warn',
-        body: 'IMPORTANT: When we refer to "100% Ownership" in our marketing, this refers exclusively to your intellectual property rights — you retain 100% copyright ownership of your masters and compositions. The revenue split is 70% to you / 30% to WB. These are two distinct and separate concepts.',
+        body: 'IMPORTANT: When we refer to "100% Ownership" in our marketing, this refers exclusively to your intellectual property rights — you retain 100% copyright ownership of your masters and compositions. The revenue split is 80% to you / 20% to WB. These are two distinct and separate concepts.',
       },
       {
         heading: 'How Net Revenue Is Calculated',
-        body: 'Net Revenue = Total platform earnings minus applicable taxes, duties, third-party costs, and statutory levies deducted at the platform level. WB does not add any additional deductions beyond our 30% Distribution Fee.',
+        body: 'Net Revenue = Total platform earnings minus applicable taxes, duties, third-party costs, and statutory levies deducted at the platform level. WB does not add any additional deductions beyond our 20% Distribution Fee.',
       },
       {
         heading: 'Reporting Schedule',
@@ -183,7 +183,7 @@ const SECTIONS: Section[] = [
       },
       {
         type: 'check',
-        body: 'There are no upfront fees, no annual subscription charges, and no hidden administrative fees. WB earns exclusively through the 30% Revenue Share on income your content generates.',
+        body: 'There are no upfront fees, no annual subscription charges, and no hidden administrative fees. WB earns exclusively through the 20% Revenue Share on income your content generates.',
       },
     ],
   },
@@ -406,7 +406,7 @@ const SECTIONS: Section[] = [
       },
       {
         heading: 'Contact for Legal Notices',
-        body: 'All legal notices to WB must be addressed to:\nThe Chief Legal Officer\nWestern Beats Private Limited\nSector-4A, H.No.357P, Dharuhera, Rewari, Haryana 123106\nEmail: sahil.sandhu@westernbeats.com\nCopy to: legal@globalmusicjunction.com',
+        body: 'All legal notices to WB must be addressed to:\nThe Chief Legal Officer\nWestern Beats Private Limited\nSector-4A, H.No.357P, Dharuhera, Rewari, Haryana 123106\nEmail: legal@westernbeats.com',
       },
     ],
   },
@@ -647,12 +647,12 @@ export default function TermsPage() {
               </div>
               <div>
                 <div className="font-outfit font-extrabold text-white text-[14px] sm:text-[15px] mb-1">
-                  Revenue Split: <span style={{ color: '#f87171' }}>70% Artist · 30% Western Beats</span>
+                  Revenue Split: <span style={{ color: '#f87171' }}>80% Artist · 20% Western Beats</span>
                 </div>
                 <div className="font-inter text-[12.5px] text-mut leading-relaxed">
                   &ldquo;100% ownership&rdquo; in our marketing refers to your{' '}
                   <strong className="text-white">intellectual property rights</strong>.
-                  The streaming <strong className="text-white">revenue split is 70% you / 30% WB</strong>.
+                  The streaming <strong className="text-white">revenue split is 80% you / 20% WB</strong>.
                   Full detail in Section 5.
                 </div>
               </div>
@@ -737,19 +737,19 @@ export default function TermsPage() {
                 </div>
                 <div className="font-inter text-[13px] text-mut">
                   Contact our legal team at{' '}
-                  <a href="mailto:sahil.sandhu@westernbeats.com" className="text-sky hover:text-white transition-colors">
-                    sahil.sandhu@westernbeats.com
+                  <a href="mailto:legal@westernbeats.com" className="text-sky hover:text-white transition-colors">
+                    legal@westernbeats.com
                   </a>
                   {' '}or{' '}
-                  <a href="mailto:legal@globalmusicjunction.com" className="text-sky hover:text-white transition-colors">
-                    legal@globalmusicjunction.com
+                  <a href="mailto:legal@westernbeats.com" className="text-sky hover:text-white transition-colors">
+                    legal@westernbeats.com
                   </a>
                   . We reply within 24 hours on business days.
                 </div>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-              <a href="mailto:sahil.sandhu@westernbeats.com"
+              <a href="mailto:legal@westernbeats.com"
                 className="px-5 py-2.5 rounded-xl font-outfit font-bold text-[13px] text-white text-center transition-all duration-200 hover:-translate-y-0.5"
                 style={{ background: '#0A64C3' }}>
                 Email Legal

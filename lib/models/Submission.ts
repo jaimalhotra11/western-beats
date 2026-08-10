@@ -36,10 +36,14 @@ export interface ISubmission extends Document {
   clientType: 'India' | 'International'
   panCardUrl: string
   panCardPublicId: string
+  aadhaarVoterId: string
+  aadhaarVoterIdPublicId: string
   gstUrl: string
   gstPublicId: string
   passportUrl: string
   passportPublicId: string
+  agreementStatus: 'Not Sent' | 'Sent' | 'Signed'
+  agreementSentAt?: Date
   // Cloudinary file URLs
   audioUrl: string
   audioPublicId: string
@@ -87,6 +91,8 @@ const SubmissionSchema = new Schema<ISubmission>({
   clientType: { type: String, enum: ['India', 'International'], default: 'India' },
   panCardUrl: { type: String, default: '' },
   panCardPublicId: { type: String, default: '' },
+  aadhaarVoterId: { type: String, default: '' },
+  aadhaarVoterIdPublicId: { type: String, default: '' },
   gstUrl: { type: String, default: '' },
   gstPublicId: { type: String, default: '' },
   passportUrl: { type: String, default: '' },
@@ -102,6 +108,8 @@ const SubmissionSchema = new Schema<ISubmission>({
   },
   statusNote: { type: String, default: '' },
   adminNote: { type: String, default: '' },
+  agreementStatus: { type: String, enum: ['Not Sent', 'Sent', 'Signed'], default: 'Not Sent' },
+  agreementSentAt: { type: Date },
   submittedAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 })

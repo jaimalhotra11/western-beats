@@ -105,6 +105,7 @@ export default function SubmitPage() {
   const [audioFile, setAudioFile] = useState<File | null>(null)
   const [artworkFile, setArtworkFile] = useState<File | null>(null)
   const [panCardFile, setPanCardFile] = useState<File | null>(null)
+  const [aadhaarVoterFile, setAadhaarVoterFile] = useState<File | null>(null)
   const [gstFile, setGstFile] = useState<File | null>(null)
   const [passportFile, setPassportFile] = useState<File | null>(null)
   const [uploadProgress, setUploadProgress] = useState('')
@@ -173,7 +174,8 @@ export default function SubmitPage() {
     if (!agreedToTerms) { setTermsError('You must agree to the Terms & Conditions before submitting.'); return }
     if (!audioFile) { setErrorMsg('Please upload your audio file.'); return }
     if (!artworkFile) { setErrorMsg('Please upload your cover artwork.'); return }
-    if (fields.clientType === 'India' && !panCardFile) { setErrorMsg('Please upload your PAN card.'); return }
+    if (fields.clientType === 'India' && !panCardFile) { setErrorMsg('Please upload your PAN card (JPG or PNG).'); return }
+    if (fields.clientType === 'India' && !aadhaarVoterFile) { setErrorMsg('Please upload your Aadhaar Card or Voter ID (JPG or PNG).'); return }
     if (fields.clientType === 'International' && !passportFile) { setErrorMsg('Please upload your passport.'); return }
 
     setStatus('loading')
@@ -189,9 +191,14 @@ export default function SubmitPage() {
       let gst = { url: '', publicId: '' }
       let passport = { url: '', publicId: '' }
 
+      let aadhaarVoterCard = { url: '', publicId: '' }
       if (panCardFile) {
         setUploadProgress('Uploading PAN card...')
         panCard = await uploadFile(panCardFile, 'document')
+      }
+      if (aadhaarVoterFile) {
+        setUploadProgress('Uploading Aadhaar / Voter ID...')
+        aadhaarVoterCard = await uploadFile(aadhaarVoterFile, 'document')
       }
       if (gstFile) {
         setUploadProgress('Uploading GST certificate...')
@@ -214,6 +221,8 @@ export default function SubmitPage() {
           artworkPublicId: artwork.publicId,
           panCardUrl: panCard.url,
           panCardPublicId: panCard.publicId,
+          aadhaarVoterId: aadhaarVoterCard.url,
+          aadhaarVoterIdPublicId: aadhaarVoterCard.publicId,
           gstUrl: gst.url,
           gstPublicId: gst.publicId,
           passportUrl: passport.url,
@@ -514,25 +523,7 @@ export default function SubmitPage() {
                     <div className="h-[1px] flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
                   </div>
 
-                  {/* Row 8: Genre + Sub Genre */}
-                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <label className={labelCls}>Genre *</label>
-                      <select required value={fields.genre} onChange={setGenre} className={inputCls}>
-                        <option value="" disabled>Select Genre</option>
-                        {GENRES.map(g => <option key={g} value={g}>{g}</option>)}
-                      </select>
-                    </div>
-                    <div>
-                      <label className={labelCls}>Sub Genre *</label>
-                      <select required value={fields.subGenre} onChange={set('subGenre')} className={inputCls} disabled={!fields.genre}>
-                        <option value="" disabled>Select Sub Genre</option>
-                        {subGenreOptions.map(sg => <option key={sg} value={sg}>{sg}</option>)}
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Row 9: Moods */}
+                  {/* Row 8: Moods */}
                   <div className="mb-4">
                     <label className={labelCls}>Moods *</label>
                     <select required value={fields.moods} onChange={set('moods')} className={inputCls}>
@@ -610,36 +601,63 @@ export default function SubmitPage() {
                     </div>
                   </div>
 
-                  {/* India KYC — PAN + GST */}
+                  {/* India KYC — PAN + Aadhaar/Voter ID + GST */}
                   {fields.clientType === 'India' && (
-                    <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
-                      <div>
-                        <label className={labelCls}>PAN Card * <span className="normal-case tracking-normal font-normal text-[#4A5568]">(JPG/PNG/PDF)</span></label>
-                        <div onClick={() => document.getElementById('pan-upload')?.click()}
-                          style={{ border: '1.5px dashed rgba(255,255,255,0.12)', borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
-                          onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
-                          onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)')}>
-                          <p className="font-inter text-[13px]" style={{ color: panCardFile ? '#34D399' : '#4A5568', margin: 0 }}>
-                            {panCardFile ? `✓ ${panCardFile.name}` : '+ Upload PAN Card'}
-                          </p>
+                    <>
+                      <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                          <label className={labelCls}>PAN Card * <span className="normal-case tracking-normal font-normal text-[#4A5568]">(JPG or PNG only)</span></label>
+                          <div onClick={() => document.getElementById('pan-upload')?.click()}
+                            style={{ border: `1.5px dashed ${panCardFile ? '#34D399' : 'rgba(255,255,255,0.12)'}`, borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
+                            onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
+                            onMouseLeave={e => (e.currentTarget.style.borderColor = panCardFile ? '#34D399' : 'rgba(255,255,255,0.12)')}>
+                            <p className="font-inter text-[13px]" style={{ color: panCardFile ? '#34D399' : '#4A5568', margin: 0 }}>
+                              {panCardFile ? `✓ ${panCardFile.name}` : '+ Upload PAN Card'}
+                            </p>
+                            <p className="font-inter text-[11px]" style={{ color: '#4A5568', margin: '4px 0 0' }}>JPG or PNG · Colour scan preferred</p>
+                          </div>
+                          <input id="pan-upload" type="file" accept="image/jpeg,image/png,image/jpg" className="hidden"
+                            onChange={e => {
+                              const f = e.target.files?.[0] || null
+                              if (f && !f.type.startsWith('image/')) { alert('Please upload JPG or PNG only — PDF is not accepted.'); return }
+                              setPanCardFile(f)
+                            }} />
                         </div>
-                        <input id="pan-upload" type="file" accept="image/*,application/pdf" className="hidden"
-                          onChange={e => setPanCardFile(e.target.files?.[0] || null)} />
-                      </div>
-                      <div>
-                        <label className={labelCls}>GST Certificate <span className="normal-case tracking-normal font-normal text-[#4A5568]">(optional)</span></label>
-                        <div onClick={() => document.getElementById('gst-upload')?.click()}
-                          style={{ border: '1.5px dashed rgba(255,255,255,0.12)', borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
-                          onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
-                          onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)')}>
-                          <p className="font-inter text-[13px]" style={{ color: gstFile ? '#34D399' : '#4A5568', margin: 0 }}>
-                            {gstFile ? `✓ ${gstFile.name}` : '+ Upload GST Certificate'}
-                          </p>
+                        <div>
+                          <label className={labelCls}>Aadhaar Card / Voter ID * <span className="normal-case tracking-normal font-normal text-[#4A5568]">(JPG or PNG only)</span></label>
+                          <div onClick={() => document.getElementById('aadhaar-upload')?.click()}
+                            style={{ border: `1.5px dashed ${aadhaarVoterFile ? '#34D399' : 'rgba(255,255,255,0.12)'}`, borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
+                            onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
+                            onMouseLeave={e => (e.currentTarget.style.borderColor = aadhaarVoterFile ? '#34D399' : 'rgba(255,255,255,0.12)')}>
+                            <p className="font-inter text-[13px]" style={{ color: aadhaarVoterFile ? '#34D399' : '#4A5568', margin: 0 }}>
+                              {aadhaarVoterFile ? `✓ ${aadhaarVoterFile.name}` : '+ Upload Aadhaar or Voter ID'}
+                            </p>
+                            <p className="font-inter text-[11px]" style={{ color: '#4A5568', margin: '4px 0 0' }}>JPG or PNG · Front side of document</p>
+                          </div>
+                          <input id="aadhaar-upload" type="file" accept="image/jpeg,image/png,image/jpg" className="hidden"
+                            onChange={e => {
+                              const f = e.target.files?.[0] || null
+                              if (f && !f.type.startsWith('image/')) { alert('Please upload JPG or PNG only — PDF is not accepted.'); return }
+                              setAadhaarVoterFile(f)
+                            }} />
                         </div>
-                        <input id="gst-upload" type="file" accept="image/*,application/pdf" className="hidden"
-                          onChange={e => setGstFile(e.target.files?.[0] || null)} />
                       </div>
-                    </div>
+                      <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                          <label className={labelCls}>GST Certificate <span className="normal-case tracking-normal font-normal text-[#4A5568]">(optional)</span></label>
+                          <div onClick={() => document.getElementById('gst-upload')?.click()}
+                            style={{ border: '1.5px dashed rgba(255,255,255,0.12)', borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
+                            onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
+                            onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)')}>
+                            <p className="font-inter text-[13px]" style={{ color: gstFile ? '#34D399' : '#4A5568', margin: 0 }}>
+                              {gstFile ? `✓ ${gstFile.name}` : '+ Upload GST Certificate'}
+                            </p>
+                          </div>
+                          <input id="gst-upload" type="file" accept="image/*,application/pdf" className="hidden"
+                            onChange={e => setGstFile(e.target.files?.[0] || null)} />
+                        </div>
+                      </div>
+                    </>
                   )}
 
                   {/* International KYC — Passport */}
