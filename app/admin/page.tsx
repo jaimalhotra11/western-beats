@@ -2,6 +2,13 @@
 import { useEffect, useState } from 'react'
 
 const STATUSES = ['Submitted', 'Under Review', 'Approved', 'Distributing', 'Live', 'Rejected']
+const AGREEMENT_STATUSES = ['Not Sent', 'Sent', 'Signed']
+
+function cloudinaryDownloadUrl(url: string, filename: string): string {
+  if (!url) return url
+  // Insert fl_attachment into Cloudinary URL to force download
+  return url.replace('/upload/', `/upload/fl_attachment:${filename.replace(/\s+/g, '_')}/`)
+}
 const STATUS_COLOR: Record<string, string> = {
   'Submitted': '#F59E0B', 'Under Review': '#5CB2DC', 'Approved': '#34D399',
   'Distributing': '#0A64C3', 'Live': '#34D399', 'Rejected': '#F87171',
@@ -30,8 +37,7 @@ export default function AdminPage() {
   const [statusNote, setStatusNote] = useState('')
   const [updating, setUpdating] = useState(false)
   const [updateMsg, setUpdateMsg] = useState('')
-  const [sendingAgreement, setSendingAgreement] = useState(false)
-  const [agreementMsg, setAgreementMsg] = useState('')
+  const [newAgreementStatus, setNewAgreementStatus] = useState('Not Sent')
   const [filterStatus, setFilterStatus] = useState('All')
   const [search, setSearch] = useState('')
 
@@ -59,25 +65,6 @@ export default function AdminPage() {
     setSubmissions(data.submissions || [])
   }
 
-  async function sendAgreement() {
-    if (!selected) return
-    setSendingAgreement(true)
-    setAgreementMsg('')
-    const res = await fetch(`/api/submissions/${selected._id}/send-agreement`, {
-      method: 'POST',
-      headers: { 'x-admin-password': password },
-    })
-    const data = await res.json()
-    if (res.ok) {
-      setAgreementMsg('✅ Agreement email sent to artist.')
-      setSelected(prev => prev ? { ...prev, agreementStatus: 'Sent', agreementSentAt: new Date().toISOString() } : null)
-      await refresh()
-    } else {
-      setAgreementMsg('❌ ' + (data.error || 'Failed to send'))
-    }
-    setSendingAgreement(false)
-  }
-
   async function updateStatus() {
     if (!selected || !newStatus) return
     setUpdating(true)
@@ -85,12 +72,12 @@ export default function AdminPage() {
     const res = await fetch(`/api/submissions/${selected._id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
-      body: JSON.stringify({ status: newStatus, statusNote }),
+      body: JSON.stringify({ status: newStatus, statusNote, agreementStatus: newAgreementStatus }),
     })
     const data = await res.json()
     if (res.ok) {
       setUpdateMsg('✅ Status updated and artist notified by email.')
-      setSelected(prev => prev ? { ...prev, status: newStatus, statusNote } : null)
+      setSelected(prev => prev ? { ...prev, status: newStatus, statusNote, agreementStatus: newAgreementStatus } : null)
       await refresh()
     } else {
       setUpdateMsg('❌ ' + (data.error || 'Failed'))
@@ -162,7 +149,7 @@ export default function AdminPage() {
           <div>
             {filtered.length === 0 && <p style={{ color: '#8899AA' }}>No submissions found.</p>}
             {filtered.map(sub => (
-              <div key={sub._id} onClick={() => { setSelected(sub); setNewStatus(sub.status); setStatusNote(sub.statusNote || ''); setUpdateMsg('') }}
+              <div key={sub._id} onClick={() => { setSelected(sub); setNewStatus(sub.status); setStatusNote(sub.statusNote || ''); setNewAgreementStatus(sub.agreementStatus || 'Not Sent'); setUpdateMsg('') }}
                 style={{ ...S.card, marginBottom: 12, cursor: 'pointer', borderColor: selected?._id === sub._id ? 'rgba(10,100,195,0.5)' : 'rgba(255,255,255,0.08)', transition: 'border-color 0.2s' }}>
                 <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
                   {sub.artworkUrl && <img src={sub.artworkUrl} alt="" style={{ width: 52, height: 52, borderRadius: 8, objectFit: 'cover', flexShrink: 0 }} />}
@@ -191,9 +178,8 @@ export default function AdminPage() {
                 <div style={{ position: 'relative', marginBottom: 16 }}>
                   <img src={selected.artworkUrl} alt="artwork" style={{ width: '100%', borderRadius: 12, maxHeight: 200, objectFit: 'cover', display: 'block' }} />
                   <a
-                    href={selected.artworkUrl}
-                    download={`${selected.trackName}-artwork`}
-                    target="_blank" rel="noopener noreferrer"
+                    href={cloudinaryDownloadUrl(selected.artworkUrl, `${selected.trackName}-artwork`)}
+                    download
                     style={{ position: 'absolute', bottom: 8, right: 8, background: 'rgba(0,0,0,0.75)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 700, textDecoration: 'none', backdropFilter: 'blur(4px)' }}>
                     ⬇ Download
                   </a>
@@ -237,46 +223,25 @@ export default function AdminPage() {
                   {selected.address && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Address</span><span style={{ color: '#E2E8F0', fontWeight: 600, maxWidth: '60%', textAlign: 'right' as const, wordBreak: 'break-word' as const }}>{selected.address}</span></div>}
                   {selected.clientType && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Client Type</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.clientType}</span></div>}
                   <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' as const, marginTop: 8 }}>
-                    {selected.panCardUrl && <a href={selected.panCardUrl} target="_blank" rel="noopener noreferrer" style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>🪪 PAN Card</a>}
-                    {selected.aadhaarVoterId && <a href={selected.aadhaarVoterId} target="_blank" rel="noopener noreferrer" style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>🪪 Aadhaar / Voter ID</a>}
-                    {selected.gstUrl && <a href={selected.gstUrl} target="_blank" rel="noopener noreferrer" style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ GST Certificate</a>}
-                    {selected.passportUrl && <a href={selected.passportUrl} target="_blank" rel="noopener noreferrer" style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Passport</a>}
+                    {selected.panCardUrl && <a href={cloudinaryDownloadUrl(selected.panCardUrl, `${selected.artistName}-pan`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ PAN Card</a>}
+                    {selected.aadhaarVoterId && <a href={cloudinaryDownloadUrl(selected.aadhaarVoterId, `${selected.artistName}-aadhaar`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar / Voter ID</a>}
+                    {selected.gstUrl && <a href={cloudinaryDownloadUrl(selected.gstUrl, `${selected.artistName}-gst`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ GST Certificate</a>}
+                    {selected.passportUrl && <a href={cloudinaryDownloadUrl(selected.passportUrl, `${selected.artistName}-passport`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Passport</a>}
                   </div>
                 </div>
               )}
 
               {selected.message && <p style={{ color: '#8899AA', fontSize: 13, margin: '14px 0 0', padding: '10px', background: 'rgba(255,255,255,0.03)', borderRadius: 8 }}>{selected.message}</p>}
 
-              {/* Agreement section */}
-              <div style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                <label style={S.label}>Agreement</label>
-                <div style={{ background: '#0A1535', borderRadius: 10, padding: '12px 14px', marginBottom: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div>
-                    <p style={{ fontSize: 12, color: '#8899AA', margin: '0 0 2px' }}>Status</p>
-                    <p style={{ fontSize: 14, fontWeight: 700, margin: 0, color: selected.agreementStatus === 'Sent' ? '#F59E0B' : selected.agreementStatus === 'Signed' ? '#34D399' : '#4A5568' }}>
-                      {selected.agreementStatus === 'Sent' ? '📄 Sent — Awaiting Signature' : selected.agreementStatus === 'Signed' ? '✅ Signed' : '⬜ Not Sent Yet'}
-                    </p>
-                    {selected.agreementSentAt && (
-                      <p style={{ fontSize: 11, color: '#4A5568', margin: '4px 0 0' }}>
-                        Sent {new Date(selected.agreementSentAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <button
-                  onClick={sendAgreement}
-                  disabled={sendingAgreement || selected.agreementStatus === 'Signed'}
-                  style={{ ...S.btn, width: '100%', background: selected.agreementStatus === 'Sent' ? 'rgba(245,158,11,0.15)' : 'rgba(52,211,153,0.15)', border: `1px solid ${selected.agreementStatus === 'Sent' ? 'rgba(245,158,11,0.3)' : 'rgba(52,211,153,0.3)'}`, color: selected.agreementStatus === 'Sent' ? '#F59E0B' : '#34D399', marginBottom: 8 }}>
-                  {sendingAgreement ? 'Sending…' : selected.agreementStatus === 'Sent' ? '📄 Resend Agreement Email' : selected.agreementStatus === 'Signed' ? '✅ Agreement Signed' : '📄 Send Agreement to Artist →'}
-                </button>
-                {agreementMsg && <p style={{ fontSize: 13, color: agreementMsg.startsWith('✅') ? '#34D399' : '#F87171', margin: '0 0 12px' }}>{agreementMsg}</p>}
-              </div>
-
               {/* Update status */}
-              <div style={{ marginTop: 4, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+              <div style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
                 <label style={S.label}>Update Status</label>
                 <select value={newStatus} onChange={e => setNewStatus(e.target.value)} style={{ ...S.input, marginBottom: 10 }}>
                   {STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
+                </select>
+                <label style={S.label}>Agreement Status</label>
+                <select value={newAgreementStatus} onChange={e => setNewAgreementStatus(e.target.value)} style={{ ...S.input, marginBottom: 10, borderColor: newAgreementStatus === 'Signed' ? 'rgba(52,211,153,0.4)' : newAgreementStatus === 'Sent' ? 'rgba(245,158,11,0.4)' : undefined, color: newAgreementStatus === 'Signed' ? '#34D399' : newAgreementStatus === 'Sent' ? '#F59E0B' : undefined }}>
+                  {AGREEMENT_STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
                 <label style={S.label}>Note to Artist (optional)</label>
                 <textarea value={statusNote} onChange={e => setStatusNote(e.target.value)} placeholder="e.g. Your artwork resolution needs to be 3000x3000px…" rows={3} style={{ ...S.input, resize: 'vertical' as const, marginBottom: 12 }} />

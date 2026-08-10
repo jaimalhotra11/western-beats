@@ -58,14 +58,13 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const { status, statusNote } = await req.json()
+    const { status, statusNote, agreementStatus } = await req.json()
+
+    const update: Record<string, unknown> = { status, statusNote: statusNote || '', updatedAt: new Date() }
+    if (agreementStatus) update.agreementStatus = agreementStatus
 
     await connectDB()
-    const sub = await Submission.findByIdAndUpdate(
-      id,
-      { status, statusNote: statusNote || '', updatedAt: new Date() },
-      { new: true }
-    )
+    const sub = await Submission.findByIdAndUpdate(id, update, { new: true })
     if (!sub) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
     // Send status update email to artist

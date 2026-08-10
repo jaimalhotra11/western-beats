@@ -143,6 +143,23 @@ export default function SubmitPage() {
     return { url: data.secure_url as string, publicId: data.public_id as string }
   }
 
+  function checkArtworkDimensions(file: File): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file)
+      const img = new window.Image() as HTMLImageElement
+      img.onload = () => {
+        URL.revokeObjectURL(url)
+        if (img.width !== 3000 || img.height !== 3000) {
+          reject(new Error(`Cover artwork must be exactly 3000×3000px. Your image is ${img.width}×${img.height}px. Please resize and re-upload.`))
+        } else {
+          resolve()
+        }
+      }
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Could not read image dimensions.')) }
+      img.src = url
+    })
+  }
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     setReleaseDateError(''); setTermsError('')
@@ -157,33 +174,26 @@ export default function SubmitPage() {
     setStatus('loading')
     setErrorMsg('')
     try {
-      setUploadProgress('Uploading audio file...')
-      const audio = await uploadFile(audioFile, 'audio')
+      // Validate artwork dimensions before uploading
+      setUploadProgress('Checking artwork dimensions...')
+      await checkArtworkDimensions(artworkFile)
 
-      setUploadProgress('Uploading cover artwork...')
-      const artwork = await uploadFile(artworkFile, 'artwork')
+      // Upload audio + artwork in parallel
+      setUploadProgress('Uploading audio & artwork...')
+      const [audio, artwork] = await Promise.all([
+        uploadFile(audioFile, 'audio'),
+        uploadFile(artworkFile, 'artwork'),
+      ])
 
-      let panCard = { url: '', publicId: '' }
-      let gst = { url: '', publicId: '' }
-      let passport = { url: '', publicId: '' }
-
-      let aadhaarVoterCard = { url: '', publicId: '' }
-      if (panCardFile) {
-        setUploadProgress('Uploading PAN card...')
-        panCard = await uploadFile(panCardFile, 'document')
-      }
-      if (aadhaarVoterFile) {
-        setUploadProgress('Uploading Aadhaar / Voter ID...')
-        aadhaarVoterCard = await uploadFile(aadhaarVoterFile, 'document')
-      }
-      if (gstFile) {
-        setUploadProgress('Uploading GST certificate...')
-        gst = await uploadFile(gstFile, 'document')
-      }
-      if (passportFile) {
-        setUploadProgress('Uploading passport...')
-        passport = await uploadFile(passportFile, 'document')
-      }
+      // Upload all documents in parallel
+      const empty = { url: '', publicId: '' }
+      setUploadProgress('Uploading documents...')
+      const [panCard, aadhaarVoterCard, gst, passport] = await Promise.all([
+        panCardFile    ? uploadFile(panCardFile, 'document')    : Promise.resolve(empty),
+        aadhaarVoterFile ? uploadFile(aadhaarVoterFile, 'document') : Promise.resolve(empty),
+        gstFile        ? uploadFile(gstFile, 'document')        : Promise.resolve(empty),
+        passportFile   ? uploadFile(passportFile, 'document')   : Promise.resolve(empty),
+      ])
 
       setUploadProgress('Saving your submission...')
       const res = await fetch('/api/submissions', {
