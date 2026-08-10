@@ -133,7 +133,7 @@ export default function CareersPage() {
             </p>
             <p className="font-inter text-[14px] text-mut">
               Interested? Send your CV to{' '}
-              <a href="mailto:careers@westernbeats.com" className="text-sky hover:text-white transition-colors">careers@westernbeats.com</a>
+              <a href="mailto:contact@westernbeats.com" className="text-sky hover:text-white transition-colors">contact@westernbeats.com</a>
             </p>
           </motion.div>
         </div>
@@ -178,7 +178,7 @@ export default function CareersPage() {
                     <p className="font-inter text-[14px] text-mut leading-relaxed">{job.desc}</p>
                   </div>
                   <div className="flex-shrink-0">
-                    <a href="mailto:careers@westernbeats.com"
+                    <a href="mailto:contact@westernbeats.com"
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-outfit font-bold text-[13px] text-white transition-colors duration-200"
                       style={{ background: job.color }}>
                       Send CV
@@ -192,7 +192,7 @@ export default function CareersPage() {
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4, ease: EASE }}
             className="font-inter text-[14px] text-mut mt-8">
             Do not see a role that fits? Send a general application to{' '}
-            <a href="mailto:careers@westernbeats.com" className="text-sky hover:text-white transition-colors">careers@westernbeats.com</a>
+            <a href="mailto:contact@westernbeats.com" className="text-sky hover:text-white transition-colors">contact@westernbeats.com</a>
             {' '}and tell us what you bring to the table.
           </motion.p>
         </div>

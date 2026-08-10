@@ -160,7 +160,7 @@ export default function PressPage() {
               <p className="font-inter text-[14px] text-mut leading-relaxed mb-5">
                 Brand assets, logos, founder photos, and company fact sheet. Request the full media kit by email.
               </p>
-              <a href="mailto:press@westernbeats.com?subject=Media Kit Request"
+              <a href="mailto:contact@westernbeats.com?subject=Media Kit Request"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-outfit font-bold text-[13px] text-white transition-colors duration-200"
                 style={{ background: '#0A64C3' }}>
                 <Mail size={14} />
@@ -178,7 +178,7 @@ export default function PressPage() {
                 For interview requests, quotes, or editorial coverage, contact our press team directly.
               </p>
               <div className="flex flex-col gap-2">
-                <a href="mailto:press@westernbeats.com" className="font-inter text-[13px] text-sky hover:text-white transition-colors">press@westernbeats.com</a>
+                <a href="mailto:contact@westernbeats.com" className="font-inter text-[13px] text-sky hover:text-white transition-colors">contact@westernbeats.com</a>
                 <a href="mailto:contact@westernbeats.com" className="font-inter text-[13px] text-sky hover:text-white transition-colors">contact@westernbeats.com</a>
                 <a href="https://instagram.com/wb_digital_" target="_blank" rel="noopener noreferrer" className="font-inter text-[13px] text-sky hover:text-white transition-colors">@wb_digital_ on Instagram</a>
               </div>
