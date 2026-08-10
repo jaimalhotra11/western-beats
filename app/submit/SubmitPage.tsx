@@ -31,8 +31,8 @@ const STEPS = [
 ]
 
 const INCLUDE = [
-  { Icon: Music,       title: 'Audio File',       note: 'WAV (preferred) or 320kbps MP3' },
-  { Icon: FileImage,   title: 'Album Artwork',     note: 'Square JPG/PNG, min 3000×3000px' },
+  { Icon: Music,       title: 'Audio File',       note: 'WAV format only' },
+  { Icon: FileImage,   title: 'Album Artwork',     note: 'JPG or PNG, exactly 3000×3000px' },
   { Icon: Info,        title: 'Track Details',     note: 'Artist name & track name exactly as you want them' },
   { Icon: Tag,         title: 'Language',  note: 'For accurate platform categorisation' },
   { Icon: ShieldCheck, title: 'Ownership Proof',   note: 'Confirm you own 100% of the recording rights' },
@@ -143,22 +143,6 @@ export default function SubmitPage() {
     return { url: data.secure_url as string, publicId: data.public_id as string }
   }
 
-  function checkArtworkDimensions(file: File): Promise<void> {
-    return new Promise((resolve, reject) => {
-      const url = URL.createObjectURL(file)
-      const img = new window.Image() as HTMLImageElement
-      img.onload = () => {
-        URL.revokeObjectURL(url)
-        if (img.width !== 3000 || img.height !== 3000) {
-          reject(new Error(`Cover artwork must be exactly 3000×3000px. Your image is ${img.width}×${img.height}px. Please resize and re-upload.`))
-        } else {
-          resolve()
-        }
-      }
-      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Could not read image dimensions.')) }
-      img.src = url
-    })
-  }
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -174,10 +158,6 @@ export default function SubmitPage() {
     setStatus('loading')
     setErrorMsg('')
     try {
-      // Validate artwork dimensions before uploading
-      setUploadProgress('Checking artwork dimensions...')
-      await checkArtworkDimensions(artworkFile)
-
       // Upload audio + artwork in parallel
       setUploadProgress('Uploading audio & artwork...')
       const [audio, artwork] = await Promise.all([
@@ -670,7 +650,7 @@ export default function SubmitPage() {
 
                   {/* Audio File Upload */}
                   <div className="mb-4">
-                    <label className={labelCls}>Audio File * <span className="normal-case tracking-normal font-normal text-[#4A5568]">(WAV preferred, MP3 320kbps min)</span></label>
+                    <label className={labelCls}>Audio File * <span className="normal-case tracking-normal font-normal text-[#4A5568]">(WAV only)</span></label>
                     <div
                       onClick={() => document.getElementById('audio-upload')?.click()}
                       style={{
@@ -683,9 +663,19 @@ export default function SubmitPage() {
                       <input
                         id="audio-upload"
                         type="file"
-                        accept="audio/*,.wav,.mp3,.flac,.aiff"
+                        accept=".wav,audio/wav,audio/x-wav"
                         style={{ display: 'none' }}
-                        onChange={e => setAudioFile(e.target.files?.[0] || null)}
+                        onChange={e => {
+                          const f = e.target.files?.[0]
+                          if (!f) return
+                          const isWav = f.type === 'audio/wav' || f.type === 'audio/x-wav' || f.name.toLowerCase().endsWith('.wav')
+                          if (!isWav) {
+                            alert('Only WAV files are accepted. Please convert your audio to WAV format and try again.')
+                            e.target.value = ''
+                            return
+                          }
+                          setAudioFile(f)
+                        }}
                       />
                       {audioFile ? (
                         <p style={{ color: '#34D399', fontSize: 14, fontWeight: 600, margin: 0 }}>
@@ -694,7 +684,7 @@ export default function SubmitPage() {
                       ) : (
                         <>
                           <p style={{ color: '#8899AA', fontSize: 14, margin: '0 0 4px' }}>🎵 Click to upload audio file</p>
-                          <p style={{ color: '#4A5568', fontSize: 12, margin: 0 }}>WAV, MP3, FLAC or AIFF · Max 500MB</p>
+                          <p style={{ color: '#4A5568', fontSize: 12, margin: 0 }}>WAV only · Max 500MB</p>
                         </>
                       )}
                     </div>
@@ -715,9 +705,31 @@ export default function SubmitPage() {
                       <input
                         id="artwork-upload"
                         type="file"
-                        accept="image/jpeg,image/png,image/jpg"
+                        accept="image/jpeg,image/png,image/jpg,.jpg,.jpeg,.png"
                         style={{ display: 'none' }}
-                        onChange={e => setArtworkFile(e.target.files?.[0] || null)}
+                        onChange={e => {
+                          const f = e.target.files?.[0]
+                          if (!f) return
+                          const isJpgPng = f.type === 'image/jpeg' || f.type === 'image/png' || f.type === 'image/jpg'
+                          if (!isJpgPng) {
+                            alert('Cover artwork must be a JPG or PNG file.')
+                            e.target.value = ''
+                            return
+                          }
+                          const url = URL.createObjectURL(f)
+                          const img = new window.Image() as HTMLImageElement
+                          img.onload = () => {
+                            URL.revokeObjectURL(url)
+                            if (img.width !== 3000 || img.height !== 3000) {
+                              alert(`Cover artwork must be exactly 3000×3000px. Your image is ${img.width}×${img.height}px. Please resize and re-upload.`)
+                              e.target.value = ''
+                              return
+                            }
+                            setArtworkFile(f)
+                          }
+                          img.onerror = () => { URL.revokeObjectURL(url); alert('Could not read image. Please try again.'); e.target.value = '' }
+                          img.src = url
+                        }}
                       />
                       {artworkFile ? (
                         <p style={{ color: '#5CB2DC', fontSize: 14, fontWeight: 600, margin: 0 }}>
@@ -726,7 +738,7 @@ export default function SubmitPage() {
                       ) : (
                         <>
                           <p style={{ color: '#8899AA', fontSize: 14, margin: '0 0 4px' }}>🖼️ Click to upload cover artwork</p>
-                          <p style={{ color: '#4A5568', fontSize: 12, margin: 0 }}>JPG or PNG · Square · Min 3000×3000px</p>
+                          <p style={{ color: '#4A5568', fontSize: 12, margin: 0 }}>JPG or PNG · Exactly 3000×3000px</p>
                         </>
                       )}
                     </div>
