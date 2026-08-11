@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 
 const STATUSES = ['Submitted', 'Under Review', 'Approved', 'Distributing', 'Live', 'Rejected']
-const AGREEMENT_STATUSES = ['Not Sent', 'Sent', 'Signed']
+const AGREEMENT_STATUSES = ['Not Sent', 'In Process', 'Sent', 'Signed']
 
 function cloudinaryDownloadUrl(url: string, filename: string): string {
   if (!url) return url
@@ -240,7 +240,7 @@ export default function AdminPage() {
                   {STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
                 <label style={S.label}>Agreement Status</label>
-                <select value={newAgreementStatus} onChange={e => setNewAgreementStatus(e.target.value)} style={{ ...S.input, marginBottom: 10, borderColor: newAgreementStatus === 'Signed' ? 'rgba(52,211,153,0.4)' : newAgreementStatus === 'Sent' ? 'rgba(245,158,11,0.4)' : undefined, color: newAgreementStatus === 'Signed' ? '#34D399' : newAgreementStatus === 'Sent' ? '#F59E0B' : undefined }}>
+                <select value={newAgreementStatus} onChange={e => setNewAgreementStatus(e.target.value)} style={{ ...S.input, marginBottom: 10, borderColor: newAgreementStatus === 'Signed' ? 'rgba(52,211,153,0.4)' : newAgreementStatus === 'Sent' ? 'rgba(245,158,11,0.4)' : newAgreementStatus === 'In Process' ? 'rgba(92,178,220,0.4)' : undefined, color: newAgreementStatus === 'Signed' ? '#34D399' : newAgreementStatus === 'Sent' ? '#F59E0B' : newAgreementStatus === 'In Process' ? '#5CB2DC' : undefined }}>
                   {AGREEMENT_STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
                 <label style={S.label}>Note to Artist (optional)</label>

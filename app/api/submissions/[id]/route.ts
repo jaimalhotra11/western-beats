@@ -69,7 +69,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
 
     const transporter = mailer()
 
-    // If agreement status changed to Sent, send agreement email too
+    // When agreement is marked Sent, send ONLY the agreement email (not a status update too)
     if (agreementStatus === 'Sent') {
       await transporter.sendMail({
         from: `"Western Beats" <contactwesternbeats@gmail.com>`,
@@ -120,9 +120,8 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
           </body></html>
         `,
       })
-    }
-
-    // Send status update email to artist
+    } else {
+    // Send status update email to artist (only when NOT sending agreement email)
     await transporter.sendMail({
       from: `"Western Beats" <contactwesternbeats@gmail.com>`,
       to: sub.email,
@@ -162,6 +161,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
         </body></html>
       `,
     })
+    }
 
     return NextResponse.json({ success: true, submission: sub })
   } catch (err: unknown) {
