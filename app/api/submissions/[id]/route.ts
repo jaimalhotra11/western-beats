@@ -76,13 +76,34 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
 
     const transporter = mailer()
 
-    // Agreement status changed to Sent → send agreement email only
-    if (agreementChanged && agreementStatus === 'Sent') {
+    // Agreement status changed → send agreement email (for In Process, Sent, Signed — not for Not Sent)
+    if (agreementChanged && agreementStatus !== 'Not Sent') {
+      const AGREEMENT_META: Record<string, { badge: string; badgeColor: string; heading: string; body: string }> = {
+        'In Process': {
+          badge: 'Agreement In Process',
+          badgeColor: '#5CB2DC',
+          heading: `Hi ${esc(sub.artistName)},<br/>your agreement is being<br/>prepared.`,
+          body: `Our team is currently drafting your Content Licensing Agreement for <strong style="color:#fff;">${esc(sub.trackName)}</strong>. We will send you the full agreement to review and sign very soon. No action needed from you right now.`,
+        },
+        'Sent': {
+          badge: 'Agreement Sent — Action Required',
+          badgeColor: '#F59E0B',
+          heading: `Hi ${esc(sub.artistName)},<br/>your agreement is ready.<br/>Please read and sign.`,
+          body: `We have sent you the Content Licensing Agreement for <strong style="color:#fff;">${esc(sub.trackName)}</strong>. Please read it carefully, sign as instructed, and return the signed copy to <a href="mailto:legal@westernbeats.com" style="color:#5CB2DC;">legal@westernbeats.com</a>.`,
+        },
+        'Signed': {
+          badge: 'Agreement Signed',
+          badgeColor: '#34D399',
+          heading: `Hi ${esc(sub.artistName)},<br/>your agreement is signed.<br/>You're all set! 🎉`,
+          body: `We have received your signed Content Licensing Agreement for <strong style="color:#fff;">${esc(sub.trackName)}</strong>. Everything is confirmed. Your music will now move forward in the distribution process. Thank you for being part of Western Beats!`,
+        },
+      }
+      const meta = AGREEMENT_META[agreementStatus] ?? AGREEMENT_META['In Process']
       await transporter.sendMail({
         from: `"Western Beats" <contactwesternbeats@gmail.com>`,
         to: sub.email,
         cc: 'legal@westernbeats.com',
-        subject: `📄 Your Content Licensing Agreement — ${esc(sub.trackName)} | Western Beats`,
+        subject: `📄 Agreement Update: ${agreementStatus} — ${esc(sub.trackName)} | Western Beats`,
         html: `
           <!DOCTYPE html><html><body style="margin:0;padding:0;background:#040A14;font-family:Arial,sans-serif;">
           <table width="100%" cellpadding="0" cellspacing="0" style="background:#040A14;padding:32px 0;">
@@ -98,24 +119,19 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
                   </tr></table>
                 </td></tr>
                 <tr><td style="padding:36px 40px;">
-                  <p style="color:#5CB2DC;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;">Agreement Ready</p>
-                  <h1 style="color:#fff;font-size:24px;font-weight:900;margin:0 0 16px;line-height:1.3;">Hi ${esc(sub.artistName)},<br/>we have sent you an agreement.<br/>Please read and sign.</h1>
-                  <div style="background:#0A1535;border-radius:12px;padding:20px 24px;margin-bottom:28px;border:1px solid rgba(10,100,195,0.2);">
+                  <p style="color:${meta.badgeColor};font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;">${meta.badge}</p>
+                  <h1 style="color:#fff;font-size:24px;font-weight:900;margin:0 0 20px;line-height:1.3;">${meta.heading}</h1>
+                  <div style="background:#0A1535;border-radius:12px;padding:20px 24px;margin-bottom:24px;border:1px solid rgba(10,100,195,0.2);">
                     <p style="color:#8899AA;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 8px;">Track</p>
                     <p style="color:#fff;font-size:18px;font-weight:800;margin:0 0 4px;">${esc(sub.trackName)}</p>
                     <p style="color:#8899AA;font-size:13px;margin:0;">by ${esc(sub.artistName)}</p>
                   </div>
-                  <p style="color:#B0BEC5;font-size:14px;line-height:1.7;margin:0 0 8px;"><strong style="color:#fff;">What you need to do:</strong></p>
-                  <table cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
-                    <tr><td style="padding:6px 12px 6px 0;vertical-align:top;"><div style="width:22px;height:22px;border-radius:50%;background:#0A64C3;color:#fff;font-size:11px;font-weight:900;text-align:center;line-height:22px;">1</div></td><td style="padding:6px 0;color:#B0BEC5;font-size:14px;line-height:1.6;">Read the agreement carefully — it covers your 80% revenue share, IP ownership, distribution term, and your rights.</td></tr>
-                    <tr><td style="padding:6px 12px 6px 0;vertical-align:top;"><div style="width:22px;height:22px;border-radius:50%;background:#0A64C3;color:#fff;font-size:11px;font-weight:900;text-align:center;line-height:22px;">2</div></td><td style="padding:6px 0;color:#B0BEC5;font-size:14px;line-height:1.6;">Sign the agreement digitally or as instructed in the document.</td></tr>
-                    <tr><td style="padding:6px 12px 6px 0;vertical-align:top;"><div style="width:22px;height:22px;border-radius:50%;background:#0A64C3;color:#fff;font-size:11px;font-weight:900;text-align:center;line-height:22px;">3</div></td><td style="padding:6px 0;color:#B0BEC5;font-size:14px;line-height:1.6;">Return the signed copy to <a href="mailto:legal@westernbeats.com" style="color:#5CB2DC;">legal@westernbeats.com</a>.</td></tr>
-                  </table>
+                  <p style="color:#B0BEC5;font-size:14px;line-height:1.7;margin:0 0 24px;">${meta.body}</p>
                   <div style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.2);border-left:4px solid #34D399;border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:28px;">
-                    <p style="color:#34D399;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:0 0 8px;">Key Terms Summary</p>
+                    <p style="color:#34D399;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:0 0 8px;">Key Terms</p>
                     <p style="color:#E2E8F0;font-size:13px;line-height:1.7;margin:0;">✅ <strong>80%</strong> of net royalties go directly to you<br/>✅ <strong>100%</strong> IP and copyright stays yours forever<br/>✅ Distribution to <strong>150+ platforms</strong> worldwide<br/>✅ <strong>₹0</strong> upfront — no hidden fees</p>
                   </div>
-                  <p style="color:#B0BEC5;font-size:14px;line-height:1.7;margin:0 0 28px;">Questions? Reply to this email or contact <a href="mailto:legal@westernbeats.com" style="color:#5CB2DC;">legal@westernbeats.com</a>.</p>
+                  <p style="color:#B0BEC5;font-size:14px;line-height:1.7;margin:0 0 28px;">Questions? Contact <a href="mailto:legal@westernbeats.com" style="color:#5CB2DC;">legal@westernbeats.com</a></p>
                   <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
                     <p style="color:#4A5568;font-size:12px;margin:0 0 4px;">© 2026 Western Beats Private Limited</p>
                     <p style="color:#4A5568;font-size:12px;margin:0;">Sector-4A, H.No.357P, Dharuhera, Rewari, Haryana 123106</p>
