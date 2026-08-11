@@ -64,13 +64,20 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     if (agreementStatus) update.agreementStatus = agreementStatus
 
     await connectDB()
+    // Fetch old doc before update so we can detect what actually changed
+    const oldSub = await Submission.findById(id).lean()
+    if (!oldSub) return NextResponse.json({ error: 'Not found' }, { status: 404 })
+
     const sub = await Submission.findByIdAndUpdate(id, update, { new: true })
     if (!sub) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
+    const agreementChanged = agreementStatus && agreementStatus !== (oldSub.agreementStatus || 'Not Sent')
+    const statusChanged = status && status !== oldSub.status
+
     const transporter = mailer()
 
-    // When agreement is marked Sent, send ONLY the agreement email (not a status update too)
-    if (agreementStatus === 'Sent') {
+    // Agreement status changed to Sent → send agreement email only
+    if (agreementChanged && agreementStatus === 'Sent') {
       await transporter.sendMail({
         from: `"Western Beats" <contactwesternbeats@gmail.com>`,
         to: sub.email,
@@ -120,8 +127,8 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
           </body></html>
         `,
       })
-    } else {
-    // Send status update email to artist (only when NOT sending agreement email)
+    } else if (statusChanged) {
+    // Submission status changed → send status update email only
     await transporter.sendMail({
       from: `"Western Beats" <contactwesternbeats@gmail.com>`,
       to: sub.email,
