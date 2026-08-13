@@ -14,8 +14,8 @@ function mailer() {
     port: 465,
     secure: true,
     auth: {
-      user: process.env.GMAIL_USER || 'contactwesternbeats@gmail.com',
-      pass: process.env.GMAIL_APP_PASSWORD || 'hzdceckogjbaitzu',
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASSWORD,
     },
   })
 }
@@ -163,13 +163,13 @@ export async function POST(req: NextRequest) {
                   <p style="color:#5CB2DC;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;">Track Your Progress</p>
                   <p style="color:#E2E8F0;font-size:15px;font-weight:700;margin:0 0 6px;">Check your submission status live</p>
                   <p style="color:#8899AA;font-size:13px;line-height:1.7;margin:0 0 18px;">Log in to your Western Beats account to see real-time updates — Submitted → Under Review → Approved → Distributing → Live. We'll also email you every time your status changes.</p>
-                  <a href="https://www.westernbeats.com/sign-in?next=%2Fmy-submissions" style="display:inline-block;background:#0A64C3;color:#fff;padding:13px 26px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;margin-right:10px;">View My Submissions →</a>
+                  <a href="https://www.westernbeats.com/dashboard" style="display:inline-block;background:#0A64C3;color:#fff;padding:13px 26px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;margin-right:10px;">View My Submissions →</a>
                 </div>
                 <p style="color:#8899AA;font-size:13px;line-height:1.7;margin:0 0 6px;">
                   Not signed up yet? <a href="https://www.westernbeats.com/sign-up" style="color:#5CB2DC;font-weight:700;text-decoration:none;">Create your free account →</a>
                 </p>
                 <p style="color:#8899AA;font-size:13px;line-height:1.7;margin:0 0 28px;">
-                  Already have an account? <a href="https://www.westernbeats.com/sign-in?next=%2Fmy-submissions" style="color:#5CB2DC;font-weight:700;text-decoration:none;">Log in to check your status →</a>
+                  Already have an account? <a href="https://www.westernbeats.com/dashboard" style="color:#5CB2DC;font-weight:700;text-decoration:none;">Log in to check your status →</a>
                 </p>
                 <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
                   <p style="color:#4A5568;font-size:12px;margin:0;">© 2026 Western Beats Private Limited · India's most credible music distributor</p>
@@ -193,7 +193,7 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
   try {
     const adminPassword = req.headers.get('x-admin-password')
-    if (!adminPassword || adminPassword !== (process.env.ADMIN_PASSWORD || 'wb-admin-2026')) {
+    if (!adminPassword || !process.env.ADMIN_PASSWORD || adminPassword !== process.env.ADMIN_PASSWORD) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
     await connectDB()

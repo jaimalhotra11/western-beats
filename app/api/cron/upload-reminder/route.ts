@@ -10,8 +10,8 @@ function mailer() {
     port: 465,
     secure: true,
     auth: {
-      user: process.env.GMAIL_USER || 'contactwesternbeats@gmail.com',
-      pass: process.env.GMAIL_APP_PASSWORD || 'hzdceckogjbaitzu',
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASSWORD,
     },
   })
 }

@@ -7,8 +7,8 @@ import Nav from '../components/Nav'
 export default function SignUpPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const rawNext = searchParams.get('next') || '/submit'
-  const next = rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '/submit'
+  const rawNext = searchParams.get('next') || '/dashboard'
+  const next = rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '/dashboard'
   const [step, setStep] = useState<'form' | 'otp'>('form')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')

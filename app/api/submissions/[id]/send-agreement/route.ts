@@ -14,7 +14,7 @@ function mailer() {
     secure: true,
     auth: {
       user: process.env.GMAIL_USER || 'contactwesternbeats@gmail.com',
-      pass: process.env.GMAIL_APP_PASSWORD || 'hzdceckogjbaitzu',
+      pass: process.env.GMAIL_APP_PASSWORD,
     },
   })
 }
@@ -23,7 +23,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   try {
     const { id } = await params
     const adminPassword = req.headers.get('x-admin-password')
-    if (!adminPassword || adminPassword !== (process.env.ADMIN_PASSWORD || 'wb-admin-2026')) {
+    if (!adminPassword || !process.env.ADMIN_PASSWORD || adminPassword !== process.env.ADMIN_PASSWORD) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
@@ -104,7 +104,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
                   We are happy to walk you through any clause.
                 </p>
 
-                <a href="https://www.westernbeats.com/my-submissions" style="display:inline-block;background:#0A64C3;color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">View My Submission →</a>
+                <a href="https://www.westernbeats.com/dashboard" style="display:inline-block;background:#0A64C3;color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">View My Submission →</a>
 
                 <!-- Footer -->
                 <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">

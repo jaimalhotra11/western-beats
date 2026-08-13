@@ -42,7 +42,7 @@ export interface ISubmission extends Document {
   gstPublicId: string
   passportUrl: string
   passportPublicId: string
-  agreementStatus: 'Not Sent' | 'Sent' | 'Signed'
+  agreementStatus: 'Not Sent' | 'In Process' | 'Sent' | 'Signed'
   agreementSentAt?: Date
   // Cloudinary file URLs
   audioUrl: string
@@ -108,7 +108,7 @@ const SubmissionSchema = new Schema<ISubmission>({
   },
   statusNote: { type: String, default: '' },
   adminNote: { type: String, default: '' },
-  agreementStatus: { type: String, enum: ['Not Sent', 'Sent', 'Signed'], default: 'Not Sent' },
+  agreementStatus: { type: String, enum: ['Not Sent', 'In Process', 'Sent', 'Signed'], default: 'Not Sent' },
   agreementSentAt: { type: Date },
   submittedAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
