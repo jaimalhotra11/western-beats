@@ -151,9 +151,9 @@ export default function SubmitPage() {
     if (!agreedToTerms) { setTermsError('You must agree to the Terms & Conditions before submitting.'); return }
     if (!audioFile) { setErrorMsg('Please upload your audio file (WAV format required).'); return }
     if (!artworkFile) { setErrorMsg('Please upload your cover artwork (3000×3000px JPG/PNG required).'); return }
-    if (!panCardFile) { setErrorMsg('PAN Card is required. Please upload a JPG or PNG of your PAN card.'); return }
-    if (!aadhaarVoterFile) { setErrorMsg('Aadhaar Card / Voter ID is required. Please upload a JPG or PNG.'); return }
-    if (fields.clientType === 'International' && !passportFile) { setErrorMsg('Please upload your passport.'); return }
+    if (fields.clientType === 'India' && !panCardFile) { setErrorMsg('PAN Card is required. Please upload a JPG or PNG of your PAN card.'); return }
+    if (fields.clientType === 'India' && !aadhaarVoterFile) { setErrorMsg('Aadhaar Card / Voter ID is required. Please upload a JPG or PNG.'); return }
+    if (fields.clientType === 'International' && !passportFile) { setErrorMsg('Please upload your passport (photo page).'); return }
 
     setStatus('loading')
     setErrorMsg('')
@@ -566,81 +566,88 @@ export default function SubmitPage() {
                     </div>
                   </div>
 
-                  {/* KYC — PAN + Aadhaar (always required) + GST (optional) */}
-                  <div style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 12, padding: '12px 16px', marginBottom: 16 }}>
-                    <p className="font-inter text-[13px]" style={{ color: '#F87171', margin: 0, fontWeight: 600 }}>⚠️ PAN Card and Aadhaar Card are mandatory. You cannot submit without uploading both.</p>
-                  </div>
-                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <label className={labelCls}>PAN Card <span style={{ color: '#F87171' }}>*</span> <span className="normal-case tracking-normal font-normal text-[#4A5568]">(JPG or PNG only)</span></label>
-                      <div onClick={() => document.getElementById('pan-upload')?.click()}
-                        style={{ border: `1.5px dashed ${panCardFile ? '#34D399' : '#F8717155'}`, borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
-                        onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
-                        onMouseLeave={e => (e.currentTarget.style.borderColor = panCardFile ? '#34D399' : '#F8717155')}>
-                        <p className="font-inter text-[13px]" style={{ color: panCardFile ? '#34D399' : '#F87171', margin: 0 }}>
-                          {panCardFile ? `✓ ${panCardFile.name}` : '+ Upload PAN Card (required)'}
-                        </p>
-                        <p className="font-inter text-[11px]" style={{ color: '#4A5568', margin: '4px 0 0' }}>JPG or PNG · Colour scan preferred</p>
-                      </div>
-                      <input id="pan-upload" type="file" accept="image/jpeg,image/png,image/jpg" className="hidden"
-                        onChange={e => {
-                          const f = e.target.files?.[0] || null
-                          if (f && !f.type.startsWith('image/')) { alert('Please upload JPG or PNG only — PDF is not accepted.'); return }
-                          setPanCardFile(f)
-                        }} />
-                    </div>
-                    <div>
-                      <label className={labelCls}>Aadhaar Card / Voter ID <span style={{ color: '#F87171' }}>*</span> <span className="normal-case tracking-normal font-normal text-[#4A5568]">(JPG or PNG only)</span></label>
-                      <div onClick={() => document.getElementById('aadhaar-upload')?.click()}
-                        style={{ border: `1.5px dashed ${aadhaarVoterFile ? '#34D399' : '#F8717155'}`, borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
-                        onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
-                        onMouseLeave={e => (e.currentTarget.style.borderColor = aadhaarVoterFile ? '#34D399' : '#F8717155')}>
-                        <p className="font-inter text-[13px]" style={{ color: aadhaarVoterFile ? '#34D399' : '#F87171', margin: 0 }}>
-                          {aadhaarVoterFile ? `✓ ${aadhaarVoterFile.name}` : '+ Upload Aadhaar or Voter ID (required)'}
-                        </p>
-                        <p className="font-inter text-[11px]" style={{ color: '#4A5568', margin: '4px 0 0' }}>JPG or PNG · Front side of document</p>
-                      </div>
-                      <input id="aadhaar-upload" type="file" accept="image/jpeg,image/png,image/jpg" className="hidden"
-                        onChange={e => {
-                          const f = e.target.files?.[0] || null
-                          if (f && !f.type.startsWith('image/')) { alert('Please upload JPG or PNG only — PDF is not accepted.'); return }
-                          setAadhaarVoterFile(f)
-                        }} />
-                    </div>
-                  </div>
+                  {/* KYC — India: PAN + Aadhaar required; International: Passport only */}
                   {fields.clientType === 'India' && (
-                    <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
-                      <div>
-                        <label className={labelCls}>GST Certificate <span className="normal-case tracking-normal font-normal text-[#4A5568]">(optional)</span></label>
-                        <div onClick={() => document.getElementById('gst-upload')?.click()}
-                          style={{ border: '1.5px dashed rgba(255,255,255,0.12)', borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
-                          onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
-                          onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)')}>
-                          <p className="font-inter text-[13px]" style={{ color: gstFile ? '#34D399' : '#4A5568', margin: 0 }}>
-                            {gstFile ? `✓ ${gstFile.name}` : '+ Upload GST Certificate'}
-                          </p>
-                        </div>
-                        <input id="gst-upload" type="file" accept="image/*,application/pdf" className="hidden"
-                          onChange={e => setGstFile(e.target.files?.[0] || null)} />
+                    <>
+                      <div style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 12, padding: '12px 16px', marginBottom: 16 }}>
+                        <p className="font-inter text-[13px]" style={{ color: '#F87171', margin: 0, fontWeight: 600 }}>⚠️ PAN Card and Aadhaar Card are mandatory. You cannot submit without uploading both.</p>
                       </div>
-                    </div>
+                      <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                          <label className={labelCls}>PAN Card <span style={{ color: '#F87171' }}>*</span> <span className="normal-case tracking-normal font-normal text-[#4A5568]">(JPG or PNG only)</span></label>
+                          <div onClick={() => document.getElementById('pan-upload')?.click()}
+                            style={{ border: `1.5px dashed ${panCardFile ? '#34D399' : '#F8717155'}`, borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
+                            onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
+                            onMouseLeave={e => (e.currentTarget.style.borderColor = panCardFile ? '#34D399' : '#F8717155')}>
+                            <p className="font-inter text-[13px]" style={{ color: panCardFile ? '#34D399' : '#F87171', margin: 0 }}>
+                              {panCardFile ? `✓ ${panCardFile.name}` : '+ Upload PAN Card (required)'}
+                            </p>
+                            <p className="font-inter text-[11px]" style={{ color: '#4A5568', margin: '4px 0 0' }}>JPG or PNG · Colour scan preferred</p>
+                          </div>
+                          <input id="pan-upload" type="file" accept="image/jpeg,image/png,image/jpg" className="hidden"
+                            onChange={e => {
+                              const f = e.target.files?.[0] || null
+                              if (f && !f.type.startsWith('image/')) { alert('Please upload JPG or PNG only — PDF is not accepted.'); return }
+                              setPanCardFile(f)
+                            }} />
+                        </div>
+                        <div>
+                          <label className={labelCls}>Aadhaar Card / Voter ID <span style={{ color: '#F87171' }}>*</span> <span className="normal-case tracking-normal font-normal text-[#4A5568]">(JPG or PNG only)</span></label>
+                          <div onClick={() => document.getElementById('aadhaar-upload')?.click()}
+                            style={{ border: `1.5px dashed ${aadhaarVoterFile ? '#34D399' : '#F8717155'}`, borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
+                            onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
+                            onMouseLeave={e => (e.currentTarget.style.borderColor = aadhaarVoterFile ? '#34D399' : '#F8717155')}>
+                            <p className="font-inter text-[13px]" style={{ color: aadhaarVoterFile ? '#34D399' : '#F87171', margin: 0 }}>
+                              {aadhaarVoterFile ? `✓ ${aadhaarVoterFile.name}` : '+ Upload Aadhaar or Voter ID (required)'}
+                            </p>
+                            <p className="font-inter text-[11px]" style={{ color: '#4A5568', margin: '4px 0 0' }}>JPG or PNG · Front side of document</p>
+                          </div>
+                          <input id="aadhaar-upload" type="file" accept="image/jpeg,image/png,image/jpg" className="hidden"
+                            onChange={e => {
+                              const f = e.target.files?.[0] || null
+                              if (f && !f.type.startsWith('image/')) { alert('Please upload JPG or PNG only — PDF is not accepted.'); return }
+                              setAadhaarVoterFile(f)
+                            }} />
+                        </div>
+                      </div>
+                      <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                          <label className={labelCls}>GST Certificate <span className="normal-case tracking-normal font-normal text-[#4A5568]">(optional)</span></label>
+                          <div onClick={() => document.getElementById('gst-upload')?.click()}
+                            style={{ border: '1.5px dashed rgba(255,255,255,0.12)', borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
+                            onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
+                            onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)')}>
+                            <p className="font-inter text-[13px]" style={{ color: gstFile ? '#34D399' : '#4A5568', margin: 0 }}>
+                              {gstFile ? `✓ ${gstFile.name}` : '+ Upload GST Certificate'}
+                            </p>
+                          </div>
+                          <input id="gst-upload" type="file" accept="image/*,application/pdf" className="hidden"
+                            onChange={e => setGstFile(e.target.files?.[0] || null)} />
+                        </div>
+                      </div>
+                    </>
                   )}
 
-                  {/* International KYC — Passport */}
+                  {/* International KYC — Passport only */}
                   {fields.clientType === 'International' && (
+                    <>
+                      <div style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 12, padding: '12px 16px', marginBottom: 16 }}>
+                        <p className="font-inter text-[13px]" style={{ color: '#F87171', margin: 0, fontWeight: 600 }}>⚠️ Passport is mandatory for international artists. You cannot submit without uploading it.</p>
+                      </div>
                     <div className="gsap-card mb-4">
-                      <label className={labelCls}>Passport * <span className="normal-case tracking-normal font-normal text-[#4A5568]">(Photo page — JPG/PNG/PDF)</span></label>
+                      <label className={labelCls}>Passport <span style={{ color: '#F87171' }}>*</span> <span className="normal-case tracking-normal font-normal text-[#4A5568]">(Photo page — JPG/PNG/PDF)</span></label>
                       <div onClick={() => document.getElementById('passport-upload')?.click()}
-                        style={{ border: '1.5px dashed rgba(255,255,255,0.12)', borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
+                        style={{ border: `1.5px dashed ${passportFile ? '#34D399' : '#F8717155'}`, borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
                         onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
-                        onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)')}>
-                        <p className="font-inter text-[13px]" style={{ color: passportFile ? '#34D399' : '#4A5568', margin: 0 }}>
+                        onMouseLeave={e => (e.currentTarget.style.borderColor = passportFile ? '#34D399' : '#F8717155')}>
+                        <p className="font-inter text-[13px]" style={{ color: passportFile ? '#34D399' : '#F87171', margin: 0 }}>
                           {passportFile ? `✓ ${passportFile.name}` : '+ Upload Passport (photo page)'}
                         </p>
                       </div>
                       <input id="passport-upload" type="file" accept="image/*,application/pdf" className="hidden"
                         onChange={e => setPassportFile(e.target.files?.[0] || null)} />
                     </div>
+                    </>
                   )}
 
                   {/* Section divider — Upload */}
