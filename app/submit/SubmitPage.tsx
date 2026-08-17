@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../components/Nav'
 import { useState, FormEvent, useEffect, useRef } from 'react'
+import { useRouter } from 'next/navigation'
 import { gsap, registerGSAP } from '../lib/gsapUtils'
 import {
   Mail, CheckCircle, ArrowRight, Upload, Clock,
@@ -74,6 +75,7 @@ const EMPTY: FormFields = {
 }
 
 export default function SubmitPage() {
+  const router = useRouter()
   const [fields, setFields] = useState<FormFields>(EMPTY)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
@@ -146,6 +148,12 @@ export default function SubmitPage() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
+    // Check auth before doing anything — redirect to sign-up if not logged in
+    const meRes = await fetch('/api/auth/me')
+    if (!meRes.ok) {
+      router.push('/sign-up?next=/submit')
+      return
+    }
     setReleaseDateError(''); setTermsError('')
     if (fields.releaseDate < todayISO) { setReleaseDateError('Release Date cannot be in the past. Please choose today or a future date.'); return }
     if (!agreedToTerms) { setTermsError('You must agree to the Terms & Conditions before submitting.'); return }
