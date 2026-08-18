@@ -93,6 +93,13 @@ export default function SubmitPage() {
 
   const todayISO = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10)
 
+  // Check auth on mount — redirect to sign-up if not logged in
+  useEffect(() => {
+    fetch('/api/auth/me').then(res => {
+      if (!res.ok) router.replace('/sign-up?next=/submit')
+    })
+  }, [router])
+
   useEffect(() => {
     registerGSAP()
     if (!sectionRef.current) return
