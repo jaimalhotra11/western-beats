@@ -69,33 +69,39 @@ export async function POST(req: NextRequest) {
 
     await transporter.sendMail({
       from: `"Western Beats" <${gmailUser}>`,
+      replyTo: gmailUser,
       to: email,
-      subject: `${code} — Your Western Beats OTP`,
+      subject: `Your Western Beats verification code: ${code}`,
+      text: `Your Western Beats verification code is: ${code}\n\nThis code expires in 10 minutes.\n\nIf you did not request this, please ignore this email.\n\n-- Western Beats Private Limited\ncontactwesternbeats@gmail.com\nwww.westernbeats.com`,
       html: `
         <!DOCTYPE html>
-        <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-        <body style="margin:0;padding:0;background:#040A14;font-family:'Inter',Arial,sans-serif;">
-          <table width="100%" cellpadding="0" cellspacing="0" style="background:#040A14;padding:40px 0;">
+        <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Your Western Beats verification code</title>
+        </head>
+        <body style="margin:0;padding:0;background:#f4f4f4;font-family:Arial,sans-serif;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4;padding:40px 0;">
             <tr><td align="center">
-              <table width="560" cellpadding="0" cellspacing="0" style="background:#060C18;border-radius:20px;border:1px solid rgba(255,255,255,0.08);overflow:hidden;max-width:560px;width:100%;">
-                <tr><td style="background:linear-gradient(135deg,#0A1535 0%,#060C18 100%);padding:32px 40px;border-bottom:1px solid rgba(255,255,255,0.06);">
-                  <div style="font-size:20px;font-weight:900;color:#ffffff;letter-spacing:-0.5px;">WESTERN BEATS</div>
-                  <div style="font-size:10px;color:#5CB2DC;letter-spacing:2px;text-transform:uppercase;margin-top:2px;">Official Warner Music India Partner</div>
+              <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;max-width:560px;width:100%;border:1px solid #e0e0e0;">
+                <tr><td style="background:#040A14;padding:24px 32px;">
+                  <div style="font-size:18px;font-weight:900;color:#ffffff;letter-spacing:0.04em;">WESTERN BEATS</div>
+                  <div style="font-size:11px;color:#5CB2DC;letter-spacing:1px;margin-top:4px;">Official Warner Music India Partner</div>
                 </td></tr>
-                <tr><td style="padding:40px;">
-                  <p style="margin:0 0 8px;font-size:14px;color:#8899AA;text-transform:uppercase;letter-spacing:2px;font-weight:600;">Your OTP Code</p>
-                  <h1 style="margin:0 0 24px;font-size:32px;color:#ffffff;font-weight:900;letter-spacing:-1px;">Verify Your Email</h1>
-                  <p style="margin:0 0 32px;font-size:16px;color:#8899AA;line-height:1.7;">
-                    Use the code below to ${mode === 'signin' ? 'sign in to' : 'create'} your Western Beats account. This code expires in <strong style="color:#ffffff;">10 minutes</strong>.
+                <tr><td style="padding:36px 32px;">
+                  <p style="margin:0 0 8px;font-size:13px;color:#666;font-weight:600;">EMAIL VERIFICATION</p>
+                  <h1 style="margin:0 0 16px;font-size:24px;color:#111;font-weight:700;">Your verification code</h1>
+                  <p style="margin:0 0 28px;font-size:15px;color:#444;line-height:1.6;">
+                    Use the code below to ${mode === 'signin' ? 'sign in to' : 'create'} your Western Beats account. It expires in <strong>10 minutes</strong>.
                   </p>
-                  <div style="background:#0A1535;border:1px solid rgba(10,100,195,0.4);border-radius:16px;padding:28px;text-align:center;margin-bottom:32px;">
-                    <div style="font-size:48px;font-weight:900;letter-spacing:12px;color:#0A64C3;font-family:monospace;">${code}</div>
+                  <div style="background:#f8f9fa;border:2px dashed #0A64C3;border-radius:8px;padding:24px;text-align:center;margin-bottom:28px;">
+                    <div style="font-size:42px;font-weight:900;letter-spacing:10px;color:#0A64C3;font-family:Courier,monospace;">${code}</div>
                   </div>
-                  <p style="margin:0 0 16px;font-size:14px;color:#8899AA;line-height:1.7;">
-                    If you didn't request this code, you can safely ignore this email.
+                  <p style="margin:0 0 8px;font-size:13px;color:#888;line-height:1.6;">
+                    If you did not request this code, you can safely ignore this email. Someone may have entered your email by mistake.
                   </p>
-                  <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;margin-top:24px;">
-                    <p style="margin:0;font-size:12px;color:#4A5568;">© 2026 Western Beats Private Limited · India's most credible music distributor</p>
+                  <p style="margin:0 0 8px;font-size:13px;color:#888;">Do not share this code with anyone.</p>
+                  <div style="border-top:1px solid #eee;padding-top:20px;margin-top:24px;">
+                    <p style="margin:0;font-size:12px;color:#aaa;">Western Beats Private Limited · Dharuhera, Haryana, India</p>
+                    <p style="margin:4px 0 0;font-size:12px;color:#aaa;">contactwesternbeats@gmail.com · www.westernbeats.com</p>
                   </div>
                 </td></tr>
               </table>
