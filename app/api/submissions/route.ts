@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
                     ['Artist Name', esc(body.artistName)],
                     ['Track Name', esc(body.trackName)],
                     ['Album Name', esc(body.albumName) || '—'],
-                    ['Email', esc(session.email)],
+                    ['Email', esc(submitterEmail)],
                     ['Phone', esc(body.phone) || '—'],
                     ['Genre', `${esc(body.genre)}${body.subGenre ? ' / ' + esc(body.subGenre) : ''}`],
                     ['Language', esc(body.language)],
@@ -128,7 +128,7 @@ export async function POST(req: NextRequest) {
     // ── Confirmation email to artist ────────────────────────────────────────
     await transporter.sendMail({
       from: `"Western Beats" <contactwesternbeats@gmail.com>`,
-      to: session.email,
+      to: submitterEmail,
       subject: `✅ We received your submission — ${esc(body.trackName)}`,
       html: `
         <!DOCTYPE html><html><body style="margin:0;padding:0;background:#040A14;font-family:Arial,sans-serif;">
