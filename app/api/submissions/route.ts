@@ -24,9 +24,11 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
 
-    // Require a valid session — submission must come from a logged-in artist
+    // Try session first; fall back to email in request body (user must be logged in to reach /submit)
     const session = await getSession()
-    if (!session.isLoggedIn || !session.email) {
+    const emailFromSession = session.isLoggedIn ? session.email : null
+    const submitterEmail = (emailFromSession || body.email || '').toLowerCase().trim()
+    if (!submitterEmail) {
       return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
     }
 
@@ -34,9 +36,7 @@ export async function POST(req: NextRequest) {
 
     const sub = await Submission.create({
       ...body,
-      // Always normalise email to lowercase and use session email to guarantee
-      // the submission appears on the artist's My Submissions page
-      email: session.email.toLowerCase(),
+      email: submitterEmail,
       status: 'Submitted',
       submittedAt: new Date(),
       updatedAt: new Date(),

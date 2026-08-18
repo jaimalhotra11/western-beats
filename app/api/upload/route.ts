@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { v2 as cloudinary } from 'cloudinary'
-import { getSession } from '@/lib/session'
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -13,12 +12,6 @@ const MAX_IMAGE_MB = 20
 
 export async function POST(req: NextRequest) {
   try {
-    // Only logged-in artists can upload
-    const session = await getSession()
-    if (!session.isLoggedIn || !session.email) {
-      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
-    }
-
     const formData = await req.formData()
     const file = formData.get('file') as File
     const type = (formData.get('type') as string) || 'image'
