@@ -4,6 +4,8 @@ import { User } from '@/lib/models/User'
 import { Submission } from '@/lib/models/Submission'
 import nodemailer from 'nodemailer'
 
+const EMAIL_PAUSED = true // set to false to re-enable emails
+
 function mailer() {
   return nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -51,6 +53,7 @@ export async function GET(req: NextRequest) {
 
     for (const user of pending) {
       try {
+        if (EMAIL_PAUSED) { sent++; continue }
         await transporter.sendMail({
           from: `"Western Beats" <contactwesternbeats@gmail.com>`,
           to: user.email,

@@ -4,6 +4,8 @@ import { Submission } from '@/lib/models/Submission'
 import { getSession } from '@/lib/session'
 import nodemailer from 'nodemailer'
 
+const EMAIL_PAUSED = true // set to false to re-enable emails
+
 function esc(str: unknown): string {
   return String(str ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
 }
@@ -78,7 +80,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     const transporter = mailer()
 
     // Agreement status changed → send agreement email (for In Process, Sent, Signed — not for Not Sent)
-    if (agreementChanged && agreementStatus !== 'Not Sent') {
+    if (!EMAIL_PAUSED && agreementChanged && agreementStatus !== 'Not Sent') {
       const AGREEMENT_META: Record<string, { badge: string; badgeColor: string; heading: string; body: string }> = {
         'In Process': {
           badge: 'Agreement In Process',
@@ -144,7 +146,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
           </body></html>
         `,
       })
-    } else if (statusChanged) {
+    } else if (!EMAIL_PAUSED && statusChanged) {
     // Submission status changed → send status update email only
     await transporter.sendMail({
       from: `"Western Beats" <contactwesternbeats@gmail.com>`,

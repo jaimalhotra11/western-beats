@@ -4,6 +4,8 @@ import { Submission } from '@/lib/models/Submission'
 import { getSession } from '@/lib/session'
 import nodemailer from 'nodemailer'
 
+const EMAIL_PAUSED = true // set to false to re-enable emails
+
 function esc(str: unknown): string {
   return String(str ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
 }
@@ -45,7 +47,7 @@ export async function POST(req: NextRequest) {
     const transporter = mailer()
 
     // ── Email to admin ──────────────────────────────────────────────────────
-    await transporter.sendMail({
+    if (!EMAIL_PAUSED) await transporter.sendMail({
       from: `"Western Beats" <contactwesternbeats@gmail.com>`,
       to: 'contactwesternbeats@gmail.com',
       subject: `🎵 New Submission: ${body.trackName} by ${body.artistName}`,
@@ -126,7 +128,7 @@ export async function POST(req: NextRequest) {
     })
 
     // ── Confirmation email to artist ────────────────────────────────────────
-    await transporter.sendMail({
+    if (!EMAIL_PAUSED) await transporter.sendMail({
       from: `"Western Beats" <contactwesternbeats@gmail.com>`,
       to: submitterEmail,
       subject: `✅ We received your submission — ${esc(body.trackName)}`,

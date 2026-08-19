@@ -5,6 +5,8 @@ import { User } from '@/lib/models/User'
 import { getSession } from '@/lib/session'
 import nodemailer from 'nodemailer'
 
+const EMAIL_PAUSED = true // set to false to re-enable emails
+
 function mailer() {
   return nodemailer.createTransport({
     host: 'smtp.gmail.com', port: 465, secure: true,
@@ -92,7 +94,7 @@ export async function POST(req: NextRequest) {
       try {
         const gmailUser = process.env.GMAIL_USER
         const gmailPass = process.env.GMAIL_APP_PASSWORD
-        if (gmailUser && gmailPass) {
+        if (!EMAIL_PAUSED && gmailUser && gmailPass) {
           await mailer().sendMail({
             from: `"Western Beats" <${gmailUser}>`,
             to: gmailUser,
