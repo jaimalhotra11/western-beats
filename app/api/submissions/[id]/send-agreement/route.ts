@@ -3,7 +3,6 @@ import { connectDB } from '@/lib/mongodb'
 import { Submission } from '@/lib/models/Submission'
 import nodemailer from 'nodemailer'
 
-const EMAIL_PAUSED = true // set to false to re-enable emails
 
 function esc(str: unknown): string {
   return String(str ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
@@ -39,7 +38,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     if (!sub) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
     const transporter = mailer()
-    if (!EMAIL_PAUSED) await transporter.sendMail({
+    await transporter.sendMail({
       from: `"Western Beats" <contactwesternbeats@gmail.com>`,
       to: sub.email,
       cc: 'legal@westernbeats.com',
