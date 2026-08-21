@@ -11,7 +11,6 @@ const links: { href: string; label: string; page?: boolean }[] = [
   { href: '/services',     label: 'Services',     page: true },
   { href: '/how-it-works', label: 'How It Works', page: true },
   { href: '/pricing',      label: 'Pricing',      page: true },
-  { href: '/submit',       label: 'Submit',       page: true },
   { href: '/contact',      label: 'Contact',      page: true },
 ]
 

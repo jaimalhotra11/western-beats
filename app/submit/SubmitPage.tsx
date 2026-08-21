@@ -85,7 +85,8 @@ export default function SubmitPage() {
   const [audioFile, setAudioFile] = useState<File | null>(null)
   const [artworkFile, setArtworkFile] = useState<File | null>(null)
   const [panCardFile, setPanCardFile] = useState<File | null>(null)
-  const [aadhaarVoterFile, setAadhaarVoterFile] = useState<File | null>(null)
+  const [aadhaarFrontFile, setAadhaarFrontFile] = useState<File | null>(null)
+  const [aadhaarBackFile, setAadhaarBackFile] = useState<File | null>(null)
   const [gstFile, setGstFile] = useState<File | null>(null)
   const [passportFile, setPassportFile] = useState<File | null>(null)
   const [uploadProgress, setUploadProgress] = useState('')
@@ -167,7 +168,8 @@ export default function SubmitPage() {
     if (!audioFile) { setErrorMsg('Please upload your audio file (WAV format required).'); return }
     if (!artworkFile) { setErrorMsg('Please upload your cover artwork (3000×3000px JPG/PNG required).'); return }
     if (fields.clientType === 'India' && !panCardFile) { setErrorMsg('PAN Card is required. Please upload a JPG or PNG of your PAN card.'); return }
-    if (fields.clientType === 'India' && !aadhaarVoterFile) { setErrorMsg('Aadhaar Card / Voter ID is required. Please upload a JPG or PNG.'); return }
+    if (fields.clientType === 'India' && !aadhaarFrontFile) { setErrorMsg('Aadhaar Card Front is required. Please upload a JPG or PNG.'); return }
+    if (fields.clientType === 'India' && !aadhaarBackFile) { setErrorMsg('Aadhaar Card Back is required. Please upload a JPG or PNG.'); return }
     if (fields.clientType === 'International' && !passportFile) { setErrorMsg('Please upload your passport (photo page).'); return }
 
     setStatus('loading')
@@ -183,9 +185,10 @@ export default function SubmitPage() {
       // Upload all documents in parallel
       const empty = { url: '', publicId: '' }
       setUploadProgress('Uploading documents...')
-      const [panCard, aadhaarVoterCard, gst, passport] = await Promise.all([
+      const [panCard, aadhaarFront, aadhaarBack, gst, passport] = await Promise.all([
         panCardFile    ? uploadFile(panCardFile, 'document')    : Promise.resolve(empty),
-        aadhaarVoterFile ? uploadFile(aadhaarVoterFile, 'document') : Promise.resolve(empty),
+        aadhaarFrontFile ? uploadFile(aadhaarFrontFile, 'document') : Promise.resolve(empty),
+        aadhaarBackFile  ? uploadFile(aadhaarBackFile, 'document')  : Promise.resolve(empty),
         gstFile        ? uploadFile(gstFile, 'document')        : Promise.resolve(empty),
         passportFile   ? uploadFile(passportFile, 'document')   : Promise.resolve(empty),
       ])
@@ -202,8 +205,10 @@ export default function SubmitPage() {
           artworkPublicId: artwork.publicId,
           panCardUrl: panCard.url,
           panCardPublicId: panCard.publicId,
-          aadhaarVoterId: aadhaarVoterCard.url,
-          aadhaarVoterIdPublicId: aadhaarVoterCard.publicId,
+          aadhaarFrontUrl: aadhaarFront.url,
+          aadhaarFrontPublicId: aadhaarFront.publicId,
+          aadhaarBackUrl: aadhaarBack.url,
+          aadhaarBackPublicId: aadhaarBack.publicId,
           gstUrl: gst.url,
           gstPublicId: gst.publicId,
           passportUrl: passport.url,
@@ -585,7 +590,7 @@ export default function SubmitPage() {
                   {fields.clientType === 'India' && (
                     <>
                       <div style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 12, padding: '12px 16px', marginBottom: 16 }}>
-                        <p className="font-inter text-[13px]" style={{ color: '#F87171', margin: 0, fontWeight: 600 }}>⚠️ PAN Card and Aadhaar Card are mandatory. You cannot submit without uploading both.</p>
+                        <p className="font-inter text-[13px]" style={{ color: '#F87171', margin: 0, fontWeight: 600 }}>⚠️ PAN Card and Aadhaar Card (front + back) are mandatory. You cannot submit without uploading all three.</p>
                       </div>
                       <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
                         <div>
@@ -607,21 +612,39 @@ export default function SubmitPage() {
                             }} />
                         </div>
                         <div>
-                          <label className={labelCls}>Aadhaar Card / Voter ID <span style={{ color: '#F87171' }}>*</span> <span className="normal-case tracking-normal font-normal text-[#4A5568]">(JPG or PNG only)</span></label>
-                          <div onClick={() => document.getElementById('aadhaar-upload')?.click()}
-                            style={{ border: `1.5px dashed ${aadhaarVoterFile ? '#34D399' : '#F8717155'}`, borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
+                          <label className={labelCls}>Aadhaar Card — Front <span style={{ color: '#F87171' }}>*</span> <span className="normal-case tracking-normal font-normal text-[#4A5568]">(JPG or PNG only)</span></label>
+                          <div onClick={() => document.getElementById('aadhaar-front-upload')?.click()}
+                            style={{ border: `1.5px dashed ${aadhaarFrontFile ? '#34D399' : '#F8717155'}`, borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
                             onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
-                            onMouseLeave={e => (e.currentTarget.style.borderColor = aadhaarVoterFile ? '#34D399' : '#F8717155')}>
-                            <p className="font-inter text-[13px]" style={{ color: aadhaarVoterFile ? '#34D399' : '#F87171', margin: 0 }}>
-                              {aadhaarVoterFile ? `✓ ${aadhaarVoterFile.name}` : '+ Upload Aadhaar or Voter ID (required)'}
+                            onMouseLeave={e => (e.currentTarget.style.borderColor = aadhaarFrontFile ? '#34D399' : '#F8717155')}>
+                            <p className="font-inter text-[13px]" style={{ color: aadhaarFrontFile ? '#34D399' : '#F87171', margin: 0 }}>
+                              {aadhaarFrontFile ? `✓ ${aadhaarFrontFile.name}` : '+ Upload Aadhaar Front (required)'}
                             </p>
-                            <p className="font-inter text-[11px]" style={{ color: '#4A5568', margin: '4px 0 0' }}>JPG or PNG · Front side of document</p>
+                            <p className="font-inter text-[11px]" style={{ color: '#4A5568', margin: '4px 0 0' }}>JPG or PNG · Front side with photo</p>
                           </div>
-                          <input id="aadhaar-upload" type="file" accept="image/jpeg,image/png,image/jpg" className="hidden"
+                          <input id="aadhaar-front-upload" type="file" accept="image/jpeg,image/png,image/jpg" className="hidden"
                             onChange={e => {
                               const f = e.target.files?.[0] || null
-                              if (f && !f.type.startsWith('image/')) { alert('Please upload JPG or PNG only — PDF is not accepted.'); return }
-                              setAadhaarVoterFile(f)
+                              if (f && !f.type.startsWith('image/')) { alert('Please upload JPG or PNG only.'); return }
+                              setAadhaarFrontFile(f)
+                            }} />
+                        </div>
+                        <div>
+                          <label className={labelCls}>Aadhaar Card — Back <span style={{ color: '#F87171' }}>*</span> <span className="normal-case tracking-normal font-normal text-[#4A5568]">(JPG or PNG only)</span></label>
+                          <div onClick={() => document.getElementById('aadhaar-back-upload')?.click()}
+                            style={{ border: `1.5px dashed ${aadhaarBackFile ? '#34D399' : '#F8717155'}`, borderRadius: 12, padding: '14px 16px', cursor: 'pointer', background: '#060D1F', transition: 'border-color 0.2s' }}
+                            onMouseEnter={e => (e.currentTarget.style.borderColor = '#0A64C3')}
+                            onMouseLeave={e => (e.currentTarget.style.borderColor = aadhaarBackFile ? '#34D399' : '#F8717155')}>
+                            <p className="font-inter text-[13px]" style={{ color: aadhaarBackFile ? '#34D399' : '#F87171', margin: 0 }}>
+                              {aadhaarBackFile ? `✓ ${aadhaarBackFile.name}` : '+ Upload Aadhaar Back (required)'}
+                            </p>
+                            <p className="font-inter text-[11px]" style={{ color: '#4A5568', margin: '4px 0 0' }}>JPG or PNG · Back side with address</p>
+                          </div>
+                          <input id="aadhaar-back-upload" type="file" accept="image/jpeg,image/png,image/jpg" className="hidden"
+                            onChange={e => {
+                              const f = e.target.files?.[0] || null
+                              if (f && !f.type.startsWith('image/')) { alert('Please upload JPG or PNG only.'); return }
+                              setAadhaarBackFile(f)
                             }} />
                         </div>
                       </div>
