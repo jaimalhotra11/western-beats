@@ -129,6 +129,13 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
                     <p style="color:#8899AA;font-size:13px;margin:0;">by ${esc(sub.artistName)}</p>
                   </div>
                   <p style="color:#B0BEC5;font-size:14px;line-height:1.7;margin:0 0 24px;">${meta.body}</p>
+                  ${agreementStatus === 'Sent' ? `
+                  <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);border-radius:12px;padding:20px 24px;margin-bottom:24px;text-align:center;">
+                    <p style="color:#F59E0B;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 8px;">Action Required</p>
+                    <p style="color:#E2E8F0;font-size:14px;line-height:1.6;margin:0 0 16px;">Click the button below to fill out and sign your B2B Content Licensing Agreement with Western Beats.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSde6aczsbENSTr4YqMfKy3nTHzcDogykEzn4zyJGFcJ_Sub4g/viewform?usp=header" style="display:inline-block;background:#F59E0B;color:#000;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:800;font-size:15px;">📝 Fill Agreement Form →</a>
+                  </div>
+                  ` : ''}
                   <div style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.2);border-left:4px solid #34D399;border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:28px;">
                     <p style="color:#34D399;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:0 0 8px;">Key Terms</p>
                     <p style="color:#E2E8F0;font-size:13px;line-height:1.7;margin:0;">✅ <strong>80%</strong> of net royalties go directly to you<br/>✅ <strong>100%</strong> IP and copyright stays yours forever<br/>✅ Distribution to <strong>150+ platforms</strong> worldwide<br/>✅ <strong>₹0</strong> upfront — no hidden fees</p>
