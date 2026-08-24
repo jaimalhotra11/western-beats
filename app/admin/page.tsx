@@ -22,7 +22,7 @@ interface Submission {
   labelName: string; moods: string; youtubeLink: string; instagramLink: string
   spotifyLink: string; youtubeContentId: string; message: string
   legalName: string; address: string; clientType: string
-  panCardUrl: string; aadhaarVoterId: string; gstUrl: string; passportUrl: string
+  panCardUrl: string; aadhaarFrontUrl: string; aadhaarBackUrl: string; aadhaarVoterId: string; gstUrl: string; passportUrl: string
   agreementStatus?: string; agreementSentAt?: string
 }
 
@@ -216,7 +216,7 @@ export default function AdminPage() {
               ))}
 
               {/* KYC Documents */}
-              {(selected.legalName || selected.panCardUrl || selected.gstUrl || selected.passportUrl) && (
+              {(selected.legalName || selected.panCardUrl || selected.aadhaarFrontUrl || selected.aadhaarBackUrl || selected.aadhaarVoterId || selected.gstUrl || selected.passportUrl) && (
                 <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
                   <p style={S.label}>KYC / Identity</p>
                   {selected.legalName && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Legal Name</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.legalName}</span></div>}
@@ -224,7 +224,9 @@ export default function AdminPage() {
                   {selected.clientType && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Client Type</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.clientType}</span></div>}
                   <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' as const, marginTop: 8 }}>
                     {selected.panCardUrl && <a href={cloudinaryDownloadUrl(selected.panCardUrl, `${selected.artistName}-pan`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ PAN Card</a>}
-                    {selected.aadhaarVoterId && <a href={cloudinaryDownloadUrl(selected.aadhaarVoterId, `${selected.artistName}-aadhaar`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar / Voter ID</a>}
+                    {selected.aadhaarFrontUrl && <a href={cloudinaryDownloadUrl(selected.aadhaarFrontUrl, `${selected.artistName}-aadhaar-front`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar Front</a>}
+                    {selected.aadhaarBackUrl && <a href={cloudinaryDownloadUrl(selected.aadhaarBackUrl, `${selected.artistName}-aadhaar-back`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar Back</a>}
+                    {selected.aadhaarVoterId && <a href={cloudinaryDownloadUrl(selected.aadhaarVoterId, `${selected.artistName}-aadhaar`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar (old)</a>}
                     {selected.gstUrl && <a href={cloudinaryDownloadUrl(selected.gstUrl, `${selected.artistName}-gst`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ GST Certificate</a>}
                     {selected.passportUrl && <a href={cloudinaryDownloadUrl(selected.passportUrl, `${selected.artistName}-passport`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Passport</a>}
                   </div>
