@@ -91,7 +91,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
           badge: 'Agreement Sent — Action Required',
           badgeColor: '#F59E0B',
           heading: `Hi ${esc(sub.artistName)},<br/>your agreement is ready.<br/>Please read and sign.`,
-          body: `We have sent you the Content Licensing Agreement for <strong style="color:#fff;">${esc(sub.trackName)}</strong>. Please read it carefully, sign as instructed, and return the signed copy to <a href="mailto:legal@westernbeats.com" style="color:#5CB2DC;">legal@westernbeats.com</a>.`,
+          body: `We have sent you the Content Licensing Agreement for <strong style="color:#fff;">${esc(sub.trackName)}</strong>. Please read it carefully and fill out the form below.`,
         },
         'Signed': {
           badge: 'Agreement Signed',
@@ -104,7 +104,6 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
       await transporter.sendMail({
         from: `"Western Beats" <contactwesternbeats@gmail.com>`,
         to: sub.email,
-        cc: 'legal@westernbeats.com',
         subject: `📄 Agreement Update: ${agreementStatus} — ${esc(sub.trackName)} | Western Beats`,
         html: `
           <!DOCTYPE html><html><body style="margin:0;padding:0;background:#040A14;font-family:Arial,sans-serif;">
@@ -140,7 +139,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
                     <p style="color:#34D399;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:0 0 8px;">Key Terms</p>
                     <p style="color:#E2E8F0;font-size:13px;line-height:1.7;margin:0;">✅ <strong>80%</strong> of net royalties go directly to you<br/>✅ <strong>100%</strong> IP and copyright stays yours forever<br/>✅ Distribution to <strong>150+ platforms</strong> worldwide<br/>✅ <strong>₹0</strong> upfront — no hidden fees</p>
                   </div>
-                  <p style="color:#B0BEC5;font-size:14px;line-height:1.7;margin:0 0 28px;">Questions? Contact <a href="mailto:legal@westernbeats.com" style="color:#5CB2DC;">legal@westernbeats.com</a></p>
+                  <p style="color:#B0BEC5;font-size:14px;line-height:1.7;margin:0 0 28px;">Questions? Contact <a href="mailto:contactwesternbeats@gmail.com" style="color:#5CB2DC;">contactwesternbeats@gmail.com</a></p>
                   <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
                     <p style="color:#4A5568;font-size:12px;margin:0 0 4px;">© 2026 Western Beats Private Limited</p>
                     <p style="color:#4A5568;font-size:12px;margin:0;">Sector-4A, H.No.357P, Dharuhera, Rewari, Haryana 123106</p>
