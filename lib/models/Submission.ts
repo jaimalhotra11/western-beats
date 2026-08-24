@@ -38,6 +38,10 @@ export interface ISubmission extends Document {
   panCardPublicId: string
   aadhaarVoterId: string
   aadhaarVoterIdPublicId: string
+  aadhaarFrontUrl: string
+  aadhaarFrontPublicId: string
+  aadhaarBackUrl: string
+  aadhaarBackPublicId: string
   gstUrl: string
   gstPublicId: string
   passportUrl: string
@@ -93,6 +97,10 @@ const SubmissionSchema = new Schema<ISubmission>({
   panCardPublicId: { type: String, default: '' },
   aadhaarVoterId: { type: String, default: '' },
   aadhaarVoterIdPublicId: { type: String, default: '' },
+  aadhaarFrontUrl: { type: String, default: '' },
+  aadhaarFrontPublicId: { type: String, default: '' },
+  aadhaarBackUrl: { type: String, default: '' },
+  aadhaarBackPublicId: { type: String, default: '' },
   gstUrl: { type: String, default: '' },
   gstPublicId: { type: String, default: '' },
   passportUrl: { type: String, default: '' },
