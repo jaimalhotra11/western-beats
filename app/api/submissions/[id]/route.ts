@@ -85,19 +85,19 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
           badge: 'Agreement In Process',
           badgeColor: '#5CB2DC',
           heading: `Hi ${esc(sub.artistName)},<br/>your agreement is being<br/>prepared.`,
-          body: `Our team is currently drafting your Content Licensing Agreement for <strong style="color:#fff;">${esc(sub.trackName)}</strong>. We will send you the full agreement to review and sign very soon. No action needed from you right now.`,
+          body: `Our team is currently drafting your B2B Content Licensing Agreement for <strong style="color:#fff;">${esc(sub.trackName)}</strong>. We will send you the full agreement to review and sign very soon. No action needed from you right now.`,
         },
-        'Sent': {
-          badge: 'Agreement Sent — Action Required',
+        'B2B Sent': {
+          badge: 'B2B Agreement Sent — Action Required',
           badgeColor: '#F59E0B',
-          heading: `Hi ${esc(sub.artistName)},<br/>your agreement is ready.<br/>Please read and sign.`,
-          body: `We have sent you the Content Licensing Agreement for <strong style="color:#fff;">${esc(sub.trackName)}</strong>. Please read it carefully and fill out the form below.`,
+          heading: `Hi ${esc(sub.artistName)},<br/>your B2B agreement is ready.<br/>Please read and sign.`,
+          body: `We have sent you the B2B Content Licensing Agreement for <strong style="color:#fff;">${esc(sub.trackName)}</strong>. Please read it carefully and fill out the form below.`,
         },
-        'Signed': {
-          badge: 'Agreement Signed',
+        'B2B Signed': {
+          badge: 'B2B Agreement Signed',
           badgeColor: '#34D399',
-          heading: `Hi ${esc(sub.artistName)},<br/>your agreement is signed.<br/>You're all set! 🎉`,
-          body: `We have received your signed Content Licensing Agreement for <strong style="color:#fff;">${esc(sub.trackName)}</strong>. Everything is confirmed. Your music will now move forward in the distribution process. Thank you for being part of Western Beats!`,
+          heading: `Hi ${esc(sub.artistName)},<br/>your B2B agreement is signed.<br/>You're all set! 🎉`,
+          body: `We have received your signed B2B Content Licensing Agreement for <strong style="color:#fff;">${esc(sub.trackName)}</strong>. Everything is confirmed. Your music will now move forward in the distribution process. Thank you for being part of Western Beats!`,
         },
       }
       const meta = AGREEMENT_META[agreementStatus] ?? AGREEMENT_META['In Process']
@@ -128,7 +128,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
                     <p style="color:#8899AA;font-size:13px;margin:0;">by ${esc(sub.artistName)}</p>
                   </div>
                   <p style="color:#B0BEC5;font-size:14px;line-height:1.7;margin:0 0 24px;">${meta.body}</p>
-                  ${agreementStatus === 'Sent' ? `
+                  ${agreementStatus === 'B2B Sent' ? `
                   <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);border-radius:12px;padding:20px 24px;margin-bottom:24px;text-align:center;">
                     <p style="color:#F59E0B;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 8px;">Action Required</p>
                     <p style="color:#E2E8F0;font-size:14px;line-height:1.6;margin:0 0 16px;">Click the button below to fill out and sign your B2B Content Licensing Agreement with Western Beats.</p>
@@ -199,5 +199,22 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     const msg = err instanceof Error ? err.message : String(err)
     console.error('patch error:', msg)
     return NextResponse.json({ error: msg }, { status: 500 })
+  }
+}
+
+// DELETE submission (admin only)
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  try {
+    const { id } = await params
+    const adminPassword = req.headers.get('x-admin-password')
+    const correctPassword = process.env.ADMIN_PASSWORD || 'wb-admin-2026'
+    if (!adminPassword || adminPassword !== correctPassword) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+    await connectDB()
+    await Submission.findByIdAndDelete(id)
+    return NextResponse.json({ success: true })
+  } catch (err: unknown) {
+    return NextResponse.json({ error: String(err) }, { status: 500 })
   }
 }

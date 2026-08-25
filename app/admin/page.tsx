@@ -1,17 +1,20 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const STATUSES = ['Submitted', 'Under Review', 'Approved', 'Distributing', 'Live', 'Rejected']
-const AGREEMENT_STATUSES = ['Not Sent', 'In Process', 'Sent', 'Signed']
+const AGREEMENT_STATUSES = ['Not Sent', 'In Process', 'B2B Sent', 'B2B Signed']
 
 function cloudinaryDownloadUrl(url: string, filename: string): string {
   if (!url) return url
-  // Insert fl_attachment into Cloudinary URL to force download
   return url.replace('/upload/', `/upload/fl_attachment:${filename.replace(/\s+/g, '_')}/`)
 }
+
 const STATUS_COLOR: Record<string, string> = {
   'Submitted': '#F59E0B', 'Under Review': '#5CB2DC', 'Approved': '#34D399',
   'Distributing': '#0A64C3', 'Live': '#34D399', 'Rejected': '#F87171',
+}
+const AGREEMENT_COLOR: Record<string, string> = {
+  'Not Sent': '#4A5568', 'In Process': '#5CB2DC', 'B2B Sent': '#F59E0B', 'B2B Signed': '#34D399',
 }
 
 interface Submission {
@@ -23,7 +26,15 @@ interface Submission {
   spotifyLink: string; youtubeContentId: string; message: string
   legalName: string; address: string; clientType: string
   panCardUrl: string; aadhaarFrontUrl: string; aadhaarBackUrl: string; aadhaarVoterId: string; gstUrl: string; passportUrl: string
-  agreementStatus?: string; agreementSentAt?: string
+  agreementStatus?: string; agreementSentAt?: string; subGenre?: string; adminNote?: string
+}
+
+const S = {
+  page: { background: '#040A14', minHeight: '100vh', color: '#fff', fontFamily: 'var(--font-outfit, sans-serif)', padding: '24px' },
+  card: { background: '#060C18', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, padding: '20px' },
+  input: { width: '100%', background: '#0A1535', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: '10px 14px', color: '#fff', fontSize: 14, outline: 'none', boxSizing: 'border-box' as const },
+  btn: { background: '#0A64C3', color: '#fff', border: 'none', borderRadius: 10, padding: '10px 20px', fontSize: 14, fontWeight: 700, cursor: 'pointer' },
+  label: { display: 'block', fontSize: 11, color: '#8899AA', marginBottom: 6, fontWeight: 600, letterSpacing: 0.5, textTransform: 'uppercase' as const },
 }
 
 export default function AdminPage() {
@@ -32,6 +43,7 @@ export default function AdminPage() {
   const [authError, setAuthError] = useState('')
   const [submissions, setSubmissions] = useState<Submission[]>([])
   const [loading, setLoading] = useState(false)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
   const [selected, setSelected] = useState<Submission | null>(null)
   const [newStatus, setNewStatus] = useState('')
   const [statusNote, setStatusNote] = useState('')
@@ -40,13 +52,14 @@ export default function AdminPage() {
   const [newAgreementStatus, setNewAgreementStatus] = useState('Not Sent')
   const [filterStatus, setFilterStatus] = useState('All')
   const [search, setSearch] = useState('')
+  const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null)
+  const [deleting, setDeleting] = useState(false)
+  const rowRefs = useRef<Record<string, HTMLDivElement | null>>({})
 
   async function login(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
-    const res = await fetch('/api/submissions', {
-      headers: { 'x-admin-password': password },
-    })
+    const res = await fetch('/api/submissions', { headers: { 'x-admin-password': password } })
     if (res.status === 200) {
       const data = await res.json()
       setSubmissions(data.submissions || [])
@@ -58,17 +71,26 @@ export default function AdminPage() {
   }
 
   async function refresh() {
-    const res = await fetch('/api/submissions', {
-      headers: { 'x-admin-password': password },
-    })
+    const res = await fetch('/api/submissions', { headers: { 'x-admin-password': password } })
     const data = await res.json()
     setSubmissions(data.submissions || [])
   }
 
+  function selectSub(sub: Submission) {
+    if (selectedId === sub._id) {
+      setSelectedId(null); setSelected(null); return
+    }
+    setSelectedId(sub._id)
+    setSelected(sub)
+    setNewStatus(sub.status)
+    setStatusNote(sub.statusNote || '')
+    setNewAgreementStatus(sub.agreementStatus || 'Not Sent')
+    setUpdateMsg('')
+  }
+
   async function updateStatus() {
     if (!selected || !newStatus) return
-    setUpdating(true)
-    setUpdateMsg('')
+    setUpdating(true); setUpdateMsg('')
     const res = await fetch(`/api/submissions/${selected._id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
@@ -85,17 +107,18 @@ export default function AdminPage() {
     setUpdating(false)
   }
 
+  async function confirmDelete(id: string) {
+    setDeleting(true)
+    await fetch(`/api/submissions/${id}`, { method: 'DELETE', headers: { 'x-admin-password': password } })
+    setSubmissions(prev => prev.filter(s => s._id !== id))
+    if (selectedId === id) { setSelectedId(null); setSelected(null) }
+    setDeleteConfirm(null)
+    setDeleting(false)
+  }
+
   const filtered = submissions
     .filter(s => filterStatus === 'All' || s.status === filterStatus)
     .filter(s => !search || s.trackName.toLowerCase().includes(search.toLowerCase()) || s.artistName.toLowerCase().includes(search.toLowerCase()) || s.email.toLowerCase().includes(search.toLowerCase()))
-
-  const S = {
-    page: { background: '#040A14', minHeight: '100vh', color: '#fff', fontFamily: 'var(--font-outfit, sans-serif)', padding: '24px' },
-    card: { background: '#060C18', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, padding: '20px' },
-    input: { width: '100%', background: '#0A1535', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: '10px 14px', color: '#fff', fontSize: 14, outline: 'none', boxSizing: 'border-box' as const },
-    btn: { background: '#0A64C3', color: '#fff', border: 'none', borderRadius: 10, padding: '10px 20px', fontSize: 14, fontWeight: 700, cursor: 'pointer' },
-    label: { display: 'block', fontSize: 11, color: '#8899AA', marginBottom: 6, fontWeight: 600, letterSpacing: 0.5, textTransform: 'uppercase' as const },
-  }
 
   if (!authed) {
     return (
@@ -115,7 +138,28 @@ export default function AdminPage() {
 
   return (
     <div style={S.page}>
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+      {/* Delete confirm popup */}
+      {deleteConfirm && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, backdropFilter: 'blur(4px)' }}>
+          <div style={{ ...S.card, maxWidth: 400, width: '90%', textAlign: 'center' }}>
+            <div style={{ fontSize: 40, marginBottom: 12 }}>🗑️</div>
+            <h2 style={{ fontSize: 18, fontWeight: 800, margin: '0 0 8px' }}>Delete Submission?</h2>
+            <p style={{ color: '#8899AA', fontSize: 14, margin: '0 0 24px', lineHeight: 1.6 }}>
+              This will permanently delete the submission. This action cannot be undone.
+            </p>
+            <div style={{ display: 'flex', gap: 12 }}>
+              <button onClick={() => setDeleteConfirm(null)} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: '12px', color: '#fff', fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>
+                Cancel
+              </button>
+              <button onClick={() => confirmDelete(deleteConfirm)} disabled={deleting} style={{ flex: 1, background: '#F87171', border: 'none', borderRadius: 10, padding: '12px', color: '#fff', fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>
+                {deleting ? 'Deleting…' : 'Yes, Delete'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div style={{ maxWidth: 1400, margin: '0 auto' }}>
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28, flexWrap: 'wrap' as const, gap: 16 }}>
           <div>
@@ -127,7 +171,7 @@ export default function AdminPage() {
 
         {/* Stats */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(130px,1fr))', gap: 12, marginBottom: 28 }}>
-          {['Submitted', 'Under Review', 'Approved', 'Distributing', 'Live', 'Rejected'].map(s => (
+          {STATUSES.map(s => (
             <div key={s} style={{ ...S.card, textAlign: 'center' as const, cursor: 'pointer', borderColor: filterStatus === s ? STATUS_COLOR[s] + '66' : 'rgba(255,255,255,0.08)' }} onClick={() => setFilterStatus(filterStatus === s ? 'All' : s)}>
               <p style={{ fontSize: 24, fontWeight: 900, color: STATUS_COLOR[s], margin: '0 0 4px' }}>{submissions.filter(sub => sub.status === s).length}</p>
               <p style={{ fontSize: 11, color: '#8899AA', margin: 0 }}>{s}</p>
@@ -144,117 +188,146 @@ export default function AdminPage() {
           </select>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: selected ? '1fr 380px' : '1fr', gap: 20, alignItems: 'flex-start' as const }}>
-          {/* Submissions list */}
-          <div>
-            {filtered.length === 0 && <p style={{ color: '#8899AA' }}>No submissions found.</p>}
-            {filtered.map(sub => (
-              <div key={sub._id} onClick={() => { setSelected(sub); setNewStatus(sub.status); setStatusNote(sub.statusNote || ''); setNewAgreementStatus(sub.agreementStatus || 'Not Sent'); setUpdateMsg('') }}
-                style={{ ...S.card, marginBottom: 12, cursor: 'pointer', borderColor: selected?._id === sub._id ? 'rgba(10,100,195,0.5)' : 'rgba(255,255,255,0.08)', transition: 'border-color 0.2s' }}>
-                <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
-                  {sub.artworkUrl && <img src={sub.artworkUrl} alt="" style={{ width: 52, height: 52, borderRadius: 8, objectFit: 'cover', flexShrink: 0 }} />}
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <p style={{ fontSize: 15, fontWeight: 700, margin: '0 0 2px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' as const }}>{sub.trackName}</p>
-                    <p style={{ fontSize: 13, color: '#8899AA', margin: '0 0 6px' }}>{sub.artistName} · {sub.email}</p>
+        {/* List */}
+        {filtered.length === 0 && <p style={{ color: '#8899AA' }}>No submissions found.</p>}
+        {filtered.map(sub => (
+          <div key={sub._id} ref={el => { rowRefs.current[sub._id] = el }}>
+            {/* Card row */}
+            <div
+              onClick={() => selectSub(sub)}
+              style={{ ...S.card, marginBottom: selectedId === sub._id ? 0 : 12, cursor: 'pointer', borderColor: selectedId === sub._id ? 'rgba(10,100,195,0.5)' : 'rgba(255,255,255,0.08)', borderBottomLeftRadius: selectedId === sub._id ? 0 : 16, borderBottomRightRadius: selectedId === sub._id ? 0 : 16, transition: 'border-color 0.2s' }}
+            >
+              <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
+                {sub.artworkUrl && <img src={sub.artworkUrl} alt="" style={{ width: 52, height: 52, borderRadius: 8, objectFit: 'cover', flexShrink: 0 }} />}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p style={{ fontSize: 15, fontWeight: 700, margin: '0 0 2px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' as const }}>{sub.trackName}</p>
+                  <p style={{ fontSize: 13, color: '#8899AA', margin: '0 0 6px' }}>{sub.artistName} · {sub.email}</p>
+                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' as const, alignItems: 'center' }}>
                     <span style={{ display: 'inline-block', background: STATUS_COLOR[sub.status] + '22', color: STATUS_COLOR[sub.status], borderRadius: 20, padding: '2px 10px', fontSize: 12, fontWeight: 700 }}>{sub.status}</span>
+                    {sub.agreementStatus && sub.agreementStatus !== 'Not Sent' && (
+                      <span style={{ display: 'inline-block', background: (AGREEMENT_COLOR[sub.agreementStatus] || '#4A5568') + '22', color: AGREEMENT_COLOR[sub.agreementStatus] || '#4A5568', borderRadius: 20, padding: '2px 10px', fontSize: 11, fontWeight: 700 }}>{sub.agreementStatus}</span>
+                    )}
                   </div>
-                  <div style={{ textAlign: 'right' as const, fontSize: 11, color: '#4A5568', flexShrink: 0 }}>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
+                  <span style={{ fontSize: 11, color: '#4A5568' }}>
                     {new Date(sub.submittedAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
-                  </div>
+                  </span>
+                  <button
+                    onClick={e => { e.stopPropagation(); setDeleteConfirm(sub._id) }}
+                    title="Delete submission"
+                    style={{ background: 'rgba(248,113,113,0.1)', border: '1px solid rgba(248,113,113,0.25)', borderRadius: 8, padding: '5px 10px', color: '#F87171', fontSize: 13, cursor: 'pointer', fontWeight: 700, lineHeight: 1 }}
+                  >
+                    🗑
+                  </button>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Detail panel */}
-          {selected && (
-            <div style={{ ...S.card, position: 'sticky' as const, top: 24 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 16 }}>
-                <h2 style={{ fontSize: 16, fontWeight: 800, margin: 0 }}>Submission Detail</h2>
-                <button onClick={() => setSelected(null)} style={{ background: 'none', border: 'none', color: '#8899AA', cursor: 'pointer', fontSize: 18 }}>✕</button>
-              </div>
-
-              {selected.artworkUrl && (
-                <div style={{ position: 'relative', marginBottom: 16 }}>
-                  <img src={selected.artworkUrl} alt="artwork" style={{ width: '100%', borderRadius: 12, maxHeight: 200, objectFit: 'cover', display: 'block' }} />
-                  <a
-                    href={cloudinaryDownloadUrl(selected.artworkUrl, `${selected.trackName}-artwork`)}
-                    download
-                    style={{ position: 'absolute', bottom: 8, right: 8, background: 'rgba(0,0,0,0.75)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 700, textDecoration: 'none', backdropFilter: 'blur(4px)' }}>
-                    ⬇ Download
-                  </a>
-                </div>
-              )}
-
-              {[
-                ['Track', selected.trackName], ['Artist', selected.artistName],
-                ['Email', selected.email], ['Phone', selected.phone || '—'],
-                ['Genre', `${selected.genre}${selected.genre ? ' / ' + (selected as Submission & {subGenre?: string}).subGenre || '' : ''}`],
-                ['Language', selected.language], ['Release Date', selected.releaseDate],
-                ['Singer', selected.singer || '—'], ['Lyric Writer', selected.lyricWriter || '—'],
-                ['Music Director', selected.musicDirector || '—'], ['Producer', selected.producer || '—'],
-                ['Label', selected.labelName || '—'], ['Moods', selected.moods || '—'],
-                ['YT Content ID', selected.youtubeContentId || '—'],
-              ].map(([l, v]) => (
-                <div key={l} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13 }}>
-                  <span style={{ color: '#8899AA' }}>{l}</span>
-                  <span style={{ color: '#E2E8F0', fontWeight: 600, maxWidth: '55%', textAlign: 'right' as const, wordBreak: 'break-word' as const }}>{v}</span>
-                </div>
-              ))}
-
-              {selected.audioUrl && (
-                <div style={{ margin: '14px 0 0' }}>
-                  <p style={S.label}>Audio File</p>
-                  <a href={selected.audioUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#5CB2DC', fontSize: 13, wordBreak: 'break-all' as const }}>▶ Play / Download</a>
-                </div>
-              )}
-
-              {[['YouTube', selected.youtubeLink], ['Instagram', selected.instagramLink], ['Spotify', selected.spotifyLink]].filter(([, v]) => v).map(([l, v]) => (
-                <div key={l} style={{ marginTop: 8 }}>
-                  <a href={v} target="_blank" rel="noopener noreferrer" style={{ color: '#5CB2DC', fontSize: 13 }}>{l} →</a>
-                </div>
-              ))}
-
-              {/* KYC Documents */}
-              {(selected.legalName || selected.panCardUrl || selected.aadhaarFrontUrl || selected.aadhaarBackUrl || selected.aadhaarVoterId || selected.gstUrl || selected.passportUrl) && (
-                <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                  <p style={S.label}>KYC / Identity</p>
-                  {selected.legalName && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Legal Name</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.legalName}</span></div>}
-                  {selected.address && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Address</span><span style={{ color: '#E2E8F0', fontWeight: 600, maxWidth: '60%', textAlign: 'right' as const, wordBreak: 'break-word' as const }}>{selected.address}</span></div>}
-                  {selected.clientType && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Client Type</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.clientType}</span></div>}
-                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' as const, marginTop: 8 }}>
-                    {selected.panCardUrl && <a href={cloudinaryDownloadUrl(selected.panCardUrl, `${selected.artistName}-pan`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ PAN Card</a>}
-                    {selected.aadhaarFrontUrl && <a href={cloudinaryDownloadUrl(selected.aadhaarFrontUrl, `${selected.artistName}-aadhaar-front`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar Front</a>}
-                    {selected.aadhaarBackUrl && <a href={cloudinaryDownloadUrl(selected.aadhaarBackUrl, `${selected.artistName}-aadhaar-back`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar Back</a>}
-                    {selected.aadhaarVoterId && <a href={cloudinaryDownloadUrl(selected.aadhaarVoterId, `${selected.artistName}-aadhaar`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar (old)</a>}
-                    {selected.gstUrl && <a href={cloudinaryDownloadUrl(selected.gstUrl, `${selected.artistName}-gst`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ GST Certificate</a>}
-                    {selected.passportUrl && <a href={cloudinaryDownloadUrl(selected.passportUrl, `${selected.artistName}-passport`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Passport</a>}
-                  </div>
-                </div>
-              )}
-
-              {selected.message && <p style={{ color: '#8899AA', fontSize: 13, margin: '14px 0 0', padding: '10px', background: 'rgba(255,255,255,0.03)', borderRadius: 8 }}>{selected.message}</p>}
-
-              {/* Update status */}
-              <div style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                <label style={S.label}>Update Status</label>
-                <select value={newStatus} onChange={e => setNewStatus(e.target.value)} style={{ ...S.input, marginBottom: 10 }}>
-                  {STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
-                </select>
-                <label style={S.label}>Agreement Status</label>
-                <select value={newAgreementStatus} onChange={e => setNewAgreementStatus(e.target.value)} style={{ ...S.input, marginBottom: 10, borderColor: newAgreementStatus === 'Signed' ? 'rgba(52,211,153,0.4)' : newAgreementStatus === 'Sent' ? 'rgba(245,158,11,0.4)' : newAgreementStatus === 'In Process' ? 'rgba(92,178,220,0.4)' : undefined, color: newAgreementStatus === 'Signed' ? '#34D399' : newAgreementStatus === 'Sent' ? '#F59E0B' : newAgreementStatus === 'In Process' ? '#5CB2DC' : undefined }}>
-                  {AGREEMENT_STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
-                </select>
-                <label style={S.label}>Note to Artist (optional)</label>
-                <textarea value={statusNote} onChange={e => setStatusNote(e.target.value)} placeholder="e.g. Your artwork resolution needs to be 3000x3000px…" rows={3} style={{ ...S.input, resize: 'vertical' as const, marginBottom: 12 }} />
-                <button onClick={updateStatus} disabled={updating} style={{ ...S.btn, width: '100%' }}>
-                  {updating ? 'Updating…' : 'Update & Notify Artist →'}
-                </button>
-                {updateMsg && <p style={{ fontSize: 13, color: updateMsg.startsWith('✅') ? '#34D399' : '#F87171', margin: '10px 0 0' }}>{updateMsg}</p>}
               </div>
             </div>
-          )}
-        </div>
+
+            {/* Inline detail panel — opens directly below the clicked card */}
+            {selectedId === sub._id && selected && (
+              <div style={{ ...S.card, marginBottom: 12, borderTopLeftRadius: 0, borderTopRightRadius: 0, borderTop: '1px solid rgba(10,100,195,0.3)', borderColor: 'rgba(10,100,195,0.5)' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: 28 }}>
+                  {/* Left: info */}
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 16, alignItems: 'flex-start' }}>
+                      <h2 style={{ fontSize: 16, fontWeight: 800, margin: 0 }}>Submission Detail</h2>
+                      <button onClick={() => { setSelectedId(null); setSelected(null) }} style={{ background: 'none', border: 'none', color: '#8899AA', cursor: 'pointer', fontSize: 18 }}>✕</button>
+                    </div>
+
+                    {selected.artworkUrl && (
+                      <div style={{ position: 'relative', marginBottom: 16 }}>
+                        <img src={selected.artworkUrl} alt="artwork" style={{ width: '100%', borderRadius: 12, maxHeight: 180, objectFit: 'cover', display: 'block' }} />
+                        <a href={cloudinaryDownloadUrl(selected.artworkUrl, `${selected.trackName}-artwork`)} download style={{ position: 'absolute', bottom: 8, right: 8, background: 'rgba(0,0,0,0.75)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>
+                          ⬇ Download
+                        </a>
+                      </div>
+                    )}
+
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
+                      {[
+                        ['Track', selected.trackName], ['Artist', selected.artistName],
+                        ['Email', selected.email], ['Phone', selected.phone || '—'],
+                        ['Genre', selected.genre || '—'], ['Language', selected.language || '—'],
+                        ['Release Date', selected.releaseDate || '—'], ['Singer', selected.singer || '—'],
+                        ['Lyric Writer', selected.lyricWriter || '—'], ['Music Director', selected.musicDirector || '—'],
+                        ['Producer', selected.producer || '—'], ['Label', selected.labelName || '—'],
+                        ['Moods', selected.moods || '—'], ['YT Content ID', selected.youtubeContentId || '—'],
+                      ].map(([l, v]) => (
+                        <div key={l} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13 }}>
+                          <span style={{ color: '#8899AA', flexShrink: 0, marginRight: 8 }}>{l}</span>
+                          <span style={{ color: '#E2E8F0', fontWeight: 600, textAlign: 'right' as const, wordBreak: 'break-word' as const }}>{v}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {selected.audioUrl && (
+                      <div style={{ marginTop: 14 }}>
+                        <p style={S.label}>Audio File</p>
+                        <a href={selected.audioUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#5CB2DC', fontSize: 13 }}>▶ Play / Download</a>
+                      </div>
+                    )}
+
+                    {[['YouTube', selected.youtubeLink], ['Instagram', selected.instagramLink], ['Spotify', selected.spotifyLink]].filter(([, v]) => v).map(([l, v]) => (
+                      <div key={l} style={{ marginTop: 8 }}>
+                        <a href={v} target="_blank" rel="noopener noreferrer" style={{ color: '#5CB2DC', fontSize: 13 }}>{l} →</a>
+                      </div>
+                    ))}
+
+                    {/* KYC */}
+                    {(selected.legalName || selected.panCardUrl || selected.aadhaarFrontUrl || selected.aadhaarBackUrl || selected.aadhaarVoterId || selected.gstUrl || selected.passportUrl) && (
+                      <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                        <p style={S.label}>KYC / Identity</p>
+                        {selected.legalName && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Legal Name</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.legalName}</span></div>}
+                        {selected.address && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Address</span><span style={{ color: '#E2E8F0', fontWeight: 600, maxWidth: '60%', textAlign: 'right' as const, wordBreak: 'break-word' as const }}>{selected.address}</span></div>}
+                        {selected.clientType && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Client Type</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.clientType}</span></div>}
+                        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' as const, marginTop: 8 }}>
+                          {selected.panCardUrl && <a href={cloudinaryDownloadUrl(selected.panCardUrl, `${selected.artistName}-pan`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ PAN Card</a>}
+                          {selected.aadhaarFrontUrl && <a href={cloudinaryDownloadUrl(selected.aadhaarFrontUrl, `${selected.artistName}-aadhaar-front`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar Front</a>}
+                          {selected.aadhaarBackUrl && <a href={cloudinaryDownloadUrl(selected.aadhaarBackUrl, `${selected.artistName}-aadhaar-back`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar Back</a>}
+                          {selected.aadhaarVoterId && <a href={cloudinaryDownloadUrl(selected.aadhaarVoterId, `${selected.artistName}-aadhaar`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar (old)</a>}
+                          {selected.gstUrl && <a href={cloudinaryDownloadUrl(selected.gstUrl, `${selected.artistName}-gst`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ GST Certificate</a>}
+                          {selected.passportUrl && <a href={cloudinaryDownloadUrl(selected.passportUrl, `${selected.artistName}-passport`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Passport</a>}
+                        </div>
+                      </div>
+                    )}
+
+                    {selected.message && <p style={{ color: '#8899AA', fontSize: 13, margin: '14px 0 0', padding: '10px', background: 'rgba(255,255,255,0.03)', borderRadius: 8 }}>{selected.message}</p>}
+                  </div>
+
+                  {/* Right: update controls */}
+                  <div>
+                    <div style={{ background: '#0A1535', borderRadius: 12, padding: 20, border: '1px solid rgba(10,100,195,0.2)' }}>
+                      <label style={S.label}>Update Status</label>
+                      <select value={newStatus} onChange={e => setNewStatus(e.target.value)} style={{ ...S.input, marginBottom: 14 }}>
+                        {STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
+                      </select>
+
+                      <label style={S.label}>Agreement Status</label>
+                      <select value={newAgreementStatus} onChange={e => setNewAgreementStatus(e.target.value)} style={{ ...S.input, marginBottom: 14, borderColor: newAgreementStatus === 'B2B Signed' ? 'rgba(52,211,153,0.4)' : newAgreementStatus === 'B2B Sent' ? 'rgba(245,158,11,0.4)' : newAgreementStatus === 'In Process' ? 'rgba(92,178,220,0.4)' : undefined, color: newAgreementStatus === 'B2B Signed' ? '#34D399' : newAgreementStatus === 'B2B Sent' ? '#F59E0B' : newAgreementStatus === 'In Process' ? '#5CB2DC' : '#8899AA' }}>
+                        {AGREEMENT_STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
+                      </select>
+
+                      <label style={S.label}>Note to Artist (optional)</label>
+                      <textarea value={statusNote} onChange={e => setStatusNote(e.target.value)} placeholder="e.g. Your artwork resolution needs to be 3000x3000px…" rows={3} style={{ ...S.input, resize: 'vertical' as const, marginBottom: 14 }} />
+
+                      <button onClick={updateStatus} disabled={updating} style={{ ...S.btn, width: '100%' }}>
+                        {updating ? 'Updating…' : 'Update & Notify Artist →'}
+                      </button>
+                      {updateMsg && <p style={{ fontSize: 13, color: updateMsg.startsWith('✅') ? '#34D399' : '#F87171', margin: '10px 0 0' }}>{updateMsg}</p>}
+
+                      <div style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                        <button onClick={() => setDeleteConfirm(selected._id)} style={{ width: '100%', background: 'rgba(248,113,113,0.1)', border: '1px solid rgba(248,113,113,0.3)', borderRadius: 10, padding: '10px', color: '#F87171', fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>
+                          🗑 Delete Submission
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   )
