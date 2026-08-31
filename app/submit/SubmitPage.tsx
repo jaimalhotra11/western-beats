@@ -369,8 +369,7 @@ export default function SubmitPage() {
                       style={{ background: '#0A64C3' }}>
                       Track My Submission <ArrowRight size={13} />
                     </Link>
-                    <button onClick={() => { setFields(EMPTY); setAgreedToTerms(false); setTermsError(''); setReleaseDateError(''); setStatus('idle'); setPanCardFile(null); setGstFile(null); setPassportFile(null); setAudioFile(null); setArtworkFile(null) }}
-                      onClick={() => { setConfirmedNotAI(false); setAiError('') }}
+                    <button onClick={() => { setFields(EMPTY); setAgreedToTerms(false); setTermsError(''); setReleaseDateError(''); setStatus('idle'); setPanCardFile(null); setGstFile(null); setPassportFile(null); setAudioFile(null); setArtworkFile(null); setConfirmedNotAI(false); setAiError('') }}
                       className="px-6 py-3 rounded-xl font-outfit font-bold text-[13px] text-white border border-white/10 hover:bg-white/[0.05] transition-colors duration-200">
                       Submit Another Track
                     </button>
