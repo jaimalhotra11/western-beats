@@ -81,6 +81,8 @@ export default function SubmitPage() {
   const [errorMsg, setErrorMsg] = useState('')
   const [agreedToTerms, setAgreedToTerms] = useState(false)
   const [termsError, setTermsError] = useState('')
+  const [confirmedNotAI, setConfirmedNotAI] = useState(false)
+  const [aiError, setAiError] = useState('')
   const [releaseDateError, setReleaseDateError] = useState('')
   const [audioFile, setAudioFile] = useState<File | null>(null)
   const [artworkFile, setArtworkFile] = useState<File | null>(null)
@@ -162,8 +164,9 @@ export default function SubmitPage() {
       router.push('/sign-up?next=/submit')
       return
     }
-    setReleaseDateError(''); setTermsError('')
+    setReleaseDateError(''); setTermsError(''); setAiError('')
     if (fields.releaseDate < todayISO) { setReleaseDateError('Release Date cannot be in the past. Please choose today or a future date.'); return }
+    if (!confirmedNotAI) { setAiError('You must confirm that your track is not AI-generated before submitting.'); return }
     if (!agreedToTerms) { setTermsError('You must agree to the Terms & Conditions before submitting.'); return }
     if (!audioFile) { setErrorMsg('Please upload your audio file (WAV format required).'); return }
     if (!artworkFile) { setErrorMsg('Please upload your cover artwork (3000×3000px JPG/PNG required).'); return }
@@ -367,6 +370,7 @@ export default function SubmitPage() {
                       Track My Submission <ArrowRight size={13} />
                     </Link>
                     <button onClick={() => { setFields(EMPTY); setAgreedToTerms(false); setTermsError(''); setReleaseDateError(''); setStatus('idle'); setPanCardFile(null); setGstFile(null); setPassportFile(null); setAudioFile(null); setArtworkFile(null) }}
+                      onClick={() => { setConfirmedNotAI(false); setAiError('') }}
                       className="px-6 py-3 rounded-xl font-outfit font-bold text-[13px] text-white border border-white/10 hover:bg-white/[0.05] transition-colors duration-200">
                       Submit Another Track
                     </button>
@@ -377,13 +381,28 @@ export default function SubmitPage() {
                   className="rounded-2xl p-7 sm:p-8"
                   style={{ background: '#0A1535', border: '1px solid rgba(255,255,255,0.07)' }}
                 >
-                  <div className="flex items-center gap-3 mb-7">
+                  <div className="flex items-center gap-3 mb-5">
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(10,100,195,0.15)' }}>
                       <Upload size={18} style={{ color: '#0A64C3' }} />
                     </div>
                     <div>
                       <div className="font-outfit font-extrabold text-white text-[17px]">Submit Your Music</div>
                       <div className="font-inter text-[12px] text-mut">Fill in the details below, takes 2 minutes</div>
+                    </div>
+                  </div>
+
+                  {/* AI Rejection Warning Banner */}
+                  <div className="mb-6 rounded-xl overflow-hidden" style={{ border: '1px solid rgba(196,18,48,0.5)', background: 'rgba(196,18,48,0.07)' }}>
+                    <div className="flex items-center gap-2 px-4 py-2" style={{ background: 'rgba(196,18,48,0.2)', borderBottom: '1px solid rgba(196,18,48,0.3)' }}>
+                      <span style={{ fontSize: 15 }}>🚫</span>
+                      <span className="font-outfit font-black text-[12px] tracking-[0.12em] uppercase" style={{ color: '#F87171' }}>AI-Generated Music Will Be Rejected</span>
+                    </div>
+                    <div className="px-4 py-3">
+                      <p className="font-inter text-[12px] leading-relaxed" style={{ color: '#E2E8F0' }}>
+                        We <strong style={{ color: '#fff' }}>do not accept</strong> AI-generated songs, AI vocals, AI beats, or any track created using tools like Suno, Udio, Boomy, or similar AI music generators.
+                        All submitted music must be <strong style={{ color: '#fff' }}>100% original</strong> and created by a human artist.
+                        AI-detected submissions will be <strong style={{ color: '#F87171' }}>immediately rejected</strong> without refund or appeal.
+                      </p>
                     </div>
                   </div>
 
@@ -833,6 +852,23 @@ export default function SubmitPage() {
                     <textarea value={fields.message} onChange={set('message')} rows={3}
                       placeholder="Mood, references, special instructions, event tie-ins..."
                       className={`${inputCls} resize-none`} />
+                  </div>
+
+                  {/* AI Confirmation Checkbox */}
+                  <div className="mb-4 rounded-xl px-4 py-3" style={{ background: 'rgba(196,18,48,0.06)', border: '1px solid rgba(196,18,48,0.25)' }}>
+                    <label className="flex items-start gap-2.5 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={confirmedNotAI}
+                        onChange={e => { setConfirmedNotAI(e.target.checked); if (e.target.checked) setAiError('') }}
+                        className="mt-0.5 w-4 h-4 flex-shrink-0"
+                        style={{ accentColor: '#F87171' }}
+                      />
+                      <span className="font-inter text-[13px] leading-relaxed" style={{ color: '#E2E8F0' }}>
+                        <strong style={{ color: '#F87171' }}>I confirm</strong> that this track is <strong style={{ color: '#fff' }}>100% human-created</strong> and contains no AI-generated music, vocals, or beats. I understand that AI-detected tracks will be <strong style={{ color: '#F87171' }}>immediately rejected</strong>. *
+                      </span>
+                    </label>
+                    {aiError && <p className="font-inter text-[11px] mt-2" style={{ color: '#f87171' }}>⚠ {aiError}</p>}
                   </div>
 
                   {/* Terms & Conditions */}
