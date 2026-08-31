@@ -92,14 +92,16 @@ export default function SubmitPage() {
   const [gstFile, setGstFile] = useState<File | null>(null)
   const [passportFile, setPassportFile] = useState<File | null>(null)
   const [uploadProgress, setUploadProgress] = useState('')
+  const [authChecked, setAuthChecked] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   const todayISO = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10)
 
-  // Check auth on mount — redirect to sign-up if not logged in
+  // Check auth on mount — show nothing until confirmed logged in
   useEffect(() => {
     fetch('/api/auth/me').then(res => {
       if (!res.ok) router.replace('/sign-up?next=/submit')
+      else setAuthChecked(true)
     })
   }, [router])
 
@@ -233,6 +235,14 @@ export default function SubmitPage() {
   const inputCls = `w-full bg-[#060D1F] border border-white/[0.09] rounded-xl px-4 py-3 font-inter text-[14px] text-white placeholder:text-[#4A5568] focus:outline-none focus:border-[#0A64C3] focus:ring-1 focus:ring-[#0A64C3]/40 transition-all duration-200`
   const labelCls = `block font-outfit font-semibold text-[12px] text-[#8899AA] tracking-[0.08em] uppercase mb-1.5`
 
+
+  if (!authChecked) {
+    return (
+      <div style={{ background: '#040A14', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Loader2 size={32} style={{ color: '#0A64C3', animation: 'spin 1s linear infinite' }} />
+      </div>
+    )
+  }
 
   return (
     <div ref={sectionRef} className="min-h-screen" style={{ background: '#040A14', color: 'white' }}>
