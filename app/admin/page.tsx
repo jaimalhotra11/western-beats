@@ -213,13 +213,15 @@ export default function AdminPage() {
                   <span style={{ fontSize: 11, color: '#4A5568' }}>
                     {new Date(sub.submittedAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
                   </span>
-                  <button
-                    onClick={e => { e.stopPropagation(); setDeleteConfirm(sub._id) }}
-                    title="Delete submission"
-                    style={{ background: 'rgba(248,113,113,0.1)', border: '1px solid rgba(248,113,113,0.25)', borderRadius: 8, padding: '5px 10px', color: '#F87171', fontSize: 13, cursor: 'pointer', fontWeight: 700, lineHeight: 1 }}
-                  >
-                    🗑
-                  </button>
+                  {sub.status === 'Rejected' && (
+                    <button
+                      onClick={e => { e.stopPropagation(); setDeleteConfirm(sub._id) }}
+                      title="Delete submission"
+                      style={{ background: 'rgba(248,113,113,0.1)', border: '1px solid rgba(248,113,113,0.25)', borderRadius: 8, padding: '5px 10px', color: '#F87171', fontSize: 13, cursor: 'pointer', fontWeight: 700, lineHeight: 1 }}
+                    >
+                      🗑
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
@@ -316,11 +318,13 @@ export default function AdminPage() {
                       </button>
                       {updateMsg && <p style={{ fontSize: 13, color: updateMsg.startsWith('✅') ? '#34D399' : '#F87171', margin: '10px 0 0' }}>{updateMsg}</p>}
 
-                      <div style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                        <button onClick={() => setDeleteConfirm(selected._id)} style={{ width: '100%', background: 'rgba(248,113,113,0.1)', border: '1px solid rgba(248,113,113,0.3)', borderRadius: 10, padding: '10px', color: '#F87171', fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>
-                          🗑 Delete Submission
-                        </button>
-                      </div>
+                      {selected.status === 'Rejected' && (
+                        <div style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                          <button onClick={() => setDeleteConfirm(selected._id)} style={{ width: '100%', background: 'rgba(248,113,113,0.1)', border: '1px solid rgba(248,113,113,0.3)', borderRadius: 10, padding: '10px', color: '#F87171', fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>
+                            🗑 Delete Submission
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

@@ -172,6 +172,10 @@ export async function POST(req: NextRequest) {
                 <p style="color:#8899AA;font-size:13px;line-height:1.7;margin:0 0 28px;">
                   Already have an account? <a href="https://www.westernbeats.com/dashboard" style="color:#5CB2DC;font-weight:700;text-decoration:none;">Log in to check your status →</a>
                 </p>
+                <div style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2);border-radius:10px;padding:14px 18px;margin-bottom:24px;">
+                  <p style="color:#34D399;font-size:12px;font-weight:700;margin:0 0 4px;">✅ Terms & Conditions Accepted</p>
+                  <p style="color:#8899AA;font-size:12px;margin:0;">You accepted the Western Beats Standard Distribution Agreement & Terms and Conditions at the time of submission on ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST. A copy of the terms is available at <a href="https://www.westernbeats.com/terms" style="color:#5CB2DC;">westernbeats.com/terms</a>.</p>
+                </div>
                 <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
                   <p style="color:#4A5568;font-size:12px;margin:0;">© 2026 Western Beats Private Limited · India's most credible music distributor</p>
                 </div>

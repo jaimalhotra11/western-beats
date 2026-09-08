@@ -19,10 +19,6 @@ const MOODS = [
   'Happy','Sad','Romantic','Energetic','Melancholic','Chill','Party','Motivational',
   'Devotional','Angry','Nostalgic','Dreamy','Dark','Peaceful','Empowering','Heartbreak',
 ]
-const LANGUAGES = [
-  'Hindi','Punjabi','Haryanvi','English','Tamil','Telugu','Kannada',
-  'Malayalam','Bengali','Marathi','Gujarati','Bhojpuri','Other',
-]
 
 const STEPS = [
   { Icon: Mail,        color: '#0A64C3', num: '01', title: 'We Review in 24 Hours',     desc: 'Our team checks your metadata, artwork, and audio quality against platform standards.' },
@@ -56,7 +52,7 @@ type FormFields = {
   language: string; releaseDate: string;
   singer: string; lyricWriter: string; musicDirector: string; musicArranger: string;
   director: string; mixer: string; producer: string; moods: string;
-  labelName: string; upc: string; isrc: string; productCode: string;
+  labelName: string; upc: string; isrc: string;
   youtubeLink: string; instagramLink: string; spotifyLink: string;
   songLyrics: string; youtubeContentId: string;
   driveLink: string; message: string;
@@ -67,7 +63,7 @@ const EMPTY: FormFields = {
   language: '', releaseDate: '',
   singer: '', lyricWriter: '', musicDirector: '', musicArranger: '',
   director: '', mixer: '', producer: '', moods: '',
-  labelName: '', upc: '', isrc: '', productCode: '',
+  labelName: '', upc: '', isrc: '',
   youtubeLink: '', instagramLink: '', spotifyLink: '',
   songLyrics: '', youtubeContentId: 'No Action',
   driveLink: '', message: '',
@@ -83,6 +79,11 @@ export default function SubmitPage() {
   const [termsError, setTermsError] = useState('')
   const [confirmedNotAI, setConfirmedNotAI] = useState(false)
   const [aiError, setAiError] = useState('')
+  const [showTnC, setShowTnC] = useState(false)
+  const [pendingSubmit, setPendingSubmit] = useState(false)
+  const [tncAgreed, setTncAgreed] = useState(false)
+  const [instagramError, setInstagramError] = useState('')
+  const [spotifyError, setSpotifyError] = useState('')
   const [releaseDateError, setReleaseDateError] = useState('')
   const [audioFile, setAudioFile] = useState<File | null>(null)
   const [artworkFile, setArtworkFile] = useState<File | null>(null)
@@ -166,70 +167,20 @@ export default function SubmitPage() {
       router.push('/sign-up?next=/submit')
       return
     }
-    setReleaseDateError(''); setTermsError(''); setAiError('')
+    setReleaseDateError(''); setTermsError(''); setAiError(''); setInstagramError(''); setSpotifyError('')
     if (fields.releaseDate < todayISO) { setReleaseDateError('Release Date cannot be in the past. Please choose today or a future date.'); return }
     if (!confirmedNotAI) { setAiError('You must confirm that your track is not AI-generated before submitting.'); return }
-    if (!agreedToTerms) { setTermsError('You must agree to the Terms & Conditions before submitting.'); return }
+    if (fields.instagramLink && !fields.instagramLink.includes('instagram.com')) { setInstagramError('Only instagram.com links are allowed.'); return }
+    if (fields.spotifyLink && !fields.spotifyLink.includes('spotify.com')) { setSpotifyError('Only spotify.com links are allowed.'); return }
     if (!audioFile) { setErrorMsg('Please upload your audio file (WAV format required).'); return }
-    if (!artworkFile) { setErrorMsg('Please upload your cover artwork (3000×3000px JPG/PNG required).'); return }
+    if (!artworkFile) { setErrorMsg('Please upload your cover artwork (3000×3000px or 1500×1500px JPG/PNG required).'); return }
     if (fields.clientType === 'India' && !panCardFile) { setErrorMsg('PAN Card is required. Please upload a JPG or PNG of your PAN card.'); return }
     if (fields.clientType === 'India' && !aadhaarFrontFile) { setErrorMsg('Aadhaar Card Front is required. Please upload a JPG or PNG.'); return }
     if (fields.clientType === 'India' && !aadhaarBackFile) { setErrorMsg('Aadhaar Card Back is required. Please upload a JPG or PNG.'); return }
     if (fields.clientType === 'International' && !passportFile) { setErrorMsg('Please upload your passport (photo page).'); return }
-
-    setStatus('loading')
-    setErrorMsg('')
-    try {
-      // Upload audio + artwork in parallel
-      setUploadProgress('Uploading audio & artwork...')
-      const [audio, artwork] = await Promise.all([
-        uploadFile(audioFile, 'audio'),
-        uploadFile(artworkFile, 'artwork'),
-      ])
-
-      // Upload all documents in parallel
-      const empty = { url: '', publicId: '' }
-      setUploadProgress('Uploading documents...')
-      const [panCard, aadhaarFront, aadhaarBack, gst, passport] = await Promise.all([
-        panCardFile    ? uploadFile(panCardFile, 'document')    : Promise.resolve(empty),
-        aadhaarFrontFile ? uploadFile(aadhaarFrontFile, 'document') : Promise.resolve(empty),
-        aadhaarBackFile  ? uploadFile(aadhaarBackFile, 'document')  : Promise.resolve(empty),
-        gstFile        ? uploadFile(gstFile, 'document')        : Promise.resolve(empty),
-        passportFile   ? uploadFile(passportFile, 'document')   : Promise.resolve(empty),
-      ])
-
-      setUploadProgress('Saving your submission...')
-      const res = await fetch('/api/submissions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...fields,
-          audioUrl: audio.url,
-          audioPublicId: audio.publicId,
-          artworkUrl: artwork.url,
-          artworkPublicId: artwork.publicId,
-          panCardUrl: panCard.url,
-          panCardPublicId: panCard.publicId,
-          aadhaarFrontUrl: aadhaarFront.url,
-          aadhaarFrontPublicId: aadhaarFront.publicId,
-          aadhaarBackUrl: aadhaarBack.url,
-          aadhaarBackPublicId: aadhaarBack.publicId,
-          gstUrl: gst.url,
-          gstPublicId: gst.publicId,
-          passportUrl: passport.url,
-          passportPublicId: passport.publicId,
-        }),
-      })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error || 'Submission failed')
-      setStatus('success')
-    } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Unknown error'
-      setErrorMsg(message)
-      setStatus('error')
-    } finally {
-      setUploadProgress('')
-    }
+    // Show T&C popup — actual upload happens inside the modal
+    setShowTnC(true)
+    setPendingSubmit(true)
   }
 
   const inputCls = `w-full bg-[#060D1F] border border-white/[0.09] rounded-xl px-4 py-3 font-inter text-[14px] text-white placeholder:text-[#4A5568] focus:outline-none focus:border-[#0A64C3] focus:ring-1 focus:ring-[#0A64C3]/40 transition-all duration-200`
@@ -461,10 +412,8 @@ export default function SubmitPage() {
                   <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label className={labelCls}>Language *</label>
-                      <select required value={fields.language} onChange={set('language')} className={inputCls}>
-                        <option value="" disabled>Select Language</option>
-                        {LANGUAGES.map(l => <option key={l} value={l}>{l}</option>)}
-                      </select>
+                      <input required value={fields.language} onChange={set('language')}
+                        placeholder="e.g. Hindi, Punjabi, English..." className={inputCls} />
                     </div>
                     <div>
                       <label className={labelCls}>Track *</label>
@@ -504,13 +453,13 @@ export default function SubmitPage() {
                   {/* Row 6: Music Arranger + Director */}
                   <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <label className={labelCls}>Music Arranger <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
-                      <input value={fields.musicArranger} onChange={set('musicArranger')}
+                      <label className={labelCls}>Music Arranger *</label>
+                      <input required value={fields.musicArranger} onChange={set('musicArranger')}
                         placeholder="ex: Quincy Jones" className={inputCls} />
                     </div>
                     <div>
-                      <label className={labelCls}>Director <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
-                      <input value={fields.director} onChange={set('director')}
+                      <label className={labelCls}>Director *</label>
+                      <input required value={fields.director} onChange={set('director')}
                         placeholder="ex: Martin Scorsese" className={inputCls} />
                     </div>
                   </div>
@@ -518,13 +467,13 @@ export default function SubmitPage() {
                   {/* Row 7: Mixer + Producer */}
                   <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <label className={labelCls}>Mixer <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
-                      <input value={fields.mixer} onChange={set('mixer')}
+                      <label className={labelCls}>Mixer *</label>
+                      <input required value={fields.mixer} onChange={set('mixer')}
                         placeholder="ex: Andrew Scheps" className={inputCls} />
                     </div>
                     <div>
-                      <label className={labelCls}>Producer <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
-                      <input value={fields.producer} onChange={set('producer')}
+                      <label className={labelCls}>Producer *</label>
+                      <input required value={fields.producer} onChange={set('producer')}
                         placeholder="ex: Interscope Records" className={inputCls} />
                     </div>
                   </div>
@@ -565,18 +514,11 @@ export default function SubmitPage() {
                     </div>
                   </div>
 
-                  {/* ISRC + Product Code */}
-                  <div className="gsap-card grid sm:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <label className={labelCls}>ISRC <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
-                      <input type="text" value={fields.isrc} onChange={set('isrc')}
-                        placeholder="ex: (ING642300741)" className={inputCls} />
-                    </div>
-                    <div>
-                      <label className={labelCls}>Product Code <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
-                      <input type="text" value={fields.productCode} onChange={set('productCode')}
-                        placeholder="ex: (GMJ00001)" className={inputCls} />
-                    </div>
+                  {/* ISRC */}
+                  <div className="mb-4">
+                    <label className={labelCls}>ISRC <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                    <input type="text" value={fields.isrc} onChange={set('isrc')}
+                      placeholder="ex: (ING642300741)" className={inputCls} />
                   </div>
 
                   {/* Section divider — Upload & Links */}
@@ -794,8 +736,8 @@ export default function SubmitPage() {
                           const img = new window.Image() as HTMLImageElement
                           img.onload = () => {
                             URL.revokeObjectURL(url)
-                            if (img.width !== 3000 || img.height !== 3000) {
-                              alert(`Cover artwork must be exactly 3000×3000px. Your image is ${img.width}×${img.height}px. Please resize and re-upload.`)
+                            if (!((img.width === 3000 && img.height === 3000) || (img.width === 1500 && img.height === 1500))) {
+                              alert(`Cover artwork must be exactly 3000×3000px or 1500×1500px. Your image is ${img.width}×${img.height}px. Please resize and re-upload.`)
                               e.target.value = ''
                               return
                             }
@@ -812,7 +754,7 @@ export default function SubmitPage() {
                       ) : (
                         <>
                           <p style={{ color: '#8899AA', fontSize: 14, margin: '0 0 4px' }}>🖼️ Click to upload cover artwork</p>
-                          <p style={{ color: '#4A5568', fontSize: 12, margin: 0 }}>JPG or PNG · Exactly 3000×3000px</p>
+                          <p style={{ color: '#4A5568', fontSize: 12, margin: 0 }}>JPG or PNG · 3000×3000px or 1500×1500px</p>
                         </>
                       )}
                     </div>
@@ -827,16 +769,30 @@ export default function SubmitPage() {
                     </div>
                     <div>
                       <label className={labelCls}>Instagram Link *</label>
-                      <input required type="url" value={fields.instagramLink} onChange={set('instagramLink')}
-                        placeholder="https://www.instagram.com" className={inputCls} />
+                      <input required type="url" value={fields.instagramLink}
+                        onChange={e => { set('instagramLink')(e); setInstagramError('') }}
+                        onBlur={e => {
+                          if (e.target.value && !e.target.value.includes('instagram.com'))
+                            setInstagramError('Only instagram.com links are allowed.')
+                        }}
+                        placeholder="https://www.instagram.com/yourprofile"
+                        className={inputCls} style={{ borderColor: instagramError ? '#C41230' : undefined }} />
+                      {instagramError && <p className="font-inter text-[11px] mt-1.5" style={{ color: '#f87171' }}>{instagramError}</p>}
                     </div>
                   </div>
 
                   {/* Spotify */}
                   <div className="mb-4">
                     <label className={labelCls}>Spotify Profile Link *</label>
-                    <input required type="url" value={fields.spotifyLink} onChange={set('spotifyLink')}
-                      placeholder="https://open.spotify.com/artist/..." className={inputCls} />
+                    <input required type="url" value={fields.spotifyLink}
+                      onChange={e => { set('spotifyLink')(e); setSpotifyError('') }}
+                      onBlur={e => {
+                        if (e.target.value && !e.target.value.includes('spotify.com'))
+                          setSpotifyError('Only spotify.com links are allowed.')
+                      }}
+                      placeholder="https://open.spotify.com/artist/..."
+                      className={inputCls} style={{ borderColor: spotifyError ? '#C41230' : undefined }} />
+                    {spotifyError && <p className="font-inter text-[11px] mt-1.5" style={{ color: '#f87171' }}>{spotifyError}</p>}
                   </div>
 
                   {/* YouTube Content ID */}
@@ -880,27 +836,12 @@ export default function SubmitPage() {
                     {aiError && <p className="font-inter text-[11px] mt-2" style={{ color: '#f87171' }}>⚠ {aiError}</p>}
                   </div>
 
-                  {/* Terms & Conditions */}
-                  <div className="mb-5">
-                    <label className="flex items-start gap-2.5 cursor-pointer">
-                      <input
-                        required
-                        type="checkbox"
-                        checked={agreedToTerms}
-                        onChange={e => { setAgreedToTerms(e.target.checked); if (e.target.checked) setTermsError('') }}
-                        className="mt-0.5 w-4 h-4 flex-shrink-0 accent-[#0A64C3]"
-                      />
-                      <span className="font-inter text-[13px] text-mut leading-relaxed">
-                        I agree to the{' '}
-                        <Link href="/terms" target="_blank" rel="noopener noreferrer"
-                          className="font-semibold" style={{ color: '#5CB2DC' }}>
-                          Terms &amp; Conditions
-                        </Link>
-                        {' '}*
-                      </span>
-                    </label>
-                    {termsError && <p className="font-inter text-[11px] mt-1.5" style={{ color: '#f87171' }}>{termsError}</p>}
-                  </div>
+                  <p className="font-inter text-[12px] text-mut mb-5">
+                    By clicking Submit, you will be asked to review and accept our{' '}
+                    <Link href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold" style={{ color: '#5CB2DC' }}>
+                      Terms &amp; Conditions
+                    </Link>.
+                  </p>
 
                   {/* Error */}
                   {status === 'error' && (
@@ -990,6 +931,136 @@ export default function SubmitPage() {
         </div>
       </footer>
 
+      {/* T&C Modal */}
+      {showTnC && (
+        <div style={{ position: 'fixed', inset: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px' }}
+          onClick={e => { if (e.target === e.currentTarget) { setShowTnC(false); setPendingSubmit(false) } }}>
+          <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(6px)' }} />
+          <div style={{
+            position: 'relative', zIndex: 1, background: '#0A1535', border: '1px solid rgba(255,255,255,0.1)',
+            borderRadius: 20, width: '100%', maxWidth: 700, maxHeight: '88vh', display: 'flex', flexDirection: 'column',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.7)',
+          }}>
+            {/* Header */}
+            <div style={{ padding: '20px 24px 16px', borderBottom: '1px solid rgba(255,255,255,0.07)', flexShrink: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div>
+                  <div className="font-outfit font-black text-white text-[17px]">Terms &amp; Conditions</div>
+                  <div className="font-inter text-[12px] text-mut mt-0.5">Western Beats Private Limited · Standard Distribution Agreement</div>
+                </div>
+                <button type="button" onClick={() => { setShowTnC(false); setPendingSubmit(false) }}
+                  style={{ background: 'rgba(255,255,255,0.07)', border: 'none', borderRadius: 8, width: 32, height: 32, cursor: 'pointer', color: '#8899AA', fontSize: 18, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>×</button>
+              </div>
+            </div>
+
+            {/* Scrollable content */}
+            <div style={{ overflowY: 'auto', padding: '20px 24px', flex: 1 }}>
+              {[
+                { title: 'ARTICLE 1 — DEFINITIONS', body: 'This Agreement means the Principal Terms and these Standard Terms & Conditions. Content means all music, audio, and visual entertainment content owned/aggregated by the Licensor during the Term. Territory means the World. Net Revenue means all amounts received less applicable taxes and third-party costs.' },
+                { title: 'ARTICLE 2 — GRANT OF RIGHTS', body: 'The Licensor grants the Licensee a royalty-free licence to distribute, publish, stream, sub-license, exploit, market, synchronise, and promote the Content and Licensed Properties throughout the Territory for the Term. The Licensee may further sub-license these rights. The Licensor shall not assign, transfer, or encumber the Content during the Term.' },
+                { title: 'ARTICLE 3 — CONTENT PROVISION & DISTRIBUTION', body: 'The Licensor shall deliver Content per the agreed delivery plan, ensuring it is reliable and conforms to specifications. The Licensee may modify, edit, recreate, or remix Content to meet platform requirements. The Licensor confirms it has cleared all third-party rights necessary for exploitation.' },
+                { title: 'ARTICLE 4 — OBLIGATIONS OF LICENSEE', body: 'The Licensee shall use reasonable efforts to market and promote the Content and provide quarterly revenue reports within 30 days of each quarter end. The Licensor has 15 days to request clarifications after which the report is final.' },
+                { title: 'ARTICLE 5 — OBLIGATIONS OF THE LICENSOR', body: 'The Licensor shall make all Content available for exploitation, meet all Content specifications, create new Content as agreed, and provide support in resolving legal issues. The Licensor must also provide required OAuth token authorisations for linked channels.' },
+                { title: 'ARTICLE 6 — REVENUE SHARE', body: 'The Licensee retains 20% of Net Revenue as a Distribution Fee and pays the Licensor the remaining 80% as Revenue Share. All payments are made in Indian Rupees per the payment timeline in the Principal Terms, subject to receipt of a valid invoice.' },
+                { title: 'ARTICLE 7 — TERM, TERMINATION & CONSEQUENCES', body: 'The Agreement commences on the Effective Date and remains in effect for 3 years, auto-renewing thereafter. The first 12 months is a Lock-in Period during which the Licensor may not terminate (except for an Event of Default by the Licensee). After the Lock-in Period, the Licensor may terminate with 60 days\' notice; the Licensee may terminate with 30 days\' notice. Upon termination, all rights revert to the Licensor after a 3-month cool-off period.' },
+                { title: 'ARTICLE 8 — EVENTS OF DEFAULT', body: 'Events of Default include insolvency, consistent failure to perform obligations, and fraud. If suspected of fraud or infringement, the Licensee may withhold payments and use them to cover legal costs. The Licensor shall fully indemnify the Licensee for losses arising from fraud or infringement.' },
+                { title: 'ARTICLE 9 — INTELLECTUAL PROPERTY', body: 'The Licensor retains all rights, title, and interest in the Content and Licensed Properties. The Licensor warrants the Content does not infringe third-party rights. The Licensor shall not deliver AI-generated or synthetically created Content without prior written disclosure and approval. Neither Party shall use the other\'s Content to train AI models without written consent.' },
+                { title: 'ARTICLE 10 — REPRESENTATIONS & WARRANTIES', body: 'Both Parties warrant they are duly authorised to execute this Agreement and that its execution does not conflict with other agreements. The Licensor warrants no Content infringes third-party rights and that no significant change of control/ownership will occur during the Term without consent.' },
+                { title: 'ARTICLE 11 — INDEMNITY', body: 'The Licensor shall indemnify the Licensee against all claims, damages, and expenses arising from breach of this Agreement, copyright infringement, unauthorised use, negligence, or non-compliance with applicable laws. The Licensee shall indemnify the Licensor against claims arising from the Licensee\'s material breach or unauthorised use of Content.' },
+                { title: 'ARTICLE 12 — CONFIDENTIALITY', body: 'Both Parties agree to keep confidential all information relating to the other Party\'s business and the terms of this Agreement, except as required by law or on a need-to-know basis to affiliates and professional advisors.' },
+                { title: 'ARTICLE 13 — MISCELLANEOUS', body: 'Disputes shall be resolved by arbitration in Mumbai, India under the Arbitration and Conciliation Act, 1996. This Agreement is governed by Indian law and subject to Mumbai courts\' exclusive jurisdiction. The Agreement constitutes the entire understanding between the Parties and supersedes all prior communications. Amendments are valid only if in writing and signed by both Parties.' },
+              ].map(sec => (
+                <div key={sec.title} style={{ marginBottom: 18 }}>
+                  <div className="font-outfit font-bold text-white" style={{ fontSize: 13, marginBottom: 4 }}>{sec.title}</div>
+                  <p className="font-inter" style={{ fontSize: 12, lineHeight: '1.75', color: '#8899AA', margin: 0 }}>{sec.body}</p>
+                </div>
+              ))}
+              <div style={{ marginTop: 8, padding: '12px 14px', background: 'rgba(10,100,195,0.08)', border: '1px solid rgba(10,100,195,0.2)', borderRadius: 10 }}>
+                <p className="font-inter" style={{ fontSize: 12, color: '#8899AA', margin: 0 }}>
+                  By submitting, you agree that Western Beats Private Limited (Licensee) may distribute your music on 150+ platforms worldwide. The Licensor retains 80% of Net Revenue. The agreement term is 3 years with a 12-month lock-in. Full terms at <Link href="/terms" target="_blank" style={{ color: '#5CB2DC' }}>westernbeats.com/terms</Link>.
+                </p>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div style={{ padding: '16px 24px', borderTop: '1px solid rgba(255,255,255,0.07)', flexShrink: 0 }}>
+              <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, cursor: 'pointer', marginBottom: 14 }}>
+                <input type="checkbox" checked={tncAgreed} onChange={e => setTncAgreed(e.target.checked)}
+                  style={{ marginTop: 2, width: 16, height: 16, flexShrink: 0, accentColor: '#0A64C3' }} />
+                <span className="font-inter" style={{ fontSize: 13, color: '#E2E8F0', lineHeight: '1.5' }}>
+                  <strong style={{ color: '#fff' }}>I agree to submit my music</strong> under the Terms &amp; Conditions above and confirm that Western Beats may distribute my content as described.
+                </span>
+              </label>
+              <div style={{ display: 'flex', gap: 10 }}>
+                <button type="button" onClick={() => { setShowTnC(false); setPendingSubmit(false) }}
+                  style={{ flex: 1, padding: '12px 0', borderRadius: 12, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#8899AA', cursor: 'pointer', fontFamily: 'inherit', fontSize: 14, fontWeight: 600 }}>
+                  Cancel
+                </button>
+                <button type="button"
+                  disabled={!tncAgreed}
+                  onClick={async () => {
+                    if (!tncAgreed) return
+                    setShowTnC(false)
+                    setAgreedToTerms(true)
+                    // Trigger actual submission
+                    setReleaseDateError(''); setTermsError(''); setAiError(''); setInstagramError(''); setSpotifyError('')
+                    setStatus('loading'); setErrorMsg('')
+                    try {
+                      setUploadProgress('Uploading audio & artwork...')
+                      const [audio, artwork] = await Promise.all([
+                        uploadFile(audioFile!, 'audio'),
+                        uploadFile(artworkFile!, 'artwork'),
+                      ])
+                      const empty = { url: '', publicId: '' }
+                      setUploadProgress('Uploading documents...')
+                      const [panCard, aadhaarFront, aadhaarBack, gst, passport] = await Promise.all([
+                        panCardFile    ? uploadFile(panCardFile, 'document')    : Promise.resolve(empty),
+                        aadhaarFrontFile ? uploadFile(aadhaarFrontFile, 'document') : Promise.resolve(empty),
+                        aadhaarBackFile  ? uploadFile(aadhaarBackFile, 'document')  : Promise.resolve(empty),
+                        gstFile        ? uploadFile(gstFile, 'document')        : Promise.resolve(empty),
+                        passportFile   ? uploadFile(passportFile, 'document')   : Promise.resolve(empty),
+                      ])
+                      setUploadProgress('Saving your submission...')
+                      const res = await fetch('/api/submissions', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                          ...fields,
+                          acceptedTermsAt: new Date().toISOString(),
+                          audioUrl: audio.url, audioPublicId: audio.publicId,
+                          artworkUrl: artwork.url, artworkPublicId: artwork.publicId,
+                          panCardUrl: panCard.url, panCardPublicId: panCard.publicId,
+                          aadhaarFrontUrl: aadhaarFront.url, aadhaarFrontPublicId: aadhaarFront.publicId,
+                          aadhaarBackUrl: aadhaarBack.url, aadhaarBackPublicId: aadhaarBack.publicId,
+                          gstUrl: gst.url, gstPublicId: gst.publicId,
+                          passportUrl: passport.url, passportPublicId: passport.publicId,
+                        }),
+                      })
+                      const data = await res.json()
+                      if (!res.ok) throw new Error(data.error || 'Submission failed')
+                      setStatus('success')
+                      setPendingSubmit(false)
+                    } catch (err: unknown) {
+                      const message = err instanceof Error ? err.message : 'Unknown error'
+                      setErrorMsg(message)
+                      setStatus('error')
+                      setPendingSubmit(false)
+                    } finally {
+                      setUploadProgress('')
+                    }
+                  }}
+                  style={{
+                    flex: 2, padding: '12px 0', borderRadius: 12, background: tncAgreed ? '#0A64C3' : '#1a2a4a',
+                    border: 'none', color: tncAgreed ? '#fff' : '#4A5568', cursor: tncAgreed ? 'pointer' : 'not-allowed',
+                    fontFamily: 'inherit', fontSize: 14, fontWeight: 700, transition: 'all 0.2s',
+                  }}>
+                  Confirm &amp; Submit My Music
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
