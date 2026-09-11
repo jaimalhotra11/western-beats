@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'Western Beats terms and conditions',
     'Western Beats content licensing agreement',
     'music distribution terms India',
-    'Western Beats royalty split 70 percent',
+    'Western Beats royalty split 80 percent',
     'music distribution agreement India',
     'Western Beats 80% royalties artists',
     'artist royalty terms India',

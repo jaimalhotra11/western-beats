@@ -23,7 +23,7 @@ const STEPS = [
     icon: Globe,
     num: '02',
     title: 'We Distribute',
-    desc: 'We deliver your music to all 150+ platforms simultaneously, live within 48–72 hours of approval.',
+    desc: 'We deliver your music to all 150+ platforms simultaneously, live within 72 hours of approval.',
     color: '#5CB2DC',
   },
   {
@@ -45,7 +45,7 @@ const FEATURES = [
   '100% ownership of your masters & earnings (T&C apply)',
   'We only earn when you earn, zero upfront risk',
   'Release to 150+ platforms simultaneously',
-  'Live on all platforms in 48–72 hours of approval',
+  'Live on all platforms in 72 hours of approval',
   'Music uploaded on Friday goes live Monday',
   'ISRC and UPC code generation included',
   'Real-time streaming analytics dashboard',

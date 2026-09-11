@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'recording studio India',
     'music mixing mastering India',
     'concert management India',
-    'music royalties India 70 percent artist',
+    'music royalties India 80 percent artist',
     'Western Beats services',
     'DistroKid alternative India',
     'TuneCore alternative India',

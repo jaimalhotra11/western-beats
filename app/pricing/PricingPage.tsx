@@ -36,7 +36,7 @@ const DISTRIBUTORS = [
     badge: 'Best for India',
     color: '#0A64C3',
     price: 'FREE: ₹0 Forever',
-    priceNote: '30% Distribution Fee only when you earn',
+    priceNote: '20% Distribution Fee only when you earn',
     data: [
       '150+ (India-first)',
       'Direct (T&C)',
@@ -153,12 +153,12 @@ const FAQS = [
     a: 'Yes. Distribution costs ₹0 upfront, no annual fee, no per-release charge, ever. Western Beats only earns when you earn. We never charge you a single rupee before you make money. Think of it as a partner who only gets paid when you succeed.',
   },
   {
-    q: 'How does the 70/30 royalty split work?',
-    a: 'When your music generates streaming royalties, Western Beats pays your royalties directly to your bank account with no upfront costs. We only earn when you earn. Full details in our Terms & Conditions. This aligns our interests completely with yours: the more you earn, the more we both earn.',
+    q: 'How does the 80/20 royalty split work?',
+    a: 'When your music generates streaming royalties, Western Beats pays 80% of Net Revenue directly to your bank account. We retain 20% as a Distribution Fee. Full details in our Terms & Conditions. This aligns our interests completely with yours: the more you earn, the more we both earn.',
   },
   {
     q: 'Is Western Beats cheaper than DistroKid for Indian artists?',
-    a: 'Absolutely. DistroKid charges $22.99/year (₹1,900+) regardless of whether you earn anything. Western Beats charges ₹0 upfront, our 30% Distribution Fee only applies when royalties are generated. If you earn ₹0, you pay ₹0.',
+    a: 'Absolutely. DistroKid charges $22.99/year (₹1,900+) regardless of whether you earn anything. Western Beats charges ₹0 upfront, our 20% Distribution Fee only applies when royalties are generated. If you earn ₹0, you pay ₹0.',
   },
   {
     q: 'How does Western Beats compare to CD Baby?',
@@ -297,7 +297,7 @@ export default function PricingPage() {
 
               {/* Quick proof points */}
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
-                {['₹0 upfront forever','100% IP ownership (T&C apply)','Royalties paid direct to you','Free ISRC codes','48-hr go-live'].map(pt => (
+                {['₹0 upfront forever','100% IP ownership (T&C apply)','Royalties paid direct to you','Free ISRC codes','72-hr go-live'].map(pt => (
                   <span key={pt} className="px-3 py-1.5 rounded-full font-inter text-[12px] font-semibold text-ice/80" style={{ background: 'rgba(10,100,195,0.15)', border: '1px solid rgba(10,100,195,0.3)' }}>{pt}</span>
                 ))}
               </motion.div>
@@ -321,7 +321,7 @@ export default function PricingPage() {
                   {[
                     '150+ platforms, India-first',
                     'Royalties paid direct to your bank (T&C)',
-                    '30% Distribution Fee only when you earn',
+                    '20% Distribution Fee only when you earn',
                     '72 hour go-live time',
                     'Free ISRC & UPC codes',
                     'Warner Music India Partner backed',
