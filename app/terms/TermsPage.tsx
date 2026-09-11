@@ -52,7 +52,7 @@ const ARTICLES = [
     paras: [
       'In addition to any obligations of the Licensee contained in this Agreement, the Licensee hereby undertakes and agrees to the following:',
       'Subject to the provisions of this Clause, the Licensee shall use all reasonable efforts to advertise, market, and promote the Content as part of the Services in the Territory, as may be agreed between the Parties from time to time.',
-      'The Licensee will provide the Licensor with summary and detailed reports showing the computation of the Licensor\'s Revenue Share, if any, in compliance with its established accounting procedures, as modified from time to time. The Licensee shall provide such reports within 30 (thirty) days following the end of each calendar quarter, beginning with the first full calendar quarter of the Term. Once a report is received by the Licensor or published online by the Licensee, the Licensor will have a 15-day period to request clarifications, after which the report will be considered final, and an invoice will be required to be raised and delivered to the Licensee.',
+      'The Licensee will provide the Licensor with summary and detailed reports showing the computation of the Licensor\'s Revenue Share, if any, in compliance with its established accounting procedures, as modified from time to time. Reports shall be provided on the following schedule: (a) YouTube — after every 2 (two) months; (b) OTT and all other distribution platforms — on a quarterly basis. Once a report is received by the Licensor or published online by the Licensee, the Licensor will have a 15-day period to request clarifications, after which the report will be considered final, and an invoice will be required to be raised and delivered to the Licensee.',
       'In good faith, the Licensee shall keep the Licensor informed about the clients/platform names where the Licensee will distribute/monetize the Licensed Content.',
     ],
   },
@@ -75,8 +75,9 @@ const ARTICLES = [
     title: 'REVENUE SHARE',
     paras: [
       'In lieu of the Services provided by the Licensee, as per the Rights granted by the Licensor to the Licensee, the Parties agree that the Licensee shall retain 20% of Net Revenue as the "Distribution Fee" and shall pay the Licensor the remaining 80% of Net Revenue as the "Revenue Share".',
+      'In the event that the Licensor is found to be involved in any form of content infringement or copyright violation, the Licensee reserves the right to hold all revenue payable to the Licensor without any prior intimation, until the matter is fully resolved to the Licensee\'s satisfaction.',
       'The Parties agree that, in the event that the Licensee shall pay the Licensor any advance amounts, at the time during the Term, ("Advance") any and all advance amounts, including without limitation any additional or specific advances paid to the Licensor, shall be referred to collectively as "Advances", shall be subject to recoupment at the rate of 100% from the Licensor\'s Revenue Share ("Recoupment Process"), further to which any payments of overages to the Licensor shall be payable by the Licensee only after the Recoupment Process has been fully completed.',
-      'All payments shall be made to the Licensor in Indian Rupees in accordance with the payment timeline stated in the Principal Terms and subject to receipt of a valid and undisputed invoice from the Licensor.',
+      'All payments shall be made to the Licensor in Indian Rupees within 30 (thirty) days of receipt of valid and undisputed invoices from the Licensor. Invoices shall be raised by the Licensor after 2 (two) months for content distributed on YouTube, and on a quarterly basis for content distributed on all other distribution platforms (OTT).',
       'The Licensee shall be authorized and solely responsible for collecting all forms of revenue related to the Content, including but not limited to marketing, publishing, selling, and/or distribution.',
     ],
   },
@@ -178,6 +179,30 @@ const ARTICLES = [
       '13.11 Waiver: Failure by Licensor or Licensee to promptly exercise any option or right granted, or to require strict performance of any obligation imposed herein, shall not be deemed a waiver of such rights.',
       '13.12 Force Majeure: In the event of any Force Majeure, neither Party shall be liable to the other for any delay or failure to perform its obligations under this Agreement, to the extent that such delay or failure is caused by a Force Majeure Event and is not attributable to any breach, act or omission of the affected Party. The affected Party shall promptly notify the other Party in writing upon becoming aware of a Force Majeure Event and use all reasonable endeavours to mitigate the effects of the Force Majeure Event as reasonably practicable. If a Force Majeure Event continues for a period exceeding 60 (sixty) consecutive days, this Agreement shall stand terminated, without liability to the other Party. However, if both the Parties agree on the terms and conditions, they may sign a new Agreement after the conclusion of an event of any Force Majeure.',
       '13.13 Entire Agreement: This Agreement, along with the Annexures/Schedules, constitutes the final, complete, and exclusive written expression of the intentions of the Parties and supersedes all prior communications, representations, agreements, MOUs, promises, or statements, whether oral or written, between the Parties. No supplement, modification, or amendment of this Agreement shall be binding unless executed in writing by both Parties.',
+    ],
+  },
+  {
+    id: 'content-specifications',
+    num: 'ANNEXURE A',
+    title: 'CONTENT SPECIFICATIONS',
+    paras: [
+      'The Licensor has committed to providing 1–2 (one to two) pieces of Content every month during the Term, unless otherwise mutually agreed in writing by both Parties.',
+      'All Content shall be mutually approved by both Parties prior to distribution or publication on any platform.',
+      'All artist interviews or "bytes" shall be filmed by the Licensor for all OTT platforms and delivered to the Licensee in accordance with the agreed delivery schedule.',
+      'The Licensee shall provide the Licensor with its latest logos and trademarks. The Licensor shall include the Western Beats branding as "DISTRIBUTION PARTNER" in all promotional materials and within the Content itself (including video and artwork), in the manner directed by the Licensee.',
+      'All behind-the-scenes footage shall be filmed by the Licensor and delivered to the Licensee as part of the Content delivery obligations.',
+      'All legal agreements and documentation related to the Content to be executed by the Licensor shall be completed only with the prior written consent of the Licensee and as advised by the Licensee. The Licensor shall not enter into any third-party agreement affecting the Content without such consent.',
+    ],
+  },
+  {
+    id: 'youtube-channels',
+    num: 'ANNEXURE B',
+    title: 'YOUTUBE CHANNEL OBLIGATIONS',
+    paras: [
+      'All Content uploaded on and published through any YouTube channel(s) linked to the Licensor shall be distributed by the Licensee throughout the Term. The Licensor shall provide details of all such channels at the time of execution of this Agreement, and shall notify the Licensee of any new channels created during the Term via written communication (including email or addendum).',
+      'The Licensor shall provide the required OAuth token authorisation for all linked channels, together with the necessary permissions, scopes, and access rights as required by the Licensee to pull channel details, metadata, reporting, analytics, revenue, and other relevant information into its CMS portal (GMJ-YT-Studio), built using official and secured YouTube APIs.',
+      'Any refusal, revocation, expiry, restriction, withdrawal, or termination of such OAuth tokens, permissions, or channel access during the Term shall be considered a material breach of this Agreement, and the Licensee shall have the right to withhold amounts due to the Licensor until such breach is cured.',
+      'Content distributed through YouTube shall be reported to the Licensor after every 2 (two) months. Invoices for YouTube revenue shall be raised by the Licensor on a bi-monthly basis following confirmation of the revenue report.',
     ],
   },
 ]
