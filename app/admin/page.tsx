@@ -23,7 +23,7 @@ interface Submission {
   artworkUrl: string; audioUrl: string; submittedAt: string; updatedAt: string
   singer: string; lyricWriter: string; musicDirector: string; producer: string
   labelName: string; moods: string; youtubeLink: string; instagramLink: string
-  spotifyLink: string; youtubeContentId: string; message: string
+  spotifyLink: string; createSpotify?: boolean; youtubeContentId: string; message: string
   legalName: string; address: string; clientType: string
   panCardUrl: string; aadhaarFrontUrl: string; aadhaarBackUrl: string; aadhaarVoterId: string; gstUrl: string; passportUrl: string
   agreementStatus?: string; agreementSentAt?: string; subGenre?: string; adminNote?: string
@@ -270,11 +270,20 @@ export default function AdminPage() {
                       </div>
                     )}
 
-                    {[['YouTube', selected.youtubeLink], ['Instagram', selected.instagramLink], ['Spotify', selected.spotifyLink]].filter(([, v]) => v).map(([l, v]) => (
+                    {[['YouTube', selected.youtubeLink], ['Instagram', selected.instagramLink]].filter(([, v]) => v).map(([l, v]) => (
                       <div key={l} style={{ marginTop: 8 }}>
                         <a href={v} target="_blank" rel="noopener noreferrer" style={{ color: '#5CB2DC', fontSize: 13 }}>{l} →</a>
                       </div>
                     ))}
+                    {selected.spotifyLink ? (
+                      <div style={{ marginTop: 8 }}>
+                        <a href={selected.spotifyLink} target="_blank" rel="noopener noreferrer" style={{ color: '#5CB2DC', fontSize: 13 }}>Spotify →</a>
+                      </div>
+                    ) : selected.createSpotify ? (
+                      <div style={{ marginTop: 8, display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(52,211,153,0.1)', border: '1px solid rgba(52,211,153,0.25)', borderRadius: 8, padding: '4px 10px' }}>
+                        <span style={{ fontSize: 12, color: '#34D399', fontWeight: 700 }}>🎵 Create Spotify Profile Requested</span>
+                      </div>
+                    ) : null}
 
                     {/* KYC */}
                     {(selected.legalName || selected.panCardUrl || selected.aadhaarFrontUrl || selected.aadhaarBackUrl || selected.aadhaarVoterId || selected.gstUrl || selected.passportUrl) && (

@@ -53,7 +53,7 @@ type FormFields = {
   singer: string; lyricWriter: string; musicDirector: string; musicArranger: string;
   director: string; mixer: string; producer: string; moods: string;
   labelName: string; upc: string; isrc: string;
-  youtubeLink: string; instagramLink: string; spotifyLink: string;
+  youtubeLink: string; instagramLink: string; spotifyLink: string; createSpotify: boolean;
   songLyrics: string; youtubeContentId: string;
   driveLink: string; message: string;
   legalName: string; address: string; clientType: 'India' | 'International';
@@ -64,7 +64,7 @@ const EMPTY: FormFields = {
   singer: '', lyricWriter: '', musicDirector: '', musicArranger: '',
   director: '', mixer: '', producer: '', moods: '',
   labelName: '', upc: '', isrc: '',
-  youtubeLink: '', instagramLink: '', spotifyLink: '',
+  youtubeLink: '', instagramLink: '', spotifyLink: '', createSpotify: false,
   songLyrics: '', youtubeContentId: 'No Action',
   driveLink: '', message: '',
   legalName: '', address: '', clientType: 'India',
@@ -783,16 +783,35 @@ export default function SubmitPage() {
 
                   {/* Spotify */}
                   <div className="mb-4">
-                    <label className={labelCls}>Spotify Profile Link *</label>
-                    <input required type="url" value={fields.spotifyLink}
-                      onChange={e => { set('spotifyLink')(e); setSpotifyError('') }}
-                      onBlur={e => {
-                        if (e.target.value && !e.target.value.includes('spotify.com'))
-                          setSpotifyError('Only spotify.com links are allowed.')
-                      }}
-                      placeholder="https://open.spotify.com/artist/..."
-                      className={inputCls} style={{ borderColor: spotifyError ? '#C41230' : undefined }} />
-                    {spotifyError && <p className="font-inter text-[11px] mt-1.5" style={{ color: '#f87171' }}>{spotifyError}</p>}
+                    <label className={labelCls}>Spotify Profile Link <span className="text-mut normal-case tracking-normal font-normal">(optional)</span></label>
+                    {!fields.createSpotify && (
+                      <>
+                        <input type="url" value={fields.spotifyLink}
+                          onChange={e => { set('spotifyLink')(e); setSpotifyError('') }}
+                          onBlur={e => {
+                            if (e.target.value && !e.target.value.includes('spotify.com'))
+                              setSpotifyError('Only spotify.com links are allowed.')
+                          }}
+                          placeholder="https://open.spotify.com/artist/..."
+                          className={inputCls} style={{ borderColor: spotifyError ? '#C41230' : undefined }} />
+                        {spotifyError && <p className="font-inter text-[11px] mt-1.5" style={{ color: '#f87171' }}>{spotifyError}</p>}
+                      </>
+                    )}
+                    {fields.createSpotify && (
+                      <div className="mt-2 rounded-xl px-4 py-3 font-inter text-[13px]"
+                        style={{ background: 'rgba(52,211,153,0.07)', border: '1px solid rgba(52,211,153,0.2)', color: '#34D399' }}>
+                        ✅ We'll create a Spotify artist profile on your behalf after approval.
+                      </div>
+                    )}
+                    <label className="flex items-center gap-2.5 mt-3 cursor-pointer select-none w-fit">
+                      <input type="checkbox" checked={fields.createSpotify}
+                        onChange={e => {
+                          setFields(f => ({ ...f, createSpotify: e.target.checked, spotifyLink: '' }))
+                          setSpotifyError('')
+                        }}
+                        className="w-4 h-4 rounded accent-blu cursor-pointer" />
+                      <span className="font-inter text-[13px] text-ice">I don't have a Spotify profile — please create one for me</span>
+                    </label>
                   </div>
 
                   {/* YouTube Content ID */}
@@ -964,7 +983,8 @@ export default function SubmitPage() {
                 { title: 'ARTICLE 6 — REVENUE SHARE', body: 'The Licensee retains 20% of Net Revenue as a Distribution Fee and pays the Licensor the remaining 80% as Revenue Share. If the Licensor is found involved in any content infringement or copyright violation, the Licensee reserves the right to hold all revenue without prior notice. All payments are made in Indian Rupees within 30 days of receipt of a valid invoice. Invoices are raised by the Licensor after 2 months for YouTube content and quarterly for OTT/other platforms.' },
                 { title: 'ARTICLE 7 — TERM, TERMINATION & CONSEQUENCES', body: 'The Agreement commences on the Effective Date and remains in effect for 3 years, auto-renewing thereafter. The first 12 months is a Lock-in Period during which the Licensor may not terminate (except for an Event of Default by the Licensee). After the Lock-in Period, the Licensor may terminate with 60 days\' notice; the Licensee may terminate with 30 days\' notice. Upon termination, all rights revert to the Licensor after a 3-month cool-off period.' },
                 { title: 'ARTICLE 8 — EVENTS OF DEFAULT', body: 'Events of Default include insolvency, consistent failure to perform obligations, and fraud. If suspected of fraud or infringement, the Licensee may withhold payments and use them to cover legal costs. The Licensor shall fully indemnify the Licensee for losses arising from fraud or infringement.' },
-                { title: 'ARTICLE 9 — INTELLECTUAL PROPERTY', body: 'The Licensor retains all rights, title, and interest in the Content and Licensed Properties. The Licensor warrants the Content does not infringe third-party rights. The Licensor shall not deliver AI-generated or synthetically created Content without prior written disclosure and approval. Neither Party shall use the other\'s Content to train AI models without written consent.' },
+                { title: 'ARTICLE 9 — INTELLECTUAL PROPERTY', body: 'The Licensor retains all rights, title, and interest in the Content and Licensed Properties. The Licensor warrants the Content does not infringe third-party rights. The Licensor shall indemnify the Licensee against any third-party claims arising from omissions or inaccuracies in data provided.' },
+                { title: 'ARTICLE 9A — ARTIFICIAL INTELLIGENCE POLICY ⚠️', body: 'ZERO TOLERANCE: Western Beats does not accept, distribute, or monetise any AI-generated Content. All Content must be 100% human-created. The Licensee may not create synthetic/AI versions of any artist\'s voice, likeness, or persona without prior written approval. The Licensor must not deliver AI-generated Content without written disclosure — breach = immediate Event of Default, content removal, forfeiture of all revenue, and possible termination. Neither Party may use the other\'s Content to train generative AI models without prior written consent.' },
                 { title: 'ARTICLE 10 — REPRESENTATIONS & WARRANTIES', body: 'Both Parties warrant they are duly authorised to execute this Agreement and that its execution does not conflict with other agreements. The Licensor warrants no Content infringes third-party rights and that no significant change of control/ownership will occur during the Term without consent.' },
                 { title: 'ARTICLE 11 — INDEMNITY', body: 'The Licensor shall indemnify the Licensee against all claims, damages, and expenses arising from breach of this Agreement, copyright infringement, unauthorised use, negligence, or non-compliance with applicable laws. The Licensee shall indemnify the Licensor against claims arising from the Licensee\'s material breach or unauthorised use of Content.' },
                 { title: 'ARTICLE 12 — CONFIDENTIALITY', body: 'Both Parties agree to keep confidential all information relating to the other Party\'s business and the terms of this Agreement, except as required by law or on a need-to-know basis to affiliates and professional advisors.' },
