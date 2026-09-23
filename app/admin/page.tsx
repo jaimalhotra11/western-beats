@@ -54,6 +54,8 @@ export default function AdminPage() {
   const [search, setSearch] = useState('')
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null)
   const [deleting, setDeleting] = useState(false)
+  const [sendingB2B, setSendingB2B] = useState(false)
+  const [b2bMsg, setB2bMsg] = useState('')
   const rowRefs = useRef<Record<string, HTMLDivElement | null>>({})
 
   async function login(e: React.FormEvent) {
@@ -105,6 +107,26 @@ export default function AdminPage() {
       setUpdateMsg('❌ ' + (data.error || 'Failed'))
     }
     setUpdating(false)
+  }
+
+  async function sendB2BForm() {
+    if (!selected) return
+    setSendingB2B(true); setB2bMsg('')
+    const res = await fetch('/api/send-b2b', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+      body: JSON.stringify({ submissionId: selected._id, email: selected.email, artistName: selected.artistName, trackName: selected.trackName }),
+    })
+    const data = await res.json()
+    if (res.ok) {
+      setB2bMsg('✅ B2B form link sent to ' + selected.email)
+      setNewAgreementStatus('B2B Sent')
+      setSelected(prev => prev ? { ...prev, agreementStatus: 'B2B Sent' } : null)
+      await refresh()
+    } else {
+      setB2bMsg('❌ ' + (data.error || 'Failed to send'))
+    }
+    setSendingB2B(false)
   }
 
   async function confirmDelete(id: string) {
@@ -318,6 +340,15 @@ export default function AdminPage() {
                       <select value={newAgreementStatus} onChange={e => setNewAgreementStatus(e.target.value)} style={{ ...S.input, marginBottom: 14, borderColor: newAgreementStatus === 'B2B Signed' ? 'rgba(52,211,153,0.4)' : newAgreementStatus === 'B2B Sent' ? 'rgba(245,158,11,0.4)' : newAgreementStatus === 'In Process' ? 'rgba(92,178,220,0.4)' : undefined, color: newAgreementStatus === 'B2B Signed' ? '#34D399' : newAgreementStatus === 'B2B Sent' ? '#F59E0B' : newAgreementStatus === 'In Process' ? '#5CB2DC' : '#8899AA' }}>
                         {AGREEMENT_STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
                       </select>
+
+                      <button
+                        onClick={sendB2BForm}
+                        disabled={sendingB2B}
+                        style={{ width: '100%', marginBottom: 14, background: sendingB2B ? '#1a2a4a' : 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.35)', borderRadius: 10, padding: '10px', color: '#F59E0B', fontSize: 14, fontWeight: 700, cursor: sendingB2B ? 'not-allowed' : 'pointer' }}
+                      >
+                        {sendingB2B ? 'Sending…' : '📋 Send B2B Agreement Form →'}
+                      </button>
+                      {b2bMsg && <p style={{ fontSize: 13, color: b2bMsg.startsWith('✅') ? '#34D399' : '#F87171', margin: '-8px 0 14px' }}>{b2bMsg}</p>}
 
                       <label style={S.label}>Note to Artist (optional)</label>
                       <textarea value={statusNote} onChange={e => setStatusNote(e.target.value)} placeholder="e.g. Your artwork resolution needs to be 3000x3000px…" rows={3} style={{ ...S.input, resize: 'vertical' as const, marginBottom: 14 }} />
