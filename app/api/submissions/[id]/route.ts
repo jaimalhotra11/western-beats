@@ -102,7 +102,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
       }
       const meta = AGREEMENT_META[agreementStatus] ?? AGREEMENT_META['In Process']
       await transporter.sendMail({
-        from: `"Western Beats" <contactwesternbeats@gmail.com>`,
+        from: `"Western Beats" <contact@westernbeats.com>`,
         to: sub.email,
         subject: `📄 Agreement Update: ${agreementStatus} — ${esc(sub.trackName)} | Western Beats`,
         html: `
@@ -139,7 +139,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
                     <p style="color:#34D399;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:0 0 8px;">Key Terms</p>
                     <p style="color:#E2E8F0;font-size:13px;line-height:1.7;margin:0;">✅ <strong>80%</strong> of net royalties go directly to you<br/>✅ <strong>100%</strong> IP and copyright stays yours forever<br/>✅ Distribution to <strong>150+ platforms</strong> worldwide<br/>✅ <strong>₹0</strong> upfront — no hidden fees</p>
                   </div>
-                  <p style="color:#B0BEC5;font-size:14px;line-height:1.7;margin:0 0 28px;">Questions? Contact <a href="mailto:contactwesternbeats@gmail.com" style="color:#5CB2DC;">contactwesternbeats@gmail.com</a></p>
+                  <p style="color:#B0BEC5;font-size:14px;line-height:1.7;margin:0 0 28px;">Questions? Contact <a href="mailto:contact@westernbeats.com" style="color:#5CB2DC;">contact@westernbeats.com</a></p>
                   <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
                     <p style="color:#4A5568;font-size:12px;margin:0 0 4px;">© 2026 Western Beats Private Limited</p>
                     <p style="color:#4A5568;font-size:12px;margin:0;">Sector-4A, H.No.357P, Dharuhera, Rewari, Haryana 123106</p>
@@ -154,7 +154,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     } else if (statusChanged) {
     // Submission status changed → send status update email only
     await transporter.sendMail({
-      from: `"Western Beats" <contactwesternbeats@gmail.com>`,
+      from: `"Western Beats" <contact@westernbeats.com>`,
       to: sub.email,
       subject: `${STATUS_EMOJI[status] || '📢'} Your submission status updated — ${sub.trackName}`,
       html: `

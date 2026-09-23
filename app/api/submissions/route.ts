@@ -47,8 +47,8 @@ export async function POST(req: NextRequest) {
 
     // ── Email to admin ──────────────────────────────────────────────────────
     await transporter.sendMail({
-      from: `"Western Beats" <contactwesternbeats@gmail.com>`,
-      to: 'contactwesternbeats@gmail.com',
+      from: `"Western Beats" <contact@westernbeats.com>`,
+      to: 'contact@westernbeats.com',
       subject: `🎵 New Submission: ${body.trackName} by ${body.artistName}`,
       html: `
         <!DOCTYPE html><html><body style="margin:0;padding:0;background:#040A14;font-family:Arial,sans-serif;">
@@ -128,7 +128,7 @@ export async function POST(req: NextRequest) {
 
     // ── Confirmation email to artist ────────────────────────────────────────
     await transporter.sendMail({
-      from: `"Western Beats" <contactwesternbeats@gmail.com>`,
+      from: `"Western Beats" <contact@westernbeats.com>`,
       to: submitterEmail,
       subject: `✅ We received your submission — ${esc(body.trackName)}`,
       html: `

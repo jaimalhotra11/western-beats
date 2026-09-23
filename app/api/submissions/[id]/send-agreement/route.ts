@@ -14,7 +14,7 @@ function mailer() {
     port: 465,
     secure: true,
     auth: {
-      user: process.env.GMAIL_USER || 'contactwesternbeats@gmail.com',
+      user: process.env.GMAIL_USER || 'contact@westernbeats.com',
       pass: process.env.GMAIL_APP_PASSWORD,
     },
   })
@@ -39,7 +39,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
     const transporter = mailer()
     await transporter.sendMail({
-      from: `"Western Beats" <contactwesternbeats@gmail.com>`,
+      from: `"Western Beats" <contact@westernbeats.com>`,
       to: sub.email,
       cc: 'legal@westernbeats.com',
       subject: `📄 Your Content Licensing Agreement — ${esc(sub.trackName)} | Western Beats`,

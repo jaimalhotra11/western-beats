@@ -55,7 +55,7 @@ export async function GET(req: NextRequest) {
       try {
         if (EMAIL_PAUSED) { sent++; continue }
         await transporter.sendMail({
-          from: `"Western Beats" <contactwesternbeats@gmail.com>`,
+          from: `"Western Beats" <contact@westernbeats.com>`,
           to: user.email,
           subject: `🎵 ${esc(user.artistName)}, your music is waiting to be heard`,
           html: `

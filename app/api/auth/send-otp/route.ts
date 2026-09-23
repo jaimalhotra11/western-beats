@@ -73,7 +73,7 @@ export async function POST(req: NextRequest) {
       replyTo: gmailUser,
       to: email,
       subject: `Your Western Beats verification code: ${code}`,
-      text: `Your Western Beats verification code is: ${code}\n\nThis code expires in 10 minutes.\n\nIf you did not request this, please ignore this email.\n\n-- Western Beats Private Limited\ncontactwesternbeats@gmail.com\nwww.westernbeats.com`,
+      text: `Your Western Beats verification code is: ${code}\n\nThis code expires in 10 minutes.\n\nIf you did not request this, please ignore this email.\n\n-- Western Beats Private Limited\ncontact@westernbeats.com\nwww.westernbeats.com`,
       html: `
         <!DOCTYPE html>
         <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -102,7 +102,7 @@ export async function POST(req: NextRequest) {
                   <p style="margin:0 0 8px;font-size:13px;color:#888;">Do not share this code with anyone.</p>
                   <div style="border-top:1px solid #eee;padding-top:20px;margin-top:24px;">
                     <p style="margin:0;font-size:12px;color:#aaa;">Western Beats Private Limited · Dharuhera, Haryana, India</p>
-                    <p style="margin:4px 0 0;font-size:12px;color:#aaa;">contactwesternbeats@gmail.com · www.westernbeats.com</p>
+                    <p style="margin:4px 0 0;font-size:12px;color:#aaa;">contact@westernbeats.com · www.westernbeats.com</p>
                   </div>
                 </td></tr>
               </table>
