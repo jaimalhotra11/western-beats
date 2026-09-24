@@ -144,12 +144,23 @@ export default function SubmitPage() {
 
 
   async function uploadFile(file: File, type: 'audio' | 'artwork' | 'document') {
-    const fd = new FormData()
-    fd.append('file', file)
-    fd.append('type', type)
-    const res = await fetch('/api/upload', { method: 'POST', body: fd })
+    // Step 1: get a presigned S3 URL from our API (tiny JSON request, no file body)
+    const res = await fetch('/api/upload', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type, contentType: file.type, fileName: file.name }),
+    })
     const data = await res.json()
     if (!res.ok) throw new Error(data.error || 'Upload failed')
+
+    // Step 2: PUT the file directly to S3 (bypasses Vercel body limit entirely)
+    const s3Res = await fetch(data.uploadUrl, {
+      method: 'PUT',
+      headers: { 'Content-Type': file.type },
+      body: file,
+    })
+    if (!s3Res.ok) throw new Error('Failed to upload file to storage')
+
     return { url: data.secure_url as string, publicId: data.public_id as string }
   }
 

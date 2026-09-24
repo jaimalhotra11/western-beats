@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
+import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 
-// Allow large file uploads (WAV files can be 50-100MB)
-export const maxDuration = 60
+export const maxDuration = 30
 export const dynamic = 'force-dynamic'
 
 const s3 = new S3Client({
@@ -14,48 +14,48 @@ const s3 = new S3Client({
 })
 
 const BUCKET = process.env.AWS_S3_BUCKET || 'western-beats-media'
-const MAX_AUDIO_MB = 100
-const MAX_IMAGE_MB = 20
+const REGION = process.env.AWS_REGION || 'ap-south-1'
 
+const ALLOWED_AUDIO = ['audio/wav', 'audio/x-wav', 'audio/wave']
+const ALLOWED_IMAGE = ['image/jpeg', 'image/jpg', 'image/png']
+const ALLOWED_DOC   = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']
+
+// POST /api/upload
+// Body: { type: 'audio'|'artwork'|'document', contentType: string, fileName: string }
+// Returns: { uploadUrl, secure_url, public_id }
+// Client uploads the file directly to S3 using uploadUrl (PUT), bypassing Vercel body limit.
 export async function POST(req: NextRequest) {
   try {
-    const formData = await req.formData()
-    const file = formData.get('file') as File
-    const type = (formData.get('type') as string) || 'image'
+    const { type, contentType, fileName } = await req.json()
 
-    if (!file) return NextResponse.json({ error: 'No file provided' }, { status: 400 })
-
-    const maxBytes = type === 'audio' ? MAX_AUDIO_MB * 1024 * 1024 : MAX_IMAGE_MB * 1024 * 1024
-    if (file.size > maxBytes) {
-      return NextResponse.json({ error: `File too large. Max ${type === 'audio' ? MAX_AUDIO_MB : MAX_IMAGE_MB}MB.` }, { status: 413 })
+    if (!type || !contentType || !fileName) {
+      return NextResponse.json({ error: 'Missing type, contentType, or fileName' }, { status: 400 })
     }
 
-    if (type === 'audio' && !['audio/wav', 'audio/x-wav', 'audio/wave'].includes(file.type)) {
+    if (type === 'audio' && !ALLOWED_AUDIO.includes(contentType)) {
       return NextResponse.json({ error: 'Only WAV audio files are accepted.' }, { status: 400 })
     }
-    if (type === 'artwork' && !['image/jpeg', 'image/jpg', 'image/png'].includes(file.type)) {
+    if (type === 'artwork' && !ALLOWED_IMAGE.includes(contentType)) {
       return NextResponse.json({ error: 'Artwork must be JPG or PNG.' }, { status: 400 })
     }
-    if (type === 'document' && !['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'].includes(file.type)) {
+    if (type === 'document' && !ALLOWED_DOC.includes(contentType)) {
       return NextResponse.json({ error: 'Documents must be JPG, PNG, or PDF.' }, { status: 400 })
     }
 
-    const bytes = await file.arrayBuffer()
-    const buffer = Buffer.from(bytes)
-
-    const ext = file.name.split('.').pop() || (type === 'audio' ? 'wav' : 'jpg')
+    const ext = fileName.split('.').pop()?.toLowerCase() || (type === 'audio' ? 'wav' : 'jpg')
     const key = `submissions/${type}-${Date.now()}.${ext}`
 
-    await s3.send(new PutObjectCommand({
+    const command = new PutObjectCommand({
       Bucket: BUCKET,
       Key: key,
-      Body: buffer,
-      ContentType: file.type,
-    }))
+      ContentType: contentType,
+    })
 
-    const secure_url = `https://${BUCKET}.s3.${process.env.AWS_REGION || 'ap-south-1'}.amazonaws.com/${key}`
+    // Presigned URL valid for 15 minutes — enough time to upload a large WAV
+    const uploadUrl = await getSignedUrl(s3, command, { expiresIn: 900 })
+    const secure_url = `https://${BUCKET}.s3.${REGION}.amazonaws.com/${key}`
 
-    return NextResponse.json({ secure_url, public_id: key })
+    return NextResponse.json({ uploadUrl, secure_url, public_id: key })
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err)
     console.error('upload error:', msg)
