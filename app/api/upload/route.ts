@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
 
+// Allow large file uploads (WAV files can be 50-100MB)
+export const maxDuration = 60
+export const dynamic = 'force-dynamic'
+
 const s3 = new S3Client({
   region: process.env.AWS_REGION || 'ap-south-1',
   credentials: {
