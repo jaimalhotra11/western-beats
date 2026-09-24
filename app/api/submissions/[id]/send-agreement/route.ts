@@ -63,31 +63,20 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
               <!-- Body -->
               <tr><td style="padding:36px 40px;">
                 <p style="color:#5CB2DC;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;">Agreement Ready</p>
-                <h1 style="color:#fff;font-size:24px;font-weight:900;margin:0 0 16px;line-height:1.3;">Hi ${esc(sub.artistName)},<br/>your agreement is ready to sign.</h1>
+                <h1 style="color:#fff;font-size:24px;font-weight:900;margin:0 0 16px;line-height:1.3;">Hi ${esc(sub.artistName)},<br/>your B2B agreement is ready.</h1>
 
                 <p style="color:#B0BEC5;font-size:15px;line-height:1.7;margin:0 0 24px;">
-                  We have prepared your <strong style="color:#fff;">Content Licensing Agreement</strong> for the following submission:
+                  We're moving forward with your track <strong style="color:#fff;">"${esc(sub.trackName)}"</strong>. Please fill out the B2B Agreement Form below to formalise your distribution contract with Western Beats. It takes less than 5 minutes.
                 </p>
 
-                <!-- Track card -->
-                <div style="background:#0A1535;border-radius:12px;padding:20px 24px;margin-bottom:28px;border:1px solid rgba(10,100,195,0.2);">
-                  <p style="color:#8899AA;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 8px;">Track Submitted</p>
-                  <p style="color:#fff;font-size:18px;font-weight:800;margin:0 0 4px;">${esc(sub.trackName)}</p>
-                  <p style="color:#8899AA;font-size:13px;margin:0;">by ${esc(sub.artistName)}</p>
-                </div>
-
-                <!-- Instructions -->
-                <p style="color:#B0BEC5;font-size:14px;line-height:1.7;margin:0 0 8px;"><strong style="color:#fff;">What you need to do:</strong></p>
-                <table cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
-                  ${['Read the agreement carefully — it covers your 80% revenue share, IP ownership, distribution term, and your rights.', 'Sign the agreement digitally or as instructed in the document.', 'Return the signed copy to <a href="mailto:legal@westernbeats.com" style="color:#5CB2DC;">legal@westernbeats.com</a>'].map((step, i) => `
-                    <tr>
-                      <td style="padding:6px 12px 6px 0;vertical-align:top;">
-                        <div style="width:22px;height:22px;border-radius:50%;background:#0A64C3;color:#fff;font-size:11px;font-weight:900;text-align:center;line-height:22px;">${i + 1}</div>
-                      </td>
-                      <td style="padding:6px 0;color:#B0BEC5;font-size:14px;line-height:1.6;">${step}</td>
-                    </tr>
-                  `).join('')}
-                </table>
+                <!-- CTA Button -->
+                <table cellpadding="0" cellspacing="0" width="100%"><tr><td align="center" style="padding:0 0 32px;">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdfsEF0PkiTfgym3b0Qsoo_0dbhrkbMZr36Zhw7tnBsMpcdpg/viewform"
+                    target="_blank"
+                    style="display:inline-block;background:#0A64C3;color:#fff;text-decoration:none;font-size:16px;font-weight:700;padding:16px 40px;border-radius:12px;letter-spacing:0.3px;">
+                    📋 Fill B2B Agreement Form →
+                  </a>
+                </td></tr></table>
 
                 <!-- Key terms reminder -->
                 <div style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.2);border-left:4px solid #34D399;border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:28px;">
@@ -101,12 +90,11 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
                 </div>
 
                 <p style="color:#B0BEC5;font-size:14px;line-height:1.7;margin:0 0 28px;">
-                  If you have any questions about the agreement, reply to this email or contact us at
-                  <a href="mailto:legal@westernbeats.com" style="color:#5CB2DC;">legal@westernbeats.com</a>.
-                  We are happy to walk you through any clause.
+                  If you have any questions, reply to this email or reach us at
+                  <a href="mailto:contact@westernbeats.com" style="color:#5CB2DC;">contact@westernbeats.com</a>.
                 </p>
 
-                <a href="https://www.westernbeats.com/dashboard" style="display:inline-block;background:#0A64C3;color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">View My Submission →</a>
+                <a href="https://www.westernbeats.com/dashboard" style="display:inline-block;background:#0A1535;border:1px solid rgba(255,255,255,0.1);color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">View My Submission →</a>
 
                 <!-- Footer -->
                 <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">

@@ -4,10 +4,14 @@ import { useEffect, useRef, useState } from 'react'
 const STATUSES = ['Submitted', 'Under Review', 'Approved', 'Distributing', 'Live', 'Rejected']
 const AGREEMENT_STATUSES = ['Not Sent', 'In Process', 'B2B Sent', 'B2B Signed']
 
-function cloudinaryDownloadUrl(url: string, filename: string): string {
-  if (!url) return url
-  return url.replace('/upload/', `/upload/fl_attachment:${filename.replace(/\s+/g, '_')}/`)
+function downloadUrl(url: string): string {
+  return url || ''
 }
+
+const PLACEHOLDER = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52"><rect width="52" height="52" rx="8" fill="#0A1535"/><text x="26" y="34" text-anchor="middle" font-size="22" fill="#4A5568">♪</text></svg>')}`
+
+function isCloudinary(url?: string) { return !!url?.includes('cloudinary.com') }
+function isS3(url?: string) { return !!url?.includes('amazonaws.com') }
 
 const STATUS_COLOR: Record<string, string> = {
   'Submitted': '#F59E0B', 'Under Review': '#5CB2DC', 'Approved': '#34D399',
@@ -220,7 +224,12 @@ export default function AdminPage() {
               style={{ ...S.card, marginBottom: selectedId === sub._id ? 0 : 12, cursor: 'pointer', borderColor: selectedId === sub._id ? 'rgba(10,100,195,0.5)' : 'rgba(255,255,255,0.08)', borderBottomLeftRadius: selectedId === sub._id ? 0 : 16, borderBottomRightRadius: selectedId === sub._id ? 0 : 16, transition: 'border-color 0.2s' }}
             >
               <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
-                {sub.artworkUrl && <img src={sub.artworkUrl} alt="" style={{ width: 52, height: 52, borderRadius: 8, objectFit: 'cover', flexShrink: 0 }} />}
+                <img
+                  src={sub.artworkUrl || PLACEHOLDER}
+                  alt=""
+                  onError={e => { (e.currentTarget as HTMLImageElement).src = PLACEHOLDER }}
+                  style={{ width: 52, height: 52, borderRadius: 8, objectFit: 'cover', flexShrink: 0 }}
+                />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <p style={{ fontSize: 15, fontWeight: 700, margin: '0 0 2px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' as const }}>{sub.trackName}</p>
                   <p style={{ fontSize: 13, color: '#8899AA', margin: '0 0 6px' }}>{sub.artistName} · {sub.email}</p>
@@ -259,14 +268,24 @@ export default function AdminPage() {
                       <button onClick={() => { setSelectedId(null); setSelected(null) }} style={{ background: 'none', border: 'none', color: '#8899AA', cursor: 'pointer', fontSize: 18 }}>✕</button>
                     </div>
 
-                    {selected.artworkUrl && (
-                      <div style={{ position: 'relative', marginBottom: 16 }}>
-                        <img src={selected.artworkUrl} alt="artwork" style={{ width: '100%', borderRadius: 12, maxHeight: 180, objectFit: 'cover', display: 'block' }} />
-                        <a href={cloudinaryDownloadUrl(selected.artworkUrl, `${selected.trackName}-artwork`)} download style={{ position: 'absolute', bottom: 8, right: 8, background: 'rgba(0,0,0,0.75)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>
+                    <div style={{ position: 'relative', marginBottom: 16 }}>
+                      <img
+                        src={selected.artworkUrl || PLACEHOLDER}
+                        alt="artwork"
+                        onError={e => { (e.currentTarget as HTMLImageElement).src = PLACEHOLDER }}
+                        style={{ width: '100%', borderRadius: 12, maxHeight: 180, objectFit: 'cover', display: 'block' }}
+                      />
+                      {selected.artworkUrl && isS3(selected.artworkUrl) && (
+                        <a href={downloadUrl(selected.artworkUrl)} download style={{ position: 'absolute', bottom: 8, right: 8, background: 'rgba(0,0,0,0.75)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>
                           ⬇ Download
                         </a>
-                      </div>
-                    )}
+                      )}
+                      {isCloudinary(selected.artworkUrl) && (
+                        <span style={{ position: 'absolute', bottom: 8, left: 8, background: 'rgba(248,113,113,0.15)', color: '#F87171', border: '1px solid rgba(248,113,113,0.3)', borderRadius: 6, padding: '3px 8px', fontSize: 11, fontWeight: 700 }}>
+                          ⚠ Artwork unavailable
+                        </span>
+                      )}
+                    </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
                       {[
@@ -285,12 +304,19 @@ export default function AdminPage() {
                       ))}
                     </div>
 
-                    {selected.audioUrl && (
-                      <div style={{ marginTop: 14 }}>
-                        <p style={S.label}>Audio File</p>
-                        <a href={selected.audioUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#5CB2DC', fontSize: 13 }}>▶ Play / Download</a>
-                      </div>
-                    )}
+                    <div style={{ marginTop: 14 }}>
+                      <p style={S.label}>Audio File</p>
+                      {selected.audioUrl && isS3(selected.audioUrl) ? (
+                        <div>
+                          <audio controls src={selected.audioUrl} style={{ width: '100%', marginBottom: 6 }} />
+                          <a href={selected.audioUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#5CB2DC', fontSize: 12 }}>⬇ Download WAV</a>
+                        </div>
+                      ) : selected.audioUrl && isCloudinary(selected.audioUrl) ? (
+                        <p style={{ color: '#F87171', fontSize: 13, margin: 0 }}>⚠ Audio unavailable — file was on Cloudinary (deactivated)</p>
+                      ) : (
+                        <p style={{ color: '#4A5568', fontSize: 13, margin: 0 }}>No audio file uploaded</p>
+                      )}
+                    </div>
 
                     {[['YouTube', selected.youtubeLink], ['Instagram', selected.instagramLink]].filter(([, v]) => v).map(([l, v]) => (
                       <div key={l} style={{ marginTop: 8 }}>
@@ -315,12 +341,12 @@ export default function AdminPage() {
                         {selected.address && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Address</span><span style={{ color: '#E2E8F0', fontWeight: 600, maxWidth: '60%', textAlign: 'right' as const, wordBreak: 'break-word' as const }}>{selected.address}</span></div>}
                         {selected.clientType && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Client Type</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.clientType}</span></div>}
                         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' as const, marginTop: 8 }}>
-                          {selected.panCardUrl && <a href={cloudinaryDownloadUrl(selected.panCardUrl, `${selected.artistName}-pan`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ PAN Card</a>}
-                          {selected.aadhaarFrontUrl && <a href={cloudinaryDownloadUrl(selected.aadhaarFrontUrl, `${selected.artistName}-aadhaar-front`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar Front</a>}
-                          {selected.aadhaarBackUrl && <a href={cloudinaryDownloadUrl(selected.aadhaarBackUrl, `${selected.artistName}-aadhaar-back`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar Back</a>}
-                          {selected.aadhaarVoterId && <a href={cloudinaryDownloadUrl(selected.aadhaarVoterId, `${selected.artistName}-aadhaar`)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar (old)</a>}
-                          {selected.gstUrl && <a href={cloudinaryDownloadUrl(selected.gstUrl, `${selected.artistName}-gst`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ GST Certificate</a>}
-                          {selected.passportUrl && <a href={cloudinaryDownloadUrl(selected.passportUrl, `${selected.artistName}-passport`)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Passport</a>}
+                          {selected.panCardUrl && <a href={downloadUrl(selected.panCardUrl)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ PAN Card</a>}
+                          {selected.aadhaarFrontUrl && <a href={downloadUrl(selected.aadhaarFrontUrl)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar Front</a>}
+                          {selected.aadhaarBackUrl && <a href={downloadUrl(selected.aadhaarBackUrl)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar Back</a>}
+                          {selected.aadhaarVoterId && <a href={downloadUrl(selected.aadhaarVoterId)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar (old)</a>}
+                          {selected.gstUrl && <a href={downloadUrl(selected.gstUrl)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ GST Certificate</a>}
+                          {selected.passportUrl && <a href={downloadUrl(selected.passportUrl)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Passport</a>}
                         </div>
                       </div>
                     )}

@@ -146,15 +146,10 @@ export default function SubmitPage() {
   async function uploadFile(file: File, type: 'audio' | 'artwork' | 'document') {
     const fd = new FormData()
     fd.append('file', file)
-    fd.append('upload_preset', 'wb_submissions')
-    fd.append('folder', 'western-beats/submissions')
-    const resourceType = type === 'audio' ? 'video' : type === 'document' ? 'image' : 'image'
-    const res = await fetch(
-      `https://api.cloudinary.com/v1_1/sxbb8x9x/${resourceType}/upload`,
-      { method: 'POST', body: fd }
-    )
+    fd.append('type', type)
+    const res = await fetch('/api/upload', { method: 'POST', body: fd })
     const data = await res.json()
-    if (!res.ok) throw new Error(data.error?.message || 'Upload failed')
+    if (!res.ok) throw new Error(data.error || 'Upload failed')
     return { url: data.secure_url as string, publicId: data.public_id as string }
   }
 

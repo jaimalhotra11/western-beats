@@ -1,12 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { v2 as cloudinary } from 'cloudinary'
+import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+const s3 = new S3Client({
+  region: process.env.AWS_REGION || 'ap-south-1',
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+  },
 })
 
+const BUCKET = process.env.AWS_S3_BUCKET || 'western-beats-media'
 const MAX_AUDIO_MB = 100
 const MAX_IMAGE_MB = 20
 
@@ -18,13 +21,11 @@ export async function POST(req: NextRequest) {
 
     if (!file) return NextResponse.json({ error: 'No file provided' }, { status: 400 })
 
-    // Enforce file size limits
     const maxBytes = type === 'audio' ? MAX_AUDIO_MB * 1024 * 1024 : MAX_IMAGE_MB * 1024 * 1024
     if (file.size > maxBytes) {
       return NextResponse.json({ error: `File too large. Max ${type === 'audio' ? MAX_AUDIO_MB : MAX_IMAGE_MB}MB.` }, { status: 413 })
     }
 
-    // Validate MIME types
     if (type === 'audio' && !['audio/wav', 'audio/x-wav', 'audio/wave'].includes(file.type)) {
       return NextResponse.json({ error: 'Only WAV audio files are accepted.' }, { status: 400 })
     }
@@ -38,24 +39,19 @@ export async function POST(req: NextRequest) {
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
 
-    const resourceType = type === 'audio' ? 'video' : 'image'
+    const ext = file.name.split('.').pop() || (type === 'audio' ? 'wav' : 'jpg')
+    const key = `submissions/${type}-${Date.now()}.${ext}`
 
-    const result = await new Promise<{ secure_url: string; public_id: string }>((resolve, reject) => {
-      const uploadStream = cloudinary.uploader.upload_stream(
-        {
-          folder: 'western-beats/submissions',
-          resource_type: resourceType,
-          public_id: `${type}-${Date.now()}`,
-        },
-        (error, result) => {
-          if (error || !result) reject(error || new Error('Upload failed'))
-          else resolve({ secure_url: result.secure_url, public_id: result.public_id })
-        }
-      )
-      uploadStream.end(buffer)
-    })
+    await s3.send(new PutObjectCommand({
+      Bucket: BUCKET,
+      Key: key,
+      Body: buffer,
+      ContentType: file.type,
+    }))
 
-    return NextResponse.json({ secure_url: result.secure_url, public_id: result.public_id })
+    const secure_url = `https://${BUCKET}.s3.${process.env.AWS_REGION || 'ap-south-1'}.amazonaws.com/${key}`
+
+    return NextResponse.json({ secure_url, public_id: key })
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err)
     console.error('upload error:', msg)
