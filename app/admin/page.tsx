@@ -1,6 +1,32 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 
+function ImagePreviewModal({ url, label, onClose }: { url: string; label: string; onClose: () => void }) {
+  return (
+    <div
+      onClick={onClose}
+      style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.92)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', zIndex: 2000, backdropFilter: 'blur(6px)' }}
+    >
+      <div onClick={e => e.stopPropagation()} style={{ position: 'relative', maxWidth: '90vw', maxHeight: '85vh', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+        <img src={url} alt={label} style={{ maxWidth: '90vw', maxHeight: '75vh', borderRadius: 12, objectFit: 'contain', boxShadow: '0 0 60px rgba(0,0,0,0.8)' }} />
+        <div style={{ display: 'flex', gap: 12 }}>
+          <a
+            href={url}
+            download
+            onClick={e => e.stopPropagation()}
+            style={{ background: '#0A64C3', color: '#fff', padding: '10px 24px', borderRadius: 10, fontSize: 14, fontWeight: 700, textDecoration: 'none' }}
+          >
+            ⬇ Download {label}
+          </a>
+          <button onClick={onClose} style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff', padding: '10px 20px', borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>
+            ✕ Close
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const STATUSES = ['Submitted', 'Under Review', 'Approved', 'Distributing', 'Live', 'Rejected']
 const AGREEMENT_STATUSES = ['Not Sent', 'In Process', 'B2B Sent', 'B2B Signed']
 
@@ -60,6 +86,7 @@ export default function AdminPage() {
   const [deleting, setDeleting] = useState(false)
   const [sendingB2B, setSendingB2B] = useState(false)
   const [b2bMsg, setB2bMsg] = useState('')
+  const [preview, setPreview] = useState<{ url: string; label: string } | null>(null)
   const rowRefs = useRef<Record<string, HTMLDivElement | null>>({})
 
   async function login(e: React.FormEvent) {
@@ -164,6 +191,9 @@ export default function AdminPage() {
 
   return (
     <div style={S.page}>
+      {/* Image preview modal */}
+      {preview && <ImagePreviewModal url={preview.url} label={preview.label} onClose={() => setPreview(null)} />}
+
       {/* Delete confirm popup */}
       {deleteConfirm && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, backdropFilter: 'blur(4px)' }}>
@@ -273,12 +303,13 @@ export default function AdminPage() {
                         src={selected.artworkUrl || PLACEHOLDER}
                         alt="artwork"
                         onError={e => { (e.currentTarget as HTMLImageElement).src = PLACEHOLDER }}
-                        style={{ width: '100%', borderRadius: 12, maxHeight: 180, objectFit: 'cover', display: 'block' }}
+                        onClick={() => selected.artworkUrl && isS3(selected.artworkUrl) && setPreview({ url: selected.artworkUrl, label: 'Artwork' })}
+                        style={{ width: '100%', borderRadius: 12, maxHeight: 180, objectFit: 'cover', display: 'block', cursor: selected.artworkUrl && isS3(selected.artworkUrl) ? 'zoom-in' : 'default' }}
                       />
                       {selected.artworkUrl && isS3(selected.artworkUrl) && (
-                        <a href={downloadUrl(selected.artworkUrl)} download style={{ position: 'absolute', bottom: 8, right: 8, background: 'rgba(0,0,0,0.75)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>
-                          ⬇ Download
-                        </a>
+                        <button onClick={() => setPreview({ url: selected.artworkUrl, label: 'Artwork' })} style={{ position: 'absolute', bottom: 8, right: 8, background: 'rgba(0,0,0,0.75)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 700, cursor: 'pointer' }}>
+                          🔍 Preview
+                        </button>
                       )}
                       {isCloudinary(selected.artworkUrl) && (
                         <span style={{ position: 'absolute', bottom: 8, left: 8, background: 'rgba(248,113,113,0.15)', color: '#F87171', border: '1px solid rgba(248,113,113,0.3)', borderRadius: 6, padding: '3px 8px', fontSize: 11, fontWeight: 700 }}>
@@ -307,10 +338,9 @@ export default function AdminPage() {
                     <div style={{ marginTop: 14 }}>
                       <p style={S.label}>Audio File</p>
                       {selected.audioUrl && isS3(selected.audioUrl) ? (
-                        <div>
-                          <audio controls src={selected.audioUrl} style={{ width: '100%', marginBottom: 6 }} />
-                          <a href={selected.audioUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#5CB2DC', fontSize: 12 }}>⬇ Download WAV</a>
-                        </div>
+                        <a href={selected.audioUrl} download style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(10,100,195,0.15)', border: '1px solid rgba(10,100,195,0.35)', color: '#5CB2DC', padding: '10px 16px', borderRadius: 10, fontSize: 13, fontWeight: 700, textDecoration: 'none' }}>
+                          ⬇ Download WAV
+                        </a>
                       ) : selected.audioUrl && isCloudinary(selected.audioUrl) ? (
                         <p style={{ color: '#F87171', fontSize: 13, margin: 0 }}>⚠ Audio unavailable — file was on Cloudinary (deactivated)</p>
                       ) : (
@@ -341,12 +371,12 @@ export default function AdminPage() {
                         {selected.address && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Address</span><span style={{ color: '#E2E8F0', fontWeight: 600, maxWidth: '60%', textAlign: 'right' as const, wordBreak: 'break-word' as const }}>{selected.address}</span></div>}
                         {selected.clientType && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Client Type</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.clientType}</span></div>}
                         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' as const, marginTop: 8 }}>
-                          {selected.panCardUrl && <a href={downloadUrl(selected.panCardUrl)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ PAN Card</a>}
-                          {selected.aadhaarFrontUrl && <a href={downloadUrl(selected.aadhaarFrontUrl)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar Front</a>}
-                          {selected.aadhaarBackUrl && <a href={downloadUrl(selected.aadhaarBackUrl)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar Back</a>}
-                          {selected.aadhaarVoterId && <a href={downloadUrl(selected.aadhaarVoterId)} download style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Aadhaar (old)</a>}
-                          {selected.gstUrl && <a href={downloadUrl(selected.gstUrl)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ GST Certificate</a>}
-                          {selected.passportUrl && <a href={downloadUrl(selected.passportUrl)} download style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>⬇ Passport</a>}
+                          {selected.panCardUrl && <button onClick={() => setPreview({ url: selected.panCardUrl, label: 'PAN Card' })} style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer' }}>🔍 PAN Card</button>}
+                          {selected.aadhaarFrontUrl && <button onClick={() => setPreview({ url: selected.aadhaarFrontUrl, label: 'Aadhaar Front' })} style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer' }}>🔍 Aadhaar Front</button>}
+                          {selected.aadhaarBackUrl && <button onClick={() => setPreview({ url: selected.aadhaarBackUrl, label: 'Aadhaar Back' })} style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer' }}>🔍 Aadhaar Back</button>}
+                          {selected.aadhaarVoterId && <button onClick={() => setPreview({ url: selected.aadhaarVoterId, label: 'Aadhaar (old)' })} style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer' }}>🔍 Aadhaar (old)</button>}
+                          {selected.gstUrl && <button onClick={() => setPreview({ url: selected.gstUrl, label: 'GST Certificate' })} style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer' }}>🔍 GST</button>}
+                          {selected.passportUrl && <button onClick={() => setPreview({ url: selected.passportUrl, label: 'Passport' })} style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer' }}>🔍 Passport</button>}
                         </div>
                       </div>
                     )}
