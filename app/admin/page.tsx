@@ -1,24 +1,36 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 
+// Build a proxy download URL so the browser receives Content-Disposition: attachment
+// (the HTML `download` attribute is silently ignored for cross-origin S3 URLs)
+function proxyDownload(url: string, name: string) {
+  return `/api/download?url=${encodeURIComponent(url)}&name=${encodeURIComponent(name)}`
+}
+
 function ImagePreviewModal({ url, label, onClose }: { url: string; label: string; onClose: () => void }) {
+  const ext = url.split('.').pop()?.split('?')[0] || 'jpg'
+  const filename = `${label.replace(/\s+/g, '-').toLowerCase()}.${ext}`
   return (
     <div
       onClick={onClose}
       style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.92)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', zIndex: 2000, backdropFilter: 'blur(6px)' }}
     >
-      <div onClick={e => e.stopPropagation()} style={{ position: 'relative', maxWidth: '90vw', maxHeight: '85vh', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
-        <img src={url} alt={label} style={{ maxWidth: '90vw', maxHeight: '75vh', borderRadius: 12, objectFit: 'contain', boxShadow: '0 0 60px rgba(0,0,0,0.8)' }} />
+      <div onClick={e => e.stopPropagation()} style={{ maxWidth: '90vw', maxHeight: '85vh', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+        <img src={url} alt={label} style={{ maxWidth: '90vw', maxHeight: '72vh', borderRadius: 12, objectFit: 'contain', boxShadow: '0 0 60px rgba(0,0,0,0.8)' }} />
         <div style={{ display: 'flex', gap: 12 }}>
           <a
-            href={url}
-            download
-            onClick={e => e.stopPropagation()}
+            href={proxyDownload(url, filename)}
             style={{ background: '#0A64C3', color: '#fff', padding: '10px 24px', borderRadius: 10, fontSize: 14, fontWeight: 700, textDecoration: 'none' }}
           >
             ⬇ Download {label}
           </a>
-          <button onClick={onClose} style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff', padding: '10px 20px', borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>
+          <button
+            onClick={() => window.open(url, '_blank', 'noopener')}
+            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff', padding: '10px 20px', borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: 'pointer' }}
+          >
+            ↗ Open in New Tab
+          </button>
+          <button onClick={onClose} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#8899AA', padding: '10px 16px', borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>
             ✕ Close
           </button>
         </div>
@@ -29,10 +41,6 @@ function ImagePreviewModal({ url, label, onClose }: { url: string; label: string
 
 const STATUSES = ['Submitted', 'Under Review', 'Approved', 'Distributing', 'Live', 'Rejected']
 const AGREEMENT_STATUSES = ['Not Sent', 'In Process', 'B2B Sent', 'B2B Signed']
-
-function downloadUrl(url: string): string {
-  return url || ''
-}
 
 const PLACEHOLDER = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52"><rect width="52" height="52" rx="8" fill="#0A1535"/><text x="26" y="34" text-anchor="middle" font-size="22" fill="#4A5568">♪</text></svg>')}`
 
@@ -338,9 +346,20 @@ export default function AdminPage() {
                     <div style={{ marginTop: 14 }}>
                       <p style={S.label}>Audio File</p>
                       {selected.audioUrl && isS3(selected.audioUrl) ? (
-                        <a href={selected.audioUrl} download style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(10,100,195,0.15)', border: '1px solid rgba(10,100,195,0.35)', color: '#5CB2DC', padding: '10px 16px', borderRadius: 10, fontSize: 13, fontWeight: 700, textDecoration: 'none' }}>
-                          ⬇ Download WAV
-                        </a>
+                        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' as const }}>
+                          <a
+                            href={proxyDownload(selected.audioUrl, `${selected.artistName} - ${selected.trackName}.wav`)}
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(10,100,195,0.15)', border: '1px solid rgba(10,100,195,0.35)', color: '#5CB2DC', padding: '10px 16px', borderRadius: 10, fontSize: 13, fontWeight: 700, textDecoration: 'none' }}
+                          >
+                            ⬇ Download WAV
+                          </a>
+                          <button
+                            onClick={() => window.open(selected.audioUrl, '_blank', 'noopener')}
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#8899AA', padding: '10px 16px', borderRadius: 10, fontSize: 13, fontWeight: 700, cursor: 'pointer' }}
+                          >
+                            ↗ Open in New Tab
+                          </button>
+                        </div>
                       ) : selected.audioUrl && isCloudinary(selected.audioUrl) ? (
                         <p style={{ color: '#F87171', fontSize: 13, margin: 0 }}>⚠ Audio unavailable — file was on Cloudinary (deactivated)</p>
                       ) : (
