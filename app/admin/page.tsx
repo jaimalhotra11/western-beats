@@ -1,41 +1,25 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 
-// Build a proxy download URL so the browser receives Content-Disposition: attachment
-// (the HTML `download` attribute is silently ignored for cross-origin S3 URLs)
+// Proxy download — forces browser save-dialog instead of opening in same tab
 function proxyDownload(url: string, name: string) {
   return `/api/download?url=${encodeURIComponent(url)}&name=${encodeURIComponent(name)}`
 }
 
-function ImagePreviewModal({ url, label, onClose }: { url: string; label: string; onClose: () => void }) {
+// Reusable button pair: Preview (new tab) + Download (via proxy)
+function FileButtons({ url, label, color = '#0A64C3' }: { url: string; label: string; color?: string }) {
   const ext = url.split('.').pop()?.split('?')[0] || 'jpg'
   const filename = `${label.replace(/\s+/g, '-').toLowerCase()}.${ext}`
+  const btn: React.CSSProperties = { padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer', textDecoration: 'none', display: 'inline-block' }
   return (
-    <div
-      onClick={onClose}
-      style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.92)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', zIndex: 2000, backdropFilter: 'blur(6px)' }}
-    >
-      <div onClick={e => e.stopPropagation()} style={{ maxWidth: '90vw', maxHeight: '85vh', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
-        <img src={url} alt={label} style={{ maxWidth: '90vw', maxHeight: '72vh', borderRadius: 12, objectFit: 'contain', boxShadow: '0 0 60px rgba(0,0,0,0.8)' }} />
-        <div style={{ display: 'flex', gap: 12 }}>
-          <a
-            href={proxyDownload(url, filename)}
-            style={{ background: '#0A64C3', color: '#fff', padding: '10px 24px', borderRadius: 10, fontSize: 14, fontWeight: 700, textDecoration: 'none' }}
-          >
-            ⬇ Download {label}
-          </a>
-          <button
-            onClick={() => window.open(url, '_blank', 'noopener')}
-            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff', padding: '10px 20px', borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: 'pointer' }}
-          >
-            ↗ Open in New Tab
-          </button>
-          <button onClick={onClose} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#8899AA', padding: '10px 16px', borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>
-            ✕ Close
-          </button>
-        </div>
-      </div>
-    </div>
+    <span style={{ display: 'inline-flex', gap: 6 }}>
+      <a href={url} target="_blank" rel="noopener noreferrer" style={{ ...btn, background: color, color: '#fff' }}>
+        🔍 Preview
+      </a>
+      <a href={proxyDownload(url, filename)} style={{ ...btn, background: 'rgba(255,255,255,0.08)', color: '#CBD5E0', border: '1px solid rgba(255,255,255,0.12)' }}>
+        ⬇ Download
+      </a>
+    </span>
   )
 }
 
@@ -94,7 +78,6 @@ export default function AdminPage() {
   const [deleting, setDeleting] = useState(false)
   const [sendingB2B, setSendingB2B] = useState(false)
   const [b2bMsg, setB2bMsg] = useState('')
-  const [preview, setPreview] = useState<{ url: string; label: string } | null>(null)
   const rowRefs = useRef<Record<string, HTMLDivElement | null>>({})
 
   async function login(e: React.FormEvent) {
@@ -199,9 +182,6 @@ export default function AdminPage() {
 
   return (
     <div style={S.page}>
-      {/* Image preview modal */}
-      {preview && <ImagePreviewModal url={preview.url} label={preview.label} onClose={() => setPreview(null)} />}
-
       {/* Delete confirm popup */}
       {deleteConfirm && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, backdropFilter: 'blur(4px)' }}>
@@ -311,13 +291,12 @@ export default function AdminPage() {
                         src={selected.artworkUrl || PLACEHOLDER}
                         alt="artwork"
                         onError={e => { (e.currentTarget as HTMLImageElement).src = PLACEHOLDER }}
-                        onClick={() => selected.artworkUrl && isS3(selected.artworkUrl) && setPreview({ url: selected.artworkUrl, label: 'Artwork' })}
-                        style={{ width: '100%', borderRadius: 12, maxHeight: 180, objectFit: 'cover', display: 'block', cursor: selected.artworkUrl && isS3(selected.artworkUrl) ? 'zoom-in' : 'default' }}
+                        style={{ width: '100%', borderRadius: 12, maxHeight: 180, objectFit: 'cover', display: 'block' }}
                       />
                       {selected.artworkUrl && isS3(selected.artworkUrl) && (
-                        <button onClick={() => setPreview({ url: selected.artworkUrl, label: 'Artwork' })} style={{ position: 'absolute', bottom: 8, right: 8, background: 'rgba(0,0,0,0.75)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 700, cursor: 'pointer' }}>
-                          🔍 Preview
-                        </button>
+                        <span style={{ position: 'absolute', bottom: 8, right: 8 }}>
+                          <FileButtons url={selected.artworkUrl} label="Artwork" />
+                        </span>
                       )}
                       {isCloudinary(selected.artworkUrl) && (
                         <span style={{ position: 'absolute', bottom: 8, left: 8, background: 'rgba(248,113,113,0.15)', color: '#F87171', border: '1px solid rgba(248,113,113,0.3)', borderRadius: 6, padding: '3px 8px', fontSize: 11, fontWeight: 700 }}>
@@ -357,7 +336,7 @@ export default function AdminPage() {
                             onClick={() => window.open(selected.audioUrl, '_blank', 'noopener')}
                             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#8899AA', padding: '10px 16px', borderRadius: 10, fontSize: 13, fontWeight: 700, cursor: 'pointer' }}
                           >
-                            ↗ Open in New Tab
+                            🎵 Listen in New Tab
                           </button>
                         </div>
                       ) : selected.audioUrl && isCloudinary(selected.audioUrl) ? (
@@ -389,13 +368,13 @@ export default function AdminPage() {
                         {selected.legalName && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Legal Name</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.legalName}</span></div>}
                         {selected.address && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Address</span><span style={{ color: '#E2E8F0', fontWeight: 600, maxWidth: '60%', textAlign: 'right' as const, wordBreak: 'break-word' as const }}>{selected.address}</span></div>}
                         {selected.clientType && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '5px 0', fontSize: 13 }}><span style={{ color: '#8899AA' }}>Client Type</span><span style={{ color: '#E2E8F0', fontWeight: 600 }}>{selected.clientType}</span></div>}
-                        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' as const, marginTop: 8 }}>
-                          {selected.panCardUrl && <button onClick={() => setPreview({ url: selected.panCardUrl, label: 'PAN Card' })} style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer' }}>🔍 PAN Card</button>}
-                          {selected.aadhaarFrontUrl && <button onClick={() => setPreview({ url: selected.aadhaarFrontUrl, label: 'Aadhaar Front' })} style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer' }}>🔍 Aadhaar Front</button>}
-                          {selected.aadhaarBackUrl && <button onClick={() => setPreview({ url: selected.aadhaarBackUrl, label: 'Aadhaar Back' })} style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer' }}>🔍 Aadhaar Back</button>}
-                          {selected.aadhaarVoterId && <button onClick={() => setPreview({ url: selected.aadhaarVoterId, label: 'Aadhaar (old)' })} style={{ background: '#5CB2DC', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer' }}>🔍 Aadhaar (old)</button>}
-                          {selected.gstUrl && <button onClick={() => setPreview({ url: selected.gstUrl, label: 'GST Certificate' })} style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer' }}>🔍 GST</button>}
-                          {selected.passportUrl && <button onClick={() => setPreview({ url: selected.passportUrl, label: 'Passport' })} style={{ background: '#0A64C3', color: '#fff', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, border: 'none', cursor: 'pointer' }}>🔍 Passport</button>}
+                        <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 8, marginTop: 8 }}>
+                          {selected.panCardUrl && <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><span style={{ fontSize: 12, color: '#8899AA', width: 100 }}>PAN Card</span><FileButtons url={selected.panCardUrl} label="PAN Card" color="#0A64C3" /></div>}
+                          {selected.aadhaarFrontUrl && <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><span style={{ fontSize: 12, color: '#8899AA', width: 100 }}>Aadhaar Front</span><FileButtons url={selected.aadhaarFrontUrl} label="Aadhaar Front" color="#5CB2DC" /></div>}
+                          {selected.aadhaarBackUrl && <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><span style={{ fontSize: 12, color: '#8899AA', width: 100 }}>Aadhaar Back</span><FileButtons url={selected.aadhaarBackUrl} label="Aadhaar Back" color="#5CB2DC" /></div>}
+                          {selected.aadhaarVoterId && <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><span style={{ fontSize: 12, color: '#8899AA', width: 100 }}>Aadhaar (old)</span><FileButtons url={selected.aadhaarVoterId} label="Aadhaar" color="#5CB2DC" /></div>}
+                          {selected.gstUrl && <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><span style={{ fontSize: 12, color: '#8899AA', width: 100 }}>GST</span><FileButtons url={selected.gstUrl} label="GST Certificate" color="#0A64C3" /></div>}
+                          {selected.passportUrl && <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><span style={{ fontSize: 12, color: '#8899AA', width: 100 }}>Passport</span><FileButtons url={selected.passportUrl} label="Passport" color="#0A64C3" /></div>}
                         </div>
                       </div>
                     )}
