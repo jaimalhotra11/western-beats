@@ -28,6 +28,7 @@ interface Submission {
   submittedAt: string
   updatedAt: string
   agreementStatus?: string
+  parentalAdvisory?: boolean
 }
 
 interface User {
@@ -167,6 +168,9 @@ export default function DashboardPage() {
                     <p style={{ color: '#8899AA', fontSize: 13, margin: 0 }}>{sub.artistName} · {sub.language}</p>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
+                    {sub.parentalAdvisory && (
+                      <span title="Parental Advisory — Explicit Content" style={{ background: 'rgba(255,255,255,0.08)', color: '#E2E8F0', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 4, padding: '2px 6px', fontSize: 11, fontWeight: 800, letterSpacing: 0.5 }}>E</span>
+                    )}
                     <span style={{ background: cfg.bg, color: cfg.color, border: `1px solid ${cfg.color}44`, borderRadius: 20, padding: '4px 12px', fontSize: 12, fontWeight: 700, whiteSpace: 'nowrap' as const }}>
                       {cfg.emoji} {sub.status}
                     </span>
@@ -225,6 +229,12 @@ export default function DashboardPage() {
                         <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, padding: '8px 14px' }}>
                           <p style={{ color: '#4A5568', fontSize: 10, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase' as const, margin: '0 0 3px' }}>Agreement</p>
                           <p style={{ color: agrColor, fontSize: 13, fontWeight: 700, margin: 0 }}>{sub.agreementStatus}</p>
+                        </div>
+                      )}
+                      {sub.parentalAdvisory && (
+                        <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, padding: '8px 14px' }}>
+                          <p style={{ color: '#4A5568', fontSize: 10, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase' as const, margin: '0 0 3px' }}>Parental Advisory</p>
+                          <p style={{ color: '#E2E8F0', fontSize: 13, fontWeight: 700, margin: 0 }}>Explicit Content</p>
                         </div>
                       )}
                       {sub.releaseDate && (

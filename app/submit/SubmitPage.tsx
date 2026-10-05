@@ -54,7 +54,7 @@ type FormFields = {
   director: string; mixer: string; producer: string; moods: string;
   labelName: string; upc: string; isrc: string;
   youtubeLink: string; instagramLink: string; spotifyLink: string; createSpotify: boolean;
-  songLyrics: string; youtubeContentId: string;
+  songLyrics: string; youtubeContentId: string; parentalAdvisory: boolean;
   driveLink: string; message: string;
   legalName: string; address: string; clientType: 'India' | 'International';
 }
@@ -65,7 +65,7 @@ const EMPTY: FormFields = {
   director: '', mixer: '', producer: '', moods: '',
   labelName: '', upc: '', isrc: '',
   youtubeLink: '', instagramLink: '', spotifyLink: '', createSpotify: false,
-  songLyrics: '', youtubeContentId: 'No Action',
+  songLyrics: '', youtubeContentId: 'No Action', parentalAdvisory: false,
   driveLink: '', message: '',
   legalName: '', address: '', clientType: 'India',
 }
@@ -834,6 +834,19 @@ export default function SubmitPage() {
                     <textarea value={fields.songLyrics} onChange={set('songLyrics')} rows={4}
                       placeholder="Paste your song lyrics here..."
                       className={`${inputCls} resize-none`} />
+                  </div>
+
+                  {/* Parental Advisory */}
+                  <div className="mb-4">
+                    <label className={labelCls}>Parental Advisory</label>
+                    <label className="flex items-start gap-2.5 cursor-pointer select-none">
+                      <input type="checkbox" checked={fields.parentalAdvisory}
+                        onChange={e => setFields(f => ({ ...f, parentalAdvisory: e.target.checked }))}
+                        className="mt-0.5 w-4 h-4 flex-shrink-0 rounded accent-blu cursor-pointer" />
+                      <span className="font-inter text-[13px] text-ice leading-relaxed">
+                        This track contains explicit content — strong language or abuses (gaaliyan), or references to violence, drugs or sexual content. It will be marked <strong style={{ color: '#fff' }}>Explicit</strong> on streaming platforms.
+                      </span>
+                    </label>
                   </div>
 
                   {/* Message */}

@@ -83,6 +83,7 @@ export async function POST(req: NextRequest) {
                     ['Producer', esc(body.producer) || '—'],
                     ['Label', esc(body.labelName) || '—'],
                     ['Moods', esc(body.moods) || '—'],
+                    ['Parental Advisory', body.parentalAdvisory ? 'Yes — Explicit' : 'No'],
                     ['Legal Name', esc(body.legalName) || '—'],
                     ['Client Type', esc(body.clientType) || '—'],
                     ['YouTube Content ID', esc(body.youtubeContentId) || '—'],

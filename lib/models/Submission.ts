@@ -29,6 +29,7 @@ export interface ISubmission extends Document {
   spotifyLink: string
   youtubeContentId: string
   songLyrics: string
+  parentalAdvisory: boolean
   message: string
   // KYC / Identity
   legalName: string
@@ -89,6 +90,7 @@ const SubmissionSchema = new Schema<ISubmission>({
   spotifyLink: { type: String, default: '' },
   youtubeContentId: { type: String, default: '' },
   songLyrics: { type: String, default: '' },
+  parentalAdvisory: { type: Boolean, default: false },
   message: { type: String, default: '' },
   legalName: { type: String, default: '' },
   address: { type: String, default: '' },

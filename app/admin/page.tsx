@@ -46,6 +46,7 @@ interface Submission {
   singer: string; lyricWriter: string; musicDirector: string; producer: string
   labelName: string; moods: string; youtubeLink: string; instagramLink: string
   spotifyLink: string; createSpotify?: boolean; youtubeContentId: string; message: string
+  parentalAdvisory?: boolean
   legalName: string; address: string; clientType: string
   panCardUrl: string; aadhaarFrontUrl: string; aadhaarBackUrl: string; aadhaarVoterId: string; gstUrl: string; passportUrl: string
   agreementStatus?: string; agreementSentAt?: string; subGenre?: string; adminNote?: string
@@ -253,6 +254,9 @@ export default function AdminPage() {
                   <p style={{ fontSize: 13, color: '#8899AA', margin: '0 0 6px' }}>{sub.artistName} · {sub.email}</p>
                   <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' as const, alignItems: 'center' }}>
                     <span style={{ display: 'inline-block', background: STATUS_COLOR[sub.status] + '22', color: STATUS_COLOR[sub.status], borderRadius: 20, padding: '2px 10px', fontSize: 12, fontWeight: 700 }}>{sub.status}</span>
+                    {sub.parentalAdvisory && (
+                      <span title="Parental Advisory — Explicit Content" style={{ display: 'inline-block', background: 'rgba(255,255,255,0.08)', color: '#E2E8F0', borderRadius: 20, padding: '2px 10px', fontSize: 11, fontWeight: 700 }}>Explicit</span>
+                    )}
                     {sub.agreementStatus && sub.agreementStatus !== 'Not Sent' && (
                       <span style={{ display: 'inline-block', background: (AGREEMENT_COLOR[sub.agreementStatus] || '#4A5568') + '22', color: AGREEMENT_COLOR[sub.agreementStatus] || '#4A5568', borderRadius: 20, padding: '2px 10px', fontSize: 11, fontWeight: 700 }}>{sub.agreementStatus}</span>
                     )}
@@ -314,6 +318,7 @@ export default function AdminPage() {
                         ['Lyric Writer', selected.lyricWriter || '—'], ['Music Director', selected.musicDirector || '—'],
                         ['Producer', selected.producer || '—'], ['Label', selected.labelName || '—'],
                         ['Moods', selected.moods || '—'], ['YT Content ID', selected.youtubeContentId || '—'],
+                        ['Parental Advisory', selected.parentalAdvisory ? 'Yes — Explicit' : 'No'],
                       ].map(([l, v]) => (
                         <div key={l} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13 }}>
                           <span style={{ color: '#8899AA', flexShrink: 0, marginRight: 8 }}>{l}</span>
