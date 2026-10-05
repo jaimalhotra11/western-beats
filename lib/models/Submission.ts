@@ -27,6 +27,7 @@ export interface ISubmission extends Document {
   youtubeLink: string
   instagramLink: string
   spotifyLink: string
+  createSpotify: boolean
   youtubeContentId: string
   songLyrics: string
   parentalAdvisory: boolean
@@ -88,6 +89,7 @@ const SubmissionSchema = new Schema<ISubmission>({
   youtubeLink: { type: String, default: '' },
   instagramLink: { type: String, default: '' },
   spotifyLink: { type: String, default: '' },
+  createSpotify: { type: Boolean, default: false },
   youtubeContentId: { type: String, default: '' },
   songLyrics: { type: String, default: '' },
   parentalAdvisory: { type: Boolean, default: false },

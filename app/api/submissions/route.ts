@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
                     ['YouTube Content ID', esc(body.youtubeContentId) || '—'],
                     ['YouTube', esc(body.youtubeLink) || '—'],
                     ['Instagram', esc(body.instagramLink) || '—'],
-                    ['Spotify Profile', esc(body.spotifyLink) || '—'],
+                    ['Spotify Profile', esc(body.spotifyLink) || (body.createSpotify ? 'Create profile requested' : '—')],
                   ].map(([label, value]) => `
                     <tr>
                       <td style="padding:8px 0;color:#8899AA;font-size:13px;width:40%;vertical-align:top;">${label}</td>
