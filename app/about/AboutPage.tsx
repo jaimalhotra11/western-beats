@@ -1422,6 +1422,13 @@ export default function AboutPage() {
           </div>
           <div className="font-inter text-[12px] text-mut text-center">
             © 2026 Western Beats Private Limited. All rights reserved. · Official Distribution Partner @warnermusicindia
+            <div className="mt-1.5">
+              Built by{' '}
+              <a href="https://www.thebrandberry.com/" target="_blank" rel="noopener noreferrer"
+                className="text-sky hover:text-white transition-colors duration-200">
+                The BrandBerry
+              </a>
+            </div>
           </div>
           <div className="flex items-center gap-5">
             <Link href="/" className="font-inter text-[12px] text-mut hover:text-white transition-colors">Home</Link>

@@ -127,6 +127,13 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="font-inter text-[12px] text-mut">
             © 2026 Western Beats Private Limited. All rights reserved. · Official Warner Music India Partner
+            <div className="mt-1.5 text-center sm:text-left">
+              Built by{' '}
+              <a href="https://www.thebrandberry.com/" target="_blank" rel="noopener noreferrer"
+                className="text-sky hover:text-white transition-colors duration-200">
+                The BrandBerry
+              </a>
+            </div>
           </div>
           <button onClick={scrollTop}
             className="flex items-center gap-2 font-inter text-[12px] text-mut hover:text-white transition-colors duration-200 group">

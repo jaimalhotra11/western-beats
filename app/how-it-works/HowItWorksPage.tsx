@@ -431,7 +431,16 @@ export default function HowItWorksPage() {
       {/* Footer */}
       <footer className="border-t border-white/[0.06] py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="font-inter text-[12px] text-mut">© 2025 Western Beats Private Limited · Western Beats</div>
+          <div className="font-inter text-[12px] text-mut">
+            © 2025 Western Beats Private Limited · Western Beats
+            <div className="mt-1.5 text-center sm:text-left">
+              Built by{' '}
+              <a href="https://www.thebrandberry.com/" target="_blank" rel="noopener noreferrer"
+                className="text-sky hover:text-white transition-colors duration-200">
+                The BrandBerry
+              </a>
+            </div>
+          </div>
           <div className="flex items-center gap-5">
             {[
               { href: '/', label: 'Home' },
