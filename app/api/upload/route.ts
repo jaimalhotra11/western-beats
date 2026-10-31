@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
+import { randomUUID } from 'crypto'
 
 export const maxDuration = 30
 export const dynamic = 'force-dynamic'
@@ -43,7 +44,8 @@ export async function POST(req: NextRequest) {
     }
 
     const ext = fileName.split('.').pop()?.toLowerCase() || (type === 'audio' ? 'wav' : 'jpg')
-    const key = `submissions/${type}-${Date.now()}.${ext}`
+    // Random suffix: parallel uploads in the same millisecond used to get the same key and overwrite each other
+    const key = `submissions/${type}-${Date.now()}-${randomUUID().slice(0, 8)}.${ext}`
 
     const command = new PutObjectCommand({
       Bucket: BUCKET,

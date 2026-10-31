@@ -143,25 +143,51 @@ export default function SubmitPage() {
     setFields(f => ({ ...f, [k]: e.target.value }))
 
 
-  async function uploadFile(file: File, type: 'audio' | 'artwork' | 'document') {
-    // Step 1: get a presigned S3 URL from our API (tiny JSON request, no file body)
-    const res = await fetch('/api/upload', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ type, contentType: file.type, fileName: file.name }),
-    })
-    const data = await res.json()
-    if (!res.ok) throw new Error(data.error || 'Upload failed')
+  // Files already uploaded in this session, so a retry after a failure only re-sends what didn't make it
+  const uploadedRef = useRef(new Map<File, { url: string; publicId: string }>())
 
-    // Step 2: PUT the file directly to S3 (bypasses Vercel body limit entirely)
-    const s3Res = await fetch(data.uploadUrl, {
-      method: 'PUT',
-      headers: { 'Content-Type': file.type },
-      body: file,
-    })
-    if (!s3Res.ok) throw new Error('Failed to upload file to storage')
+  // fetch() throws a TypeError ("Failed to fetch") on network drops — retry those a couple of times
+  async function fetchWithRetry(url: string, init: RequestInit, attempts = 3): Promise<Response> {
+    for (let i = 1; ; i++) {
+      try {
+        return await fetch(url, init)
+      } catch (err) {
+        if (!(err instanceof TypeError) || i >= attempts) throw err
+        await new Promise(r => setTimeout(r, 1500 * i))
+      }
+    }
+  }
 
-    return { url: data.secure_url as string, publicId: data.public_id as string }
+  async function uploadFile(file: File, type: 'audio' | 'artwork' | 'document', label: string) {
+    const cached = uploadedRef.current.get(file)
+    if (cached) return cached
+    try {
+      // Step 1: get a presigned S3 URL from our API (tiny JSON request, no file body)
+      const res = await fetchWithRetry('/api/upload', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type, contentType: file.type, fileName: file.name }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || `Could not upload your ${label}.`)
+
+      // Step 2: PUT the file directly to S3 (bypasses Vercel body limit entirely)
+      const s3Res = await fetchWithRetry(data.uploadUrl, {
+        method: 'PUT',
+        headers: { 'Content-Type': file.type },
+        body: file,
+      })
+      if (!s3Res.ok) throw new Error(`Could not upload your ${label} to storage. Please try again.`)
+
+      const result = { url: data.secure_url as string, publicId: data.public_id as string }
+      uploadedRef.current.set(file, result)
+      return result
+    } catch (err) {
+      if (err instanceof TypeError) {
+        throw new Error(`Couldn't upload your ${label} — the connection dropped. Please check your internet and press Submit again. If it keeps failing, re-select the ${label} file.`)
+      }
+      throw err
+    }
   }
 
 
@@ -1056,20 +1082,19 @@ export default function SubmitPage() {
                     setReleaseDateError(''); setTermsError(''); setAiError(''); setInstagramError(''); setSpotifyError('')
                     setStatus('loading'); setErrorMsg('')
                     try {
-                      setUploadProgress('Uploading audio & artwork...')
-                      const [audio, artwork] = await Promise.all([
-                        uploadFile(audioFile!, 'audio'),
-                        uploadFile(artworkFile!, 'artwork'),
-                      ])
+                      // Small files first, the (often 100MB+) audio last
                       const empty = { url: '', publicId: '' }
-                      setUploadProgress('Uploading documents...')
-                      const [panCard, aadhaarFront, aadhaarBack, gst, passport] = await Promise.all([
-                        panCardFile    ? uploadFile(panCardFile, 'document')    : Promise.resolve(empty),
-                        aadhaarFrontFile ? uploadFile(aadhaarFrontFile, 'document') : Promise.resolve(empty),
-                        aadhaarBackFile  ? uploadFile(aadhaarBackFile, 'document')  : Promise.resolve(empty),
-                        gstFile        ? uploadFile(gstFile, 'document')        : Promise.resolve(empty),
-                        passportFile   ? uploadFile(passportFile, 'document')   : Promise.resolve(empty),
+                      setUploadProgress('Uploading documents & artwork...')
+                      const [artwork, panCard, aadhaarFront, aadhaarBack, gst, passport] = await Promise.all([
+                        uploadFile(artworkFile!, 'artwork', 'artwork'),
+                        panCardFile      ? uploadFile(panCardFile, 'document', 'PAN card')           : Promise.resolve(empty),
+                        aadhaarFrontFile ? uploadFile(aadhaarFrontFile, 'document', 'Aadhaar front') : Promise.resolve(empty),
+                        aadhaarBackFile  ? uploadFile(aadhaarBackFile, 'document', 'Aadhaar back')   : Promise.resolve(empty),
+                        gstFile          ? uploadFile(gstFile, 'document', 'GST certificate')        : Promise.resolve(empty),
+                        passportFile     ? uploadFile(passportFile, 'document', 'passport')          : Promise.resolve(empty),
                       ])
+                      setUploadProgress('Uploading audio — large WAV files can take a few minutes, please keep this page open...')
+                      const audio = await uploadFile(audioFile!, 'audio', 'audio file')
                       setUploadProgress('Saving your submission...')
                       const res = await fetch('/api/submissions', {
                         method: 'POST',
@@ -1091,7 +1116,10 @@ export default function SubmitPage() {
                       setStatus('success')
                       setPendingSubmit(false)
                     } catch (err: unknown) {
-                      const message = err instanceof Error ? err.message : 'Unknown error'
+                      // Only the final save can still throw a raw network TypeError (uploads wrap theirs)
+                      const message = err instanceof TypeError
+                        ? 'The connection dropped while saving your submission. Please check My Submissions on your dashboard before submitting again, so it isn\'t sent twice.'
+                        : err instanceof Error ? err.message : 'Unknown error'
                       setErrorMsg(message)
                       setStatus('error')
                       setPendingSubmit(false)
