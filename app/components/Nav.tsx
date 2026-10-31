@@ -141,7 +141,16 @@ export default function Nav() {
                       onMouseEnter={e => (e.currentTarget.style.background = 'rgba(10,100,195,0.15)')}
                       onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
                     >
-                      <span style={{ fontSize: 15 }}>🎵</span> Submit Track
+                      <span style={{ fontSize: 15 }}>🎵</span> Submit Single
+                    </Link>
+                    <Link
+                      href="/release"
+                      onClick={() => setUserMenuOpen(false)}
+                      style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '9px 12px', borderRadius: 8, color: '#E2E8F0', fontSize: 13, fontWeight: 600, textDecoration: 'none', transition: 'background 0.15s' }}
+                      onMouseEnter={e => (e.currentTarget.style.background = 'rgba(10,100,195,0.15)')}
+                      onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+                    >
+                      <span style={{ fontSize: 15 }}>💿</span> Release EP / Album
                     </Link>
                     <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: 6, paddingTop: 6 }}>
                       <button
