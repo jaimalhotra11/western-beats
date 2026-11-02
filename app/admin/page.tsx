@@ -49,6 +49,7 @@ interface Submission {
   legalName: string; address: string; clientType: string
   panCardUrl: string; aadhaarFrontUrl: string; aadhaarBackUrl: string; aadhaarVoterId: string; gstUrl: string; passportUrl: string
   agreementStatus?: string; agreementSentAt?: string; subGenre?: string; adminNote?: string
+  parentalAdvisory?: boolean
 }
 
 interface Track {
@@ -205,6 +206,9 @@ function SubmissionsPanel({ password }: { password: string }) {
                   {sub.agreementStatus && sub.agreementStatus !== 'Not Sent' && (
                     <span style={{ display: 'inline-block', background: (AGREEMENT_COLOR[sub.agreementStatus] || '#4A5568') + '22', color: AGREEMENT_COLOR[sub.agreementStatus] || '#4A5568', borderRadius: 20, padding: '2px 10px', fontSize: 11, fontWeight: 700 }}>{sub.agreementStatus}</span>
                   )}
+                  {sub.parentalAdvisory && (
+                    <span style={{ display: 'inline-block', background: 'rgba(248,113,113,0.15)', color: '#F87171', border: '1px solid rgba(248,113,113,0.3)', borderRadius: 20, padding: '2px 10px', fontSize: 11, fontWeight: 800 }}>E EXPLICIT</span>
+                  )}
                 </div>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
@@ -236,7 +240,7 @@ function SubmissionsPanel({ password }: { password: string }) {
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 24px' }}>
-                    {[['Track', selected.trackName],['Artist', selected.artistName],['Email', selected.email],['Phone', selected.phone || '—'],['Genre', selected.genre || '—'],['Language', selected.language || '—'],['Release Date', selected.releaseDate || '—'],['Singer', selected.singer || '—'],['Lyric Writer', selected.lyricWriter || '—'],['Music Director', selected.musicDirector || '—'],['Producer', selected.producer || '—'],['Label', selected.labelName || '—'],['Moods', selected.moods || '—'],['YT Content ID', selected.youtubeContentId || '—']].map(([l, v]) => (
+                    {[['Track', selected.trackName],['Artist', selected.artistName],['Email', selected.email],['Phone', selected.phone || '—'],['Genre', selected.genre || '—'],['Language', selected.language || '—'],['Release Date', selected.releaseDate || '—'],['Singer', selected.singer || '—'],['Lyric Writer', selected.lyricWriter || '—'],['Music Director', selected.musicDirector || '—'],['Producer', selected.producer || '—'],['Label', selected.labelName || '—'],['Moods', selected.moods || '—'],['YT Content ID', selected.youtubeContentId || '—'],['Parental Advisory', selected.parentalAdvisory ? 'Explicit Content' : 'Clean']].map(([l, v]) => (
                       <div key={l} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13 }}>
                         <span style={{ color: '#8899AA', flexShrink: 0, marginRight: 8 }}>{l}</span>
                         <span style={{ color: '#E2E8F0', fontWeight: 600, textAlign: 'right', wordBreak: 'break-word' }}>{v}</span>
