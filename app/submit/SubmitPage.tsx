@@ -383,6 +383,22 @@ export default function SubmitPage() {
                     </div>
                   </div>
 
+                  {/* Release type: Single (this form) or EP / Album (/release) */}
+                  <div className="mb-6">
+                    <div className={labelCls}>What are you releasing?</div>
+                    <div className="grid grid-cols-2 gap-2 p-1 rounded-xl" style={{ background: '#060D1F', border: '1px solid rgba(255,255,255,0.07)' }}>
+                      <div aria-current="page" className="flex items-center justify-center gap-2 rounded-lg py-2.5 font-outfit font-bold text-[13px] text-white"
+                        style={{ background: '#0A64C3' }}>
+                        <span>🎵</span> Single Track
+                      </div>
+                      <Link href="/release"
+                        className="flex items-center justify-center gap-2 rounded-lg py-2.5 font-outfit font-bold text-[13px] text-[#8899AA] hover:text-white hover:bg-white/[0.06] transition-colors duration-200">
+                        <span>💿</span> EP / Album <ArrowRight size={13} />
+                      </Link>
+                    </div>
+                    <p className="font-inter text-[11px] text-mut mt-1.5">Releasing more than one track together? Choose EP / Album.</p>
+                  </div>
+
                   {/* AI Rejection Warning Banner */}
                   <div className="mb-6 rounded-xl overflow-hidden" style={{ border: '1px solid rgba(196,18,48,0.5)', background: 'rgba(196,18,48,0.07)' }}>
                     <div className="flex items-center gap-2 px-4 py-2" style={{ background: 'rgba(196,18,48,0.2)', borderBottom: '1px solid rgba(196,18,48,0.3)' }}>
