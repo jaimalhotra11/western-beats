@@ -350,6 +350,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/blog/how-to-release-ep-album-india`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/blog/explicit-content-parental-advisory-music-india`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/blog/song-release-checklist-india`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/blog/how-to-upload-song-on-apple-music-india`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
 
     /* ── New Landing Pages (July 2026) ──────────────── */
     {

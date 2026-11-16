@@ -305,8 +305,8 @@ export default function SubmitPage() {
               {/* WMI badge */}
               <div className="flex items-center gap-4 rounded-xl p-4 mt-5"
                 style={{ background: 'rgba(10,100,195,0.08)', border: '1px solid rgba(10,100,195,0.2)' }}>
-                <div className="relative w-10 h-9 rounded-lg overflow-hidden bg-white p-0.5 flex-shrink-0">
-                  <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India Partner" fill sizes="40px" className="object-contain" />
+                <div className="relative w-11 h-11 rounded-lg overflow-hidden flex-shrink-0" style={{ background: '#040A14' }}>
+                  <Image src="/partners/warnermusicindia-3pJs86tg.png" alt="Warner Music India Partner" fill sizes="44px" className="object-contain scale-[1.6]" />
                 </div>
                 <div>
                   <div className="font-outfit font-extrabold text-white text-[13px]">Warner Music India Partner</div>

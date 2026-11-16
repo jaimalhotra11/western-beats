@@ -42,6 +42,42 @@ const SCHEMA = {
 
 const POSTS = [
   {
+    slug: 'how-to-release-ep-album-india',
+    title: "How to Release an EP or Album in India 2026 — Complete Guide for Independent Artists",
+    excerpt: "Step-by-step guide to releasing an EP or full album in India — track count rules, ISRC and UPC codes, artwork, release planning and free distribution to JioSaavn, Spotify, Apple Music and 150+ platforms.",
+    tag: "EP & Album",
+    color: '#5CB2DC',
+    readTime: '8 min read',
+    date: 'November 2026',
+  },
+  {
+    slug: 'explicit-content-parental-advisory-music-india',
+    title: "Explicit Content & Parental Advisory for Songs in India — When to Mark Your Track Explicit",
+    excerpt: "When should Indian artists mark a song explicit? A guide to the parental advisory label on Spotify, Apple Music and JioSaavn — gaaliyan, violence, drugs, clean versions and what happens if you don't tag it.",
+    tag: "Content Guidelines",
+    color: '#F87171',
+    readTime: '6 min read',
+    date: 'November 2026',
+  },
+  {
+    slug: 'song-release-checklist-india',
+    title: "Song Release Checklist India 2026 — What to Do 4 Weeks Before to 4 Weeks After Release",
+    excerpt: "A week-by-week song release checklist for Indian independent artists — audio, artwork, metadata, distribution, playlist pitching, Reels and post-release promotion for JioSaavn, Spotify and YouTube Music.",
+    tag: "Release Planning",
+    color: '#34D399',
+    readTime: '7 min read',
+    date: 'November 2026',
+  },
+  {
+    slug: 'how-to-upload-song-on-apple-music-india',
+    title: "How to Upload Your Song on Apple Music in India 2026 — Free Step-by-Step Guide",
+    excerpt: "How independent artists in India can get their songs on Apple Music for free — file requirements, using a distributor, claiming Apple Music for Artists and growing your listeners.",
+    tag: "Apple Music Guide",
+    color: '#FA586A',
+    readTime: '6 min read',
+    date: 'November 2026',
+  },
+  {
     slug: 'how-to-distribute-music-india-free',
     title: 'How to Distribute Your Music in India for Free in 2026 — Complete Guide',
     excerpt: 'A complete step-by-step guide for Indian independent artists to distribute their music to 150+ platforms including JioSaavn, Gaana, Spotify, and Apple Music — at zero cost.',
