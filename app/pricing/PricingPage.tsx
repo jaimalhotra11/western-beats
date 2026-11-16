@@ -172,6 +172,10 @@ const FAQS = [
     q: 'Are there any hidden fees I should know about?',
     a: 'No hidden fees. Free means free, no premium tier required for basic features, no charge for ISRC/UPC codes, no take-down fees if you want to remove a release, no fee to update metadata. What you see is exactly what you get.',
   },
+  {
+    q: 'How long does it take to take down a song?',
+    a: 'A takedown takes around 1 month to complete. Once we send the removal request, each platform processes it on its own schedule, so your song may disappear from some platforms sooner than others.',
+  },
 ]
 
 function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
