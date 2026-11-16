@@ -121,7 +121,7 @@ const jsonLd = {
           name: 'Can I remove my music from Western Beats?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'After the 12-month lock-in period, you may request termination by contacting WB. Upon termination, WB has a 30-day cool-off period to remove Content from all Distribution Methods. Takedowns take approximately 1 month to complete across all platforms. All accrued royalties owed to you are paid out per the regular schedule.',
+            text: 'After the 12-month lock-in period, you may request termination by contacting WB. Upon termination, WB has a 3-month cool-off period to remove Content from all Distribution Methods. Takedowns take approximately 1 month to complete across all platforms. All accrued royalties owed to you are paid out per the regular schedule.',
           },
         },
         {
