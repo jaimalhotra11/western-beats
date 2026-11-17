@@ -72,123 +72,18 @@ const DISTRIBUTORS: Distributor[] = [
     ],
   },
   {
-    name: 'DistroKid',
+    name: 'Other Distributors',
     isUs: false,
     data: [
-      '$22.99/yr (₹1,900+)',
-      '100%',
+      'Annual fee or per-release charges',
+      'Varies by plan',
       false,
       false,
-      '7–10 Days',
-      '150+',
-      'Free Included',
-      false,
-      'Ticket Only',
-    ],
-  },
-  {
-    name: 'TuneCore',
-    isUs: false,
-    data: [
-      '$14.99/release (₹1,250+)',
-      '100%',
-      false,
-      false,
-      '7–10 Days',
-      '150+',
-      'Free Included',
-      false,
-      'Ticket Only',
-    ],
-  },
-  {
-    name: 'CD Baby',
-    isUs: false,
-    data: [
-      '$9.99/release (₹830+)',
-      '91% (takes 9%)',
-      false,
-      false,
-      '5–7 Days',
-      '150+',
-      '$5/each',
-      false,
-      'Email Only',
-    ],
-  },
-  {
-    name: 'Ditto Music',
-    isUs: false,
-    data: [
-      '£19/yr (₹2,000+)',
-      '100%',
-      false,
-      false,
-      '3–5 Days',
-      '150+',
-      'Free Included',
-      false,
-      'Email Only',
-    ],
-  },
-  {
-    name: 'Believe',
-    isUs: false,
-    data: [
-      '15–25% revenue share',
-      '70–85%',
-      false,
-      false,
-      '5–7 Days',
-      '100+',
-      'Free Included',
-      false,
-      'Account Manager',
-    ],
-  },
-  {
-    name: 'The Orchard',
-    isUs: false,
-    data: [
-      'Label / Enterprise only',
-      'Revenue Share',
-      false,
-      false,
+      '3–10 Days',
       'Varies',
-      '200+',
-      'Free Included',
-      true,
-      'Account Manager',
-    ],
-  },
-  {
-    name: 'Mad Verse',
-    isUs: false,
-    data: [
-      'Paid Plans',
       'Varies',
       false,
-      false,
-      'Varies',
-      'Limited',
-      'Varies',
-      false,
-      'Limited',
-    ],
-  },
-  {
-    name: 'Fore Vision Digital',
-    isUs: false,
-    data: [
-      'Paid Plans',
-      'Varies',
-      false,
-      false,
-      'Varies',
-      'Limited',
-      'Varies',
-      false,
-      'Limited',
+      'Ticket / Email',
     ],
   },
 ]
@@ -729,8 +624,7 @@ export default function AboutPage() {
               className="speakable font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl mx-auto"
             >
               Western Beats is India&apos;s only free distribution platform with an exclusive Warner Music India Partnership —
-              a backing that no other distributor (DistroKid, TuneCore, CD Baby, Ditto Music,
-              Believe, Orchard, Mad Verse, or Fore Vision Digital) can match.
+              a backing that no other distributor can match.
             </motion.p>
           </div>
 
@@ -863,8 +757,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
               className="font-inter text-[15px] sm:text-[16px] text-mut leading-relaxed max-w-2xl mx-auto"
             >
-              Compare Western Beats against DistroKid, TuneCore, CD Baby, Ditto Music, Believe, The Orchard,
-              Mad Verse &amp; Fore Vision Digital, and see why the answer is clear.
+              Compare Western Beats against other music distributors and see why the answer is clear.
             </motion.p>
           </div>
 
