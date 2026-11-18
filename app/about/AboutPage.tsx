@@ -68,7 +68,7 @@ const DISTRIBUTORS: Distributor[] = [
       '150+',
       'Free Included',
       true,
-      '24/7 DM Support',
+      'DM Support, Mon–Fri',
     ],
   },
   {
@@ -900,6 +900,10 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
+
+          <p className="font-inter text-[13px] text-mut text-center mt-8">
+            Our support team works Monday to Friday. We&apos;re off on Saturday and Sunday, so messages sent over the weekend are answered on the next working day.
+          </p>
 
           {/* CTA below table */}
           <motion.div

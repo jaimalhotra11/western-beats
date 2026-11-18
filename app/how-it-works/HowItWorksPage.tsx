@@ -90,7 +90,7 @@ const WHY_ITEMS = [
   { icon: Music2,    color: '#5CB2DC', title: "Major-Label Reach",  desc: 'Our Warner Music India Partnership means major-label quality standards and distribution reach — without major-label restrictions — for every independent artist.' },
   { icon: BarChart3, color: '#0A64C3', title: 'Real-Time Analytics',      desc: 'Live streaming data, audience demographics, playlist tracking, and revenue reporting across all 150+ platforms.' },
   { icon: FileText,  color: '#C41230', title: 'Free ISRC & UPC Codes',    desc: 'We generate your ISRC and UPC codes at no cost; DistroKid charges extra, CD Baby charges $5 each.' },
-  { icon: Clock,     color: '#5CB2DC', title: '24/7 Artist Support',      desc: 'Direct WhatsApp and email support, not a ticket system. Real people, real answers within hours.' },
+  { icon: Clock,     color: '#5CB2DC', title: 'Real Artist Support',      desc: 'Direct WhatsApp and email support, not a ticket system. Real people, Monday to Friday. We\'re off on weekends, so weekend messages are answered on the next working day.' },
 ]
 
 export default function HowItWorksPage() {

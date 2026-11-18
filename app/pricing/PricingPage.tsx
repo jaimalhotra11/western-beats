@@ -46,7 +46,7 @@ const DISTRIBUTORS = [
       '72 Hours',
       'Free Included',
       true,
-      'WhatsApp + Email 24/7',
+      'WhatsApp + Email, Mon–Fri',
       true,
     ],
   },
