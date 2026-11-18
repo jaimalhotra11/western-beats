@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'YouTube Music Royalties India 2026 — How Much Do You Earn? | Western Beats',
+  title: 'YouTube Music Royalties India 2026 — How Much Do You Earn?',
   description: 'How much does YouTube Music pay per stream in India in 2026? Learn YouTube Music royalty rates, how Content ID works, and how to earn more from YouTube as an Indian artist.',
   keywords: [
     'YouTube Music royalties India 2026',

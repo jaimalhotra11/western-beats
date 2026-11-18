@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Spotify Royalties India 2026 — How Much Does Spotify Pay Per Stream? | Western Beats',
+  title: 'Spotify Royalties India 2026 — How Much Does Spotify Pay Per Stream?',
   description: 'Exact Spotify royalty rates for India in 2026. How much Spotify pays per stream, comparison with JioSaavn and Gaana rates, earnings calculator, and how to maximise your streaming income as an Indian artist.',
   keywords: [
     'spotify royalty rate india 2026',

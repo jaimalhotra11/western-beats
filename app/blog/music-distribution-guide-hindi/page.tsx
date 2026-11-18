@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Hindi Music Distribution India 2026 — Complete Guide for Independent Artists | Western Beats',
+  title: 'Hindi Music Distribution India 2026 — Complete Guide for Independent Artists',
   description: 'Complete guide to Hindi music distribution in India for independent artists in 2026. How to get on JioSaavn, Gaana, Spotify, Jio Caller Tune, and maximise royalties from Hindi music streaming.',
   keywords: [
     'hindi music distribution guide india 2026',

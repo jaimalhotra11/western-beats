@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Music Distribution Blog India 2026 — Guides, Tips & Tutorials | Western Beats',
+  title: 'Music Distribution Blog India 2026 — Guides, Tips & Tutorials',
   description: 'Free guides for independent artists in India: how to distribute music online, get on JioSaavn & Spotify free, understand ISRC codes, caller tune distribution, and earn more royalties in 2026.',
   keywords: [
     'music distribution guide India 2026',

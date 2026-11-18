@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import RoyaltyCalculatorClient from './RoyaltyCalculatorClient'
 
 export const metadata: Metadata = {
-  title: 'Free Music Royalty Calculator India 2026 — Spotify, JioSaavn, YouTube | Western Beats',
+  title: 'Free Music Royalty Calculator India 2026 — Spotify, JioSaavn, YouTube',
   description: 'Calculate your estimated music royalties from Spotify, JioSaavn, Apple Music, YouTube Music, Gaana and more. Free streaming royalty calculator for Indian independent artists 2026.',
   keywords: [
     'music royalty calculator India',

@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Get Your Song on YouTube Music Free India 2026 | Western Beats',
+  title: 'Get Your Song on YouTube Music Free India 2026',
   description: 'Distribute your music to YouTube Music India free in 72 hours with Western Beats. Also covers JioSaavn, Gaana, Spotify, Apple Music & 150+ platforms. 100% ownership, ₹0 upfront. Official Warner Music India Partner.',
   keywords: [
     'YouTube Music distribution India free',

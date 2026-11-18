@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How to Get on JioSaavn Playlists 2026 — Complete Guide | Western Beats',
+  title: 'How to Get on JioSaavn Playlists 2026 — Complete Guide',
   description: 'Step-by-step guide to getting your music on JioSaavn editorial playlists in 2026. Learn how to pitch to JioSaavn India, get featured on Hindi, Punjabi and regional playlists.',
   keywords: ['how to get on JioSaavn playlists','JioSaavn editorial playlist','JioSaavn playlist submission','get music on JioSaavn India','JioSaavn playlist pitch','JioSaavn featured artists India','JioSaavn playlist curator'],
   alternates: { canonical: 'https://www.westernbeats.com/blog/how-to-get-on-jiosaavn-playlists' },

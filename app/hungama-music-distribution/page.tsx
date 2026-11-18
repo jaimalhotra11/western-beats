@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Get Your Song on Hungama Music Free India 2026 | Western Beats',
+  title: 'Get Your Song on Hungama Music Free India 2026',
   description: 'Distribute your music to Hungama Music India free in 72 hours. Western Beats covers Hungama, JioSaavn, Gaana, Spotify, Apple Music & 150+ platforms. 100% ownership, ₹0 upfront.',
   keywords: [
     'Hungama Music distribution India free',

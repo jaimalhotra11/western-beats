@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Upload Music Online Free India 2026 | Western Beats',
+  title: 'Upload Music Online Free India 2026',
   description: 'Upload your music online free in India and get it on Spotify, JioSaavn, Apple Music, Gaana and 150+ platforms. Step-by-step beginner guide. 100% ownership. Submit free.',
   keywords: [
     'upload music online free india',

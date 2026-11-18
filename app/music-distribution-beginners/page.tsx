@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Music Distribution for Beginners India 2026 — First-Time Artist Guide | Western Beats',
+  title: 'Music Distribution for Beginners India 2026 — First-Time Artist Guide',
   description: 'First time distributing your music in India? Complete beginner guide: what you need, how to prepare your files, how to pick the right distributor, and how to go live on JioSaavn & Spotify free in 72 hours.',
   keywords: [
     'music distribution for beginners India',

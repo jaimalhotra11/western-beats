@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Caller Tune & CRBT Distribution India 2026 — Get Your Song as Jio & Airtel Caller Tune | Western Beats',
+  title: 'Caller Tune & CRBT Distribution India 2026 — Get Your Song as Jio & Airtel Caller Tune',
   description: 'Complete guide to CRBT (Caller Ring Back Tone) distribution in India. How to get your song as a Jio caller tune, Airtel Hello Tune, Vi Hello Tune and BSNL caller tune — free for independent artists.',
   keywords: [
     'caller tune distribution India',

@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Why DistroKid Doesn\'t Work for Indian Artists — Better Alternative 2026 | Western Beats',
+  title: 'Why DistroKid Doesn\'t Work for Indian Artists — Better Alternative 2026',
   description: 'DistroKid charges $22.99/year, skips JioSaavn and Gaana, has no caller tune support, and offers zero India-specific support. Here\'s why Indian independent artists are switching to Western Beats.',
   keywords: [
     'DistroKid India problems',

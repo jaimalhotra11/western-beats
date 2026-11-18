@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Haryanvi Music Distribution India Free 2026 — JioSaavn, Gaana, Spotify | Western Beats',
+  title: 'Haryanvi Music Distribution India Free 2026 — JioSaavn, Gaana, Spotify',
   description: 'Distribute your Haryanvi songs free to JioSaavn, Gaana, Spotify, Jio Caller Tune and 150+ platforms in 72 hours. Haryanvi music is India\'s fastest-growing genre at +35% YoY.',
   keywords: [
     'Haryanvi music distribution India free',

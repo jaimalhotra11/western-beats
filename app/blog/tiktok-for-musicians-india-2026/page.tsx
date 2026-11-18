@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'TikTok for Musicians India 2026 — Complete Growth Guide | Western Beats',
+  title: 'TikTok for Musicians India 2026 — Complete Growth Guide',
   description: 'How Indian independent artists can use TikTok to grow streams, gain followers and go viral in 2026. TikTok music strategy, trending sounds, and how to get your song used in TikTok videos.',
   keywords: ['TikTok for musicians India 2026','TikTok music strategy India','how to go viral on TikTok India music','TikTok India musician tips','TikTok sounds India','TikTok music distribution India','grow music career TikTok India'],
   alternates: { canonical: 'https://www.westernbeats.com/blog/tiktok-for-musicians-india-2026' },

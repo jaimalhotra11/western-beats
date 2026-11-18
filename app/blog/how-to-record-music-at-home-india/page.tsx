@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How to Record Music at Home India 2026 — Budget Home Studio Guide | Western Beats',
+  title: 'How to Record Music at Home India 2026 — Budget Home Studio Guide',
   description: 'Complete guide to setting up a home recording studio in India on any budget. DAW software, microphones, audio interfaces, acoustic treatment — everything independent Indian artists need to record professional music at home.',
   keywords: ['how to record music at home India','home studio setup India','best DAW India 2026','home recording studio India budget','audio interface India','condenser microphone India recording','home recording tips India','record music laptop India'],
   alternates: { canonical: 'https://www.westernbeats.com/blog/how-to-record-music-at-home-india' },

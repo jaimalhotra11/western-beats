@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How to Get Your First 1,000 Streams on Spotify India 2026 | Western Beats',
+  title: 'How to Get Your First 1,000 Streams on Spotify India 2026',
   description: 'Proven step-by-step strategy for independent Indian artists to reach 1,000 streams on Spotify — pre-save campaigns, playlist pitching, social funnels and metadata tips.',
   keywords: ['how to get 1000 streams Spotify India','first 1000 streams Spotify India','Spotify streams India independent artist','grow Spotify India 2026','Spotify streams tips India','how to get more streams Spotify India'],
   alternates: { canonical: 'https://www.westernbeats.com/blog/how-to-get-first-1000-streams-spotify-india' },

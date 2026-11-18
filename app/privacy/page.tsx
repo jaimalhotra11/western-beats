@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PrivacyPage from './PrivacyPage'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Western Beats',
+  title: 'Privacy Policy',
   description: 'Western Beats Privacy Policy — how we collect, use, and protect your personal data. Free music distribution service. India\'s official Warner Music India Partner.',
   alternates: { canonical: 'https://www.westernbeats.com/privacy' },
   openGraph: {

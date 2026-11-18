@@ -4,7 +4,7 @@ import Nav from '../../../components/Nav'
 import Footer from '../../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Case Study: 0 to 1M Streams — Hindi Artist Global Distribution | Western Beats',
+  title: 'Case Study: 0 to 1M Streams — Hindi Artist Global Distribution',
   description: 'How an independent Delhi-based Hindi artist reached 1 million streams in 47 countries using Western Beats free music distribution — Spotify, Apple Music, JioSaavn.',
   keywords: ['music distribution case study India', 'Hindi artist Spotify success', 'independent artist 1 million streams', 'free music distribution India case study', 'music distribution Western Beats review'],
   alternates: { canonical: 'https://www.westernbeats.com/resources/case-studies/independent-hindi-artist-1m-streams' },

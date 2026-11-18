@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Free Music Promotion India 2026 — Get More Streams on JioSaavn & Spotify | Western Beats',
+  title: 'Free Music Promotion India 2026 — Get More Streams on JioSaavn & Spotify',
   description: 'Free music promotion strategies for Indian artists in 2026. Playlist pitching, social media, press releases, YouTube Content ID, caller tunes — proven tactics to grow streams on JioSaavn and Spotify India.',
   keywords: [
     'music promotion india free',

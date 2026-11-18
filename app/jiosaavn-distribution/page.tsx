@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'JioSaavn Music Distribution Free India 2026 — Upload Your Song to JioSaavn | Western Beats',
+  title: 'JioSaavn Music Distribution Free India 2026 — Upload Your Song to JioSaavn',
   description: 'Get your song on JioSaavn free. Western Beats distributes to JioSaavn, Gaana, Spotify, Apple Music and 150+ platforms in 72 hours. India\'s best free music distributor with Warner Music backing.',
   keywords: [
     'JioSaavn music distribution free',

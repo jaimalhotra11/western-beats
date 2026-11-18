@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'YouTube Content ID India 2026 — What It Is & How to Get It Free | Western Beats',
+  title: 'YouTube Content ID India 2026 — What It Is & How to Get It Free',
   description: 'YouTube Content ID India explained — what it is, how it works, and how to get it free through Western Beats. Monetise every YouTube video that uses your music. Complete guide for Indian artists 2026.',
   keywords: [
     'YouTube Content ID India',

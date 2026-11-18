@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: '10 Music Distribution Mistakes Indian Artists Make in 2026 | Western Beats',
+  title: '10 Music Distribution Mistakes Indian Artists Make in 2026',
   description: 'The 10 biggest music distribution mistakes Indian artists make — from choosing the wrong distributor to missing JioSaavn and skipping ISRC codes. Avoid these and earn more.',
   keywords: [
     'music distribution mistakes India',

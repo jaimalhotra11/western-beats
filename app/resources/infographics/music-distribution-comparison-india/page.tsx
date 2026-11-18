@@ -4,7 +4,7 @@ import Nav from '../../../components/Nav'
 import Footer from '../../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Western Beats vs DistroKid vs TuneCore vs CD Baby 2026 [India Comparison] | Western Beats',
+  title: 'Western Beats vs DistroKid vs TuneCore vs CD Baby 2026 [India Comparison]',
   description: 'Side-by-side visual comparison of Western Beats, DistroKid, TuneCore and CD Baby for Indian artists — JioSaavn coverage, fees, royalty splits, and which distributor wins for India.',
   keywords: ['Western Beats vs DistroKid India', 'music distributor comparison India 2026', 'DistroKid JioSaavn India', 'TuneCore vs Western Beats', 'best music distributor India free', 'CD Baby India comparison'],
   alternates: { canonical: 'https://www.westernbeats.com/resources/infographics/music-distribution-comparison-india' },

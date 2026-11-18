@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Independent Artist India Music Distribution | Western Beats',
+  title: 'Independent Artist India Music Distribution',
   description: 'Independent artist India music distribution — no label, no gatekeepers, 100% ownership. Free distribution to 150+ platforms including Spotify, JioSaavn, Apple Music. Submit free.',
   keywords: [
     'independent artist india music distribution',

@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How to Earn Money from Music in India 2026 — 7 Revenue Streams | Western Beats',
+  title: 'How to Earn Money from Music in India 2026 — 7 Revenue Streams',
   description: 'Complete guide to earning money from music in India 2026: streaming royalties, caller tunes, YouTube, sync licensing, live events, and more. Real numbers for Indian artists.',
   keywords: [
     'how to earn money from music India',

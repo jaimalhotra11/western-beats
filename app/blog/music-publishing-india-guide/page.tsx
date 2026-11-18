@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Music Publishing India 2026 — Complete Guide for Independent Artists | Western Beats',
+  title: 'Music Publishing India 2026 — Complete Guide for Independent Artists',
   description: 'What is music publishing in India? How do royalties work, what is a publishing deal, how do you register with IPRS, and how do independent artists collect publishing royalties in India.',
   keywords: ['music publishing India','music publishing royalties India','IPRS registration India','how to collect publishing royalties India','music publishing deal India','what is music publishing','performance royalties India','mechanical royalties India'],
   alternates: { canonical: 'https://www.westernbeats.com/blog/music-publishing-india-guide' },

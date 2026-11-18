@@ -4,7 +4,7 @@ import Nav from '../../../components/Nav'
 import Footer from '../../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'The $2.4B Indian Diaspora Music Market 2026 | Western Beats Research',
+  title: 'The $2.4B Indian Diaspora Music Market 2026 — Research',
   description: 'Data-driven analysis of the 30M+ South Asian diaspora music audience in UK, USA, Canada, Australia and UAE — and how independent Indian artists can monetise it in 2026.',
   keywords: ['Indian diaspora music market 2026', 'South Asian music market UK USA', 'NRI music streaming market', 'Indian music UK market size', 'diaspora music revenue India'],
   alternates: { canonical: 'https://www.westernbeats.com/resources/research/indian-diaspora-music-market-2026' },

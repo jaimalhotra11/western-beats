@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import ContactPage from './ContactPage'
 
 export const metadata: Metadata = {
-  title: 'Contact Western Beats | Free Music Distribution Support India',
+  title: 'Contact Us — Free Music Distribution Support India',
   description:
     'Contact Western Beats — India\'s best free music distribution company. Questions about distribution, royalties, events, or partnerships? We reply within 24 hours. Call +91-7087677767 or email contact@westernbeats.com.',
   keywords: [

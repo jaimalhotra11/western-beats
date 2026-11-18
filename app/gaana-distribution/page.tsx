@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Get Your Song on Gaana Free India 2026 — Gaana Distribution | Western Beats',
+  title: 'Get Your Song on Gaana Free India 2026 — Gaana Distribution',
   description: 'Distribute your song to Gaana India free in 72 hours. Western Beats also covers JioSaavn, Spotify, Apple Music and 150+ more platforms — all in one free submission. No subscription needed.',
   keywords: [
     'Gaana distribution India free',

@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Malayalam Music Distribution India Free 2026 | Western Beats',
+  title: 'Malayalam Music Distribution India Free 2026',
   description: 'Distribute Malayalam songs free to JioSaavn, Gaana, Spotify, Apple Music and 150+ platforms in 72 hours. 100% ownership, Warner Music India Partner. Submit free.',
   keywords: [
     'malayalam music distribution india free',

@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'DistroKid vs TuneCore vs Western Beats 2026 — Best for Indian Artists | Western Beats',
+  title: 'DistroKid vs TuneCore vs Western Beats 2026 — Best for Indian Artists',
   description: 'Honest comparison of DistroKid, TuneCore and Western Beats for Indian artists in 2026. Which is free? Which has JioSaavn? Which gives 100% royalties? Find out.',
   keywords: [
     'DistroKid vs TuneCore vs Western Beats',

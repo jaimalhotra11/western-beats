@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import ArtistStoriesPage from './ArtistStoriesPage'
 
 export const metadata: Metadata = {
-  title: 'Artist Stories | Western Beats — Real Indian Artists, Real Results',
+  title: 'Artist Stories — Real Indian Artists, Real Results',
   description:
     "Read success stories from independent Indian artists who distributed their music through Western Beats. Real streams, real earnings, 100% IP ownership, 72-hour go-live. See why India's top indie artists choose Western Beats over DistroKid and TuneCore.",
   keywords: [

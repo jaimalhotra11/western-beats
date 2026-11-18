@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import RoyaltiesPage from './RoyaltiesPage'
 
 export const metadata: Metadata = {
-  title: 'Royalties & Payments | Western Beats: 100% Ownership, Always Yours',
+  title: 'Royalties & Payments: 100% Ownership, Always Yours',
   description:
     'Western Beats pays your royalties directly to your bank account every month. 100% IP ownership always stays yours. Free ISRC and UPC codes. No upfront fees. We only earn when you earn.',
   keywords: [

@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Cover Art Size & Dimensions for Music Distribution 2026 — Full Spec Guide | Western Beats',
+  title: 'Cover Art Size & Dimensions for Music Distribution 2026 — Full Spec Guide',
   description: 'Exact cover art size requirements for Spotify, JioSaavn, Apple Music, Amazon Music, Gaana and all platforms in 2026. Avoid rejections with the right dimensions, format and design rules.',
   keywords: ['cover art size music distribution','album art dimensions Spotify','music cover art requirements 2026','album artwork specifications India','Spotify cover art size','JioSaavn cover art requirements','music artwork size pixels'],
   alternates: { canonical: 'https://www.westernbeats.com/blog/cover-art-size-dimensions-music-distribution' },

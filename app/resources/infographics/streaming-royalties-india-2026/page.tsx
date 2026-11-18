@@ -4,7 +4,7 @@ import Nav from '../../../components/Nav'
 import Footer from '../../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Streaming Royalties India 2026: How Much Do Platforms Pay? [Infographic] | Western Beats',
+  title: 'Streaming Royalties India 2026: How Much Do Platforms Pay? [Infographic]',
   description: 'Visual comparison of per-stream royalty rates across JioSaavn, Spotify India, Apple Music India, Gaana, Wynk Music and YouTube Music in 2026. Free infographic for artists.',
   keywords: ['streaming royalties India 2026 infographic', 'JioSaavn royalty rate 2026', 'Spotify India royalty per stream 2026', 'music streaming royalties comparison India', 'how much streaming pays India'],
   alternates: { canonical: 'https://www.westernbeats.com/resources/infographics/streaming-royalties-india-2026' },

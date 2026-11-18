@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How to Get on Spotify Playlists India 2026 — Complete Guide | Western Beats',
+  title: 'How to Get on Spotify Playlists India 2026 — Complete Guide',
   description: 'Step-by-step guide to getting your music on Spotify playlists in India — editorial, algorithmic and user playlists. Pitch to Spotify India editorial, Release Radar, Discover Weekly and more.',
   keywords: ['how to get on Spotify playlists India','Spotify playlist India 2026','Spotify editorial playlist India','how to pitch Spotify India','Discover Weekly India','Release Radar India','Spotify playlist submission India'],
   alternates: { canonical: 'https://www.westernbeats.com/blog/how-to-get-on-spotify-playlists-india' },

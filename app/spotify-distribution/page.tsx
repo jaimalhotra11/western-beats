@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Get Your Song on Spotify Free India 2026 — Spotify Distribution | Western Beats',
+  title: 'Get Your Song on Spotify Free India 2026 — Spotify Distribution',
   description: 'Distribute your song to Spotify India free in 72 hours. Western Beats also covers JioSaavn, Gaana, Apple Music and 150+ more platforms — all in one free submission. No subscription needed.',
   keywords: [
     'Spotify distribution India free',

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import WMIPartnershipPage from './WMIPartnershipPage'
 
 export const metadata: Metadata = {
-  title: 'Warner Music India Partnership | Western Beats — Official Warner Music Partner India',
+  title: 'Warner Music India Partnership — Official Warner Music Partner India',
   description:
     "Western Beats is India's only free music distributor officially backed by Warner Music Group. Discover what this exclusive partnership means: major-label infrastructure, priority placement on Indian platforms, and global reach — all free for independent artists.",
   keywords: [

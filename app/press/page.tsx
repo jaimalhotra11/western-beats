@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PressPage from './PressPage'
 
 export const metadata: Metadata = {
-  title: 'Press & Media Kit | Western Beats — India Best Music Distribution Company',
+  title: 'Press & Media Kit — India\'s Best Music Distribution Company',
   description:
     "Western Beats press room: media coverage, company facts, logo downloads, and press kit for India's best free music distribution company. Officially backed by Warner Music Group. Download high-res logos, brand assets, and company overview.",
   keywords: [

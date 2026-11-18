@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How to Get Verified on Spotify India 2026 — Spotify for Artists Blue Tick | Western Beats',
+  title: 'How to Get Verified on Spotify India 2026 — Spotify for Artists Blue Tick',
   description: 'Step-by-step guide to getting verified on Spotify India — Spotify for Artists blue tick, profile setup, playlist pitching and getting your music on Spotify India free in 2026.',
   keywords: [
     'how to get verified on Spotify India',

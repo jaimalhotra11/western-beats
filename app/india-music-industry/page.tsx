@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'India Music Industry Statistics 2026 — Streaming, Revenue & Artist Data | Western Beats',
+  title: 'India Music Industry Statistics 2026 — Streaming, Revenue & Artist Data',
   description: 'Comprehensive India music industry statistics 2026: streaming users, platform market share, royalty rates, independent artist data, digital music revenue and growth trends.',
   keywords: [
     'India music industry statistics 2026',

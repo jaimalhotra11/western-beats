@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Bhojpuri Music Distribution India Free 2026 — JioSaavn, Gaana, Caller Tune | Western Beats',
+  title: 'Bhojpuri Music Distribution India Free 2026 — JioSaavn, Gaana, Caller Tune',
   description: 'Distribute your Bhojpuri songs free to JioSaavn, Gaana, Spotify, Jio Caller Tune and 150+ platforms in 72 hours. Bhojpuri music is India\'s fastest-growing genre at +30% YoY.',
   keywords: [
     'Bhojpuri music distribution India free',

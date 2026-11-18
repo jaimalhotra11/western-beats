@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Best Music Distributors India 2026 — Ranked & Compared (Free vs Paid) | Western Beats',
+  title: 'Best Music Distributors India 2026 — Ranked & Compared (Free vs Paid)',
   description: 'Full comparison of the best music distributors for India in 2026: Western Beats vs DistroKid vs TuneCore vs CD Baby vs Deliver My Tune. Rankings based on Indian platform coverage, cost, and features.',
   keywords: [
     'best music distributors india 2026',

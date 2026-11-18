@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import CareersPage from './CareersPage'
 
 export const metadata: Metadata = {
-  title: "Careers at Western Beats | Join India's Best Music Distribution Company",
+  title: "Careers — Join India's Best Music Distribution Company",
   description:
     "Join Western Beats Private Limited — India's best free music distribution company, officially backed by Warner Music Group. Open roles in artist relations, marketing, operations, and technology. Build the future of independent music in India.",
   keywords: [

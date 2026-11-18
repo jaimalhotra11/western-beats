@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How Much Does JioSaavn Pay Per Stream India 2026? (Real Rates) | Western Beats',
+  title: 'How Much Does JioSaavn Pay Per Stream India 2026? (Real Rates)',
   description: 'JioSaavn pays ₹0.08–₹0.15 per stream in India. Full breakdown of JioSaavn royalty rates for 2026, how to calculate your earnings, and how to get paid faster.',
   keywords: [
     'how much does JioSaavn pay per stream',

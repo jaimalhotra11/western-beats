@@ -4,7 +4,7 @@ import Nav from '../../../components/Nav'
 import Footer from '../../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Free Ebook: Complete Guide to Music Distribution in India 2026 (PDF) | Western Beats',
+  title: 'Free Ebook: Complete Guide to Music Distribution in India 2026 (PDF)',
   description: 'Download the free 62-page guide to music distribution in India 2026. Covers Spotify, JioSaavn, Apple Music, ISRC codes, royalties, metadata, cover art specs and global distribution strategy.',
   keywords: ['music distribution India guide 2026', 'free music distribution ebook India', 'how to distribute music India 2026', 'music distribution guide PDF India', 'Spotify JioSaavn distribution guide free'],
   alternates: { canonical: 'https://www.westernbeats.com/resources/ebooks/complete-guide-music-distribution-india-2026' },

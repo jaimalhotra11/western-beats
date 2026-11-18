@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How to Submit Your Song to Jio Caller Tune (CRBT) 2026 — Free | Western Beats',
+  title: 'How to Submit Your Song to Jio Caller Tune (CRBT) 2026 — Free',
   description: 'Step-by-step guide to get your song as a Jio Caller Tune (CRBT) in India free. How much Jio pays for caller tunes, submission process, and which distributor to use.',
   keywords: [
     'how to submit song to Jio caller tune',

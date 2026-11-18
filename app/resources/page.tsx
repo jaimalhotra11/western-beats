@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Music Distribution Resources, Research & Case Studies 2026 | Western Beats',
+  title: 'Music Distribution Resources, Research & Case Studies 2026',
   description: 'Free guides, case studies, research reports and infographics for independent artists worldwide. Learn how to distribute music to Spotify, JioSaavn, Apple Music and earn 100% royalties.',
   keywords: ['music distribution guide 2026','music distribution case study','how to distribute music India free','music streaming royalties India','Indian music distribution research','music distribution ebook free','Spotify distribution guide India','JioSaavn distribution guide','music royalties India 2026','NRI artist music distribution'],
   alternates: { canonical: 'https://www.westernbeats.com/resources' },

@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How to Upload Your Song on Spotify India Free in 2026 — Step by Step | Western Beats',
+  title: 'How to Upload Your Song on Spotify India Free in 2026 — Step by Step',
   description: 'Learn exactly how to upload your song on Spotify India free in 2026. You need a music distributor — Western Beats is free, gets your song on Spotify in 72 hours, plus JioSaavn, Gaana & 148 more platforms.',
   keywords: [
     'how to upload song on spotify india free',

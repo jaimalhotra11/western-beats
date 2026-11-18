@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Bollywood Music Distribution India — Distribute Hindi Film Songs Free | Western Beats',
+  title: 'Bollywood Music Distribution India — Distribute Hindi Film Songs Free',
   description: 'Distribute Bollywood and Hindi film music to JioSaavn, Gaana, Spotify and 150+ platforms free. Western Beats helps indie composers, playback singers & independent filmmakers get their music heard. 100% ownership.',
   keywords: [
     'bollywood music distribution india',

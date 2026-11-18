@@ -4,7 +4,7 @@ import Nav from '../../../components/Nav'
 import Footer from '../../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Free Ebook: NRI Artist Music Distribution Playbook — UK, USA, Canada 2026 | Western Beats',
+  title: 'Free Ebook: NRI Artist Music Distribution Playbook — UK, USA, Canada 2026',
   description: 'Free 45-page playbook for South Asian artists abroad — how to distribute Indian music from UK, USA or Canada to reach both local and India audiences simultaneously.',
   keywords: ['NRI artist music distribution guide', 'South Asian artist UK music guide', 'Indian artist Canada music distribution', 'distribute music UK to India free', 'NRI music playbook 2026'],
   alternates: { canonical: 'https://www.westernbeats.com/resources/ebooks/music-distribution-nri-artists-guide' },

@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How to Distribute Music in India for Free in 2026 — Complete Guide | Western Beats',
+  title: 'How to Distribute Music in India for Free in 2026 — Complete Guide',
   description: 'Step-by-step guide for Indian independent artists to distribute music to JioSaavn, Gaana, Spotify, Apple Music and 150+ platforms in 2026 — completely free, no subscription, 100% ownership.',
   keywords: [
     'how to distribute music in India free 2026',

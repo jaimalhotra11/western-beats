@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Streaming Fraud India — What It Is and How to Avoid Getting Banned | Western Beats',
+  title: 'Streaming Fraud India — What It Is and How to Avoid Getting Banned',
   description: 'Spotify and JioSaavn remove artists for fake streams. Learn what counts as streaming fraud in India 2026, how platforms detect it, and how to promote your music safely.',
   keywords: ['streaming fraud India','fake streams Spotify India','Spotify fraud detection India','how to avoid streaming fraud','fake playlist promotion India','bot streams India','Spotify ban fake streams India','streaming fraud detection'],
   alternates: { canonical: 'https://www.westernbeats.com/blog/streaming-fraud-india-how-to-avoid' },

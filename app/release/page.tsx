@@ -3,7 +3,7 @@ import { getSession } from '@/lib/session'
 import ReleasePage from './ReleasePage'
 
 export const metadata = {
-  title: 'Release EP / Album — Western Beats',
+  title: 'Release EP / Album',
   description: 'Submit your EP or full album for distribution on 150+ platforms worldwide. Free, fast, 80% royalty share.',
 }
 

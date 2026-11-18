@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import TermsPage from './TermsPage'
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions | Content Licensing Agreement — Western Beats Private Limited',
+  title: 'Terms & Conditions — Content Licensing Agreement',
   description:
     'Full Terms & Conditions and Content Licensing Agreement for Western Beats Private Limited. Covers the 80% artist / 20% WB royalty split, 100% IP ownership, 2-year term, 12-month lock-in, distribution to 150+ platforms, payout policy, arbitration in Mumbai, and all artist rights.',
   keywords: [

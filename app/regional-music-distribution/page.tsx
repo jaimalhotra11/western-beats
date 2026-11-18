@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Regional Music Distribution India Free 2026 — Bhojpuri, Haryanvi, Tamil, Telugu | Western Beats',
+  title: 'Regional Music Distribution India Free 2026 — Bhojpuri, Haryanvi, Tamil, Telugu',
   description: 'Distribute regional Indian music free — Bhojpuri, Haryanvi, Tamil, Telugu, Malayalam, Kannada, Bengali, Marathi and all Indian languages to 150+ platforms in 72 hours.',
   keywords: [
     'regional music distribution India free',

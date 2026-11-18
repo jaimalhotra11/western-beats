@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Free ISRC & UPC Codes for Independent Artists India 2026 | Western Beats',
+  title: 'Free ISRC & UPC Codes for Independent Artists India 2026',
   description: 'What are ISRC and UPC codes, why every song needs them before going on Spotify, JioSaavn or Apple Music, and how to get them completely free as an independent artist in India.',
   keywords: [
     'free ISRC code India',

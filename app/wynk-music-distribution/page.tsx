@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Get Your Song on Wynk Music Free India 2026 | Western Beats',
+  title: 'Get Your Song on Wynk Music Free India 2026',
   description: 'Distribute your music to Wynk Music (Airtel) India free in 72 hours with Western Beats. Also covers JioSaavn, Gaana, Spotify, Apple Music & 150+ platforms. 100% ownership, ₹0 upfront.',
   keywords: [
     'Wynk Music distribution India free',

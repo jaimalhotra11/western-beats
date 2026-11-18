@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Hindi Music Distribution India Free 2026 — 150+ Platforms in 72 Hours | Western Beats',
+  title: 'Hindi Music Distribution India Free 2026 — 150+ Platforms in 72 Hours',
   description: 'Distribute your Hindi music to JioSaavn, Gaana, Spotify, Apple Music and 150+ platforms free in 72 hours. Western Beats is India\'s best free Hindi music distributor. 100% ownership, free ISRC codes.',
   keywords: [
     'hindi music distribution india free',

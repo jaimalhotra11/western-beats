@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How to Get Your Song on JioSaavn India 2026 — Free Step-by-Step Guide | Western Beats',
+  title: 'How to Get Your Song on JioSaavn India 2026 — Free Step-by-Step Guide',
   description: 'Complete free step-by-step guide to get your song on JioSaavn India in 2026. Learn the exact submission process, what JioSaavn pays per stream, and how to pitch to editorial playlists.',
   keywords: [
     'how to get song on jiosaavn',

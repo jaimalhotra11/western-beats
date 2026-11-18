@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Music Copyright India 2026 — Complete Guide for Independent Artists | Western Beats',
+  title: 'Music Copyright India 2026 — Complete Guide for Independent Artists',
   description: 'Music copyright India explained — how copyright works, how to protect your music, ISRC codes, copyright registration, and how Western Beats protects your IP. Complete guide for Indian artists 2026.',
   keywords: [
     'music copyright India',

@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Telugu Music Distribution India Free 2026 — JioSaavn, Gaana & 150+ Platforms | Western Beats',
+  title: 'Telugu Music Distribution India Free 2026 — JioSaavn, Gaana & 150+ Platforms',
   description: 'Distribute Telugu music to JioSaavn, Gaana, Spotify, Apple Music and 150+ platforms free in 72 hours. Western Beats is India\'s best free Telugu music distributor. 100% ownership, free ISRC codes.',
   keywords: [
     'telugu music distribution india free',

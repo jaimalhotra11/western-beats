@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'WAV vs MP3 for Music Distribution India 2026 — Which Format to Use? | Western Beats',
+  title: 'WAV vs MP3 for Music Distribution India 2026 — Which Format to Use?',
   description: 'Should you upload WAV or MP3 for music distribution? Complete guide to audio formats for Spotify, JioSaavn, Apple Music — bit depth, sample rate, FLAC and what platforms actually require.',
   keywords: ['WAV vs MP3 music distribution','audio format music distribution India','WAV file music distribution','MP3 music upload Spotify','audio format Spotify JioSaavn','FLAC music distribution India','bit depth sample rate music distribution','best audio format streaming India 2026'],
   alternates: { canonical: 'https://www.westernbeats.com/blog/wav-vs-mp3-audio-format-music-distribution' },

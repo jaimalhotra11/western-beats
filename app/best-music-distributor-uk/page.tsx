@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Best Music Distributor for UK Artists 2026 — Free | Western Beats',
+  title: 'Best Music Distributor for UK Artists 2026 — Free',
   description: 'Free music distribution for UK artists and South Asian diaspora in the UK. Get on Spotify, Apple Music, Amazon Music, JioSaavn and 150+ platforms. 100% royalties, no annual fee.',
   keywords: [
     'best music distributor UK 2026', 'free music distribution UK', 'music distributor UK independent artists',

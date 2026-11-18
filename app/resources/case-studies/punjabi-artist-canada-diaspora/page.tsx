@@ -4,7 +4,7 @@ import Nav from '../../../components/Nav'
 import Footer from '../../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Case Study: Punjabi Artist Canada — Distributing to India, UK & North America | Western Beats',
+  title: 'Case Study: Punjabi Artist Canada — Distributing to India, UK & North America',
   description: 'How a Toronto-based Punjabi artist used Western Beats to distribute to Canadian Spotify, UK Apple Music and Indian JioSaavn simultaneously — without paying DistroKid\'s annual fee.',
   keywords: ['Punjabi artist Canada music distribution', 'distribute Punjabi music from Canada', 'JioSaavn distribution Canada', 'Spotify Canada Indian artist', 'NRI Punjabi music distribution'],
   alternates: { canonical: 'https://www.westernbeats.com/resources/case-studies/punjabi-artist-canada-diaspora' },

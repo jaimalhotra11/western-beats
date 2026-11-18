@@ -4,7 +4,7 @@ import Nav from '../../../components/Nav'
 import Footer from '../../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Case Study: British Indian Artist — Spotify UK + JioSaavn Dual Market | Western Beats',
+  title: 'Case Study: British Indian Artist — Spotify UK + JioSaavn Dual Market',
   description: 'How a London-based South Asian artist released music that charted simultaneously on UK Spotify and JioSaavn India — using one distributor, for free.',
   keywords: ['South Asian artist UK music distribution', 'British Indian artist Spotify', 'JioSaavn distribution UK', 'music distribution UK India simultaneously', 'NRI artist music case study'],
   alternates: { canonical: 'https://www.westernbeats.com/resources/case-studies/british-indian-artist-dual-market' },

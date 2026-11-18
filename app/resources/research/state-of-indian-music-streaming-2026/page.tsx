@@ -4,7 +4,7 @@ import Nav from '../../../components/Nav'
 import Footer from '../../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'State of Indian Music Streaming 2026: Royalties, Platforms & Global Reach | Western Beats',
+  title: 'State of Indian Music Streaming 2026: Royalties, Platforms & Global Reach',
   description: 'Original research on Indian music streaming in 2026 — per-stream royalty rates across JioSaavn, Spotify India, Apple Music, YouTube Music, Gaana. Data on diaspora audiences in UK, USA, Canada, UAE.',
   keywords: ['Indian music streaming 2026', 'JioSaavn royalty rates 2026', 'Spotify India royalties per stream', 'Indian music market research 2026', 'music streaming India statistics 2026', 'streaming royalties India vs global'],
   alternates: { canonical: 'https://www.westernbeats.com/resources/research/state-of-indian-music-streaming-2026' },

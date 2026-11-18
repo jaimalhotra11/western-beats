@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Get Your Song on Apple Music Free India 2026 | Western Beats',
+  title: 'Get Your Song on Apple Music Free India 2026',
   description: 'Distribute your song to Apple Music India free in 72 hours. Western Beats covers Apple Music, JioSaavn, Gaana, Spotify and 150+ platforms — one free submission, no subscription needed.',
   keywords: [
     'Apple Music distribution India free',

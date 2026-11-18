@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Indian Music Distribution for UK, USA & Canada Artists 2026 | Western Beats',
+  title: 'Indian Music Distribution for UK, USA & Canada Artists 2026',
   description: 'The complete guide for Indian and South Asian artists in UK, USA, Canada, Australia & UAE to distribute music to Spotify, Apple Music, JioSaavn & 150+ platforms free.',
   keywords: [
     'Indian music distribution UK USA Canada', 'South Asian artist music distribution abroad',

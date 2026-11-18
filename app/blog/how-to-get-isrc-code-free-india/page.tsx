@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How to Get Free ISRC Code in India 2026 — Step-by-Step Guide | Western Beats',
+  title: 'How to Get Free ISRC Code in India 2026 — Step-by-Step Guide',
   description: 'Get a free ISRC code for your music in India in 2026. ISRC codes are required for Spotify, JioSaavn, Apple Music and all streaming platforms. Western Beats assigns them free with every release.',
   keywords: [
     'how to get ISRC code free India',

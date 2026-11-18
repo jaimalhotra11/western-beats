@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Punjabi Music Distribution Free India 2026 — JioSaavn, Gaana, Spotify | Western Beats',
+  title: 'Punjabi Music Distribution Free India 2026 — JioSaavn, Gaana, Spotify',
   description: 'Distribute your Punjabi songs free to JioSaavn, Gaana, Spotify, Apple Music, Jio Caller Tune and 150+ platforms in 72 hours. Western Beats is the best Punjabi music distribution platform in India.',
   keywords: [
     'Punjabi music distribution India free',

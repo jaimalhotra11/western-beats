@@ -6,6 +6,8 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        // Private, logged-in and API pages have no search value
+        disallow: ['/admin', '/dashboard', '/my-submissions', '/api/'],
       },
       /* Block AI training crawlers */
       {
